@@ -16,7 +16,7 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
-      <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
+      <parameter key="OuiEatFrenchMarketBundle">OuiEatFrench\MarketBundle\OuiEatFrenchMarketBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -28,13 +28,13 @@
     <parameter key="database_port">null</parameter>
     <parameter key="database_name">OuiEatFrench</parameter>
     <parameter key="database_user">OuiEatFrench</parameter>
-    <parameter key="database_password">ZCwG6XhWte82sxML</parameter>
+    <parameter key="database_password">bMXL8XLxZwV5Tzr6</parameter>
     <parameter key="mailer_transport">smtp</parameter>
-    <parameter key="mailer_host">127.0.0.1</parameter>
+    <parameter key="mailer_host">127.0.0.1/phpmyadmin/</parameter>
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
     <parameter key="locale">fr</parameter>
-    <parameter key="secret">6r5t4sr6d5ty4d9r5y4dfyd9fy4y6d</parameter>
+    <parameter key="secret">s65f4h6trh46gh8t</parameter>
     <parameter key="debug_toolbar">true</parameter>
     <parameter key="debug_redirects">false</parameter>
     <parameter key="use_assetic_controller">true</parameter>
@@ -92,7 +92,7 @@
     <parameter key="debug.container.dump">/var/www/Projet_SUP/OuiEatFrench/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="debug.debug_handlers_listener.class">Symfony\Component\HttpKernel\EventListener\DebugHandlersListener</parameter>
-    <parameter key="kernel.secret">6r5t4sr6d5ty4d9r5y4dfyd9fy4y6d</parameter>
+    <parameter key="kernel.secret">s65f4h6trh46gh8t</parameter>
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
@@ -395,7 +395,7 @@
     <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.host">127.0.0.1</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.host">127.0.0.1/phpmyadmin/</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.username">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.password">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
@@ -440,7 +440,7 @@
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">/usr/bin/java</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
-    <parameter key="assetic.ruby.bin">/home/flambard/.rvm/rubies/ruby-2.1.2/bin/ruby</parameter>
+    <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
     <parameter key="assetic.twig_extension.functions" type="collection"/>
@@ -661,7 +661,7 @@
       <argument>/var/www/Projet_SUP/OuiEatFrench/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
-      <argument>6r5t4sr6d5ty4d9r5y4dfyd9fy4y6d</argument>
+      <argument>s65f4h6trh46gh8t</argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\Fragment\FragmentHandler">
       <argument type="collection"/>
@@ -948,14 +948,6 @@
         <argument type="collection">
           <argument>assetic.request_listener</argument>
           <argument>onKernelRequest</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListenerService">
-        <argument>kernel.controller</argument>
-        <argument type="collection">
-          <argument>acme.demo.listener</argument>
-          <argument>onKernelController</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2133,9 +2125,6 @@
         </argument>
       </call>
       <call method="addExtension">
-        <argument type="service" id="twig.extension.acme.demo"/>
-      </call>
-      <call method="addExtension">
         <argument type="service">
           <service class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
             <tag name="twig.extension"/>
@@ -2288,7 +2277,7 @@
         <argument key="port">null</argument>
         <argument key="dbname">OuiEatFrench</argument>
         <argument key="user">OuiEatFrench</argument>
-        <argument key="password">ZCwG6XhWte82sxML</argument>
+        <argument key="password">bMXL8XLxZwV5Tzr6</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
       </argument>
@@ -2450,14 +2439,6 @@
       </argument>
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
-    </service>
-    <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
-      <tag name="twig.extension"/>
-      <argument type="service" id="twig.loader"/>
-    </service>
-    <service id="acme.demo.listener" class="Acme\DemoBundle\EventListener\ControllerListener">
-      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
-      <argument type="service" id="twig.extension.acme.demo"/>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
@@ -2769,8 +2750,8 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/var/www/Projet_SUP/OuiEatFrench/src/Acme/DemoBundle/Resources/views</argument>
-        <argument>AcmeDemo</argument>
+        <argument>/var/www/Projet_SUP/OuiEatFrench/src/OuiEatFrench/MarketBundle/Resources/views</argument>
+        <argument>OuiEatFrenchMarket</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/Projet_SUP/OuiEatFrench/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
@@ -2837,7 +2818,7 @@
       </argument>
       <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
       <call method="setHost">
-        <argument>127.0.0.1</argument>
+        <argument>127.0.0.1/phpmyadmin/</argument>
       </call>
       <call method="setPort">
         <argument>25</argument>

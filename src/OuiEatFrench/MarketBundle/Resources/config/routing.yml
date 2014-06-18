@@ -1,0 +1,3 @@
+rac_development_product:
+    resource: "@OuiEatFrenchMarketBundle/Resources/config/routing/market.yml"
+    prefix: /
