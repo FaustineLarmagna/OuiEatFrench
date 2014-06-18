@@ -141,7 +141,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->redirect($pathinfo.'/', 'oui_eat_french_market_index');
             }
 
-            return array (  '_controller' => 'OuiEatFrenchMarketBundle:Market:index',  '_route' => 'oui_eat_french_market_index',);
+            return array (  '_controller' => 'OuiEatFrench\\MarketBundle\\Controller\\MarketController::indexAction',  '_route' => 'oui_eat_french_market_index',);
+        }
+
+        // oui_eat_french_landing_index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'oui_eat_french_landing_index');
+            }
+
+            return array (  '_controller' => 'OuiEatFrench\\LandingBundle\\Controller\\LandingController::indexAction',  '_route' => 'oui_eat_french_landing_index',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

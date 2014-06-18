@@ -3042,6 +3042,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/var/www/Projet_SUP/OuiEatFrench/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('/var/www/Projet_SUP/OuiEatFrench/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/var/www/Projet_SUP/OuiEatFrench/src/OuiEatFrench/MarketBundle/Resources/views', 'OuiEatFrenchMarket');
+        $instance->addPath('/var/www/Projet_SUP/OuiEatFrench/src/OuiEatFrench/LandingBundle/Resources/views', 'OuiEatFrenchLanding');
         $instance->addPath('/var/www/Projet_SUP/OuiEatFrench/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/var/www/Projet_SUP/OuiEatFrench/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('/var/www/Projet_SUP/OuiEatFrench/app/Resources/views');
@@ -3528,6 +3529,7 @@ class appDevDebugProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'OuiEatFrenchMarketBundle' => 'OuiEatFrench\\MarketBundle\\OuiEatFrenchMarketBundle',
+                'OuiEatFrenchLandingBundle' => 'OuiEatFrench\\LandingBundle\\OuiEatFrenchLandingBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

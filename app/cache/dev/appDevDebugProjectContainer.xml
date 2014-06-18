@@ -17,6 +17,7 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="OuiEatFrenchMarketBundle">OuiEatFrench\MarketBundle\OuiEatFrenchMarketBundle</parameter>
+      <parameter key="OuiEatFrenchLandingBundle">OuiEatFrench\LandingBundle\OuiEatFrenchLandingBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -2752,6 +2753,10 @@
       <call method="addPath">
         <argument>/var/www/Projet_SUP/OuiEatFrench/src/OuiEatFrench/MarketBundle/Resources/views</argument>
         <argument>OuiEatFrenchMarket</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/Projet_SUP/OuiEatFrench/src/OuiEatFrench/LandingBundle/Resources/views</argument>
+        <argument>OuiEatFrenchLanding</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/Projet_SUP/OuiEatFrench/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
