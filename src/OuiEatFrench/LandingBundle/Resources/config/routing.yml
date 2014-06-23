@@ -1,3 +1,0 @@
-oui_eat_french_landing:
-    resource: "@OuiEatFrenchLandingBundle/Resources/config/routing/landing.yml"
-    prefix: /

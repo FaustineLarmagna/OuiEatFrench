@@ -17,7 +17,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new OuiEatFrench\MarketBundle\OuiEatFrenchMarketBundle(),
-            new OuiEatFrench\LandingBundle\OuiEatFrenchLandingBundle(),
+            new OuiEatFrench\CommonBundle\OuiEatFrenchCommonBundle(),
+            new OuiEatFrench\MailingBundle\OuiEatFrenchMailingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
