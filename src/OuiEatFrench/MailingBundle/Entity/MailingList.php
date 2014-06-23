@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MailingList
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="OuiEatFrench\MailingBundle\Entity\MailingListRepository")
+ * @ORM\Table(name="mailing_list")
+ * @ORM\Entity(repositoryClass="OuiEatFrench\MailingBundle\Repository\MailingListRepository")
  */
 class MailingList
 {
@@ -19,15 +19,22 @@ class MailingList
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=100)
      */
-    private $email;
+    protected $email;
 
+    /**
+     * @var \OuiEatFrench\MailingBundle\Entity\Origin
+     *
+     * @ORM\ManyToOne(targetEntity="OuiEatFrench\MailingBundle\Entity\Origin")
+     * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
+     */
+    protected $origin;
 
     /**
      * Get id
@@ -61,4 +68,28 @@ class MailingList
     {
         return $this->email;
     }
+
+    /**
+    * Set origin
+    *
+    * @param \OuiEatFrench\MailingBundle\Entity\Origin $origin
+    * @return Origin
+    */
+    public function setOrigin($origin)
+    {
+        $this->$origin = $origin;
+
+        return $this;
+    }
+
+    /**
+     * Get origin
+     *
+     * @return \OuiEatFrench\MailingBundle\Entity\Origin
+     */
+    public function getOrigin()
+    {
+        return $this->origin;
+    }
+
 }

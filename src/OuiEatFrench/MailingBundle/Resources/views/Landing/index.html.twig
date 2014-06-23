@@ -1,1 +1,17 @@
 Landing Index
+
+<form action="{{ path(route) }}" method="post" {{ form_enctype(formCustomer) }} novalidate="novalidate">
+    {% for child in formCustomer.children %}
+        {{ form_row(child) }}
+    {% endfor %}
+    <br>
+    <input class="btn btn-success" type="submit" value="{{ 'Envoyer' }}"/>
+</form>
+
+<form action="{{ path(route) }}" method="post" {{ form_enctype(formSeller) }} novalidate="novalidate">
+    {% for child in formSeller.children %}
+        {{ form_row(child) }}
+    {% endfor %}
+    <br>
+    <input class="btn btn-success" type="submit" value="{{ 'Envoyer' }}"/>
+</form>

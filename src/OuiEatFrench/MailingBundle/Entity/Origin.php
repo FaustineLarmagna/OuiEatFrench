@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Origin
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="OuiEatFrench\MailingBundle\Entity\OriginRepository")
+ * @ORM\Table(name="origins")
+ * @ORM\Entity(repositoryClass="OuiEatFrench\MailingBundle\Repository\OriginRepository")
  */
 class Origin
 {
