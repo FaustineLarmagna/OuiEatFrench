@@ -73,11 +73,11 @@ class MailingList
     * Set origin
     *
     * @param \OuiEatFrench\MailingBundle\Entity\Origin $origin
-    * @return Origin
+    * @return MailingList
     */
     public function setOrigin($origin)
     {
-        $this->$origin = $origin;
+        $this->origin = $origin;
 
         return $this;
     }
