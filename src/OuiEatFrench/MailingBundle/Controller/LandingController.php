@@ -17,7 +17,7 @@ class LandingController extends Controller
         if ($formCustomer->isValid())
         {
             $em = $this->getDoctrine()->getManager();
-            $origin = $this->getDoctrine()->getRepository('OuiEatFrenchMailingBundle:Origin')->findOneBy(array('name' => 'landing_customer'));
+            $origin = $em->getRepository('OuiEatFrenchMailingBundle:Origin')->findOneBy(array('name' => 'landing_customer'));
             $entity->setOrigin($origin);
             $em->persist($entity);
             $em->flush();
@@ -30,10 +30,10 @@ class LandingController extends Controller
         if ($formSeller->isValid())
         {
             $em = $this->getDoctrine()->getManager();
+            $origin = $em->getRepository('OuiEatFrenchMailingBundle:Origin')->findOneBy(array('name' => 'landing_seller'));
+            $entity->setOrigin($origin);
             $em->persist($entity);
-            //$em->flush();
-            var_dump("test_2");
-            exit();
+            $em->flush();
             return $this->redirect($this->generateUrl('oui_eat_french_mailing_landing_index'));
         }
         $data["formSeller"] = $formSeller->createView();
