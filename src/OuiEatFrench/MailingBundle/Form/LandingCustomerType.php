@@ -14,7 +14,19 @@ class LandingCustomerType extends AbstractType
     {
         $builder
             ->add('email', 'text', array(
-                "label"     => "Email",
+                "label"     => "form.email",
+                "required"   => true
+            ))
+            ->add('lastname', 'text', array(
+                "label"     => "form.lastname",
+                "required"   => true
+            ))
+            ->add('firstname', 'text', array(
+                "label"     => "form.firstname",
+                "required"   => true
+            ))
+            ->add('postcode', 'text', array(
+                "label"     => "form.postcode",
                 "required"   => true
             ))
         ;
@@ -26,4 +38,3 @@ class LandingCustomerType extends AbstractType
 }
 
 ?>
- 

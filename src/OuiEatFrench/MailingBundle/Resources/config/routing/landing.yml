@@ -1,3 +1,7 @@
 oui_eat_french_mailing_landing_index:
     pattern:  /
     defaults: { _controller: OuiEatFrenchMailingBundle:Landing:index }
+
+oui_eat_french_mailing_landing_next:
+    pattern:  /next
+    defaults: { _controller: OuiEatFrenchMailingBundle:Landing:next }

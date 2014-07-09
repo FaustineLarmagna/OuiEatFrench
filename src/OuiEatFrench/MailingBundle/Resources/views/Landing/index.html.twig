@@ -5,7 +5,7 @@ Landing Index
         {{ form_row(child) }}
     {% endfor %}
     <br>
-    <input class="btn btn-success" type="submit" value="{{ 'Envoyer' }}"/>
+    <input class="btn btn-success" type="submit" value="{{ 'submit'|trans() }}"/>
 </form>
 
 <form action="{{ path(route) }}" method="post" {{ form_enctype(formSeller) }} novalidate="novalidate">
@@ -13,5 +13,5 @@ Landing Index
         {{ form_row(child) }}
     {% endfor %}
     <br>
-    <input class="btn btn-success" type="submit" value="{{ 'Envoyer' }}"/>
+    <input class="btn btn-success" type="submit" value="{{ 'submit'|trans() }}"/>
 </form>

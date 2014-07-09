@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 
-class LandingSellerType extends AbstractType
+class LandingBothType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -33,7 +33,7 @@ class LandingSellerType extends AbstractType
     }
     public function getName()
     {
-        return 'ouieatfrench_mailingbundle_landingsellertype';
+        return 'ouieatfrench_mailingbundle_landingbothtype';
     }
 }
 

@@ -1,0 +1,13 @@
+Landing Next
+
+<form action="{{ path(route) }}" method="post" {{ form_enctype(formBoth) }} novalidate="novalidate">
+    <select name="select">
+        <option value="landing_seller">Vender</option>
+        <option value="landing_customer">Consomateur</option>
+    </select>
+    {% for child in formBoth.children %}
+        {{ form_row(child) }}
+    {% endfor %}
+    <br>
+    <input class="btn btn-success" type="submit" value="{{ 'submit'|trans() }}"/>
+</form>
