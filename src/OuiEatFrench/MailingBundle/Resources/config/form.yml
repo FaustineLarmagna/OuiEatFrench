@@ -2,6 +2,7 @@ parameters:
     oui_eat_french.mailing.form.type.landing_customer.class: OuiEatFrench\MailingBundle\Form\LandingCustomerType
     oui_eat_french.mailing.form.type.landing_seller.class: OuiEatFrench\MailingBundle\Form\LandingSellerType
     oui_eat_french.mailing.form.type.landing_both.class: OuiEatFrench\MailingBundle\Form\LandingBothType
+    oui_eat_french.mailing.form.type.landing_too_form.class: OuiEatFrench\MailingBundle\Form\LandingTooFormType
 
 services:
     oui_eat_french.mailing.form.type.landing_customer:
@@ -21,3 +22,9 @@ services:
         arguments: [ @service_container ]
         tags:
               - { name: form.type, alias: ouieatfrench_mailingbundle_landingbothtype }
+
+    oui_eat_french.mailing.form.type.landing_too_form:
+        class: OuiEatFrench\MailingBundle\Form\LandingTooFormType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: ouieatfrench_mailingbundle_landingtooformtype }

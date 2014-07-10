@@ -26,6 +26,7 @@ class MailingList
      * @var string
      *
      * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(name="email", type="string", length=100)
      */
     protected $email;
@@ -52,6 +53,10 @@ class MailingList
      * @var string
      *
      * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = "5",
+     *      max = "5"
+     * )
      * @ORM\Column(name="postcode", type="string", length=100)
      */
     protected $postcode;

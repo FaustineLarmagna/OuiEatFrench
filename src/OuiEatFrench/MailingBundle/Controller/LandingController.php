@@ -12,7 +12,19 @@ class LandingController extends Controller
         $entity = new MailingList();
         $request = $this->get("request");
 
+        if(isset($_POST['customer']))
+        {
+            $data["formSellerValid"] = 2;
+            $data["formCustomerValid"] = 0;
+        }
+        else
+        {
+            $data["formSellerValid"] = 0;
+            $data["formCustomerValid"] = 2;
+        }
+
         $formCustomer = $this->createForm("ouieatfrench_mailingbundle_landingcustomertype", $entity);
+
         if ($request->getMethod() == 'POST')
         {
             $formCustomer->bind($request);
@@ -23,11 +35,13 @@ class LandingController extends Controller
                 $entity->setOrigin($origin);
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('oui_eat_french_mailing_landing_index'));
+
+                $this->get('session')->getFlashBag()->add('customer_success', 'Votre demande a été validée.');
+
+                return $this->redirect($this->generateUrl('oui_eat_french_mailing_landing_index').'#forms');
             }
         }
         $data["formCustomer"] = $formCustomer->createView();
-
 
         $formSeller = $this->createForm("ouieatfrench_mailingbundle_landingsellertype", $entity);
         if ($request->getMethod() == 'POST')
@@ -40,11 +54,12 @@ class LandingController extends Controller
                 $entity->setOrigin($origin);
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('oui_eat_french_mailing_landing_index'));
+                $this->get('session')->getFlashBag()->add('seller_success', 'Votre demande a été validée.');
+
+                return $this->redirect($this->generateUrl('oui_eat_french_mailing_landing_index').'#forms');
             }
         }
         $data["formSeller"] = $formSeller->createView();
-
         $data["route"] = "oui_eat_french_mailing_landing_index";
 
         return $this->render('OuiEatFrenchMailingBundle:Landing:index.html.twig', $data);
@@ -54,27 +69,33 @@ class LandingController extends Controller
     {
         $entity = new MailingList();
         $request = $this->get("request");
-        $formSeller = $this->createForm("ouieatfrench_mailingbundle_landingbothtype", $entity);
+        $formBoth = $this->createForm("ouieatfrench_mailingbundle_landingbothtype", $entity);
         if ($request->getMethod() == 'POST')
         {
             if($_POST['select'] == 'landing_customer')
-                $origin = 'landing_customer';
+                $originSelect = 'landing_customer';
             else
-                $origin = 'landing_seller';
+                $originSelect = 'landing_seller';
 
-                $formSeller->bind($request);
-                if ($formSeller->isValid())
-                {
-                    $em = $this->getDoctrine()->getManager();
-                    $origin = $em->getRepository('OuiEatFrenchMailingBundle:Origin')->findOneBy(array('name' => $origin));
-                    $entity->setOrigin($origin);
-                    $em->persist($entity);
-                    $em->flush();
-                    return $this->redirect($this->generateUrl('oui_eat_french_mailing_landing_next'));
-                }
-
+            $formBoth->bind($request);
+            if ($formBoth->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $origin = $em->getRepository('OuiEatFrenchMailingBundle:Origin')->findOneBy(array('name' => $originSelect));
+                $entity->setOrigin($origin);
+                $em->persist($entity);
+                $em->flush();
+                $entity = new MailingList();
+                $request = $this->get("request");
+                $formBoth = $this->createForm("ouieatfrench_mailingbundle_landingbothtype", $entity);
+                $data["formBothValid"] = 1;
+                $data["route"] = "oui_eat_french_mailing_landing_next";
+                $data["formBoth"] = $formBoth->createView();
+                return $this->render('OuiEatFrenchMailingBundle:Landing:next.html.twig', $data);
+            }
         }
-        $data["formBoth"] = $formSeller->createView();
+        $data["formBothValid"] = 0;
+        $data["formBoth"] = $formBoth->createView();
 
         $data["route"] = "oui_eat_french_mailing_landing_next";
 
