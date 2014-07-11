@@ -1,7 +1,7 @@
 oui_eat_french_mailing_landing:
     resource: "@OuiEatFrenchMailingBundle/Resources/config/routing/landing.yml"
-    prefix: /landing
+    prefix: /
 
 oui_eat_french_mailing:
     resource: "@OuiEatFrenchMailingBundle/Resources/config/routing/mailing.yml"
-    prefix: /
+    prefix: /mailing
