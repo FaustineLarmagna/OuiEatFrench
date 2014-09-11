@@ -73,9 +73,8 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
-
 <div id="headerwrap">
-    <div id="slider"></div>
+    <!--<div id="slider"></div>-->
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -94,9 +93,9 @@
                             <option value="landing_customer">Consomateur</option>
                         </select>
                         {% if form_errors(formBoth.postcode) != "" %}
-                            {{ form_widget(formBoth.postcode, {'attr': {'placeholder': 'Code postal', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputPostcode'} }) }}
+                            {{ form_widget(formBoth.postcode, {'attr': {'placeholder': 'Code postal', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputPostcode', 'style' : 'width:45%; float:right'} }) }}
                         {% else %}
-                            {{ form_widget(formBoth.postcode, {'attr': {'placeholder': 'Code postal', 'class' : 'form-control', 'id' : 'exampleInputPostcode'} }) }}
+                            {{ form_widget(formBoth.postcode, {'attr': {'placeholder': 'Code postal', 'class' : 'form-control', 'id' : 'exampleInputPostcode', 'style' : 'width:45%; float:right'} }) }}
                         {% endif %}
                         {% if form_errors(formBoth.lastname) != "" %}
                             {{ form_widget(formBoth.lastname, {'attr': {'placeholder': 'Votre prénom', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputFirstname'} }) }}
@@ -185,7 +184,7 @@
                 </p>
             </div>
             {#<a href="formulaire.html#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>#}
-            <a href="{{ path('oui_eat_french_mailing_landing_next') }}"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>
+            <a href="{{ path('oui_eat_french_mailing_landing_next') }}#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>
         </div><!-- /row -->
         <div class="row mt last_section">
             <div class="centered">
@@ -203,7 +202,7 @@
                     Pour rester au courant des nouveautés et de la sortie de OuiEatFrench, rejoignez-nous en vous inscrivant à notre newsletter !
             </div>
             {#<a href="formulaire.html#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>#}
-            <a href="{{ path('oui_eat_french_mailing_landing_next') }}"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>
+            <a href="{{ path('oui_eat_french_mailing_landing_next') }}#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>
         </div><!-- /row -->
     </div><! --/container -->
 </div><!-- /productors -->
@@ -229,6 +228,35 @@
 <script type="text/javascript" src="{{ asset("ouieatfrench/theme/assets2/js/helpers/jquery.fancybox-media.js") }}"></script>
 
 <script type="text/javascript">
+    $(function ()
+    {
+        var div = $('#headerwrap #slider');
+        var backgrounds = [
+            "url({{ asset('ouieatfrench/theme/assets2/img/murephoto2.jpg') }})",
+            "url({{ asset('ouieatfrench/theme/assets2/img/coccinelle.jpg') }})",
+            "url({{ asset('ouieatfrench/theme/assets2/img/abricot.jpg') }})",
+            "url({{ asset('ouieatfrench/theme/assets2/img/fleur.jpg') }})"];
+        var current = 0;
+
+        function nextBackground() {
+            div.fadeOut(100, function(){
+                div.css(
+                        'background-image',
+                        backgrounds[current = ++current % backgrounds.length]);
+                div.css('background-size','cover');
+                div.css('background-position', 'center center');
+                div.fadeIn(1000);
+            });
+
+
+            setTimeout(nextBackground, 7000);
+        }
+        setTimeout(nextBackground, 7000);
+        div.css('background-image', backgrounds[0]);
+        div.css('background-size','cover');
+        div.css('background-position', 'center center');
+    });
+
     $(document).ready(function() {
         $('.fancybox-media')
                 .attr('rel', 'media-gallery')

@@ -11,6 +11,9 @@ imports:
 #        result_cache_driver: apc
 #        query_cache_driver: apc
 
+#assetic:
+#    use_controller: %use_assetic_controller%
+
 monolog:
     handlers:
         main:

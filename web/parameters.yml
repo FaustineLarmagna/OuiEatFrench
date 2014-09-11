@@ -1,0 +1,17 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: OuiEatFrench
+    database_user: OuiEatFrench
+    database_password: bMXL8XLxZwV5Tzr6
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: fr
+    secret: 6df5h4d6df66gj6y4djdt65j4
+    debug_toolbar: false
+    debug_redirects: false
+    use_assetic_controller: true
