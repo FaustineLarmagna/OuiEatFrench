@@ -1,0 +1,9 @@
+parameters:
+    oui_eat_french.admin.form.type.product.class: OuiEatFrench\AdminBundle\Form\ProductType
+
+services:
+    oui_eat_french.admin.form.type.product:
+        class: OuiEatFrench\AdminBundle\Form\ProductType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: ouieatfrench_adminbundle_producttype }

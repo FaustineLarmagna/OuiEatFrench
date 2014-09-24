@@ -1,0 +1,15 @@
+oui_eat_french_admin_product_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:Product:index }
+
+oui_eat_french_admin_product_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:Product:create }
+
+oui_eat_french_admin_product_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Product:edit }
+
+oui_eat_french_admin_product_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Product:delete }

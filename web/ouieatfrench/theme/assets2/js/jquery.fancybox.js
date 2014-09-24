@@ -1499,7 +1499,7 @@
 	});
 
 	/*
-	 *	Default transitions
+	 *	Product transitions
 	 */
 
 	F.transitions = {

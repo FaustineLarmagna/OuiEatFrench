@@ -1652,7 +1652,7 @@ the specific language governing permissions and limitations under the Apache Lic
         },
 
         /**
-         * Default tokenizer function which does nothing
+         * Product tokenizer function which does nothing
          */
         tokenize: function() {
 

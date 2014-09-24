@@ -1,11 +1,7 @@
-oui_eat_french_market:
-    resource: "@OuiEatFrenchMarketBundle/Resources/config/routing.yml"
-    prefix:   /market
-
 oui_eat_french_mailing:
     resource: "@OuiEatFrenchMailingBundle/Resources/config/routing.yml"
     prefix:   /
 
-oui_eat_french_common:
-    resource: "@OuiEatFrenchCommonBundle/Resources/config/routing.yml"
-    prefix:   /common
+oui_eat_french_admin:
+    resource: "@OuiEatFrenchAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin

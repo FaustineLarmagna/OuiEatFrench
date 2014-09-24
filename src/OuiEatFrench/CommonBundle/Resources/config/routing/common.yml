@@ -1,3 +1,0 @@
-oui_eat_french_common_index:
-    pattern:  /
-    defaults: { _controller: OuiEatFrenchCommonBundle:Common:index }
