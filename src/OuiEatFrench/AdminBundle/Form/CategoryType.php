@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 
-class ProductType extends AbstractType
+class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -16,31 +16,19 @@ class ProductType extends AbstractType
             ->add('name', 'text', array(
                 "label"     => "Name",
                 "required"   => true
-            ))
-            ->add('description', 'textarea', array(
-                "label"     => "Description",
-                "required"   => true
-            ))
-            ->add('category', 'text', array(
-                "label"     => "Categorie",
-                "required"   => true
-            ))
-            ->add('image', 'file', array(
-                "label"     => "Image",
-                "required"   => true
             ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OuiEatFrench\AdminBundle\Entity\Product'
+            'data_class' => 'OuiEatFrench\AdminBundle\Entity\Category'
         ));
     }
 
     public function getName()
     {
-        return 'ouieatfrench_adminbundle_producttype';
+        return 'ouieatfrench_adminbundle_categorytype';
     }
 }
 

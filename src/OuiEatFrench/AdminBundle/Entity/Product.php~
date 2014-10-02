@@ -154,27 +154,4 @@ class Product
     {
         return $this->image;
     }
-
-    /**
-     * Set category
-     *
-     * @param \OuiEatFrench\AdminBundle\Entity\Category $category
-     * @return Product
-     */
-    public function setCategory(\OuiEatFrench\AdminBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \OuiEatFrench\AdminBundle\Entity\Category 
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 }

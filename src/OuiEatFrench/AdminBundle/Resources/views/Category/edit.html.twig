@@ -1,4 +1,4 @@
-Edition des produits
+Edition des categories
 <form action="{{ path(route, {'id' : id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
     {% for child in form.children %}
         {{ form_row(child) }}

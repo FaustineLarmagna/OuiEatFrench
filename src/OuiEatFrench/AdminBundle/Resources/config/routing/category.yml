@@ -1,0 +1,15 @@
+oui_eat_french_admin_category_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:Category:index }
+
+oui_eat_french_admin_category_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:Category:create }
+
+oui_eat_french_admin_category_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Category:edit }
+
+oui_eat_french_admin_category_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Category:delete }
