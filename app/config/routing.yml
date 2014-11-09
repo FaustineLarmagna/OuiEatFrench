@@ -1,0 +1,7 @@
+oui_eat_french_mailing:
+    resource: "@OuiEatFrenchMailingBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oui_eat_french_admin:
+    resource: "@OuiEatFrenchAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin

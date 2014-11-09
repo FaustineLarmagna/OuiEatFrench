@@ -1,0 +1,7 @@
+oui_eat_french_admin_product:
+    resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/product.yml"
+    prefix: /
+
+oui_eat_french_admin_category:
+    resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/category.yml"
+    prefix: /categories

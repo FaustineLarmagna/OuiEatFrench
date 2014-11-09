@@ -1,0 +1,27 @@
+Index des produits
+<a href={{ path('oui_eat_french_admin_product_create') }}>Ajouter</a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Image</td>
+        <td>Nom</td>
+        <td>Description</td>
+        <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td style="width: 15%; height: 10%;"><img style="width: 50%; height: 50%;" src="{{ asset("OEF/img_admin_product/" ~ entity.imageName) }}" alt="{{ entity.imageName }}"></td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.description }}</td>
+            <td>
+                <ul>
+                    <li><a href={{ path('oui_eat_french_admin_product_edit', {'id' : entity.id}) }}>Edition</a></li>
+                    <li><a class='delete' href={{ path('oui_eat_french_admin_product_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
