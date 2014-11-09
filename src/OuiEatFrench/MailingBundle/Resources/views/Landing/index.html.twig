@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <select class="form-control" id="exampleInputSelect" name="select">
                             <option value="landing_seller">Producteur</option>
-                            <option value="landing_customer">Consomateur</option>
+                            <option value="landing_customer">Consommateur</option>
                         </select>
                         {% if form_errors(formBoth.postcode) != "" %}
                             {{ form_widget(formBoth.postcode, {'attr': {'placeholder': 'Code postal', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputPostcode', 'style' : 'width:45%; float:right'} }) }}
