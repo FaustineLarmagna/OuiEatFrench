@@ -1,0 +1,9 @@
+parameters:
+    oui_eat_french.farmer.form.type.farmerproduct.class: OuiEatFrench\FarmerBundle\Form\FarmerProductType
+
+services:
+    oui_eat_french.farmer.form.type.farmerproduct:
+        class: OuiEatFrench\FarmerBundle\Form\FarmerProductType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: ouieatfrench_farmerbundle_farmerproducttype }

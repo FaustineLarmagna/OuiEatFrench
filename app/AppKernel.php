@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new OuiEatFrench\AdminBundle\OuiEatFrenchAdminBundle(),
             new OuiEatFrench\FarmerBundle\OuiEatFrenchFarmerBundle(),
             new OuiEatFrench\MailingBundle\OuiEatFrenchMailingBundle(),
+            new OuiEatFrench\CommandBundle\OuiEatFrenchCommandBundle(),
+            new OuiEatFrench\PublicBundle\OuiEatFrenchPublicBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

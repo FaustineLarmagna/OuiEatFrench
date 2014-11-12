@@ -1,3 +1,11 @@
+oui_eat_french_public:
+    resource: "@OuiEatFrenchPublicBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oui_eat_french_command:
+    resource: "@OuiEatFrenchCommandBundle/Resources/config/routing.yml"
+    prefix:   /
+
 oui_eat_french_farmer:
     resource: "@OuiEatFrenchFarmerBundle/Controller/"
     type:     annotation
