@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AdminList
  *
- * @ORM\Table(name="admin_product")
+ * @ORM\Table(name="product")
  * @ORM\Entity()
  */
 class Product
@@ -53,6 +53,15 @@ class Product
     protected $imageName;
 
     protected $image;
+
+    /**
+     * @var integer
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="calories", type="integer", length=100)
+     */
+    protected $calories;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="Filter")
@@ -183,6 +192,7 @@ class Product
     {
         return $this->category;
     }
+
     /**
      * Constructor
      */
@@ -223,4 +233,28 @@ class Product
     {
         return $this->filter;
     }
+
+    /**
+     * Set calories
+     *
+     * @param string $calories
+     * @return calories
+     */
+    public function setCalories($calories)
+    {
+        $this->calories = $calories;
+
+        return $this;
+    }
+
+    /**
+     * Get calories
+     *
+     * @return string
+     */
+    public function getCalories()
+    {
+        return $this->calories;
+    }
+
 }

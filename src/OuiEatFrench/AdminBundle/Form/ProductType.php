@@ -21,6 +21,10 @@ class ProductType extends AbstractType
                 "label"     => "Description",
                 "required"   => true
             ))
+            ->add('calories', 'integer', array(
+                "label"     => "calories",
+                "required"   => true
+            ))
             ->add('category', 'entity', array(
                 "label"     => "Categories",
                 "class"     => 'OuiEatFrench\AdminBundle\Entity\Category',

@@ -6,6 +6,7 @@ Index des produits
         <td>Image</td>
         <td>Nom</td>
         <td>Description</td>
+        <td>Calories pour 100g</td>
         <td>Actions</td>
     </tr>
     </thead>
@@ -15,6 +16,7 @@ Index des produits
             <td style="width: 15%; height: 10%;"><img style="width: 50%; height: 50%;" src="{{ asset("OEF/img_admin_product/" ~ entity.imageName) }}" alt="{{ entity.imageName }}"></td>
             <td>{{ entity.name }}</td>
             <td>{{ entity.description }}</td>
+            <td>{{ entity.calories }}</td>
             <td>
                 <ul>
                     <li><a href={{ path('oui_eat_french_admin_product_edit', {'id' : entity.id}) }}>Edition</a></li>

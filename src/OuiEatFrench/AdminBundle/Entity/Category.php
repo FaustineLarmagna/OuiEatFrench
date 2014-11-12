@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * AdminList
  *
- * @ORM\Table(name="admin_category")
+ * @ORM\Table(name="category")
  * @ORM\Entity()
  */
 class Category
