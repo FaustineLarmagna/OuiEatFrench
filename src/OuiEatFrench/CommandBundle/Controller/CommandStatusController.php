@@ -1,6 +1,6 @@
 <?php
 
-namespace OuiEatFrench\AdminBundle\Controller;
+namespace OuiEatFrench\CommandBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OuiEatFrench\CommandBundle\Entity\CommandStatus;

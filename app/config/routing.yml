@@ -7,8 +7,7 @@ oui_eat_french_command:
     prefix:   /
 
 oui_eat_french_farmer:
-    resource: "@OuiEatFrenchFarmerBundle/Controller/"
-    type:     annotation
+    resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing.yml"
     prefix:   /monstand
 
 oui_eat_french_mailing:

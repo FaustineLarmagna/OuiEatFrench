@@ -69,7 +69,7 @@ class FarmerProduct
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="unit-price", type="integer")
+     * @ORM\Column(name="unit_price", type="integer")
      */
     protected $unitPrice;
 
@@ -77,7 +77,7 @@ class FarmerProduct
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="kilo-price", type="integer")
+     * @ORM\Column(name="kilo_price", type="integer")
      */
     protected $kiloPrice;
 
@@ -85,7 +85,7 @@ class FarmerProduct
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="unit-quantity", type="integer")
+     * @ORM\Column(name="unit_quantity", type="integer")
      */
     protected $unitQuantity;
 
@@ -93,7 +93,7 @@ class FarmerProduct
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="kilo-quantity", type="integer")
+     * @ORM\Column(name="kilo_quantity", type="integer")
      */
     protected $kiloQuantity;
 
