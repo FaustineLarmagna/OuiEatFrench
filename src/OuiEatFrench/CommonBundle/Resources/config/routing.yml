@@ -1,3 +1,0 @@
-oui_eat_french_common:
-    resource: "@OuiEatFrenchCommonBundle/Resources/config/routing/common.yml"
-    prefix: /

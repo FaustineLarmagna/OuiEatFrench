@@ -1,3 +1,0 @@
-oui_eat_french_mailing_index:
-    pattern:  /
-    defaults: { _controller: OuiEatFrenchMailingBundle:Mailing:index }

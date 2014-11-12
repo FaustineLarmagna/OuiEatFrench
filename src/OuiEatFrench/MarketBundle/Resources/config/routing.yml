@@ -1,3 +1,0 @@
-oui_eat_french_market:
-    resource: "@OuiEatFrenchMarketBundle/Resources/config/routing/market.yml"
-    prefix: /

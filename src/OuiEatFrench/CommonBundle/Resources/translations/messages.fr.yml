@@ -1,6 +1,0 @@
-form:
-  email: Email
-  firstname: Prenom
-  lastname: Nom
-  postcode: Code postal
-  submit: Envoyé
