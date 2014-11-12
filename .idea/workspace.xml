@@ -2,25 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/UserBundle/OuiEatFrenchUserBundle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/UserBundle/Entity/User.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Entity/CommandStatus.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Controller/CommandStatusController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Form/CommandStatusType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/DependencyInjection/Configuration.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/DependencyInjection/Configuration.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/DependencyInjection/Configuration.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/DefaultController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/DefaultController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Tests/Controller/DefaultControllerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Tests/Controller/DefaultControllerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Tests/Controller/DefaultControllerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/FarmerProduct.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/FarmerProductController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Tests/Controller/FarmerProductControllerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Form/FarmerProductType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/OuiEatFrenchCommandBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/DependencyInjection/OuiEatFrenchCommandExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/OuiEatFrenchFarmerBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/DependencyInjection/OuiEatFrenchFarmerExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/OuiEatFrenchPublicBundle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/DependencyInjection/OuiEatFrenchPublicExtension.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Resources/config/routing/commandstatus.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Resources/views/CommandStatus/create.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/create.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Resources/views/CommandStatus/edit.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/edit.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/farmerproduct.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Resources/config/form.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/form.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/form.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Resources/views/CommandStatus/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/Default/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Default/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/doc/index.rst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/translations/messages.fr.xlf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/CommandBundle/Resources/config/routing.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/services.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/translations/messages.fr.xlf" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/courgette.jpeg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.phar" afterPath="$PROJECT_DIR$/composer.phar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Category.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Category.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Edito.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Edito.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/ProductType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/ProductType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstrap.php.cache" afterPath="$PROJECT_DIR$/app/bootstrap.php.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/OuiEatFrenchAdminBundle.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/OuiEatFrenchAdminBundle.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OuiEatFrench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,12 +70,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routing.yml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="226" selection-end="226" vertical-scroll-proportion="0.13815789" vertical-offset="0" max-vertical-offset="912">
+            <state line="20" column="0" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="792">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.lock" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.lock">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="32" selection-start="409" selection-end="409" vertical-scroll-proportion="0.20385051" vertical-offset="0" max-vertical-offset="30042">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -65,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/views/Landing/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/views/Landing/next.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/translations/messages.fr.xlf" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/CommonBundle/Resources/translations/messages.fr.yml" />
@@ -116,6 +154,7 @@
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/UserBundle/DependencyInjection/OuiEatFrenchUserExtension.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/composer.lock" />
       </list>
     </option>
   </component>
@@ -279,7 +318,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3398058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3398058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -313,11 +352,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/views/Landing/next.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="43" selection-start="284" selection-end="284" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="4572" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Form/LandingCustomerType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="36" selection-start="951" selection-end="951" vertical-scroll-proportion="-5.703704" vertical-offset="314" max-vertical-offset="774" />
@@ -629,9 +663,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="226" selection-end="226" vertical-scroll-proportion="0.13815789" vertical-offset="0" max-vertical-offset="912">
+        <state line="20" column="0" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="792">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="32" selection-start="409" selection-end="409" vertical-scroll-proportion="0.20385051" vertical-offset="0" max-vertical-offset="30042">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>

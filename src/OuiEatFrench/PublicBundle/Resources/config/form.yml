@@ -1,0 +1,7 @@
+parameters:
+#    oui_eat_french_public.example.class: OuiEatFrench\PublicBundle\Example
+
+services:
+#    oui_eat_french_public.example:
+#        class: %oui_eat_french_public.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

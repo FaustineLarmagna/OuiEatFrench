@@ -1,0 +1,9 @@
+parameters:
+    oui_eat_french.command.form.type.commandstatus.class: OuiEatFrench\CommandBundle\Form\CommandStatusType
+
+services:
+    oui_eat_french.command.form.type.commandstatus:
+        class: OuiEatFrench\CommandBundle\Form\CommandStatusType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: ouieatfrench_commandbundle_commandstatustype }
