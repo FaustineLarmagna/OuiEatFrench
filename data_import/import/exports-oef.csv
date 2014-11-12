@@ -1,0 +1,4 @@
+filtres;nom_produit;description_produit;image_produit;categorie_produit;calories_produit
+rouge*été;Tomates;La tomate est un fruit rouge;tomates.jpg;fruits;25
+jaune*été;Bananes;La banane est un fruit jaune;bananes.jpg;légumes;100
+vert*été;Salades;La salade est un légume vert;salades.jpg;autres;15
