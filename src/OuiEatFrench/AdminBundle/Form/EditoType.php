@@ -8,13 +8,21 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 
-class CategoryType extends AbstractType
+class EditoType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                "label"     => "Name",
+            ->add('title', 'text', array(
+                "label"     => "Titre",
+                "required"   => true
+            ))
+            ->add('text', 'textarea', array(
+                "label"     => "Texte",
+                "required"   => true
+            ))
+            ->add('image', 'file', array(
+                "label"     => "Image",
                 "required"   => true
             ));
     }
@@ -22,14 +30,12 @@ class CategoryType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OuiEatFrench\AdminBundle\Entity\Category'
+            'data_class' => 'OuiEatFrench\AdminBundle\Entity\Edito'
         ));
     }
 
     public function getName()
     {
-        return 'ouieatfrench_adminbundle_categorytype';
+        return 'ouieatfrench_adminbundle_editotype';
     }
 }
-
-?>

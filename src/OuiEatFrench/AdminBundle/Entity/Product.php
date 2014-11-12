@@ -31,6 +31,7 @@ class Product
     protected $name;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
@@ -52,6 +53,11 @@ class Product
     protected $imageName;
 
     protected $image;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Filter")
+     */
+    private $filter;
 
     /**
      * Get id
@@ -176,5 +182,45 @@ class Product
     public function getCategory()
     {
         return $this->category;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->filter = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add filter
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Filter $filter
+     * @return Product
+     */
+    public function addFilter(\OuiEatFrench\AdminBundle\Entity\Filter $filter)
+    {
+        $this->filter[] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Remove filter
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Filter $filter
+     */
+    public function removeFilter(\OuiEatFrench\AdminBundle\Entity\Filter $filter)
+    {
+        $this->filter->removeElement($filter);
+    }
+
+    /**
+     * Get filter
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFilter()
+    {
+        return $this->filter;
     }
 }

@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 
-class CategoryType extends AbstractType
+class FilterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -16,20 +16,22 @@ class CategoryType extends AbstractType
             ->add('name', 'text', array(
                 "label"     => "Name",
                 "required"   => true
+            ))
+            ->add('description', 'textarea', array(
+                "label"     => "Description",
+                "required"   => true
             ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OuiEatFrench\AdminBundle\Entity\Category'
+            'data_class' => 'OuiEatFrench\AdminBundle\Entity\Filter'
         ));
     }
 
     public function getName()
     {
-        return 'ouieatfrench_adminbundle_categorytype';
+        return 'ouieatfrench_adminbundle_filtertype';
     }
 }
-
-?>

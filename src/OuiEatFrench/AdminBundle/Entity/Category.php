@@ -41,6 +41,11 @@ class Category
         $this->products = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * Get id
      *
@@ -73,6 +78,39 @@ class Category
     {
         return $this->name;
     }
+/*
+    /**
+     * Add products
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Product $products
+     * @return Category
+     *
+    public function addProduct(\OuiEatFrench\AdminBundle\Entity\Product $products)
+    {
+        $this->products[] = $products;
+
+        return $this;
+    }
+
+    /**
+     * Remove products
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Product $products
+     *
+    public function removeProduct(\OuiEatFrench\AdminBundle\Entity\Product $products)
+    {
+        $this->products->removeElement($products);
+    }
+*/
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
 
     /**
      * Add products
@@ -95,15 +133,5 @@ class Category
     public function removeProduct(\OuiEatFrench\AdminBundle\Entity\Product $products)
     {
         $this->products->removeElement($products);
-    }
-
-    /**
-     * Get products
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getProducts()
-    {
-        return $this->products;
     }
 }

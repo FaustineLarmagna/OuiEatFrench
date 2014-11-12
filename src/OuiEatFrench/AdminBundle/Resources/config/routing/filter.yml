@@ -1,0 +1,15 @@
+oui_eat_french_admin_filter_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:Filter:index }
+
+oui_eat_french_admin_filter_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:Filter:create }
+
+oui_eat_french_admin_filter_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Filter:edit }
+
+oui_eat_french_admin_filter_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Filter:delete }

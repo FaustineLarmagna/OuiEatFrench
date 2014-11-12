@@ -35,18 +35,18 @@ class MailingList
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="firstname", type="string", length=100)
+     * @ORM\Column(name="lastname", type="string", length=100)
      */
-    protected $firstname;
+    protected $lastname;
 
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="lastname", type="string", length=100)
+     * @ORM\Column(name="firstname", type="string", length=100)
      */
-    protected $lastname;
+    protected $firstname;
 
 
     /**

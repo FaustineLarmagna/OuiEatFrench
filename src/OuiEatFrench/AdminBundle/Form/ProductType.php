@@ -21,8 +21,15 @@ class ProductType extends AbstractType
                 "label"     => "Description",
                 "required"   => true
             ))
-            ->add('category', 'text', array(
-                "label"     => "Categorie",
+            ->add('category', 'entity', array(
+                "label"     => "Categories",
+                "class"     => 'OuiEatFrench\AdminBundle\Entity\Category',
+                "required"   => true
+            ))
+            ->add('filter', 'entity', array(
+                "label"     => "Categories",
+                "class"     => 'OuiEatFrench\AdminBundle\Entity\Filter',
+                'multiple'  => true,
                 "required"   => true
             ))
             ->add('image', 'file', array(
@@ -43,6 +50,3 @@ class ProductType extends AbstractType
         return 'ouieatfrench_adminbundle_producttype';
     }
 }
-
-?>
- 

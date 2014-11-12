@@ -3,22 +3,22 @@
 namespace OuiEatFrench\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use OuiEatFrench\AdminBundle\Entity\Product;
+use OuiEatFrench\AdminBundle\Entity\Edito;
 
-class ProductController extends Controller
+class EditoController extends Controller
 {
     public function indexAction()
     {
-        $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
+        $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Edito')->findAll();
         $data["entities"] = $entities;
-        return $this->render('OuiEatFrenchAdminBundle:Product:index.html.twig', $data);
+        return $this->render('OuiEatFrenchAdminBundle:Edito:index.html.twig', $data);
     }
 
     public function createAction()
     {
-        $entity = new Product();
+        $entity = new Edito();
         $request = $this->get("request");
-        $form = $this->createForm("ouieatfrench_adminbundle_producttype", $entity);
+        $form = $this->createForm("ouieatfrench_adminbundle_editotype", $entity);
         if ($request->getMethod() == 'POST')
         {
             $form->bind($request);
@@ -34,22 +34,22 @@ class ProductController extends Controller
 
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('oui_eat_french_admin_product_index'));
+                return $this->redirect($this->generateUrl('oui_eat_french_admin_edito_index'));
             }
         }
         $data["form"] = $form->createView();
-        $data["route"] = "oui_eat_french_admin_product_create";
-        return $this->render('OuiEatFrenchAdminBundle:Product:create.html.twig', $data);
+        $data["route"] = "oui_eat_french_admin_edito_create";
+        return $this->render('OuiEatFrenchAdminBundle:Edito:create.html.twig', $data);
     }
 
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchAdminBundle:Product')->find($id);
+        $query = $em->getRepository('OuiEatFrenchAdminBundle:Edito')->find($id);
         if($query)
         {
             $request = $this->get("request");
-            $form = $this->createForm("ouieatfrench_adminbundle_producttype", $query);
+            $form = $this->createForm("ouieatfrench_adminbundle_editotype", $query);
             if ($request->getMethod() == 'POST')
             {
                 $form->bind($request);
@@ -67,20 +67,20 @@ class ProductController extends Controller
                     }
                     $em->persist($query);
                     $em->flush();
-                    return $this->redirect($this->generateUrl('oui_eat_french_admin_product_index'));
+                    return $this->redirect($this->generateUrl('oui_eat_french_admin_edito_index'));
                 }
             }
             $data["id"] = $id;
             $data["form"] = $form->createView();
-            $data["route"] = "oui_eat_french_admin_product_edit";
+            $data["route"] = "oui_eat_french_admin_edito_edit";
         }
-        return $this->render('OuiEatFrenchAdminBundle:Product:edit.html.twig', $data);
+        return $this->render('OuiEatFrenchAdminBundle:Edito:edit.html.twig', $data);
     }
 
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchAdminBundle:Product')->find($id);
+        $query = $em->getRepository('OuiEatFrenchAdminBundle:Edito')->find($id);
 
         if ($query)
         {
@@ -91,7 +91,7 @@ class ProductController extends Controller
             $em->remove($query);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl('oui_eat_french_admin_product_index'));
+        return $this->redirect($this->generateUrl('oui_eat_french_admin_edito_index'));
     }
 
     public function upload($image)
@@ -112,7 +112,7 @@ class ProductController extends Controller
 
     public function getUploadDir()
     {
-        return 'OEF/img_admin_product';
+        return 'OEF/img_admin_edito';
     }
 
     protected function getUploadRootDir()

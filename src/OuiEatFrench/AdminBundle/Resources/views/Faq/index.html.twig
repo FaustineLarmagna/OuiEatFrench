@@ -1,0 +1,29 @@
+Index des faq
+<a href={{ path('oui_eat_french_admin_faq_create') }}>Ajouter</a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Titre</td>
+        <td>Question</td>
+        <td>Réponce</td>
+        <td>Visibilitée</td>
+        <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.title }}</td>
+            <td>{{ entity.question }}</td>
+            <td>{{ entity.answer }}</td>
+            <td>{{ entity.disable }}</td>
+            <td>
+                <ul>
+                    <li><a href={{ path('oui_eat_french_admin_faq_edit', {'id' : entity.id}) }}>Edition</a></li>
+                    <li><a class='delete' href={{ path('oui_eat_french_admin_faq_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

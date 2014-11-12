@@ -1,0 +1,15 @@
+oui_eat_french_admin_faq_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:Faq:index }
+
+oui_eat_french_admin_faq_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:Faq:create }
+
+oui_eat_french_admin_faq_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Faq:edit }
+
+oui_eat_french_admin_faq_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Faq:delete }

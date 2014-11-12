@@ -1,6 +1,9 @@
 parameters:
     oui_eat_french.admin.form.type.product.class: OuiEatFrench\AdminBundle\Form\ProductType
     oui_eat_french.admin.form.type.category.class: OuiEatFrench\AdminBundle\Form\CategoryType
+    oui_eat_french.admin.form.type.filter.class: OuiEatFrench\AdminBundle\Form\FilterType
+    oui_eat_french.admin.form.type.faq.class: OuiEatFrench\AdminBundle\Form\FaqType
+    oui_eat_french.admin.form.type.edito.class: OuiEatFrench\AdminBundle\Form\EditoType
 
 services:
     oui_eat_french.admin.form.type.product:
@@ -14,3 +17,21 @@ services:
             arguments: [ @service_container ]
             tags:
                   - { name: form.type, alias: ouieatfrench_adminbundle_categorytype }
+
+    oui_eat_french.admin.form.type.filter:
+            class: OuiEatFrench\AdminBundle\Form\FilterType
+            arguments: [ @service_container ]
+            tags:
+                  - { name: form.type, alias: ouieatfrench_adminbundle_filtertype }
+
+    oui_eat_french.admin.form.type.faq:
+            class: OuiEatFrench\AdminBundle\Form\FaqType
+            arguments: [ @service_container ]
+            tags:
+                  - { name: form.type, alias: ouieatfrench_adminbundle_faqtype }
+
+    oui_eat_french.admin.form.type.edito:
+            class: OuiEatFrench\AdminBundle\Form\EditoType
+            arguments: [ @service_container ]
+            tags:
+                  - { name: form.type, alias: ouieatfrench_adminbundle_editotype }
