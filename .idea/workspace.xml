@@ -2,26 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/layout.html.twig" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/translations/messages.fr.xlf" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/courgette.jpeg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/framboise.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/wp_biflam.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/ProductType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/ProductType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/create.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/create.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/create.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/create.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/create.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/create.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/edit.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/edit.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/edit.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/edit.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/edit.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OuiEatFrench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,99 +35,19 @@
     <favorites_list name="OuiEatFrench" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48760885">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="32" selection-start="615" selection-end="615" vertical-scroll-proportion="0.35487404" vertical-offset="0" max-vertical-offset="913">
-                  <folding>
-                    <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="create.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="252">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="create.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/create.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="14" selection-start="407" selection-end="407" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="edit.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/edit.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="14" selection-start="420" selection-end="420" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="34" column="14" selection-start="1012" selection-end="1012" vertical-scroll-proportion="-22.666666" vertical-offset="0" max-vertical-offset="720">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="create.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/create.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="14" selection-start="409" selection-end="409" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="edit.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/edit.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="14" selection-start="422" selection-end="422" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="19" column="38" selection-start="463" selection-end="463" vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="684">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="12" selection-start="280" selection-end="280" vertical-scroll-proportion="0.21479714" vertical-offset="0" max-vertical-offset="838">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="34" selection-start="354" selection-end="363" vertical-scroll-proportion="0.19438446" vertical-offset="0" max-vertical-offset="926">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -156,7 +68,6 @@
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DependencyInjection/OuiEatFrenchAdminExtension.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Entity/MailingList.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/FilterType.php" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/category.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/filter.yml" />
@@ -187,18 +98,19 @@
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" />
         <option value="$PROJECT_DIR$/app/logs/dev.log" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/create.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/create.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/create.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/create.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig" />
       </list>
     </option>
   </component>
@@ -841,55 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="252">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="407" selection-end="407" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="420" selection-end="420" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="14" selection-start="1012" selection-end="1012" vertical-scroll-proportion="-22.666666" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/create.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="409" selection-end="409" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="422" selection-end="422" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="342">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="38" selection-start="463" selection-end="463" vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="684">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/create.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="32" selection-start="109" selection-end="109" vertical-scroll-proportion="0.06642067" vertical-offset="0" max-vertical-offset="813">
@@ -904,19 +767,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="32" selection-start="615" selection-end="615" vertical-scroll-proportion="0.35487404" vertical-offset="0" max-vertical-offset="913">
+        <state line="12" column="9" selection-start="357" selection-end="357" vertical-scroll-proportion="0.25775656" vertical-offset="0" max-vertical-offset="838">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="41" selection-start="420" selection-end="420" vertical-scroll-proportion="0.27114716" vertical-offset="0" max-vertical-offset="863">
           <folding>
-            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#523#559#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="12" selection-start="280" selection-end="280" vertical-scroll-proportion="0.21479714" vertical-offset="0" max-vertical-offset="838">
+        <state line="5" column="19" selection-start="138" selection-end="138" vertical-scroll-proportion="0.10135135" vertical-offset="0" max-vertical-offset="888">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="104" selection-end="104" vertical-scroll-proportion="0.06081081" vertical-offset="0" max-vertical-offset="888">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="41" selection-start="467" selection-end="467" vertical-scroll-proportion="0.2837838" vertical-offset="0" max-vertical-offset="888">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="24" selection-start="101" selection-end="101" vertical-scroll-proportion="0.059145674" vertical-offset="0" max-vertical-offset="913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="25" selection-start="102" selection-end="102" vertical-scroll-proportion="0.059145674" vertical-offset="0" max-vertical-offset="913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="294" selection-end="294" vertical-scroll-proportion="0.1577218" vertical-offset="0" max-vertical-offset="913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="34" selection-start="354" selection-end="363" vertical-scroll-proportion="0.19438446" vertical-offset="0" max-vertical-offset="926">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
