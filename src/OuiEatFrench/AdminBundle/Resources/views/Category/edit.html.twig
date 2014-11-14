@@ -1,4 +1,9 @@
-Edition des categories
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
+<h3>Edition des categories</h3>
+{% endblock %}
+{% block content %}
 <form action="{{ path(route, {'id' : id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
     {% for child in form.children %}
         {{ form_row(child) }}
@@ -6,3 +11,4 @@ Edition des categories
     <br>
     <input class="btn btn-success" type="submit" value="Envoyer"/>
 </form>
+{% endblock %}

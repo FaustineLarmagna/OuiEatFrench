@@ -30,11 +30,16 @@ class ProductType extends AbstractType
                 "class"     => 'OuiEatFrench\AdminBundle\Entity\Category',
                 "required"   => true
             ))
+            ->add('parentProduct', 'entity', array(
+                "label"     => "parentProduct",
+                "class"     => 'OuiEatFrench\AdminBundle\Entity\Product',
+                "required"   => false
+            ))
             ->add('filter', 'entity', array(
                 "label"     => "Categories",
                 "class"     => 'OuiEatFrench\AdminBundle\Entity\Filter',
                 'multiple'  => true,
-                "required"   => true
+                "required"   => false
             ))
             ->add('image', 'file', array(
                 "label"     => "Image",

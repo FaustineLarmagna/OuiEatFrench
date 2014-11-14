@@ -1,4 +1,9 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
 Index des filtres
+{% endblock %}
+{% block content %}
 <a href={{ path('oui_eat_french_admin_filter_create') }}>Ajouter</a>
 <table class="table table-hover">
     <thead>
@@ -21,3 +26,4 @@ Index des filtres
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}

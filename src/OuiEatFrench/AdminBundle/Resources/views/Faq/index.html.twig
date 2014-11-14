@@ -1,4 +1,9 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
 Index des faq
+{% endblock %}
+{% block content %}
 <a href={{ path('oui_eat_french_admin_faq_create') }}>Ajouter</a>
 <table class="table table-hover">
     <thead>
@@ -27,3 +32,4 @@ Index des faq
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}

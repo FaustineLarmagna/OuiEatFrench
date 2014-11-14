@@ -59,9 +59,10 @@ class ProductController extends Controller
                     $this->upload($query->getImage());
                     if($query->getImage() !== null)
                     {
-                        if(file_exists($this->getUploadRootDir()."/".$query->getImageName()))
+                        $image = $this->getUploadRootDir()."/".$query->getImageName();
+                        if(file_exists($image) and is_file($image))
                         {
-                            unlink($this->getUploadRootDir()."/".$query->getImageName());
+                            unlink($image);
                         }
                         $query->setImageName($query->getImage()->getClientOriginalName());
                     }
@@ -84,9 +85,10 @@ class ProductController extends Controller
 
         if ($query)
         {
-            if(file_exists($this->getUploadRootDir()."/".$query->getImageName()))
+            $image = $this->getUploadRootDir()."/".$query->getImageName();
+            if(file_exists($image) and is_file($image))
             {
-                unlink($this->getUploadRootDir()."/".$query->getImageName());
+                unlink($image);
             }
             $em->remove($query);
             $em->flush();

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AdminList
  *
- * @ORM\Table(name="admin_product")
+ * @ORM\Table(name="product")
  * @ORM\Entity()
  */
 class Product
@@ -55,9 +55,30 @@ class Product
     protected $image;
 
     /**
+     * @var integer
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="calories", type="integer", length=100)
+     */
+    protected $calories;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Filter")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $filter;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\JoinColumn(name="parent_product_id", referencedColumnName="id")
+     */
+    private $parentProduct;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id
@@ -182,5 +203,69 @@ class Product
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->filter = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add filter
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Filter $filter
+     * @return Product
+     */
+    public function addFilter(\OuiEatFrench\AdminBundle\Entity\Filter $filter)
+    {
+        $this->filter[] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Remove filter
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Filter $filter
+     */
+    public function removeFilter(\OuiEatFrench\AdminBundle\Entity\Filter $filter)
+    {
+        $this->filter->removeElement($filter);
+    }
+
+    /**
+     * Get filter
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFilter()
+    {
+        return $this->filter;
+    }
+
+    /**
+     * Set calories
+     *
+     * @param string $calories
+     * @return calories
+     */
+    public function setCalories($calories)
+    {
+        $this->calories = $calories;
+
+        return $this;
+    }
+
+    /**
+     * Get calories
+     *
+     * @return string
+     */
+    public function getCalories()
+    {
+        return $this->calories;
     }
 }

@@ -62,11 +62,22 @@ class Product
      */
     protected $calories;
 
-
     /**
      * @ORM\ManyToMany(targetEntity="Filter")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $filter;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\JoinColumn(name="parent_product_id", referencedColumnName="id")
+     */
+    private $parentProduct;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id
@@ -257,4 +268,26 @@ class Product
         return $this->calories;
     }
 
+    /**
+     * Set parentProduct
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Product $parentProduct
+     * @return Product
+     */
+    public function setParentProduct(\OuiEatFrench\AdminBundle\Entity\Product $parentProduct = null)
+    {
+        $this->parentProduct = $parentProduct;
+
+        return $this;
+    }
+
+    /**
+     * Get parentProduct
+     *
+     * @return \OuiEatFrench\AdminBundle\Entity\Product 
+     */
+    public function getParentProduct()
+    {
+        return $this->parentProduct;
+    }
 }

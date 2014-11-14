@@ -1,4 +1,9 @@
-Index des categories
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
+<h3>Index des categories</h3>
+{% endblock %}
+{% block content %}
 <a href={{ path('oui_eat_french_admin_category_create') }}>Ajouter</a>
 <table class="table table-hover">
     <thead>
@@ -21,3 +26,4 @@ Index des categories
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}

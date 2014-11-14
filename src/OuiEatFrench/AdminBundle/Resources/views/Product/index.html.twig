@@ -1,19 +1,24 @@
-Index des produits
-<a href={{ path('oui_eat_french_admin_product_create') }}>Ajouter</a>
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
+<h3>Index des produits</h3>
+{% endblock %}
+{% block content %}
+<a href={{ path('oui_eat_french_admin_product_create') }}><button class="btn btn-success offset12" type="button">Ajouter</button></a>
 <table class="table table-hover">
     <thead>
     <tr>
-        <td>Image</td>
-        <td>Nom</td>
-        <td>Description</td>
-        <td>Calories pour 100g</td>
-        <td>Actions</td>
+        <td><strong>Image</strong></td>
+        <td><strong>Nom</strong></td>
+        <td><strong>Description</strong></td>
+        <td><strong>Calories pour 100g</strong></td>
+        <td><strong>Actions</strong></td>
     </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td style="width: 15%; height: 10%;"><img style="width: 50%; height: 50%;" src="{{ asset("OEF/img_admin_product/" ~ entity.imageName) }}" alt="{{ entity.imageName }}"></td>
+            <td><img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ entity.imageName) }}" alt="{{ entity.imageName }}"></td>
             <td>{{ entity.name }}</td>
             <td>{{ entity.description }}</td>
             <td>{{ entity.calories }}</td>
@@ -27,3 +32,4 @@ Index des produits
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}

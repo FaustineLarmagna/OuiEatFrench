@@ -1,4 +1,9 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
 Index des Edito
+{% endblock %}
+{% block content %}
 <a href={{ path('oui_eat_french_admin_edito_create') }}>Ajouter</a>
 <table class="table table-hover">
     <thead>
@@ -12,7 +17,7 @@ Index des Edito
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td style="width: 15%; height: 10%;"><img style="width: 50%; height: 50%;" src="{{ asset("OEF/img_admin_edito/" ~ entity.imageName) }}" alt="{{ entity.imageName }}"></td>
+            <td><img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_edito/" ~ entity.imageName) }}" alt="{{ entity.imageName }}"></td>
             <td>{{ entity.title }}</td>
             <td>{{ entity.text }}</td>
             <td>
@@ -25,3 +30,4 @@ Index des Edito
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}
