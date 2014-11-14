@@ -1,4 +1,9 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
 <h3>Creation des filtres</h3>
+{% endblock %}
+{% block content %}
 <form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
     {% for child in form.children %}
         {{ form_row(child) }}
@@ -6,3 +11,4 @@
     <br>
     <input class="btn btn-success" type="submit" value="submit"/>
 </form>
+{% endblock %}
