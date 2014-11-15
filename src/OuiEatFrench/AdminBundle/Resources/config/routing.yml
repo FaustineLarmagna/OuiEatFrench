@@ -1,6 +1,10 @@
+oui_eat_french_admin:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:Admin:index }
+
 oui_eat_french_admin_product:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/product.yml"
-    prefix: /
+    prefix: /produits
 
 oui_eat_french_admin_category:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/category.yml"

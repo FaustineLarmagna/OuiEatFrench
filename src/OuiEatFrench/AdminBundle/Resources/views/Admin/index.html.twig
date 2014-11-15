@@ -1,0 +1,49 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
+<h3>Admin OuiEatFrench</h3>
+{% endblock %}
+{% block content %}
+    <ul>
+        <li>
+            <a href="{{ path('oui_eat_french_admin_product_index') }}">Produits</a>
+        </li>
+        <li>
+            <a href="{{ path('oui_eat_french_admin_category_index') }}">Categories</a>
+        </li>
+        <li>
+            <a href="{{ path('oui_eat_french_admin_filter_index') }}">Filtres</a>
+        </li>
+        <li>
+            <a href="{{ path('oui_eat_french_admin_faq_index') }}">Faq</a>
+        </li>
+        <li>
+            <a href="{{ path('oui_eat_french_admin_edito_index') }}">Edito</a>
+        </li>
+    </ul>
+
+
+
+{#<a href={{ path('oui_eat_french_admin_category_create') }}><button class="btn btn-success offset12" type="button">Ajouter</button></a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td><strong>Nom</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.name }}</td>
+            <td>
+                <ul>
+                    <li><a href={{ path('oui_eat_french_admin_category_edit', {'id' : entity.id}) }}>Edition</a></li>
+                    <li><a class='delete' href={{ path('oui_eat_french_admin_category_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>#}
+{% endblock %}
