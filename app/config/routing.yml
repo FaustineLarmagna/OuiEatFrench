@@ -4,7 +4,7 @@ oui_eat_french_public:
 
 oui_eat_french_command:
     resource: "@OuiEatFrenchCommandBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /commande
 
 oui_eat_french_farmer:
     resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing.yml"
@@ -12,7 +12,7 @@ oui_eat_french_farmer:
 
 oui_eat_french_mailing:
     resource: "@OuiEatFrenchMailingBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /presentation
 
 oui_eat_french_admin:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing.yml"
