@@ -1,4 +1,5 @@
 Index producteurs 
+<br><br>
 <a href={{ path('oui_eat_french_user_farmer_create') }}>Ajouter</a>
 <table class="table table-hover">
     <thead>
@@ -10,7 +11,7 @@ Index producteurs
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td>{{ entity.name }}</td>
+            <td>{{ entity.firstname }} {{ entity.lastname }}</td>
             <td>
                 <ul>
                     <li><a href={{ path('oui_eat_french_user_farmer_show', {'id' : entity.id}) }}>Voir</a></li>

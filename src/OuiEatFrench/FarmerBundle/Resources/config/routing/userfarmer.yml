@@ -7,11 +7,11 @@ oui_eat_french_user_farmer_create:
     defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:create }
 
 oui_eat_french_user_farmer_edit:
-    pattern:  /editer/{id}
+    pattern:  /{id}/editer
     defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:edit }
 
-oui_eat_french_user_farmer_edit:
-    pattern:  /voir/{id}
+oui_eat_french_user_farmer_show:
+    pattern:  /{id}/profil
     defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:show }
 
 oui_eat_french_user_farmer_delete:

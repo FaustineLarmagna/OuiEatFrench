@@ -14,20 +14,40 @@ class UserFarmerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $date = getdate();
+        $year = $date['year'] - 18;
+
         $builder
-            ->add('email')
-            ->add('username')
-            ->add('password')
-            ->add('firstname')
-            ->add('lastname')
-            ->add('birthday')
-            ->add('street')
-            ->add('postcode')
-            ->add('city')
-            ->add('phone')
-            ->add('companyName')
-            ->add('companyAdress')
-            ->add('avatar')
+            ->add('email', 'email')
+            ->add('username', null, array('label' => 'Pseudo'))
+            ->add('password', null, array('label' => 'Mot de passe'))
+            ->add('firstname', null, array('label' => 'Prénom'))
+            ->add('lastname', null, array('label' => 'Nom'))
+            ->add('birthday', 'date', array(
+                'label'     => 'Date de naissance',
+                'format'    => 'dd MM yyyy',
+                'years'     => range($year, $year-100)
+            ))
+            ->add('street', null, array('label' => 'Adresse personnelle'))
+            ->add('postcode', null, array('label' => 'Code postal'))
+            ->add('city', null, array('label' => 'Ville'))
+            ->add('phone', null, array('label' => 'Numéro de téléphone'))
+            ->add('companyName', null, array('label' => "Nom de l'exploitation"))
+            ->add('companyAdress', null, array(
+                'label'     => "Adresse de l'exploitation (si différent)",
+                'required'  => false
+            ))
+            ->add('companyPostcode', null, array(
+                'label'     => "Code postal (si différent)",
+                'required'  => false
+            ))
+            ->add('companyCity', null, array(
+                'label'     => "Ville (si différent)",
+                'required'  => false
+            ))
+            ->add('avatar', null, array(
+                'required'  => false
+            ))
         ;
     }
     

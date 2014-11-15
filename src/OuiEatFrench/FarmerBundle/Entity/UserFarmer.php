@@ -73,7 +73,7 @@ class UserFarmer
     /**
      * @var integer
      *
-     * @ORM\Column(name="postcode", type="integer")
+     * @ORM\Column(name="postcode", length=5, type="integer")
      */
     private $postcode;
 
@@ -101,14 +101,28 @@ class UserFarmer
     /**
      * @var string
      *
-     * @ORM\Column(name="company_adress", type="string", length=255)
+     * @ORM\Column(name="company_adress", type="string", length=255, nullable=true)
      */
     private $companyAdress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="avatar", type="string", length=255)
+     * @ORM\Column(name="company_postcode", type="integer", length=5, nullable=true)
+     */
+    private $companyPostcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="company_city", type="string", length=255, nullable=true)
+     */
+    private $companyCity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="avatar", type="string", length=255, nullable=true)
      */
     private $avatar;
 
@@ -397,6 +411,52 @@ class UserFarmer
     public function getCompanyAdress()
     {
         return $this->companyAdress;
+    }
+
+    /**
+     * Set companyPostcode
+     *
+     * @param string $companyPostcode
+     * @return UserFarmer
+     */
+    public function setCompanyPostcode($companyPostcode)
+    {
+        $this->companyPostcode = $companyPostcode;
+
+        return $this;
+    }
+
+    /**
+     * Get companyPostcode
+     *
+     * @return string 
+     */
+    public function getCompanyPostcode()
+    {
+        return $this->companyPostcode;
+    }
+
+    /**
+     * Set companyCity
+     *
+     * @param string $companyCity
+     * @return UserFarmer
+     */
+    public function setCompanyCity($companyCity)
+    {
+        $this->companyCity = $companyCity;
+
+        return $this;
+    }
+
+    /**
+     * Get companyCity
+     *
+     * @return string 
+     */
+    public function getCompanyCity()
+    {
+        return $this->companyCity;
     }
 
     /**
