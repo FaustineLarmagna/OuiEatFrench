@@ -1,4 +1,5 @@
 Edito !
+{% if edito != null %}
 <h3>{{ edito.title }}</h3>
 
 <img style="width: 500px; height: 500px;" src="{{ asset("OEF/img_admin_edito/" ~ edito.imageName) }}" alt="{{ edito.imageName }}">
@@ -6,3 +7,4 @@ Edito !
 <p>
     {{ edito.text }}
 </p>
+{% endif %}

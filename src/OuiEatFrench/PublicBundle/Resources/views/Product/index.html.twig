@@ -1,0 +1,10 @@
+Produits !
+<table>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td><img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}"></td>
+        </tr>
+    {% endfor %}
+</table>

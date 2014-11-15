@@ -1,3 +1,11 @@
 oui_eat_french_public_home:
     resource: "@OuiEatFrenchPublicBundle/Resources/config/routing/home.yml"
     prefix: /
+
+oui_eat_french_public_faq:
+    resource: "@OuiEatFrenchPublicBundle/Resources/config/routing/faq.yml"
+    prefix: /faq
+
+oui_eat_french_public_produtc:
+    resource: "@OuiEatFrenchPublicBundle/Resources/config/routing/product.yml"
+    prefix: /produits

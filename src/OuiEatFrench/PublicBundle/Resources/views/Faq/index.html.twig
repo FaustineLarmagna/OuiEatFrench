@@ -1,8 +1,10 @@
-Edito !
-<h3>{{ edito.title }}</h3>
-
-<img style="width: 500px; height: 500px;" src="{{ asset("OEF/img_admin_edito/" ~ edito.imageName) }}" alt="{{ edito.imageName }}">
-
-<p>
-    {{ edito.text }}
-</p>
+Faq !
+<table>
+    {% for faq in faqs %}
+        <tr>
+            <td><strong>Titre :</strong> {{ faq.title }}</td>
+            <td><strong>Question :</strong> {{ faq.question }}</td>
+            <td><strong>Réponse :</strong> {{ faq.answer }}</td>
+        </tr>
+    {% endfor %}
+</table>

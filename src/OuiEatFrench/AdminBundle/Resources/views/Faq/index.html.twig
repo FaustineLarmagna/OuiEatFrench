@@ -11,7 +11,6 @@
         <td><strong>Titre</strong></td>
         <td><strong>Question</strong></td>
         <td><strong>Réponce</strong></td>
-        <td><strong>isibilitée</strong></td>
         <td><strong>Actions</strong></td>
     </tr>
     </thead>
@@ -21,7 +20,6 @@
             <td>{{ entity.title }}</td>
             <td>{{ entity.question }}</td>
             <td>{{ entity.answer }}</td>
-            <td>{{ entity.disable }}</td>
             <td>
                 <ul>
                     <li><a href={{ path('oui_eat_french_admin_faq_edit', {'id' : entity.id}) }}>Edition</a></li>
