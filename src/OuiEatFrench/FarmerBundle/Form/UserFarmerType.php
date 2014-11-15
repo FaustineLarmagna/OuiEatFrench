@@ -33,18 +33,9 @@ class UserFarmerType extends AbstractType
             ->add('city', null, array('label' => 'Ville'))
             ->add('phone', null, array('label' => 'Numéro de téléphone'))
             ->add('companyName', null, array('label' => "Nom de l'exploitation"))
-            ->add('companyAdress', null, array(
-                'label'     => "Adresse de l'exploitation (si différent)",
-                'required'  => false
-            ))
-            ->add('companyPostcode', null, array(
-                'label'     => "Code postal (si différent)",
-                'required'  => false
-            ))
-            ->add('companyCity', null, array(
-                'label'     => "Ville (si différent)",
-                'required'  => false
-            ))
+            ->add('companyStreet', null, array('label'     => "Adresse de l'exploitation"))
+            ->add('companyPostcode', null, array('label'     => "Code postal"))
+            ->add('companyCity', null, array('label'     => "Ville"))
             ->add('avatar', null, array(
                 'required'  => false
             ))

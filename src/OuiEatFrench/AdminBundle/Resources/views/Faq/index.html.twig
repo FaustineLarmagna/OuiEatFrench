@@ -11,7 +11,7 @@
         <td><strong>Titre</strong></td>
         <td><strong>Question</strong></td>
         <td><strong>Réponce</strong></td>
-        <td><strong>isibilitée</strong></td>
+        <td><strong>Visibilitée</strong></td>
         <td><strong>Actions</strong></td>
     </tr>
     </thead>
@@ -27,7 +27,7 @@
                     <li><a href={{ path('oui_eat_french_admin_faq_edit', {'id' : entity.id}) }}>Edition</a></li>
                     <li><a class='delete' href={{ path('oui_eat_french_admin_faq_delete', {'id' : entity.id}) }}>Supprimer</a></li>
                     <li><a href={{ path('oui_eat_french_admin_faq_disable', {'id' : entity.id}) }}>
-                        {% if entity.disable == 1 %}Ne plus Afficher{% else %}afficher{% endif %}
+                        {% if entity.disable == 1 %}Ne plus afficher{% else %}Afficher{% endif %}
                     </a></li>
                 </ul>
             </td>

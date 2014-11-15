@@ -1,8 +1,12 @@
-Edito !
-<h3>{{ edito.title }}</h3>
+FAQ !
+<br><br>
 
-<img style="width: 500px; height: 500px;" src="{{ asset("OEF/img_admin_edito/" ~ edito.imageName) }}" alt="{{ edito.imageName }}">
+{% for faq in faqs %}
+<h3>{{ faq.title }}</h3>
+
+<h4>{{ faq.question }}</h4>
 
 <p>
-    {{ edito.text }}
+    {{ faq.answer }}
 </p>
+{% endfor %}

@@ -67,7 +67,7 @@ class UserFarmerController extends Controller
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
         if($query)
         {
-            $data["id"] = $id;
+            $data["farmer"] = $query;
         }
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:show.html.twig', $data);
     }

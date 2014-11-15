@@ -101,21 +101,21 @@ class UserFarmer
     /**
      * @var string
      *
-     * @ORM\Column(name="company_adress", type="string", length=255, nullable=true)
+     * @ORM\Column(name="company_street", type="string", length=255)
      */
-    private $companyAdress;
+    private $companyStreet;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company_postcode", type="integer", length=5, nullable=true)
+     * @ORM\Column(name="company_postcode", type="integer", length=5)
      */
     private $companyPostcode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company_city", type="string", length=255, nullable=true)
+     * @ORM\Column(name="company_city", type="string", length=255)
      */
     private $companyCity;
 
@@ -391,26 +391,26 @@ class UserFarmer
     }
 
     /**
-     * Set companyAdress
+     * Set companyStreet
      *
-     * @param string $companyAdress
+     * @param string $companyStreet
      * @return UserFarmer
      */
-    public function setCompanyAdress($companyAdress)
+    public function setCompanyStreet($companyStreet)
     {
-        $this->companyAdress = $companyAdress;
+        $this->companyStreet = $companyStreet;
 
         return $this;
     }
 
     /**
-     * Get companyAdress
+     * Get companyStreet
      *
      * @return string 
      */
-    public function getCompanyAdress()
+    public function getCompanyStreet()
     {
-        return $this->companyAdress;
+        return $this->companyStreet;
     }
 
     /**
