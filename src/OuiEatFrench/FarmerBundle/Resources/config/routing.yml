@@ -1,3 +1,7 @@
 oui_eat_french_farmer_product:
     resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing/farmerproduct.yml"
     prefix: /farmerproduct
+
+oui_eat_french_user_farmer:
+    resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing/userfarmer.yml"
+    prefix: /
