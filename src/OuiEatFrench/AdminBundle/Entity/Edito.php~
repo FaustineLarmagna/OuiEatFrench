@@ -24,7 +24,7 @@ class Edito
     /**
      * @var boolean
      *
-     * @ORM\Column(name="disable", type="boolean", nullable=true)
+     * @ORM\Column(name="disable", type="boolean")
      */
     private $disable;
 
@@ -151,28 +151,5 @@ class Edito
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Set disable
-     *
-     * @param boolean $disable
-     * @return Edito
-     */
-    public function setDisable($disable)
-    {
-        $this->disable = $disable;
-
-        return $this;
-    }
-
-    /**
-     * Get disable
-     *
-     * @return boolean 
-     */
-    public function getDisable()
-    {
-        return $this->disable;
     }
 }

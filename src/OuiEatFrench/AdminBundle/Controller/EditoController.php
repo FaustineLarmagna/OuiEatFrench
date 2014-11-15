@@ -7,6 +7,19 @@ use OuiEatFrench\AdminBundle\Entity\Edito;
 
 class EditoController extends Controller
 {
+    public function disableAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->getRepository('OuiEatFrenchAdminBundle:Edito')->find($id);
+        if($query)
+        {
+            $query->setDisable(!$query->getDisable());
+            $em->persist($query);
+            $em->flush();
+        }
+        return $this->indexAction();
+    }
+
     public function indexAction()
     {
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Edito')->findAll();

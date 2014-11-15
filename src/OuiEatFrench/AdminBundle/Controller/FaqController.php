@@ -7,6 +7,19 @@ use OuiEatFrench\AdminBundle\Entity\Faq;
 
 class FaqController extends Controller
 {
+    public function disableAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->getRepository('OuiEatFrenchAdminBundle:Faq')->find($id);
+        if($query)
+        {
+            $query->setDisable(!$query->getDisable());
+            $em->persist($query);
+            $em->flush();
+        }
+        return $this->indexAction();
+    }
+
     public function indexAction()
     {
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Faq')->findAll();
