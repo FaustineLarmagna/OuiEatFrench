@@ -8,9 +8,8 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        $edito = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Edito')->findAll();
+        $edito = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Edito')->findOneBy(array('disable' => true));
         $data["edito"] = $edito;
-        var_dump($data);
-        return $this->render('OuiEatFrenchPublicBundle:Home:index.html.twig');
+        return $this->render('OuiEatFrenchPublicBundle:Home:index.html.twig', $data);
     }
 }
