@@ -14,24 +14,16 @@ class FaqType extends AbstractType
     {
         $builder
             ->add('title', 'text', array(
-                "label"     => "Titre",
-                "required"   => true
+                'label'     => 'Titre',
+                'required'   => true
             ))
             ->add('question', 'textarea', array(
-                "label"     => "Question",
-                "required"   => true
+                'label'     => 'Question',
+                'required'   => true
             ))
             ->add('answer', 'textarea', array(
-                "label"     => "Réponce",
-                "required"   => true
-            ))
-            ->add('disable', 'choice', array(
-                'choices' => array(
-                    '0' => 'Non visible',
-                    '1' => 'Visible',
-                ),
-                "label"     => "Réponce",
-                "required"   => true
+                'label'     => 'Réponse',
+                'required'   => true
             ));
     }
 

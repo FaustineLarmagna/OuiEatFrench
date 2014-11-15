@@ -14,16 +14,16 @@ class EditoType extends AbstractType
     {
         $builder
             ->add('title', 'text', array(
-                "label"     => "Titre",
-                "required"   => true
+                'label'     => 'Titre',
+                'required'   => true
             ))
             ->add('text', 'textarea', array(
-                "label"     => "Texte",
-                "required"   => true
+                'label'     => 'Texte',
+                'required'   => true
             ))
             ->add('image', 'file', array(
-                "label"     => "Image",
-                "required"   => true
+                'label'     => 'Image',
+                'required'   => true
             ));
     }
 

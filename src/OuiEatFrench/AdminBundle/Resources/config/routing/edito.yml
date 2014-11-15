@@ -13,3 +13,7 @@ oui_eat_french_admin_edito_edit:
 oui_eat_french_admin_edito_delete:
     pattern:  /supprimer/{id}
     defaults: { _controller: OuiEatFrenchAdminBundle:Edito:delete }
+
+oui_eat_french_admin_edito_disable:
+    pattern:  /visibilite/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Edito:disable }

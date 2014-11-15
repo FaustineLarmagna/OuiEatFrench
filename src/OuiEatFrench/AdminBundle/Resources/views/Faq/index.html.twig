@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
 <a href={{ path('oui_eat_french_admin_faq_create') }}><button class="btn btn-success offset12" type="button">Ajouter</button></a>
-<table class="table table-hover">
+<table class="table">
     <thead>
     <tr>
         <td><strong>Titre</strong></td>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
     {% for entity in entities %}
-        <tr>
+        <tr style="background-color:{% if entity.disable == 1 %}#ADCF4F{% else %}#B4AF91{% endif %}">
             <td>{{ entity.title }}</td>
             <td>{{ entity.question }}</td>
             <td>{{ entity.answer }}</td>
@@ -26,6 +26,9 @@
                 <ul>
                     <li><a href={{ path('oui_eat_french_admin_faq_edit', {'id' : entity.id}) }}>Edition</a></li>
                     <li><a class='delete' href={{ path('oui_eat_french_admin_faq_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_faq_disable', {'id' : entity.id}) }}>
+                        {% if entity.disable == 1 %}Ne plus Afficher{% else %}afficher{% endif %}
+                    </a></li>
                 </ul>
             </td>
         </tr>

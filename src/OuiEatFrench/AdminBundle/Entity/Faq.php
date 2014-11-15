@@ -47,8 +47,7 @@ class Faq
     /**
      * @var boolean
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="disable", type="boolean")
+     * @ORM\Column(name="disable", type="boolean", nullable=true)
      */
     private $disable;
 
