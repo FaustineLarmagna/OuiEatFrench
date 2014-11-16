@@ -1,0 +1,16 @@
+<h3>Candidature de {{farmer.firstname}} {{farmer.lastname}}</h3>
+
+<h4>status : {{farmer.status.name}}</h4>
+
+<ul>
+	<li>Pseudo : {{farmer.username}}</li>
+	<li>Prénom : {{farmer.firstname}}</li>
+	<li>Nom : {{farmer.lastname}}</li>
+	<li>Email : {{farmer.email}}</li>
+	<li>Téléphone : {{farmer.phone}}</li>
+	<li>Adresse : {{farmer.street}} {{farmer.postcode}} {{farmer.city | title}}</li>
+</ul><br>
+<ul>
+	<li>Nom de l'exploitation : {{farmer.companyName}}</li>
+	<li>Adresse de l'exploitation : {{farmer.companyStreet}} {{farmer.companyPostcode}} {{farmer.companyCity}}</li>
+</ul>

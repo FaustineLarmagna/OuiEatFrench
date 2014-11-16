@@ -126,6 +126,12 @@ class UserFarmer
      */
     private $avatar;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UserFarmerStatus", inversedBy="userFarmers")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     */
+    protected $status;
+
 
     /**
      * Get id
@@ -480,5 +486,28 @@ class UserFarmer
     public function getAvatar()
     {
         return $this->avatar;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     * @return UserFarmer
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return \OuiEatFrench\AdminBundle\Entity\UserFarmerStatus 
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

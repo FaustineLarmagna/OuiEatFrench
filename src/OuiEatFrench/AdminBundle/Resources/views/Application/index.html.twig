@@ -1,0 +1,52 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
+<h3>Index des candidatures</h3>
+{% endblock %}
+{% block content %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td><strong>Pseudo</strong></td>
+        <td><strong>Prénom</strong></td>
+        <td><strong>Nom</strong></td>
+        <td><strong>Email</strong></td>
+        <td><strong>Téléphone</strong></td>
+        <td><strong>Adresse</strong></td>
+        <td><strong>Nom de l'exploitation</strong></td>
+        <td><strong>Adresse de l'exploitation</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for farmer in farmers %}
+        <tr>
+            <td style="{% if farmer.status.name == "to_review" %}
+    		background-color:lightgrey;
+    	{% elseif farmer.status.name == "missing_doc" %}
+    		background-color:lightblue;
+    	{% elseif farmer.status.name == "validate" %}
+    		background-color:lightgreen;
+    	{% elseif farmer.status.name == "banned" %}
+    		background-color:tomato;
+    	{% endif %}">{{farmer.username}}</td>
+            <td>{{farmer.firstname}}</td>
+            <td>{{farmer.lastname}}</td>
+            <td>{{farmer.email}}</td>
+            <td>{{farmer.phone}}</td>
+            <td>{{farmer.street}} {{farmer.postcode}} {{farmer.city | title}}</td>
+            <td>{{farmer.companyName}}</td>
+            <td>{{farmer.companyStreet}} {{farmer.companyPostcode}} {{farmer.companyCity | title}}</td>
+            <td>
+                <ul>
+                    <li><a href={{ path('oui_eat_french_admin_application_to_review', {'id' : farmer.id}) }}>Candidature à revoir</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_application_missing_doc', {'id' : farmer.id}) }}>Manque un document</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_application_validate', {'id' : farmer.id}) }}>Valider la candidature</a></li>
+                    <li><a class='delete' href={{ path('oui_eat_french_admin_application_ban', {'id' : farmer.id}) }}>Bannir le producteur</a></li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

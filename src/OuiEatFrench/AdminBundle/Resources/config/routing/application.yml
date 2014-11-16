@@ -1,0 +1,23 @@
+oui_eat_french_admin_application_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:Application:index }
+
+oui_eat_french_admin_application_to_review:
+    pattern:  /revoir/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Application:toReview }
+
+oui_eat_french_admin_application_missing_doc:
+    pattern:  /invalider/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Application:missingDoc }
+
+oui_eat_french_admin_application_validate:
+    pattern:  /valider/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Application:validate }
+
+oui_eat_french_admin_application_ban:
+    pattern:  /bannir/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Application:ban }
+
+oui_eat_french_admin_application_show:
+    pattern:  /voir/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:Application:show }

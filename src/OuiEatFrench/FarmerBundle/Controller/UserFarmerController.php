@@ -17,6 +17,7 @@ class UserFarmerController extends Controller
     public function createAction()
     {
         $entity = new UserFarmer();
+        $entity->setStatus(1);
         $request = $this->get("request");
         $form = $this->createForm("ouieatfrench_farmerbundle_userfarmertype", $entity);
         if ($request->getMethod() == 'POST')

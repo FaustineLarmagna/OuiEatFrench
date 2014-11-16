@@ -21,3 +21,7 @@ oui_eat_french_admin_faq:
 oui_eat_french_admin_edito:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/edito.yml"
     prefix: /edito
+
+oui_eat_french_admin_application:
+    resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/application.yml"
+    prefix: /candidatures
