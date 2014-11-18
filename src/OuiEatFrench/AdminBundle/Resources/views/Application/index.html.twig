@@ -7,7 +7,7 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <td><strong>Pseudo</strong></td>
+        <td><strong>Avatar</strong></td>
         <td><strong>Prénom</strong></td>
         <td><strong>Nom</strong></td>
         <td><strong>Email</strong></td>
@@ -29,7 +29,7 @@
     		background-color:lightgreen;
     	{% elseif farmer.status.name == "banned" %}
     		background-color:tomato;
-    	{% endif %}">{{farmer.username}}</td>
+    	{% endif %}"><a href=""><img width="100px" src="{{ asset("OEF/user_farmer/avatar/" ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar"></a></td>
             <td>{{farmer.firstname}}</td>
             <td>{{farmer.lastname}}</td>
             <td>{{farmer.email}}</td>

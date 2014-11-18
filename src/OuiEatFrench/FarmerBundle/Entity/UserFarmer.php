@@ -31,13 +31,6 @@ class UserFarmer
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=45)
-     */
-    private $username;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
@@ -131,6 +124,13 @@ class UserFarmer
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     protected $status;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_connection", type="date", nullable=true)
+     */
+    private $lastConnection;
 
 
     /**
@@ -509,5 +509,28 @@ class UserFarmer
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set lastConnection
+     *
+     * @param \DateTime $lastConnection
+     * @return UserFarmer
+     */
+    public function setLastConnection($lastConnection)
+    {
+        $this->lastConnection = $lastConnection;
+
+        return $this;
+    }
+
+    /**
+     * Get lastConnection
+     *
+     * @return \DateTime 
+     */
+    public function getLastConnection()
+    {
+        return $this->lastConnection;
     }
 }
