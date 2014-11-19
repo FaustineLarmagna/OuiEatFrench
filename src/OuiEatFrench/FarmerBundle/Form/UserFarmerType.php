@@ -19,7 +19,6 @@ class UserFarmerType extends AbstractType
 
         $builder
             ->add('email', 'email')
-            ->add('username', null, array('label' => 'Pseudo'))
             ->add('password', null, array('label' => 'Mot de passe'))
             ->add('firstname', null, array('label' => 'Prénom'))
             ->add('lastname', null, array('label' => 'Nom'))
