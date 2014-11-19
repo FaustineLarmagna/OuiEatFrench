@@ -4,9 +4,30 @@ namespace OuiEatFrench\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OuiEatFrench\AdminBundle\Entity\Product;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
 {
+    public function ajaxAction()
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        {
+            $name = $request->request->get('name');
+
+            $product = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findOneByName($name);
+
+            if($product)
+            {
+                return new JsonResponse(array($product->getId(), $product->getName(), $product->getDescription(), $product->getImageName()));
+            }
+        }
+        return new JsonResponse('null');
+    }
+
     public function indexAction()
     {
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();

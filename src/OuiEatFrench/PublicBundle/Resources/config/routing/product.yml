@@ -1,3 +1,7 @@
 oui_eat_french_public_product_index:
     pattern:  /
     defaults: { _controller: OuiEatFrenchPublicBundle:Product:index }
+
+oui_eat_french_public_product_ajax:
+    pattern:  /ajax
+    defaults: { _controller: OuiEatFrenchAdminBundle:Product:ajax }

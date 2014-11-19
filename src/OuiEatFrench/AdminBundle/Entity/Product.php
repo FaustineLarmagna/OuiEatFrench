@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * AdminList
  *
  * @ORM\Table(name="product")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="OuiEatFrench\AdminBundle\Repository\ProductRepository")
  */
 class Product
 {
