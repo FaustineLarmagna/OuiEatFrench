@@ -3,14 +3,15 @@
 namespace OuiEatFrench\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Edito
+ * Faq
  *
- * @ORM\Table(name="edito")
+ * @ORM\Table(name="faq")
  * @ORM\Entity
  */
-class Edito
+class Faq
 {
     /**
      * @var integer
@@ -22,15 +23,9 @@ class Edito
     private $id;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="disable", type="boolean", nullable=true)
-     */
-    private $disable;
-
-    /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -38,18 +33,23 @@ class Edito
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="string", length=255)
+     * @ORM\Column(name="question", type="string", length=255)
      */
-    private $text;
+    private $question;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="imageName", type="string", length=255)
+     * @ORM\Column(name="answer", type="string", length=255)
      */
-    private $imageName;
+    private $answer;
 
-    private $image;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="disable", type="boolean", nullable=true)
+     */
+    private $disable;
 
     /**
      * Get id
@@ -65,7 +65,7 @@ class Edito
      * Set title
      *
      * @param string $title
-     * @return Edito
+     * @return Faq
      */
     public function setTitle($title)
     {
@@ -85,79 +85,56 @@ class Edito
     }
 
     /**
-     * Set text
+     * Set question
      *
-     * @param string $text
-     * @return Edito
+     * @param string $question
+     * @return Faq
      */
-    public function setText($text)
+    public function setQuestion($question)
     {
-        $this->text = $text;
+        $this->question = $question;
 
         return $this;
     }
 
     /**
-     * Get text
+     * Get question
      *
      * @return string 
      */
-    public function getText()
+    public function getQuestion()
     {
-        return $this->text;
+        return $this->question;
     }
 
     /**
-     * Set imageName
+     * Set answer
      *
-     * @param string $imageName
-     * @return Edito
+     * @param string $answer
+     * @return Faq
      */
-    public function setImageName($imageName)
+    public function setAnswer($answer)
     {
-        $this->imageName = $imageName;
+        $this->answer = $answer;
 
         return $this;
     }
 
     /**
-     * Get imageName
+     * Get answer
      *
      * @return string 
      */
-    public function getImageName()
+    public function getAnswer()
     {
-        return $this->imageName;
-    }
-
-    /**
-     * Set image
-     *
-     * @param string $image
-     * @return Edito
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string 
-     */
-    public function getImage()
-    {
-        return $this->image;
+        return $this->answer;
     }
 
     /**
      * Set disable
      *
-     * @param boolean $disable
-     * @return Edito
+     * @param $disable
+     * @return Faq
      */
     public function setDisable($disable)
     {
@@ -169,7 +146,7 @@ class Edito
     /**
      * Get disable
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getDisable()
     {

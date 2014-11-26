@@ -41,6 +41,12 @@ class ProductType extends AbstractType
                 'multiple'  => true,
                 "required"   => false
             ))
+            ->add('season', 'entity', array(
+                "label"     => "Saisons",
+                "class"     => 'OuiEatFrench\AdminBundle\Entity\Season',
+                'multiple'  => true,
+                "required"   => true
+            ))
             ->add('image', 'file', array(
                 "label"     => "Image",
                 "required"   => true

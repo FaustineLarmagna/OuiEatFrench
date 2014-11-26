@@ -11,6 +11,7 @@
         <td><strong>Image</strong></td>
         <td><strong>Nom</strong></td>
         <td><strong>Description</strong></td>
+        <td><strong>Saisons</strong></td>
         <td><strong>Calories pour 100g</strong></td>
         <td><strong>Actions</strong></td>
     </tr>
@@ -21,6 +22,11 @@
             <td><img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ entity.imageName) }}" alt="{{ entity.imageName }}"></td>
             <td>{{ entity.name }}</td>
             <td>{{ entity.description }}</td>
+            <td>
+                {% for season in entity.season %}
+                    -&nbsp;{{ season.name }}<br>
+                {% endfor %}
+            </td>
             <td>{{ entity.calories }}</td>
             <td>
                 <ul>

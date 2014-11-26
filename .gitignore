@@ -9,4 +9,4 @@
 /vendor/
 /bin/
 /composer.phar
-/conposer.lock
+/composer.lock

@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * AdminList
  *
  * @ORM\Table(name="product")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="OuiEatFrench\AdminBundle\Repository\ProductRepository")
  */
 class Product
 {
@@ -69,7 +69,12 @@ class Product
     private $filter;
 
     /**
-     * @Assert\NotBlank()
+     * @ORM\ManyToMany(targetEntity="Saison")
+     * @ORM\JoinColumn(name="saison_id", referencedColumnName="id")
+     */
+    private $saison;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumn(name="parent_product_id", referencedColumnName="id")
      */
@@ -267,5 +272,28 @@ class Product
     public function getCalories()
     {
         return $this->calories;
+    }
+
+    /**
+     * Set parentProduct
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Product $parentProduct
+     * @return Product
+     */
+    public function setParentProduct(\OuiEatFrench\AdminBundle\Entity\Product $parentProduct = null)
+    {
+        $this->parentProduct = $parentProduct;
+
+        return $this;
+    }
+
+    /**
+     * Get parentProduct
+     *
+     * @return \OuiEatFrench\AdminBundle\Entity\Product 
+     */
+    public function getParentProduct()
+    {
+        return $this->parentProduct;
     }
 }
