@@ -69,6 +69,12 @@ class Product
     private $filter;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Season")
+     * @ORM\JoinColumn(name="season_id", referencedColumnName="id")
+     */
+    private $season;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumn(name="parent_product_id", referencedColumnName="id")
      */
@@ -289,5 +295,38 @@ class Product
     public function getParentProduct()
     {
         return $this->parentProduct;
+    }
+
+    /**
+     * Add season
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Season $season
+     * @return Product
+     */
+    public function addSeason(\OuiEatFrench\AdminBundle\Entity\Season $season)
+    {
+        $this->season[] = $season;
+
+        return $this;
+    }
+
+    /**
+     * Remove season
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\Season $season
+     */
+    public function removeSeason(\OuiEatFrench\AdminBundle\Entity\Season $season)
+    {
+        $this->season->removeElement($season);
+    }
+
+    /**
+     * Get season
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSeason()
+    {
+        return $this->season;
     }
 }
