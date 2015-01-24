@@ -86,10 +86,6 @@ class Product
     protected $farmerProducts;
 
 
-    public function __construct() {
-        $this->farmerProducts = new ArrayCollection();
-    }
-
     public function __toString()
     {
         return $this->name;
@@ -225,7 +221,8 @@ class Product
      */
     public function __construct()
     {
-        $this->filter = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->farmerProducts = new ArrayCollection();
+        $this->filter = new ArrayCollection();
     }
 
     /**

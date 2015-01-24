@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Farmers-Products
+ * Farmer-Product
  *
- * @ORM\Table(name="farmers_products")
+ * @ORM\Table(name="farmer_product")
  * @ORM\Entity()
  */
 class FarmerProduct
