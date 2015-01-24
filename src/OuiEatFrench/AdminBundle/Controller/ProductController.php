@@ -17,15 +17,86 @@ class ProductController extends Controller
         if($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
         {
             $name = $request->request->get('name');
+            $season = $request->request->get('season');
+            $calories = $request->request->get('calories');
+            $category = $request->request->get('category');
 
-            $product = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findOneByName($name);
-
-            if($product)
+            $table = array();
+            if($name != 'all')
             {
-                return new JsonResponse(array($product->getId(), $product->getName(), $product->getDescription(), $product->getImageName()));
+                $table['name'] = $name;
+                $productsByName = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findBy($table);
             }
+            else
+            {
+                $productsByName = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
+            }
+
+            if($season != 'all')
+            {
+                $productsBySeason = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAllProductBySeason($season);
+
+                $merge = array();
+                foreach($productsByName as $value)
+                {
+                    if(in_array($value, $productsBySeason))
+                    {
+                        $merge[] = $value;
+                    }
+                }
+
+                $idProducts = array();
+                foreach($merge as $product)
+                    $idProducts[] = $product->getId();
+            }
+            else
+            {
+                $products = $productsByName;
+                $idProducts = array();
+                foreach($products as $product)
+                    $idProducts[] = $product->getId();
+            }
+
+            if($calories != 0)
+            {
+                $productsByCalories = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAllProductByCalories($calories);
+                $idProductsByCalories = array();
+                foreach($productsByCalories as $productByCalories)
+                    $idProductsByCalories[] = $productByCalories->getId();
+
+                $merge = array();
+                foreach($idProductsByCalories as $value)
+                {
+                    if(in_array($value, $idProducts))
+                    {
+                        $merge[] = $value;
+                    }
+                }
+                $idProducts = $merge;
+            }
+
+            if($category != 'all')
+            {
+                $category = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Category')->findByName($category);
+                $productsByCategory = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findByCategory($category);
+                $idProductsByCategory = array();
+                foreach($productsByCategory as $productByCategory)
+                    $idProductsByCategory[] = $productByCategory->getId();
+
+                $merge = array();
+                foreach($idProductsByCategory as $value)
+                {
+                    if(in_array($value, $idProducts))
+                    {
+                        $merge[] = $value;
+                    }
+                }
+                $idProducts = $merge;
+            }
+
+            return new JsonResponse(json_encode($idProducts));
         }
-        return new JsonResponse('null');
+        return new JsonResponse('toto');
     }
 
     public function indexAction()

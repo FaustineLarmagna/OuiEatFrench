@@ -10,6 +10,7 @@ class ProductController extends Controller
     {
         $products = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findBy(array('parentProduct' => null));
         $data["products"] = $products;
+
         return $this->render('OuiEatFrenchPublicBundle:Product:index.html.twig', $data);
     }
 }

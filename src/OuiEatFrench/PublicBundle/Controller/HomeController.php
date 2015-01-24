@@ -10,6 +10,7 @@ class HomeController extends Controller
     {
         $edito = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Edito')->findOneBy(array('disable' => true));
         $data["edito"] = $edito;
+
         return $this->render('OuiEatFrenchPublicBundle:Home:index.html.twig', $data);
     }
 }
