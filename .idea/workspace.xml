@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Repository/SeasonRepository.php" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/translations/messages.fr.xlf" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/IMAG0663.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/IMAG0664.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/courgette.jpeg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/framboise.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/wp_biflam.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/HomeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Repository/ProductRepository.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Repository/ProductRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Season.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Season.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OuiEatFrench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +34,7 @@
       <file leaf-file-name="ProductController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="5" selection-start="3700" selection-end="3700" vertical-scroll-proportion="0.73326135" vertical-offset="1085" max-vertical-offset="4014">
+            <state line="45" column="17" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.77213824" vertical-offset="23" max-vertical-offset="4158">
               <folding />
             </state>
           </provider>
@@ -751,7 +744,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="5" selection-start="3700" selection-end="3700" vertical-scroll-proportion="0.73326135" vertical-offset="1085" max-vertical-offset="4014">
+        <state line="45" column="17" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.77213824" vertical-offset="23" max-vertical-offset="4158">
           <folding />
         </state>
       </provider>

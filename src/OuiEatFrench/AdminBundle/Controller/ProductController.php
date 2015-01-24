@@ -21,40 +21,48 @@ class ProductController extends Controller
             $calories = $request->request->get('calories');
             $category = $request->request->get('category');
 
+            $products = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
+            $idProducts = array();
+            foreach($products as $product)
+                $idProducts[] = $product->getId();
+
             $table = array();
             if($name != 'all')
             {
                 $table['name'] = $name;
                 $productsByName = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findBy($table);
-            }
-            else
-            {
-                $productsByName = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
+
+                $idProductsByName = array();
+                foreach($productsByName as $productByName)
+                    $idProductsByName[] = $productByName->getId();
+
+                $merge = array();
+                foreach($idProductsByName as $value)
+                {
+                    if(in_array($value, $idProducts))
+                    {
+                        $merge[] = $value;
+                    }
+                }
+                $idProducts = $merge;
             }
 
             if($season != 'all')
             {
                 $productsBySeason = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAllProductBySeason($season);
+                $idProductsBySeason = array();
+                foreach($productsBySeason as $productBySeason)
+                    $idProductsBySeason[] = $productBySeason->getId();
 
                 $merge = array();
-                foreach($productsByName as $value)
+                foreach($idProductsBySeason as $value)
                 {
-                    if(in_array($value, $productsBySeason))
+                    if(in_array($value, $idProducts))
                     {
                         $merge[] = $value;
                     }
                 }
-
-                $idProducts = array();
-                foreach($merge as $product)
-                    $idProducts[] = $product->getId();
-            }
-            else
-            {
-                $products = $productsByName;
-                $idProducts = array();
-                foreach($products as $product)
-                    $idProducts[] = $product->getId();
+                $idProducts = $merge;
             }
 
             if($calories != 0)
