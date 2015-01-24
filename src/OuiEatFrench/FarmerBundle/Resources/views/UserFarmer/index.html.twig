@@ -1,6 +1,6 @@
 Index producteurs 
 <br><br>
-<a href={{ path('oui_eat_french_user_farmer_create') }}>Ajouter</a>
+<a href={{ path('oui_eat_french_farmer_user_register') }}>S'inscrire</a>
 <table class="table table-hover">
     <thead>
     <tr>
@@ -14,9 +14,9 @@ Index producteurs
             <td>{{ entity.firstname }} {{ entity.lastname }}</td>
             <td>
                 <ul>
-                    <li><a href={{ path('oui_eat_french_user_farmer_show', {'id' : entity.id}) }}>Voir</a></li>
-                    <li><a href={{ path('oui_eat_french_user_farmer_edit', {'id' : entity.id}) }}>Edition</a></li>
-                    <li><a class='delete' href={{ path('oui_eat_french_user_farmer_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+                    <li><a href={{ path('oui_eat_french_farmer_user_show', {'id' : entity.id}) }}>Voir</a></li>
+                    <li><a href={{ path('oui_eat_french_farmer_user_edit', {'id' : entity.id}) }}>Edition</a></li>
+                    <li><a class='delete' href={{ path('oui_eat_french_farmer_user_delete', {'id' : entity.id}) }}>Supprimer</a></li>
                 </ul>
             </td>
         </tr>

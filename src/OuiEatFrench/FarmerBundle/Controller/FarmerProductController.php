@@ -7,14 +7,17 @@ use OuiEatFrench\FarmerBundle\Entity\FarmerProduct;
 
 class FarmerProductController extends Controller
 {
-    public function indexAction()
+    public function indexAction($farmerId)
     {
-        $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findAll();
-        $data["entities"] = $entities;
+        $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
+        $data["products"] = $entities;
+        $data['farmer'] = $farmerId;
+        //$data['farmer'] = $this->get('security.context')->getToken()->getUser();
+        
         return $this->render('OuiEatFrenchFarmerBundle:FarmerProduct:index.html.twig', $data);
     }
 
-    public function createAction()
+    public function addAction($farmerId, $id)
     {
     	$user = $this->get('security.context')->getToken()->getUser();
         $entity = new FarmerProduct();
@@ -37,7 +40,7 @@ class FarmerProductController extends Controller
         return $this->render('OuiEatFrenchFarmerBundle:FarmerProduct:create.html.twig', $data);
     }
 
-    public function editAction($id)
+    public function editAction($farmerId, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
@@ -63,7 +66,7 @@ class FarmerProductController extends Controller
         return $this->render('OuiEatFrenchFarmerBundle:FarmerProduct:edit.html.twig', $data);
     }
 
-    public function deleteAction($id)
+    public function deleteAction($farmerId, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);

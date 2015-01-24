@@ -1,0 +1,21 @@
+<h3>Connexion</h3>
+
+{% if error %}
+    <div>{{ error.message }}</div>
+{% endif %}
+
+<form action="{{ path('monstand_connection_check') }}" method="post">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="_username" value="{{ last_username }}" />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="_password" />
+
+    {#
+        If you want to control the URL the user
+        is redirected to on success (more details below)
+        <input type="hidden" name="_target_path" value="/account" />
+    #}
+
+    <button type="submit">Je me connecte !</button>
+</form>

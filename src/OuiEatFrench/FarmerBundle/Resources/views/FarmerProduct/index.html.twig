@@ -1,23 +1,35 @@
-Index des liaisons entre producteurs et produits
-<a href={{ path('oui_eat_french_farmer_product_create') }}>Ajouter</a>
+Liste des produits ajoutables à votre stand
+
 <table class="table table-hover">
-    <thead>
+{% set count = 0 %}
+{% for product in products %}
+    {% if %}
     <tr>
-        <td>Nom</td>
-        <td>Actions</td>
+    {% endif %}
+
+    <div class="product">
+        <img src="{{ asset('OEF/img_admin_product/' ~ product.imageName) }}" alt="image de {{ product.name }}">
+        <div class="product_description">
+            {{ product.name }}
+        </div>
+    </div>
+
+    <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.description }}</td>
+        <td><img src="{{ asset('OEF/img_admin_product/' ~ product.imageName) }}" alt="image de {{ product.name }}"></td>
+        <td>
+            <!-- <ul>
+                <li><a href={{ path('oui_eat_french_farmer_product_edit', {'id' : entity.id}) }}>Edition</a></li>
+                <li><a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+            </ul> -->
+        </td>
     </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td>{{ entity.name }}</td>
-            <td>
-                <ul>
-                    <li><a href={{ path('oui_eat_french_farmer_product_edit', {'id' : entity.id}) }}>Edition</a></li>
-                    <li><a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'id' : entity.id}) }}>Supprimer</a></li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
+
+    {% set count = count + 1 %}
+    {% if %}
+    </tr>
+    {% endif %}
+{% endfor %}
 </table>

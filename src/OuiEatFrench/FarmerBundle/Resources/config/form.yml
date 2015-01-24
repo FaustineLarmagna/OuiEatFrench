@@ -8,6 +8,12 @@ services:
         tags:
               - { name: form.type, alias: ouieatfrench_farmerbundle_farmerproducttype }
 
+    oui_eat_french.farmer.form.type.userfarmershort:
+        class: OuiEatFrench\FarmerBundle\Form\UserFarmerShortType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: ouieatfrench_farmerbundle_userfarmershorttype }
+
     oui_eat_french.farmer.form.type.userfarmer:
         class: OuiEatFrench\FarmerBundle\Form\UserFarmerType
         arguments: [ @service_container ]
