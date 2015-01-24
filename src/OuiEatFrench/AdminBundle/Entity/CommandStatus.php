@@ -1,14 +1,14 @@
 <?php
 
-namespace OuiEatFrench\CommandBundle\Entity;
+namespace OuiEatFrench\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CommandStatus
  *
- * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Table(name="command_status")
+ * @ORM\Entity()
  */
 class CommandStatus
 {

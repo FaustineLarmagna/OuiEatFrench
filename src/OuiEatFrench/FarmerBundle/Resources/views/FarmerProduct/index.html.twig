@@ -3,7 +3,8 @@ Liste des produits ajoutables à votre stand
 <table class="table table-hover">
 {% set count = 0 %}
 {% for product in products %}
-    {% if %}
+    {% set count = 1 %}             {# Pas le bon design. Faut une page avec ajouter un produit et un encadré apparait avec formulaire voir maquette sur le drive #}
+    {% if count = 4 %}
     <tr>
     {% endif %}
 

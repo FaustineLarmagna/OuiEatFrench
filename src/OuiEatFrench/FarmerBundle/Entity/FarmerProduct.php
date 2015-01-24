@@ -23,22 +23,6 @@ class FarmerProduct
      */
     private $id;
 
-    // /**
-    //  * @var integer
-    //  *
-    //  * @Assert\NotBlank()
-    //  * @ORM\Column(name="farmer_id", type="integer")
-    //  */
-    // private $idFarmer;
-
-    // /**
-    //  * @var integer
-    //  *
-    //  * @Assert\NotBlank()
-    //  * @ORM\Column(name="product_id", type="integer")
-    //  */
-    // private $idProduct;
-
     /** 
      * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\Product", inversedBy="farmerProducts")
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
@@ -111,6 +95,22 @@ class FarmerProduct
      * @ORM\Column(name="conservation", type="text")
      */
     private $conservation;
+
+    /**
+     * @var \Datetime
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="harvest", type="date")
+     */
+    private $harvest;
+
+    /**
+     * @var \DateTime
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="plantation", type="date")
+     */
+    private $plantation;
 
 
     public function __toString()
@@ -326,5 +326,49 @@ class FarmerProduct
     public function getConservation()
     {
         return $this->conservation;
+    }
+
+    /**
+     * Set Harvest
+     *
+     * @param string $harvest
+     * @return FarmerProduct
+     */
+    public function setHarvest($harvest)
+    {
+        $this->harvest = $harvest;
+        return $this;
+    }
+
+    /**
+     * Get harvest
+     *
+     * @return string
+     */
+    public function getHarvest()
+    {
+        return $this->harvest;
+    }
+
+    /**
+     * Set plantation
+     *
+     * @param string $plantation
+     * @return FarmerProduct
+     */
+    public function setPlantation($plantation)
+    {
+        $this->plantation = $plantation;
+        return $this;
+    }
+
+    /**
+     * Get plantation
+     *
+     * @return string
+     */
+    public function getPlantation()
+    {
+        return $this->plantation;
     }
 }

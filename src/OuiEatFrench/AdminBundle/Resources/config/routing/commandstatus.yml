@@ -1,0 +1,15 @@
+oui_eat_french_admin_commandstatus_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:CommandStatus:index }
+
+oui_eat_french_admin_commandstatus_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:CommandStatus:create }
+
+oui_eat_french_admin_commandstatus_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:CommandStatus:edit }
+
+oui_eat_french_admin_commandstatus_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:CommandStatus:delete }
