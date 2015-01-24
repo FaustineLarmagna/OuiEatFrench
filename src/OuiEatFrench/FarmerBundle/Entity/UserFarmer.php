@@ -3,6 +3,7 @@
 namespace OuiEatFrench\FarmerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * UserFarmer
@@ -24,91 +25,91 @@ class UserFarmer
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100)
+     * @ORM\Column(name="email", type="string", length=100, nullable=false)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=45)
+     * @ORM\Column(name="firstname", type="string", length=45, nullable=false)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=45)
+     * @ORM\Column(name="lastname", type="string", length=45, nullable=false)
      */
     private $lastname;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthday", type="date")
+     * @ORM\Column(name="birthday", type="date", nullable=true)
      */
     private $birthday;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="street", type="string", length=255)
+     * @ORM\Column(name="street", type="string", length=255, nullable=true)
      */
     private $street;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="postcode", length=5, type="integer")
+     * @ORM\Column(name="postcode", length=5, type="integer", nullable=true)
      */
     private $postcode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=100)
+     * @ORM\Column(name="city", type="string", length=100, nullable=true)
      */
     private $city;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="integer", length=10, nullable=true)
      */
     private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company_name", type="string", length=100)
+     * @ORM\Column(name="company_name", type="string", length=100, nullable=true)
      */
     private $companyName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company_street", type="string", length=255)
+     * @ORM\Column(name="company_street", type="string", length=255, nullable=true)
      */
     private $companyStreet;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company_postcode", type="integer", length=5)
+     * @ORM\Column(name="company_postcode", type="integer", length=5, nullable=true)
      */
     private $companyPostcode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company_city", type="string", length=255)
+     * @ORM\Column(name="company_city", type="string", length=255, nullable=true)
      */
     private $companyCity;
 
@@ -119,11 +120,7 @@ class UserFarmer
      */
     private $avatar;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UserFarmerStatus", inversedBy="userFarmers")
-     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
-     */
-    protected $status;
+    private $fileAvatar;
 
     /**
      * @var \DateTime
@@ -132,6 +129,21 @@ class UserFarmer
      */
     private $lastConnection;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UserFarmerStatus", inversedBy="userFarmers")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
+     */
+    private $status;
+
+    /*
+     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="farmer")
+     */
+    private $farmerProducts;
+
+
+    public function __construct() {
+        $this->farmerProducts = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -489,6 +501,39 @@ class UserFarmer
     }
 
     /**
+     * Set fileAvatar
+     *
+     * @param string $avatar
+     * @return UserFarmer
+     */
+    public function setFileAvatar($fileAvatar)
+    {
+        $this->fileAvatar = $fileAvatar;
+
+        return $this;
+    }
+
+    /**
+     * Get fileAvatar
+     *
+     * @return string 
+     */
+    public function getFileAvatar()
+    {
+        return $this->fileAvatar;
+    }
+
+    public function getUploadDir()
+    {
+        return 'OEF/user_farmer/avatar';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    /**
      * Set status
      *
      * @param integer $status
@@ -532,5 +577,10 @@ class UserFarmer
     public function getLastConnection()
     {
         return $this->lastConnection;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER_FARMER');
     }
 }

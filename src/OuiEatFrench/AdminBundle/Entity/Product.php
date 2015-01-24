@@ -80,6 +80,16 @@ class Product
      */
     private $parentProduct;
 
+    /*
+     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="product")
+     */
+    protected $farmerProducts;
+
+
+    public function __construct() {
+        $this->farmerProducts = new ArrayCollection();
+    }
+
     public function __toString()
     {
         return $this->name;

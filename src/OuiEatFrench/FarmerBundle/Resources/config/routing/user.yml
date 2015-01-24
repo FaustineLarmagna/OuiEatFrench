@@ -1,0 +1,24 @@
+# Show every products in the farmer's stand
+oui_eat_french_farmer_user_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:index }
+
+# To deal with farmer inscriptions
+oui_eat_french_farmer_user_register:
+    pattern:  /inscription
+    defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:register }
+
+# A farmer edits his account
+oui_eat_french_farmer_user_edit:
+    pattern:  /{id}/editer
+    defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:edit }
+
+# A farmer looks his profil
+oui_eat_french_farmer_user_show:
+    pattern:  /{id}/profil
+    defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:show }
+
+# A farmer deletes his account
+oui_eat_french_farmer_user_delete:
+    pattern:  /{id}/supprimer
+    defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:delete }

@@ -1,16 +1,29 @@
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
+        OuiEatFrench\FarmerBundle\UserFarmer: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        user_farmer_area:
+            entity: { class: OuiEatFrenchFarmerBundle:UserFarmer, property: email }
         main:
             id: fos_user.user_provider.username
 
     firewalls:
+        # user_farmer_area:
+        #     pattern: ^/monstand
+        #     anonymous:      false
+        #     provider:       user_farmer_area
+        #     form_login:
+        #         login_path: oui_eat_french_farmer_connection
+        #         check_path: oui_eat_french_farmer_connection_check
+        #    logout:
+        #        path:   /monstand/deconnexion
+        #        target: /monstand
         main:
             pattern: ^/
             anonymous:      true
@@ -26,3 +39,5 @@ security:
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        #- { path: ^/monstand, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        #- { path: ^/monstand/, roles: ROLE_USER_FARMER, requires_channel: https }
