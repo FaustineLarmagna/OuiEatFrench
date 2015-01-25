@@ -21,17 +21,9 @@
     <tbody>
     {% for farmer in farmers %}
         <tr>
-            <td style="{% if farmer.status.name == "to_review" %}
-    		background-color:lightgrey;
-    	{% elseif farmer.status.name == "missing_doc" %}
-    		background-color:lightblue;
-    	{% elseif farmer.status.name == "validate" %}
-    		background-color:lightgreen;
-    	{% elseif farmer.status.name == "banned" %}
-    		background-color:tomato;
-    	{% endif %}"><a href=""><img width="100px" src="{{ asset("OEF/user_farmer/avatar/" ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar"></a></td>
-            <td>{{farmer.firstname}}</td>
-            <td>{{farmer.lastname}}</td>
+            <td><a href=""><img width="100px" src="{{ asset("OEF/user_farmer/avatar/" ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar"></a></td>
+            <td style="background-color:{{ farmer.status.color }};">{{farmer.firstname}}</td>
+            <td style="background-color:{{ farmer.status.color }};">{{farmer.lastname}}</td>
             <td>{{farmer.email}}</td>
             <td>{{farmer.phone}}</td>
             <td>{{farmer.street}} {{farmer.postcode}} {{farmer.city | title}}</td>
@@ -39,10 +31,11 @@
             <td>{{farmer.companyStreet}} {{farmer.companyPostcode}} {{farmer.companyCity | title}}</td>
             <td>
                 <ul>
-                    <li><a href={{ path('oui_eat_french_admin_application_to_review', {'id' : farmer.id}) }}>Candidature à revoir</a></li>
-                    <li><a href={{ path('oui_eat_french_admin_application_missing_doc', {'id' : farmer.id}) }}>Manque un document</a></li>
-                    <li><a href={{ path('oui_eat_french_admin_application_validate', {'id' : farmer.id}) }}>Valider la candidature</a></li>
-                    <li><a class='delete' href={{ path('oui_eat_french_admin_application_ban', {'id' : farmer.id}) }}>Bannir le producteur</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 1}) }}>Candidature à revoir</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 2}) }}>Manque un document</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 3}) }}>Valider la candidature</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 4}) }}>Bannir le producteur</a></li>
+                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 5}) }}>En cours</a></li>
                 </ul>
             </td>
         </tr>

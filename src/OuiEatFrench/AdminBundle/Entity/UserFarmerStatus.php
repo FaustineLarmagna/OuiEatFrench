@@ -28,6 +28,12 @@ class UserFarmerStatus
      */
     private $name;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=255)
+     */
+    private $color;
 
     /**
      * Get id
@@ -60,5 +66,21 @@ class UserFarmerStatus
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 }
