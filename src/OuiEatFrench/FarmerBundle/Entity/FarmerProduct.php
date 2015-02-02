@@ -39,7 +39,6 @@ class FarmerProduct
     /**
      * @var boolean
      *
-     * @Assert\NotBlank()
      * @ORM\Column(name="selling", type="boolean")
      */
     private $selling = false;
@@ -56,7 +55,7 @@ class FarmerProduct
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="unit_price", type="integer")
+     * @ORM\Column(name="unit_price", type="float")
      */
     private $unitPrice;
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Stand Producteur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bootstrap/css/bootstrap-responsive.css')}}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bundles/ouieatfrenchfarmer/css/style.css')}}" rel="stylesheet" media="screen">
+</head>
+<body>
+<!--<script src="http://code.jquery.com/jquery.js"></script>-->
+<script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li>
+                        <a href="">Mes commandes</a>
+                    </li>
+                    <li>
+                        <a href="">Mon catalogue</a>
+                    </li>
+                    <li>
+                        <a href="">Mon stock</a>
+                    </li>
+                    <li>
+                        <a href="">Mon profil</a>
+                    </li>
+                    <li>
+                        <a href="">Déconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <br>
+    <br>
+    <br>
+    {% block title %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

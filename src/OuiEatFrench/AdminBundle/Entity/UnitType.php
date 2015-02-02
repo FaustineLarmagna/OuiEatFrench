@@ -33,7 +33,7 @@ class UnitType
 
     public function __toString()
     {
-        return "Unit Type";
+        return $this->name;
     }
 
     /**

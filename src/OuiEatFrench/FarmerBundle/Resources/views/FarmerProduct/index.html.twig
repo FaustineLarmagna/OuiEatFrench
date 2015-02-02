@@ -1,36 +1,34 @@
-Liste des produits ajoutables à votre stand
+{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
+{% block content %}
+<div style="width:100%;height:80px;border-style:solid;text-align:center;padding-top:15px;margin-bottom:40px;letter-spacing:1px;margin-top:20px">
+    <a href="{{ path('oui_eat_french_farmer_product_add', {'farmerId' : farmer.id}) }}"><h3>Ajouter un produit à mon stand</h3></a>
+</div>
 
-<table class="table table-hover">
-{% set count = 0 %}
-{% for product in products %}
-    {% set count = 1 %}             {# Pas le bon design. Faut une page avec ajouter un produit et un encadré apparait avec formulaire voir maquette sur le drive #}
-    {% if count = 4 %}
-    <tr>
-    {% endif %}
-
-    <div class="product">
-        <img src="{{ asset('OEF/img_admin_product/' ~ product.imageName) }}" alt="image de {{ product.name }}">
+{% if farmerproducts|length == 0 %}
+    Vous n'avez aucun produit dans votre stand
+{% else %}
+<div id="farmerproducts">
+{% for farmerproduct in farmerproducts %}
+    <div class="farmerproduct" style="float:{% if loop.index is odd %}left{% else %}right{% endif %};">
+        <div class="title_product"><span style="float:left;">{{ farmerproduct.product.name|capitalize }}</span> <span style="float:right;"><a href={{ path('oui_eat_french_farmer_product_edit', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Modifier</a> | <a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Supprimer</a></span></div><div style="clear:both"></div>
         <div class="product_description">
-            {{ product.name }}
+            <img src="{{ asset('OEF/img_admin_product/' ~ farmerproduct.product.imageName) }}" width="100" alt="image de {{ farmerproduct.product.name }}" class="product_img">
+            <div class="product_description_left">
+                <span class="product_attribute">Récolte</span> : {{ farmerproduct.harvest|date('M Y') }}<br>
+                <span class="product_attribute">Agriculture</span> : {{ farmerproduct.agricultureType }}<br>
+                <span class="product_attribute">Prix</span> : {{ farmerproduct.unitPrice }}€<br>
+                <span class="product_attribute">Unité</span> : {{ farmerproduct.unitType }}<br>
+                <span class="product_attribute">Stock</span> : {{ farmerproduct.unitQuantity }} unité(s)
+            </div>
+            <div class="product_description_right">
+                <span class="product_attribute">Plantation</span> : {{ farmerproduct.plantation|date('M Y') }}<br>
+                <span class="product_attribute">Minimum</span> : {{ farmerproduct.unitMinimum }} unité(s)<br>
+                <span class="product_attribute">Conservation</span> : {{ farmerproduct.conservation }}<br>
+            </div>
         </div>
     </div>
-
-    <tr>
-        <td>{{ product.name }}</td>
-        <td>{{ product.category }}</td>
-        <td>{{ product.description }}</td>
-        <td><img src="{{ asset('OEF/img_admin_product/' ~ product.imageName) }}" alt="image de {{ product.name }}"></td>
-        <td>
-            <!-- <ul>
-                <li><a href={{ path('oui_eat_french_farmer_product_edit', {'id' : entity.id}) }}>Edition</a></li>
-                <li><a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'id' : entity.id}) }}>Supprimer</a></li>
-            </ul> -->
-        </td>
-    </tr>
-
-    {% set count = count + 1 %}
-    {% if %}
-    </tr>
-    {% endif %}
 {% endfor %}
-</table>
+</div>
+{% endif %}
+
+{% endblock %}

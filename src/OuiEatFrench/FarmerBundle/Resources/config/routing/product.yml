@@ -4,7 +4,7 @@ oui_eat_french_farmer_product_index:
 
 # Add product to the farmer's stand
 oui_eat_french_farmer_product_add:
-    pattern:  /{id}/ajouter
+    pattern:  /ajouter
     defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:add }
 
 # Edit farmerproduct relationship (stocks and all)

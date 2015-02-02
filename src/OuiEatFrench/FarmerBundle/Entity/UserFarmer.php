@@ -145,6 +145,11 @@ class UserFarmer
         $this->farmerProducts = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
+
     /**
      * Get id
      *
