@@ -1,16 +1,17 @@
 <?php
 
-namespace OuiEatFrench\CommandBundle\Entity;
+namespace OuiEatFrench\AdminBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CommandStatus
+ * AgricultureType
  *
- * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Table(name="agriculture_type")
+ * @ORM\Entity()
  */
-class CommandStatus
+class AgricultureType
 {
     /**
      * @var integer
@@ -24,15 +25,21 @@ class CommandStatus
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="name", type="string")
      */
     private $name;
 
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -43,7 +50,7 @@ class CommandStatus
      * Set name
      *
      * @param string $name
-     * @return CommandStatus
+     * @return AgricultureType
      */
     public function setName($name)
     {
@@ -55,7 +62,7 @@ class CommandStatus
     /**
      * Get name
      *
-     * @return string 
+     * @return integer
      */
     public function getName()
     {

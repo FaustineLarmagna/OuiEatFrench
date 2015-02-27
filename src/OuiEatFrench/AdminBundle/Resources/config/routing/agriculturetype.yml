@@ -1,0 +1,15 @@
+oui_eat_french_admin_agriculturetype_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:AgricultureType:index }
+
+oui_eat_french_admin_agriculturetype_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:AgricultureType:create }
+
+oui_eat_french_admin_agriculturetype_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:AgricultureType:edit }
+
+oui_eat_french_admin_agriculturetype_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:AgricultureType:delete }

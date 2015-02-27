@@ -8,38 +8,51 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FarmerProductType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            /*->add('idFarmer', 'integer', array(
-                "label"     => "Producteur"
-                "required"  => true
-            ))*/
-            ->add('idProduct', 'integer', array(
-                "label"     => 'Produit',
-                "class"     => 'OuiEatFrench\AdminBundle\Entity\Product',
-                "required"  => true
-            ))
-            ->add('unitPrice', 'integer', array(
-                "label"     => "Prix à l'unité",
-                "required"  => true
-            ))
-            ->add('kiloPrice', 'integer', array(
-                "label"     => "Prix au kilo",
-                "required"  => true
-            ))
-            ->add('unitQuantity', 'integer', array(
-                "label"     => "Quantité d'unité",
-                "required"  => true
-            ))
-            ->add('kiloQuantity', 'integer', array(
-                "label"     => "Quantité de kilo",
-                "required"  => true
-            ))
+            ->add('product', null, array(
+                'label' => 'Produit',
+                'required' => true
+                ))
+            ->add('plantation', 'date', array(
+                'required'  => true,
+                'format'    => 'ddMMyyyy',
+                'years'     => range(date('Y') -5, date('Y'))
+                ))
+            ->add('harvest', 'date', array(
+                'label' => 'Récolte',
+                'required' => true,
+                'format' => 'ddMMyyyy',
+                'years'     => range(date('Y') -5, date('Y'))
+                ))
+            ->add('unitMinimum', null, array(
+                'label' => "Minimum d'unité pour la vente",
+                'required' => true
+                ))
+            ->add('agricultureType', null, array(
+                'label' => "Type d'agriculture",
+                'required' => true
+                ))
+            ->add('conservation', null, array(
+                'required' => true
+                ))
+            ->add('unitPrice', null, array(
+                'label' => 'Prix unitaire',
+                'required' => true
+                ))
+            ->add('unitQuantity', null, array(
+                'label' => "Quantité d'unité",
+                'required' => true
+                ))
+            ->add('unitType', null, array(
+                'label' => "Type d'unité",
+                'required' => true
+                ))
         ;
     }
     

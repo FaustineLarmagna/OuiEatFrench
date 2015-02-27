@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Farmers-Products
+ * Farmer-Product
  *
- * @ORM\Table(name="farmers_products")
+ * @ORM\Table(name="farmer_product")
  * @ORM\Entity()
  */
 class FarmerProduct
@@ -21,81 +21,95 @@ class FarmerProduct
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
+
+    /** 
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\Product", inversedBy="farmerProducts")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
+    
+
+    /** 
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\FarmerBundle\Entity\UserFarmer", inversedBy="farmerProducts")
+     * @ORM\JoinColumn(name="farmer_id", referencedColumnName="id")
+     */
+    private $farmer;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="selling", type="boolean")
+     */
+    private $selling = false;
+
+    /**
+     * Like "kg", "barquette", "pièce", "filet"
+     *
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UnitType", inversedBy="farmerProducts")
+     * @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
+     */
+    private $unitType;
 
     /**
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="id_farmer", type="integer")
+     * @ORM\Column(name="unit_price", type="float")
      */
-    protected $idFarmer;
+    private $unitPrice;
 
     /**
-     * @var integer
+     * Stock to sell
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="id_product", type="integer")
-     */
-    protected $idProduct;
-
-    /** IN FARMER ENTITY
-     *
-     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="idFarmer")
-     */
-    /*
-    protected $products;
-
-    public function __construct()
-    {
-        $this->products = new ArrayCollection();
-    }
-    */
-
-    /** IN PRODUCT ENTITY
-     *
-     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="idProduct")
-     */
-    /*
-    protected $farmers;
-
-    public function __construct()
-    {
-        $this->farmers = new ArrayCollection();
-    }
-    */
-
-    /**
-     * @var integer
-     *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="unit_price", type="integer")
-     */
-    protected $unitPrice;
-
-    /**
-     * @var integer
-     *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="kilo_price", type="integer")
-     */
-    protected $kiloPrice;
-
-    /**
      * @var integer
      *
      * @Assert\NotBlank()
      * @ORM\Column(name="unit_quantity", type="integer")
      */
-    protected $unitQuantity;
+    private $unitQuantity;
 
     /**
+     * Stock minimum before removing from sell
+     *
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="kilo_quantity", type="integer")
+     * @ORM\Column(name="unit_minimum", type="integer")
      */
-    protected $kiloQuantity;
+    private $unitMinimum;
+
+    /**
+     * Like "conventionnelle" "précision" "raisonnée" "intégrée" "durable" "multifonctionnelle" "biologique"
+     *
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\AgricultureType", inversedBy="farmerProducts")
+     * @ORM\JoinColumn(name="agriculture_id", referencedColumnName="id")
+     */
+    private $agricultureType;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="conservation", type="text")
+     */
+    private $conservation;
+
+    /**
+     * @var \Datetime
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="harvest", type="date")
+     */
+    private $harvest;
+
+    /**
+     * @var \DateTime
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="plantation", type="date")
+     */
+    private $plantation;
 
 
     public function __toString()
@@ -114,49 +128,71 @@ class FarmerProduct
     }
 
     /**
-     * Set idFarmer
+     * Set \OuiEatFrench\AdminBundle\Entity\Product
      *
-     * @param integer $idFarmer
+     * @param \OuiEatFrench\AdminBundle\Entity\Product $product
      * @return FarmerProduct
      */
-    public function setIdFarmer($idFarmer)
+    public function setProduct($product)
     {
-        $this->idFarmer = $idFarmer;
+        $this->product = $product;
 
         return $this;
     }
 
     /**
-     * Get idFarmer
+     * Get \OuiEatFrench\AdminBundle\Entity\Product
      *
-     * @return integer
+     * @return \OuiEatFrench\AdminBundle\Entity\Product
      */
-    public function getIdFarmer()
+    public function getProduct()
     {
-        return $this->idFarmer;
+        return $this->product;
     }
 
     /**
-     * Set idProduct
+     * Set \OuiEatFrench\FarmerBundle\Entity\UserFarmer
      *
-     * @param integer $idProduct
+     * @param \OuiEatFrench\FarmerBundle\Entity\UserFarmer $farmer
      * @return FarmerProduct
      */
-    public function setIdProduct($idProduct)
+    public function setFarmer($farmer)
     {
-        $this->idProduct = $idProduct;
+        $this->farmer = $farmer;
 
         return $this;
     }
 
     /**
-     * Get idProduct
+     * Get \OuiEatFrench\FarmerBundle\Entity\UserFarmer
+     *
+     * @return \OuiEatFrench\FarmerBundle\Entity\UserFarmer
+     */
+    public function getFarmer()
+    {
+        return $this->farmer;
+    }
+
+    /**
+     * Set selling
+     *
+     * @param boolean $selling
+     * @return FarmerProduct
+     */
+    public function setSelling($selling)
+    {
+        $this->selling = $selling;
+        return $this;
+    }
+
+    /**
+     * Get selling
      *
      * @return integer
      */
-    public function getIdProduct()
+    public function getSelling()
     {
-        return $this->idProduct;
+        return $this->selling;
     }
 
     /**
@@ -182,25 +218,25 @@ class FarmerProduct
     }
 
     /**
-     * Set kiloPrice
+     * Set \OuiEatFrench\AdminBundle\Entity\UnitType
      *
-     * @param integer $kiloPrice
+     * @param \OuiEatFrench\AdminBundle\Entity\UnitType $unitType
      * @return FarmerProduct
      */
-    public function setKiloPrice($kiloPrice)
+    public function setUnitType($unitType)
     {
-        $this->kiloPrice = $kiloPrice;
+        $this->unitType = $unitType;
         return $this;
     }
 
     /**
-     * Get kiloPrice
+     * Get \OuiEatFrench\AdminBundle\Entity\UnitType
      *
-     * @return integer
+     * @return \OuiEatFrench\AdminBundle\Entity\UnitType
      */
-    public function getKiloPrice()
+    public function getUnitType()
     {
-        return $this->kiloPrice;
+        return $this->unitType;
     }
 
     /**
@@ -226,24 +262,112 @@ class FarmerProduct
     }
 
     /**
-     * Set kiloQuantity
+     * Set unitMinimum
      *
-     * @param integer $kiloQuantity
+     * @param integer $unitMinimum
      * @return FarmerProduct
      */
-    public function setKiloQuantity($kiloQuantity)
+    public function setUnitMinimum($unitMinimum)
     {
-        $this->kiloQuantity = $kiloQuantity;
+        $this->unitMinimum = $unitMinimum;
         return $this;
     }
 
     /**
-     * Get kiloQuantity
+     * Get unitQuantity
      *
      * @return integer
      */
-    public function getKiloQuantity()
+    public function getUnitMinimum()
     {
-        return $this->kiloQuantity;
+        return $this->unitMinimum;
+    }
+
+    /**
+     * Set \OuiEatFrench\AdminBundle\Entity\AgricultureType
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\AgricultureType $agricultureType
+     * @return FarmerProduct
+     */
+    public function setAgricultureType($agricultureType)
+    {
+        $this->agricultureType = $agricultureType;
+        return $this;
+    }
+
+    /**
+     * Get \OuiEatFrench\AdminBundle\Entity\AgricultureType
+     *
+     * @return \OuiEatFrench\AdminBundle\Entity\AgricultureType
+     */
+    public function getAgricultureType()
+    {
+        return $this->agricultureType;
+    }
+
+    /**
+     * Set conservation
+     *
+     * @param string $conservation
+     * @return FarmerProduct
+     */
+    public function setConservation($conservation)
+    {
+        $this->conservation = $conservation;
+        return $this;
+    }
+
+    /**
+     * Get conservation
+     *
+     * @return string
+     */
+    public function getConservation()
+    {
+        return $this->conservation;
+    }
+
+    /**
+     * Set Harvest
+     *
+     * @param string $harvest
+     * @return FarmerProduct
+     */
+    public function setHarvest($harvest)
+    {
+        $this->harvest = $harvest;
+        return $this;
+    }
+
+    /**
+     * Get harvest
+     *
+     * @return string
+     */
+    public function getHarvest()
+    {
+        return $this->harvest;
+    }
+
+    /**
+     * Set plantation
+     *
+     * @param string $plantation
+     * @return FarmerProduct
+     */
+    public function setPlantation($plantation)
+    {
+        $this->plantation = $plantation;
+        return $this;
+    }
+
+    /**
+     * Get plantation
+     *
+     * @return string
+     */
+    public function getPlantation()
+    {
+        return $this->plantation;
     }
 }

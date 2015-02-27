@@ -3,15 +3,14 @@
 namespace OuiEatFrench\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Saison
+ * CommandStatus
  *
- * @ORM\Table(name="saison")
- * @ORM\Entity
+ * @ORM\Table(name="command_status")
+ * @ORM\Entity()
  */
-class Saison
+class CommandStatus
 {
     /**
      * @var integer
@@ -25,21 +24,15 @@ class Saison
     /**
      * @var string
      *
-     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Product")
-     * @ORM\JoinTable(name="saison_product")
-     */
-    private $product;
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -50,7 +43,7 @@ class Saison
      * Set name
      *
      * @param string $name
-     * @return Saison
+     * @return CommandStatus
      */
     public function setName($name)
     {
@@ -62,7 +55,7 @@ class Saison
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {

@@ -80,6 +80,12 @@ class Product
      */
     private $parentProduct;
 
+    /*
+     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="product")
+     */
+    protected $farmerProducts;
+
+
     public function __toString()
     {
         return $this->name;
@@ -215,7 +221,8 @@ class Product
      */
     public function __construct()
     {
-        $this->filter = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->farmerProducts = new ArrayCollection();
+        $this->filter = new ArrayCollection();
     }
 
     /**

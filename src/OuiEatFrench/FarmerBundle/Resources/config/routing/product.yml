@@ -1,0 +1,23 @@
+oui_eat_french_farmer_product_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:index }
+
+# Add product to the farmer's stand
+oui_eat_french_farmer_product_add:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:add }
+
+# Edit farmerproduct relationship (stocks and all)
+oui_eat_french_farmer_product_edit:
+    pattern:  /{id}/editer
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:edit }
+
+# Show details of farmerproduct relationship
+# oui_eat_french_farmer_product_show:
+#     pattern:  /{id}/voir
+#     defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:show }
+
+# Remove product from the farmer's stand
+oui_eat_french_farmer_product_delete:
+    pattern:  /{id}/supprimer
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:delete }
