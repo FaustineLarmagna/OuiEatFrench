@@ -1,0 +1,9 @@
+parameters:
+    oui_eat_french.user.form.type.changepassword.class: OuiEatFrench\UserBundle\Form\ChangePasswordType
+
+services:
+    oui_eat_french.user.form.type.changepassword:
+        class: OuiEatFrench\UserBundle\Form\ChangePasswordType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: ouieatfrench_userbundle_changepasswordtype }
