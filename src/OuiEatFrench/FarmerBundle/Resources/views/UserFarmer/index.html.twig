@@ -1,3 +1,5 @@
+{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
+{% block content %}
 Index producteurs 
 <br><br>
 <a href={{ path('oui_eat_french_farmer_user_register') }}>S'inscrire</a>
@@ -23,3 +25,4 @@ Index producteurs
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}

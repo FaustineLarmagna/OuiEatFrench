@@ -25,13 +25,13 @@
                         <a href="">Mes commandes</a>
                     </li>
                     <li>
-                        <a href="">Mon catalogue</a>
+                        <a href="{{ path('oui_eat_french_farmer_product_index', {'farmerId' : farmer.id}) }}">Mon catalogue</a>
                     </li>
                     <li>
                         <a href="">Mon stock</a>
                     </li>
                     <li>
-                        <a href="">Mon profil</a>
+                        <a href="{{ path('oui_eat_french_farmer_user_show', {'id' : farmer.id}) }}">Mon profil</a>
                     </li>
                     <li>
                         <a href="">Déconnexion</a>

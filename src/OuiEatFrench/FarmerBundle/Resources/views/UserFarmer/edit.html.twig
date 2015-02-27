@@ -1,3 +1,5 @@
+{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
+{% block content %}
 Edition compte producteur
 <br>
 <form action="{{ path(route, {'id' : id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
@@ -6,4 +8,5 @@ Edition compte producteur
     {% endfor %}
     <br>
     <input class="btn btn-success" type="submit" value="Envoyer"/>
-</form>
+</form
+{% endblock %}
