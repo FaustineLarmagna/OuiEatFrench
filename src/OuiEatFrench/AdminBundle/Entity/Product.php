@@ -80,7 +80,7 @@ class Product
      */
     private $parentProduct;
 
-    /*
+    /**
      * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="product")
      */
     protected $farmerProducts;
@@ -223,6 +223,7 @@ class Product
     {
         $this->farmerProducts = new ArrayCollection();
         $this->filter = new ArrayCollection();
+        $this->season = new ArrayCollection();
     }
 
     /**
