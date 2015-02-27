@@ -4,7 +4,6 @@ namespace OuiEatFrench\AdminBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
-use OuiEatFrench\FarmerBundle\Entity\FarmerProduct;
 
 /**
  * AdminList
@@ -82,7 +81,7 @@ class Product
     private $parentProduct;
 
     /**
-     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProduct", mappedBy="product")
      */
     protected $farmerProducts;
 
@@ -345,7 +344,7 @@ class Product
      * @param  $farmerProduct
      * @return Product
      */
-    public function addFarmerProduct(FarmerProduct $farmerProduct)
+    public function addFarmerProduct(OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct)
     {
         $this->farmerProducts[] = $farmerProduct;
 
@@ -355,9 +354,9 @@ class Product
     /**
      * Remove farmerProducts
      *
-     * @param FarmerProduct $farmerProduct
+     * @param OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct
      */
-    public function removeFarmerProduct(FarmerProduct $farmerProduct)
+    public function removeFarmerProduct(OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct)
     {
         $this->farmerProducts->removeElement($farmerProduct);
     }
