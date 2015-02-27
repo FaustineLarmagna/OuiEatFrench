@@ -4,6 +4,7 @@ namespace OuiEatFrench\AdminBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use OuiEatFrench\FarmerBundle\Entity\FarmerProduct;
 
 /**
  * AdminList
@@ -81,7 +82,7 @@ class Product
     private $parentProduct;
 
     /**
-     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProduct", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="product")
      */
     protected $farmerProducts;
 
@@ -339,14 +340,14 @@ class Product
     }
 
     /**
-     * Add farmerProducts
+     * Add farmerProduct
      *
-     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     * @param  $farmerProduct
      * @return Product
      */
-    public function addFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    public function addFarmerProduct(FarmerProduct $farmerProduct)
     {
-        $this->farmerProducts[] = $farmerProducts;
+        $this->farmerProducts[] = $farmerProduct;
 
         return $this;
     }
@@ -354,11 +355,11 @@ class Product
     /**
      * Remove farmerProducts
      *
-     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     * @param FarmerProduct $farmerProduct
      */
-    public function removeFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    public function removeFarmerProduct(FarmerProduct $farmerProduct)
     {
-        $this->farmerProducts->removeElement($farmerProducts);
+        $this->farmerProducts->removeElement($farmerProduct);
     }
 
     /**
