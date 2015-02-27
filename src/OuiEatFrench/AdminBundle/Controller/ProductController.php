@@ -125,7 +125,8 @@ class ProductController extends Controller
           if(in_array($_FILES['import-file']['type'],$mimes))
           {
             //le dossier où le fichier sera uploadé
-               $dossier = 'import/';
+
+               $dossier = $this->get('kernel')->getRootDir() . '/private/';
                $nameFile = $_FILES['import-file']['name'];
                $fichier = basename($_FILES['import-file']['name']);
 
@@ -143,7 +144,7 @@ class ProductController extends Controller
 
                     $cid =mysql_select_db('ouieatfrench',$connect);
 
-                    define('CSV_PATH','import/');
+                    define('CSV_PATH',$dossier);
 
                     $csv_file = CSV_PATH . $nameFile; // Name of your CSV file
 
@@ -212,10 +213,7 @@ class ProductController extends Controller
 
                                 $p = mysql_query($queryProductFilter, $connect) or exit(mysql_error());
                             }            
-                        }
-
-
-                        
+                        }     
                 }
             }
 
@@ -230,7 +228,10 @@ class ProductController extends Controller
 
          else //Sinon (la fonction renvoie FALSE).
            {
-                echo 'Echec de l\'upload !';
+                $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
+                $data["entities"] = $entities;
+                $data["errorImport"] = "Erreur au moment de l'import, veuillez envoyer le exports-oef.csv";
+                return $this->render('OuiEatFrenchAdminBundle:Product:index.html.twig', $data);
            }
     }
 

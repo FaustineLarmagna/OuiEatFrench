@@ -4,8 +4,13 @@
 <h3>Index des produits</h3>
 {% endblock %}
 {% block content %}
+    {% if errorImport is defined %}
+        <div class="alert alert-error offset9 span5">
+          {{ errorImport }}
+        </div>
+    {% endif %}
 <form method="post" action="import" enctype="multipart/form-data" id="form-import" class="offset9 span5">
-        <input type="file" name="import-file" id="button-import" required class="btn">
+        <input type="file" name="import-file" accept=".csv" id="button-import" required class="btn">
         <input type="submit" value="Importer produits" id="button-submit" class="btn btn-info">
 </form>
 <a href={{ path('oui_eat_french_admin_product_create') }}><button class="btn btn-success offset12" type="button">Ajouter</button></a>
