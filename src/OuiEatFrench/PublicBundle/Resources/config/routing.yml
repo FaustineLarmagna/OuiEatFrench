@@ -8,7 +8,7 @@ oui_eat_french_public_faq:
 
 oui_eat_french_public_produtc:
     resource: "@OuiEatFrenchPublicBundle/Resources/config/routing/product.yml"
-    prefix: /produits
+    prefix: /produit
 
 oui_eat_french_public_cart:
     resource: "@OuiEatFrenchPublicBundle/Resources/config/routing/cart.yml"

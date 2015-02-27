@@ -80,8 +80,8 @@ class Product
      */
     private $parentProduct;
 
-    /*
-     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="product")
+    /**
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProduct", mappedBy="product")
      */
     protected $farmerProducts;
 
@@ -223,6 +223,7 @@ class Product
     {
         $this->farmerProducts = new ArrayCollection();
         $this->filter = new ArrayCollection();
+        $this->season = new ArrayCollection();
     }
 
     /**
@@ -335,5 +336,38 @@ class Product
     public function getSeason()
     {
         return $this->season;
+    }
+
+    /**
+     * Add farmerProducts
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     * @return Product
+     */
+    public function addFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    {
+        $this->farmerProducts[] = $farmerProducts;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProducts
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     */
+    public function removeFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    {
+        $this->farmerProducts->removeElement($farmerProducts);
+    }
+
+    /**
+     * Get farmerProducts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFarmerProducts()
+    {
+        return $this->farmerProducts;
     }
 }
