@@ -4,6 +4,9 @@ parameters:
     oui_eat_french.admin.form.type.filter.class: OuiEatFrench\AdminBundle\Form\FilterType
     oui_eat_french.admin.form.type.faq.class: OuiEatFrench\AdminBundle\Form\FaqType
     oui_eat_french.admin.form.type.edito.class: OuiEatFrench\AdminBundle\Form\EditoType
+    oui_eat_french.admin.form.type.unittype.class: OuiEatFrench\AdminBundle\Form\UnitTypeType
+    oui_eat_french.admin.form.type.agriculturetype.class: OuiEatFrench\AdminBundle\Form\AgricultureTypeType
+    oui_eat_french.admin.form.type.commandstatus.class: OuiEatFrench\AdminBundle\Form\CommandStatusType
 
 services:
     oui_eat_french.admin.form.type.product:
@@ -35,3 +38,21 @@ services:
             arguments: [ @service_container ]
             tags:
                   - { name: form.type, alias: ouieatfrench_adminbundle_editotype }
+
+    oui_eat_french.admin.form.type.unittype:
+            class: OuiEatFrench\AdminBundle\Form\UnitTypeType
+            arguments: [ @service_container ]
+            tags:
+                  - { name: form.type, alias: ouieatfrench_adminbundle_unittypetype }
+
+    oui_eat_french.admin.form.type.agriculturetype:
+            class: OuiEatFrench\AdminBundle\Form\AgricultureTypeType
+            arguments: [ @service_container ]
+            tags:
+                  - { name: form.type, alias: ouieatfrench_adminbundle_agriculturetypetype }
+
+    oui_eat_french.admin.form.type.commandstatus:
+            class: OuiEatFrench\AdminBundle\Form\CommandStatusType
+            arguments: [ @service_container ]
+            tags:
+                  - { name: form.type, alias: ouieatfrench_adminbundle_commandstatustype }

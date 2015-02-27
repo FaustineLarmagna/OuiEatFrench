@@ -1,0 +1,15 @@
+oui_eat_french_admin_unittype_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:UnitType:index }
+
+oui_eat_french_admin_unittype_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:UnitType:create }
+
+oui_eat_french_admin_unittype_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:UnitType:edit }
+
+oui_eat_french_admin_unittype_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:UnitType:delete }

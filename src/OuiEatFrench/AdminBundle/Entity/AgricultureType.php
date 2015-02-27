@@ -33,7 +33,7 @@ class AgricultureType
 
     public function __toString()
     {
-        return "Agriculture Type";
+        return $this->name;
     }
 
     /**
