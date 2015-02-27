@@ -1,7 +1,9 @@
 {% if farmers is not null %}
     {% for farmer in farmers %}
-        Agriculteur : {{ farmer.firstname }}
+        {% if farmer.firstname is defined %}
+            Agriculteur : {{ farmer.firstname }}
+        {% endif %}
     {% else %}
-        Auccun agriculteurs en vend se produits
+        Aucun agriculteurs en vend se produit
     {% endfor %}
 {% endif %}
