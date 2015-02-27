@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Repository/UserFarmerRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/farmer_product_selected.html.twig" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Resources/translations/messages.fr.xlf" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/IMAG0663.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/IMAG0664.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/courgette.jpeg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/framboise.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/web/OEF/img_admin_product/wp_biflam.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ApplicationController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ApplicationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/UserFarmerStatus.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/UserFarmerStatus.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/application.yml" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/application.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstrap.php.cache" afterPath="$PROJECT_DIR$/app/bootstrap.php.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Application/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Application/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/UserBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/UserBundle/Resources/views/layout.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/product.yml" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/product.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OuiEatFrench.iws" />
@@ -36,28 +39,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ApplicationController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ApplicationController.php">
+      <file leaf-file-name="ProductController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="18" selection-start="653" selection-end="653" vertical-scroll-proportion="0.36933047" vertical-offset="0" max-vertical-offset="926">
+            <state line="23" column="0" selection-start="803" selection-end="803" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="522">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Application/index.html.twig">
+      <file leaf-file-name="product.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/product.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="140" selection-start="2138" selection-end="2138" vertical-scroll-proportion="-24.666666" vertical-offset="0" max-vertical-offset="918">
+            <state line="3" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/application.yml">
+      <file leaf-file-name="farmer_product_selected.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/farmer_product_selected.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="38" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+            <state line="7" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/UserBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="10" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.62203026" vertical-offset="0" max-vertical-offset="926">
               <folding />
             </state>
           </provider>
@@ -76,13 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/create.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter/create.html.twig" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/create.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/homeController.php" />
@@ -104,29 +109,36 @@
         <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/product.yml" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/product.yml" />
         <option value="$PROJECT_DIR$/app/logs/dev.log" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Saison.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/ProductType.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/bootstrap.php.cache" />
         <option value="$PROJECT_DIR$/web/app.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Season.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Repository/SeasonRepository.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Home/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Repository/ProductRepository.php" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/UserFarmerStatus.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ApplicationController.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/application.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Application/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/product.yml" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Repository/FarmerRepository.php" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/FarmerProduct.php" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Repository/UserFarmerRepository.php" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Cart/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/bootstrap.php.cache" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/farmer_product_selected.html.twig" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/UserBundle/Resources/views/layout.html.twig" />
       </list>
     </option>
   </component>
@@ -213,26 +225,8 @@
               <option name="myItemId" value="OuiEatFrench" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemId" value="UserBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -254,7 +248,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemId" value="UserBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -284,41 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AdminBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemId" value="UserBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -341,52 +301,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AdminBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -405,11 +319,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Repository" />
       <recent name="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Edito" />
       <recent name="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Faq" />
       <recent name="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Filter" />
       <recent name="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Category" />
-      <recent name="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/OuiEatFrench/MailingBundle/Repository" />
@@ -464,9 +378,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18490566" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21455525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -475,10 +390,9 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -500,94 +414,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="24" selection-start="702" selection-end="702" vertical-scroll-proportion="-20.666666" vertical-offset="54" max-vertical-offset="2538" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="953" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/faq.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/home.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/product.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/product.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="521" selection-end="521" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="5" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2898" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="21" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0" vertical-offset="774" max-vertical-offset="2754" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="720" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/console">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="867" selection-end="867" vertical-scroll-proportion="0.53940064" vertical-offset="0" max-vertical-offset="901" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/bootstrap.php.cache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="72" selection-end="72" vertical-scroll-proportion="-2.4827585" vertical-offset="0" max-vertical-offset="55908" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/img/select2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/css/select2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="52" selection-start="378" selection-end="378" vertical-scroll-proportion="0.35526314" vertical-offset="0" max-vertical-offset="12708" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/ProductType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="30" selection-start="411" selection-end="411" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="1260" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="36" selection-start="702" selection-end="702" vertical-scroll-proportion="0.45330536" vertical-offset="0" max-vertical-offset="953" />
@@ -647,14 +473,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Edito.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="704" selection-end="704" vertical-scroll-proportion="0.6803456" vertical-offset="162" max-vertical-offset="3312">
-          <folding />
-        </state>
+        <state line="44" column="0" selection-start="704" selection-end="704" vertical-scroll-proportion="0.6803456" vertical-offset="162" max-vertical-offset="3312" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="475" selection-end="475" vertical-scroll-proportion="0.28331584" vertical-offset="0" max-vertical-offset="953">
+        <state line="15" column="0" selection-start="475" selection-end="475" vertical-scroll-proportion="0.28331584" vertical-offset="0" max-vertical-offset="953" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="32" selection-start="353" selection-end="353" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="396" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="926" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/form.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DependencyInjection/Configuration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="612" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DependencyInjection/OuiEatFrenchAdminExtension.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="34" selection-start="880" selection-end="880" vertical-scroll-proportion="0.4276458" vertical-offset="0" max-vertical-offset="926" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="42" selection-start="1626" selection-end="1626" vertical-scroll-proportion="0.73326135" vertical-offset="23" max-vertical-offset="4158" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="1" selection-start="283" selection-end="283" vertical-scroll-proportion="0.23326133" vertical-offset="0" max-vertical-offset="926" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1458" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Admin/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1026" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/create.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="953" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="11" selection-start="319" selection-end="319" vertical-scroll-proportion="0.15550756" vertical-offset="0" max-vertical-offset="926" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Application/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="140" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.7192225" vertical-offset="0" max-vertical-offset="926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="38" selection-start="209" selection-end="209" vertical-scroll-proportion="0.09443861" vertical-offset="0" max-vertical-offset="953">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ApplicationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="18" selection-start="653" selection-end="653" vertical-scroll-proportion="0.36933047" vertical-offset="0" max-vertical-offset="926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Faq/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="926">
           <folding />
         </state>
       </provider>
@@ -666,142 +576,151 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="32" selection-start="353" selection-end="353" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="469" selection-end="469" vertical-scroll-proportion="0.31101513" vertical-offset="0" max-vertical-offset="926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Repository/ProductRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="49" selection-start="798" selection-end="798" vertical-scroll-proportion="0.58315337" vertical-offset="0" max-vertical-offset="926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/form.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DependencyInjection/Configuration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DependencyInjection/OuiEatFrenchAdminExtension.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="34" selection-start="880" selection-end="880" vertical-scroll-proportion="0.4276458" vertical-offset="0" max-vertical-offset="926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="58" selection-start="2404" selection-end="2404" vertical-scroll-proportion="0.72786176" vertical-offset="568" max-vertical-offset="1710">
+        <state line="23" column="5" selection-start="576" selection-end="576" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="774">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="7" selection-start="4251" selection-end="4251" vertical-scroll-proportion="0.453125" vertical-offset="3716" max-vertical-offset="6246">
+        <state line="13" column="12" selection-start="294" selection-end="294" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="6804">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ProductController.php">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="42" selection-start="1626" selection-end="1626" vertical-scroll-proportion="0.73326135" vertical-offset="23" max-vertical-offset="4158">
+        <state line="36" column="13" selection-start="1571" selection-end="1571" vertical-scroll-proportion="-24.0" vertical-offset="0" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/AdminController.php">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/FarmerProduct.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="1" selection-start="283" selection-end="283" vertical-scroll-proportion="0.23326133" vertical-offset="0" max-vertical-offset="926">
+        <state line="12" column="16" selection-start="268" selection-end="268" vertical-scroll-proportion="0.019438446" vertical-offset="162" max-vertical-offset="6786">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/CategoryController.php">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Repository/UserFarmerRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1458">
+        <state line="14" column="5" selection-start="325" selection-end="325" vertical-scroll-proportion="0.27213824" vertical-offset="0" max-vertical-offset="926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="1045" selection-end="1045" vertical-scroll-proportion="-33.333332" vertical-offset="0" max-vertical-offset="11322">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/UserFarmer/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/UserFarmerStatus.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="5" selection-start="1313" selection-end="1313" vertical-scroll-proportion="-32.962963" vertical-offset="622" max-vertical-offset="1656">
+        <state line="84" column="5" selection-start="1313" selection-end="1313" vertical-scroll-proportion="-55.333332" vertical-offset="18" max-vertical-offset="1656">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Admin/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/UserBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1026">
+        <state line="30" column="9" selection-start="1077" selection-end="1077" vertical-scroll-proportion="-20.0" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/create.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/home.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="953">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="928">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Product/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="11" selection-start="319" selection-end="319" vertical-scroll-proportion="0.15550756" vertical-offset="0" max-vertical-offset="926">
+        <state line="15" column="0" selection-start="495" selection-end="495" vertical-scroll-proportion="0.28331584" vertical-offset="0" max-vertical-offset="953">
+          <folding>
+            <marker date="1425044664602" expanded="true" signature="-1:-1" placeholder="oui_eat_french_public_cart:" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/cart.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="119" selection-end="119" vertical-scroll-proportion="0.05666317" vertical-offset="0" max-vertical-offset="953">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Application/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/FaqController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="140" selection-start="2138" selection-end="2138" vertical-scroll-proportion="-24.666666" vertical-offset="0" max-vertical-offset="918">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="928">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/application.yml">
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Cart/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="38" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+        <state line="19" column="20" selection-start="454" selection-end="454" vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="504">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/ApplicationController.php">
+    <entry file="file://$PROJECT_DIR$/app/bootstrap.php.cache">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="18" selection-start="653" selection-end="653" vertical-scroll-proportion="0.36933047" vertical-offset="0" max-vertical-offset="926">
+        <state line="3052" column="30" selection-start="91296" selection-end="91296" vertical-scroll-proportion="0.4893617" vertical-offset="54476" max-vertical-offset="55476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="1" selection-start="283" selection-end="283" vertical-scroll-proportion="0.23326133" vertical-offset="0" max-vertical-offset="926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="803" selection-end="803" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/config/routing/product.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/farmer_product_selected.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/UserBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="10" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.62203026" vertical-offset="0" max-vertical-offset="926">
           <folding />
         </state>
       </provider>

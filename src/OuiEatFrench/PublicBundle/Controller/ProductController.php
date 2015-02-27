@@ -13,4 +13,11 @@ class ProductController extends Controller
 
         return $this->render('OuiEatFrenchPublicBundle:Product:index.html.twig', $data);
     }
+
+    public function farmerProductSelectedAction($product_id)
+    {
+        $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProduct($product_id);
+
+        return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig', array('farmers' => $farmers));
+    }
 }
