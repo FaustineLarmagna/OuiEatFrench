@@ -1,3 +1,7 @@
+oui_eat_french_public_product_farmer_index:
+    pattern:  /agriculteur/{product_id}
+    defaults: { _controller: OuiEatFrenchPublicBundle:Product:farmerProductSelected }
+
 oui_eat_french_public_product_index:
     pattern:  /
     defaults: { _controller: OuiEatFrenchPublicBundle:Product:index }

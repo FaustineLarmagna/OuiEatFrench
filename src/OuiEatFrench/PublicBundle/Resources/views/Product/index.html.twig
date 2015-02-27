@@ -1,21 +1,39 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div id="produit"></div>
-Produits !
 <form id="name">
+    Produits !<br>
     <select id="nametxt">
-        <option value="tous">Tous</option>
+        <option value="all">Tous</option>
         {% for product in products %}
             <option value="{{ product.name }}">{{ product.name|capitalize }}</option>
         {% endfor %}
-    </select>
+    </select><br>
+    Saisons !<br>
+    <select id="saisontxt">
+        <option value="all">Tous</option>
+        <option value="ete">été</option>
+        <option value="automne">Automne</option>
+        <option value="hiver">Hiver</option>
+        <option value="printemps">Printemps</option>
+    </select><br>
+    Calories !<br>
+    <input type="number" id="caloriesint" value="0"><br>
+    Categorie !<br>
+    <select id="categorytxt">
+        <option value="all">Tous</option>
+        <option value="Fruit">Fruit</option>
+        <option value="Legume">Legume</option>
+        <option value="Autres">Autres</option>
+    </select><br>
 </form>
 <div id="result"></div>
 <table id="table">
     {% for product in products %}
-        <tr id="{{ product.id }}">
+        <tr style="border-style: solid;" id="{{ product.id }}">
             <td>{{ product.name }}</td>
             <td>{{ product.description }}</td>
-            <td><img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}"></td>
+            <td>{{ product.calories }}</td>
+            <td><a href="{{ path('oui_eat_french_public_product_farmer_index', { 'product_id' : product.id }) }}"><img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}"></a></td>
         </tr>
     {% endfor %}
 </table>
@@ -23,35 +41,49 @@ Produits !
 <script type="text/javascript">
 $(function () {
     jQuery(document).ready(function() {
-        console.log("jQuery est prêt !");
+
         $("#nametxt").change(function(){
-            if($("#nametxt").val() != 'tous')
-            {
+            refresh();
+        });
+
+        $("#saisontxt").change(function(){
+            refresh();
+        });
+
+        $("#caloriesint").bind('keyup mouseup', function(){
+            refresh();
+        });
+
+        $("#categorytxt").change(function(){
+            refresh();
+        });
+
+        function refresh(){
                 $.ajax({
                     url: 'http://localhost/Projet_SUP/OuiEatFrench/web/app_dev.php/produits/ajax',
                     type: 'POST',
                     data:
                     {
-                        name : $("#nametxt").val()
+                        name : $("#nametxt").val(),
+                        season : $("#saisontxt").val(),
+                        calories : $("#caloriesint").val(),
+                        category : $("#categorytxt").val()
                     },
                     dataType: 'json',
                     success: function(response)
                     {
-                        $('#table tr').each(function() {
-                            if($(this).attr('id') != response[0])
-                            {$(this).hide();}
-                            else
+                        $('#table tr').each(function()
+                        {
+                            var id = $(this).attr('id');
+                            if(response.indexOf(parseInt(id)) > -1)
                             {$(this).show();}
+                            else
+                            {$(this).hide();}
                         });
                     }
                 });
-            }
-            else
-            {
-                $('#table tr').each(function(){$(this).show();});
-            }
-        return false;
-        });
-    });
+            return false;
+        };
+    });
 });
 </script>

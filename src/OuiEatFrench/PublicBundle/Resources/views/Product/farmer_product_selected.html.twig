@@ -1,0 +1,7 @@
+{% if farmers is not null %}
+    {% for farmer in farmers %}
+        Agriculteur : {{ farmer.firstname }}
+    {% else %}
+        Auccun agriculteurs en vend se produits
+    {% endfor %}
+{% endif %}

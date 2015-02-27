@@ -13,55 +13,13 @@ class ApplicationController extends Controller
         return $this->render('OuiEatFrenchAdminBundle:Application:index.html.twig', $data);
     }
 
-    public function toReviewAction($id)
+    public function statusAction($id, $status_id)
     {
     	$em = $this->getDoctrine()->getManager();
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
         if($query)
         {
-        	$status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(1);
-            $query->setStatus($status);
-            $em->persist($query);
-            $em->flush();
-        }
-        return $this->indexAction();
-    }
-
-    public function missingDocAction($id)
-    {
-    	$em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-        if($query)
-        {
-        	$status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(2);
-            $query->setStatus($status);
-            $em->persist($query);
-            $em->flush();
-        }
-        return $this->indexAction();
-    }
-
-    public function validateAction($id)
-    {
-    	$em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-        if($query)
-        {
-        	$status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(3);
-            $query->setStatus($status);
-            $em->persist($query);
-            $em->flush();
-        }
-        return $this->indexAction();
-    }
-
-    public function banAction($id)
-    {
-    	$em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-        if($query)
-        {
-        	$status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(4);
+        	$status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find($status_id);
             $query->setStatus($status);
             $em->persist($query);
             $em->flush();
