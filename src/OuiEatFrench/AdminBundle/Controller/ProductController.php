@@ -211,7 +211,6 @@ class ProductController extends Controller
 
                if(move_uploaded_file($_FILES['import-file']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
                {
-
                     //on se connecte à la DB
                     $connect = mysql_connect('localhost','root','');
 
