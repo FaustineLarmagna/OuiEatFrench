@@ -81,7 +81,7 @@ class Product
     private $parentProduct;
 
     /**
-     * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProduct", mappedBy="product")
      */
     protected $farmerProducts;
 
