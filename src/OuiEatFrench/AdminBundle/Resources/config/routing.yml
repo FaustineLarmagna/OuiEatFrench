@@ -4,15 +4,15 @@ oui_eat_french_admin:
 
 oui_eat_french_admin_product:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/product.yml"
-    prefix: /produits
+    prefix: /produit
 
 oui_eat_french_admin_category:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/category.yml"
-    prefix: /categories
+    prefix: /categorie
 
 oui_eat_french_admin_filter:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/filter.yml"
-    prefix: /filtres
+    prefix: /filtre
 
 oui_eat_french_admin_faq:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/faq.yml"
@@ -24,16 +24,16 @@ oui_eat_french_admin_edito:
 
 oui_eat_french_admin_application:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/application.yml"
-    prefix: /candidatures
+    prefix: /candidature
 
 oui_eat_french_admin_unittype:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/unittype.yml"
-    prefix: /typesunites
+    prefix: /type-unite
 
 oui_eat_french_admin_agriculturetype:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/agriculturetype.yml"
-    prefix: /typesagricultures
+    prefix: /type-agriculture
 
 oui_eat_french_admin_commandstatus:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/commandstatus.yml"
-    prefix: /statutscommandes
+    prefix: /statut-commande
