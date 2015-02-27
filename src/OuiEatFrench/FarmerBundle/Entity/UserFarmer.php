@@ -135,7 +135,7 @@ class UserFarmer
      */
     private $status;
 
-    /*
+    /**
      * @ORM\OneToMany(targetEntity="FarmerProduct", mappedBy="farmer")
      */
     private $farmerProducts;
@@ -587,5 +587,38 @@ class UserFarmer
     public function getRoles()
     {
         return array('ROLE_USER_FARMER');
+    }
+
+    /**
+     * Add farmerProducts
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProducts
+     * @return UserFarmer
+     */
+    public function addFarmerProduct(\OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProducts)
+    {
+        $this->farmerProducts[] = $farmerProducts;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProducts
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProducts
+     */
+    public function removeFarmerProduct(\OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProducts)
+    {
+        $this->farmerProducts->removeElement($farmerProducts);
+    }
+
+    /**
+     * Get farmerProducts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFarmerProducts()
+    {
+        return $this->farmerProducts;
     }
 }

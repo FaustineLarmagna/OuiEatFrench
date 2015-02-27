@@ -1,3 +1,5 @@
+{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
+{% block content %}
 <h3>Profil</h3>
 <p>
 	{% if farmer.status.name == "to_review" %}
@@ -23,3 +25,4 @@
 	<li>Nom de l'exploitation : {{farmer.companyName}}</li>
 	<li>Adresse de l'exploitation : {{farmer.companyStreet}} {{farmer.companyPostcode}} {{farmer.companyCity}}</li>
 </ul>
+{% endblock %}

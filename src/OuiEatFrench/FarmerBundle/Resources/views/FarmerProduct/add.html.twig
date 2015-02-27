@@ -1,7 +1,7 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
-<h2>Liaison des producteurs et de leurs produits</h2>
-<form action="{{ path(route, {'farmerId' : farmerId}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
+<h2>Liaison des producteurs et de leurs produits</h2><br>
+<form action="{{ path(route, {'farmerId' : farmer.id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
 <table>
     <tr>
     	<td>{{ form_label(form.product) }}</td>
