@@ -27,7 +27,9 @@
             {% block fos_user_content %}
             {% endblock fos_user_content %}
         </div>
-        <a href="{{ path('oui_eat_french_profile_edit', {'id':app.user.getId()}) }}">Modifier son profil</a>
+        {% if app.user is not null %}
+            <a href="{{ path('oui_eat_french_profile_edit', {'id':app.user.id}) }}">Modifier son profil</a>
+        {% endif %}
     </div>
 </div>
 
