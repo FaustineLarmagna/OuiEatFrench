@@ -1,3 +1,0 @@
-oui_eat_french_command_commandstatus:
-    resource: "@OuiEatFrenchCommandBundle/Resources/config/routing/commandstatus.yml"
-    prefix: /commandstatus

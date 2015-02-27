@@ -339,14 +339,14 @@ class Product
     }
 
     /**
-     * Add farmerProducts
+     * Add farmerProduct
      *
-     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     * @param  $farmerProduct
      * @return Product
      */
-    public function addFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    public function addFarmerProduct(OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct)
     {
-        $this->farmerProducts[] = $farmerProducts;
+        $this->farmerProducts[] = $farmerProduct;
 
         return $this;
     }
@@ -354,11 +354,11 @@ class Product
     /**
      * Remove farmerProducts
      *
-     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     * @param OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct
      */
-    public function removeFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    public function removeFarmerProduct(OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct)
     {
-        $this->farmerProducts->removeElement($farmerProducts);
+        $this->farmerProducts->removeElement($farmerProduct);
     }
 
     /**
