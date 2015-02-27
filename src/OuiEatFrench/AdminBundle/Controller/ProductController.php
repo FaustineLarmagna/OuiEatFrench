@@ -212,7 +212,7 @@ class ProductController extends Controller
                if(move_uploaded_file($_FILES['import-file']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
                {
                     //on se connecte à la DB
-                    $connect = mysql_connect('localhost','root','');
+                    $connect = mysql_connect($this->container->getParameter('database_host'), $this->container->getParameter('database_user'),$this->container->getParameter('database_password'));
 
                     // Si erreur
                     if (!$connect) 
@@ -220,7 +220,7 @@ class ProductController extends Controller
                          die('Could not connect to MySQL: ' . mysql_error());
                     }
 
-                    $cid =mysql_select_db('ouieatfrench',$connect);
+                    $cid =mysql_select_db($this->container->getParameter('database_name'),$connect);
 
                     define('CSV_PATH',$dossier);
 
