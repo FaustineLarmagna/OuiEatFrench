@@ -1,7 +1,16 @@
 {% if farmers is not null %}
     {% for farmer in farmers %}
         {% if farmer.firstname is defined %}
-            Agriculteur : {{ farmer.firstname }}
+            Agriculteur : {{ farmer.firstname }}<br>
+            {% for farmerProduct in farmer.farmerProducts %}
+                {% if farmerProduct.product.id == product_id %}
+                Produit : {{ farmerProduct.product.name }}<br>
+                Type : {{ farmerProduct.unitType }}<br>
+                Prix : {{ farmerProduct.unitPrice }}<br>
+                Quantity : {{ farmerProduct.unitQuantity }}<br>
+                Minimum pour vente : {{ farmerProduct.unitMinimum }}<br>
+                {% endif %}
+            {% endfor %}
         {% endif %}
     {% else %}
         Aucun agriculteurs en vend se produit

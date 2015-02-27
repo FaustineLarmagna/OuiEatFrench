@@ -18,6 +18,6 @@ class ProductController extends Controller
     {
         $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProduct($product_id);
 
-        return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig', array('farmers' => $farmers));
+        return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig', array('farmers' => $farmers, 'product_id' => $product_id));
     }
 }
