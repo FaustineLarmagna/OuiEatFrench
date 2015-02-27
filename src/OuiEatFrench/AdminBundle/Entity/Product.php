@@ -337,4 +337,37 @@ class Product
     {
         return $this->season;
     }
+
+    /**
+     * Add farmerProducts
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     * @return Product
+     */
+    public function addFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    {
+        $this->farmerProducts[] = $farmerProducts;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProducts
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts
+     */
+    public function removeFarmerProduct(\OuiEatFrench\AdminBundle\Entity\FarmerProduct $farmerProducts)
+    {
+        $this->farmerProducts->removeElement($farmerProducts);
+    }
+
+    /**
+     * Get farmerProducts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFarmerProducts()
+    {
+        return $this->farmerProducts;
+    }
 }
