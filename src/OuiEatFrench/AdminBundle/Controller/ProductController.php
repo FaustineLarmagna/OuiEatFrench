@@ -234,66 +234,68 @@ class ProductController extends Controller
 
                     while (!feof($csvfile)) 
                     {
-
                         $csv_data[] = fgets($csvfile, 1024);
 
                         $csv_array = explode(";", $csv_data[$i]);
-
-                        $insert_csv = array();
-
-                        $insert_csv['filters'] = $csv_array[0];
-
-                        $insert_csv['name_product'] = $csv_array[1];
-
-                        $insert_csv['description_product'] = $csv_array[2];
-
-                        $insert_csv['image_product'] = $csv_array[3];
-
-                        $insert_csv['category_product'] = $csv_array[4];
-
-                        $insert_csv['calories_product'] = $csv_array[5];
-
-                        $categoryQuery = "SELECT DISTINCT id
-                                            FROM `category`
-                                            WHERE name = '".$insert_csv['category_product']."'";
-                        $categoryReq = mysql_query($categoryQuery);
-
-                        $categoryResult = mysql_result($categoryReq, 0);
-
-                        $filtersProduct = explode('*', $insert_csv['filters']);
                         
-                        
-
-                        if (!empty($insert_csv['name_product']) && !empty($insert_csv['description_product']) && !empty($insert_csv['category_product'])) 
+                        if(isset($csv_array[1]))
                         {
-                            //la requete pour insert
-                          $query = "INSERT INTO product(id,name,description,image_name,category_id,calories) VALUES ('', '".mysql_real_escape_string($insert_csv['name_product'])."', '".mysql_real_escape_string($insert_csv['description_product'])."', '".$insert_csv['image_product']."', '".$categoryResult."', '".$insert_csv['calories_product']."')
-                          ";
+                            $insert_csv = array();
 
-                          $n = mysql_query($query, $connect) or exit(mysql_error());
+                            $insert_csv['filters'] = $csv_array[0];
 
-                          $lastIdProduct = mysql_insert_id();
-                        }
+                            $insert_csv['name_product'] = $csv_array[1];
 
-                        $i++;
+                            $insert_csv['description_product'] = $csv_array[2];
 
-                        for ($q = 0; $q < count($filtersProduct); $q++) 
-                        { 
-                            if (!empty($filtersProduct[$q])) 
+                            $insert_csv['image_product'] = $csv_array[3];
+
+                            $insert_csv['category_product'] = $csv_array[4];
+
+                            $insert_csv['calories_product'] = $csv_array[5];
+
+                            $categoryQuery = "SELECT DISTINCT id
+                                                FROM `category`
+                                                WHERE name = '".$insert_csv['category_product']."'";
+                            $categoryReq = mysql_query($categoryQuery);
+
+                            $categoryResult = mysql_result($categoryReq, 0);
+
+                            $filtersProduct = explode('*', $insert_csv['filters']);
+                        
+                        
+
+                            if (!empty($insert_csv['name_product']) && !empty($insert_csv['description_product']) && !empty($insert_csv['category_product'])) 
                             {
-                                $queryFilters = "INSERT INTO filter_for_product(id,name) VALUES ('', '".mysql_real_escape_string($filtersProduct[$q])."')";
+                                //la requete pour insert
+                              $query = "INSERT INTO product(id,name,description,image_name,category_id,calories) VALUES ('', '".mysql_real_escape_string($insert_csv['name_product'])."', '".mysql_real_escape_string($insert_csv['description_product'])."', '".$insert_csv['image_product']."', '".$categoryResult."', '".$insert_csv['calories_product']."')
+                              ";
 
-                                $k = mysql_query($queryFilters, $connect) or exit(mysql_error());
+                              $n = mysql_query($query, $connect) or exit(mysql_error());
 
-                                $lastIdFilter = mysql_insert_id();
+                              $lastIdProduct = mysql_insert_id();
+                            }
 
-                                $queryProductFilter = "INSERT INTO product_filter(product_id,filter_id) VALUES('".$lastIdProduct."', '".$lastIdFilter."')"; 
+                            $i++;
 
-                                $p = mysql_query($queryProductFilter, $connect) or exit(mysql_error());
-                            }            
-                        }     
+                            for ($q = 0; $q < count($filtersProduct); $q++) 
+                            { 
+                                if (!empty($filtersProduct[$q])) 
+                                {
+                                    $queryFilters = "INSERT INTO filter_for_product(id,name) VALUES ('', '".mysql_real_escape_string($filtersProduct[$q])."')";
+
+                                    $k = mysql_query($queryFilters, $connect) or exit(mysql_error());
+
+                                    $lastIdFilter = mysql_insert_id();
+
+                                    $queryProductFilter = "INSERT INTO product_filter(product_id,filter_id) VALUES('".$lastIdProduct."', '".$lastIdFilter."')"; 
+
+                                    $p = mysql_query($queryProductFilter, $connect) or exit(mysql_error());
+                                }            
+                            }     
+                        }
+                    }
                 }
-            }
 
             fclose($csvfile);
 
