@@ -85,6 +85,15 @@ class Product
      */
     protected $farmerProducts;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->farmerProducts = new ArrayCollection();
+        $this->filter = new ArrayCollection();
+        $this->season = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -214,16 +223,6 @@ class Product
     public function getCategory()
     {
         return $this->category;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->farmerProducts = new ArrayCollection();
-        $this->filter = new ArrayCollection();
-        $this->season = new ArrayCollection();
     }
 
     /**

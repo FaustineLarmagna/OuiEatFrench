@@ -8,7 +8,7 @@
     <link href="{{ asset('bootstrap/css/bootstrap-responsive.css')}}" rel="stylesheet" media="screen">
 </head>
 <body>
-<!--<script src="http://code.jquery.com/jquery.js"></script>-->
+<script src="http://code.jquery.com/jquery.js"></script>
 <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
@@ -38,14 +38,27 @@
                     <li>
                         <a href="{{ path('oui_eat_french_admin_application_index') }}">Candidatures</a>
                     </li>
-                    <li>
-                        <a href="{{ path('oui_eat_french_admin_agriculturetype_index') }}">Type d'Agricultures</a>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Types <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ path('oui_eat_french_admin_agriculturetype_index') }}">Type d'Agricultures</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('oui_eat_french_admin_unittype_index') }}">Type d'Unités (vente des producteurs)</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="{{ path('oui_eat_french_admin_unittype_index') }}">Type d'Unités (vente des producteurs)</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('oui_eat_french_admin_commandstatus_index') }}">Statuts de commandes</a>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Statuts <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ path('oui_eat_french_admin_commandstatus_index') }}">Statuts de commandes</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('oui_eat_french_admin_cartstatus_index') }}">Statuts de paniers</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

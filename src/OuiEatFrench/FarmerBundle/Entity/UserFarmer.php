@@ -214,7 +214,7 @@ class UserFarmer
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = sha1($password);
 
         return $this;
     }
@@ -226,7 +226,7 @@ class UserFarmer
      */
     public function getPassword()
     {
-        return $this->password;
+        return sha1($this->password);
     }
 
     /**
@@ -533,7 +533,7 @@ class UserFarmer
         return 'OEF/user_farmer/avatar';
     }
 
-    protected function getUploadRootDir()
+    private function getUploadRootDir()
     {
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }

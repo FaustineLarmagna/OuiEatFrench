@@ -111,6 +111,20 @@ class FarmerProduct
      */
     private $plantation;
 
+    /**
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\PublicBundle\Entity\FarmerProductCart", mappedBy="farmerProduct")
+     */
+    protected $farmerProductCarts;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->farmerProductCarts = new ArrayCollection();
+    }
+
 
     public function __toString()
     {
@@ -369,5 +383,38 @@ class FarmerProduct
     public function getPlantation()
     {
         return $this->plantation;
+    }
+
+    /**
+     * Add farmerProductCarts
+     *
+     * @param \OuiEatFrench\PublicBundle\Entity\FarmerProductCart $farmerProductCarts
+     * @return FarmerProduct
+     */
+    public function addFarmerProductCart(\OuiEatFrench\PublicBundle\Entity\FarmerProductCart $farmerProductCarts)
+    {
+        $this->farmerProductCarts[] = $farmerProductCarts;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProductCarts
+     *
+     * @param \OuiEatFrench\PublicBundle\Entity\FarmerProductCart $farmerProductCarts
+     */
+    public function removeFarmerProductCart(\OuiEatFrench\PublicBundle\Entity\FarmerProductCart $farmerProductCarts)
+    {
+        $this->farmerProductCarts->removeElement($farmerProductCarts);
+    }
+
+    /**
+     * Get farmerProductCarts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFarmerProductCarts()
+    {
+        return $this->farmerProductCarts;
     }
 }
