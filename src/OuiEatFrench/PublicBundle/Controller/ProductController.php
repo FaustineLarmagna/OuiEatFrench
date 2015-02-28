@@ -16,8 +16,20 @@ class ProductController extends Controller
 
     public function farmerProductSelectedAction($product_id)
     {
-        $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProduct($product_id);
+        $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProductAndParent($product_id);
 
-        return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig', array('farmers' => $farmers));
+<<<<<<< Updated upstream
+        $productAndParentProduct = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findProductAndChildProduct($product_id);
+
+
+        return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig',
+            array(
+                'farmers' => $farmers,
+                'productAndParentProduct' => $productAndParentProduct,
+                'product_id' => $product_id
+            ));
+=======
+        return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig', array('farmers' => $farmers, 'product_id' => $product_id));
+>>>>>>> Stashed changes
     }
 }

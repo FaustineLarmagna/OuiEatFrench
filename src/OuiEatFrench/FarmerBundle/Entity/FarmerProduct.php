@@ -25,12 +25,11 @@ class FarmerProduct
 
     /** 
      * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\Product", inversedBy="farmerProducts")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $product;
-    
 
-    /** 
+    /**
      * @ORM\ManyToOne(targetEntity="\OuiEatFrench\FarmerBundle\Entity\UserFarmer", inversedBy="farmerProducts")
      * @ORM\JoinColumn(name="farmer_id", referencedColumnName="id")
      */

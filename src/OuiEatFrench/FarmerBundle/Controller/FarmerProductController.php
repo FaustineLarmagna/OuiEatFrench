@@ -11,6 +11,7 @@ class FarmerProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+        // $farmer = $this->get('security.context')->getToken()->getUser();
         $farmerproducts = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findBy(array('farmer' => $farmer));
         $data["farmerproducts"] = $farmerproducts;
         $data['farmer'] = $farmer;

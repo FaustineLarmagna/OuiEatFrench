@@ -11,14 +11,14 @@ use Doctrine\ORM\EntityRepository;
 */
 class UserFarmerRepository extends EntityRepository
 {
-    public function findFarmerByProduct($product)
+    public function findFarmerByProductAndParent($productId)
     {
         $q = $this->createQueryBuilder('f')
             ->select ('f')
             ->join('f.farmerProducts','fp')
             ->join('fp.product','p')
-            ->where('p.id = :product')
-            ->setParameter('product', $product)
+            ->where('p.id = :productId OR p.parentProduct = :productId')
+            ->setParameter('productId', $productId)
             ->getQuery();
 
         return $q->getResult();

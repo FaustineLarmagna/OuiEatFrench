@@ -76,12 +76,13 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinColumn(name="parent_product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="parent_product_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $parentProduct;
 
     /**
      * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProduct", mappedBy="product")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected $farmerProducts;
 
