@@ -10,11 +10,24 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
 {
+
+    public function ajaxFarmerAction()
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+            $product = $request->request->get('product');
+
+            return new JsonResponse(json_encode($product));
+        }
+    }
+
     public function ajaxAction()
     {
         $request = $this->getRequest();
 
-        if($request->isXmlHttpRequest()) // pour vérifier la présence d'une requete Ajax
+        if($request->isXmlHttpRequest())
         {
             $name = $request->request->get('name');
             $season = $request->request->get('season');

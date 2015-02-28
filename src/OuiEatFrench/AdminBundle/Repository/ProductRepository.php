@@ -34,4 +34,16 @@ class ProductRepository extends EntityRepository
 
         return $q->getResult();
     }
+
+    public function findProductAndChildProduct($productId)
+    {
+        $q = $this->createQueryBuilder('product')
+            ->select ('product')
+            ->leftJoin('product.parentProduct', 'parent')
+            ->where('product.id = :productId OR parent.id = :productId')
+            ->setParameter('productId', $productId)
+            ->getQuery();
+
+        return $q->getResult();
+    }
 }

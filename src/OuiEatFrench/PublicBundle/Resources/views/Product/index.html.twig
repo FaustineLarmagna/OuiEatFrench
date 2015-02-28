@@ -21,8 +21,8 @@
     Categorie !<br>
     <select id="categorytxt">
         <option value="all">Tous</option>
-        <option value="Fruit">Fruit</option>
-        <option value="Legume">Legume</option>
+        <option value="Fruits">Fruits</option>
+        <option value="Legumes">Legumes</option>
         <option value="Autres">Autres</option>
     </select><br>
 </form>
@@ -33,7 +33,11 @@
             <td>{{ product.name }}</td>
             <td>{{ product.description }}</td>
             <td>{{ product.calories }}</td>
-            <td><a href="{{ path('oui_eat_french_public_product_farmer_index', { 'product_id' : product.id }) }}"><img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}"></a></td>
+            <td>
+                <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'product_id' : product.id }) }}">
+                    <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}">
+                </a>
+            </td>
         </tr>
     {% endfor %}
 </table>
@@ -60,7 +64,7 @@ $(function () {
 
         function refresh(){
                 $.ajax({
-                    url: 'http://localhost/Projet_SUP/OuiEatFrench/web/app_dev.php/produits/ajax',
+                    url: '{{ path('oui_eat_french_public_product_ajax') }}',
                     type: 'POST',
                     data:
                     {
