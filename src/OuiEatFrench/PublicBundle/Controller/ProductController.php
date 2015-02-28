@@ -18,7 +18,6 @@ class ProductController extends Controller
     {
         $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProductAndParent($product_id);
 
-<<<<<<< Updated upstream
         $productAndParentProduct = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findProductAndChildProduct($product_id);
 
 
@@ -28,8 +27,5 @@ class ProductController extends Controller
                 'productAndParentProduct' => $productAndParentProduct,
                 'product_id' => $product_id
             ));
-=======
-        return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig', array('farmers' => $farmers, 'product_id' => $product_id));
->>>>>>> Stashed changes
     }
 }

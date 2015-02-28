@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 Filtres pour les agriculteurs: <br><br>
 
@@ -43,29 +42,6 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
             Aucun agriculteurs en vend se produit
         {% endfor %}
     </table><br>
-=======
->>>>>>> Stashed changes
-Filtres pour les agriculteurs: <br><br>
-Liste des agriculteurs correspondant a votre produit : <br><br>
-{% if farmers is not null %}
-    {% for farmer in farmers %}
-        {% if farmer.firstname is defined %}
-            <div style="border-style: solid;">
-                Agriculteur : {{ farmer.firstname }}<br>
-                {% for farmerProduct in farmer.farmerProducts %}
-                    {% if farmerProduct.product.id == product_id %}
-                        Produit : {{ farmerProduct.product.name }}<br>
-                        Type : {{ farmerProduct.unitType }}<br>
-                        Prix : {{ farmerProduct.unitPrice }}<br>
-                        Quantity : {{ farmerProduct.unitQuantity }}<br>
-                        Minimum pour vente : {{ farmerProduct.unitMinimum }}<br><br>
-                    {% endif %}
-                {% endfor %}
-            </div><br>
-        {% endif %}
-    {% else %}
-        Aucun agriculteurs en vend se produit
-    {% endfor %}
 {% endif %}
 
 <script type="text/javascript">
