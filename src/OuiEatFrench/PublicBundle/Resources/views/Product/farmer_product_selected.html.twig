@@ -1,16 +1,20 @@
+Filtres pour les agriculteurs: <br><br>
+Liste des agriculteurs correspondant a votre produit : <br><br>
 {% if farmers is not null %}
     {% for farmer in farmers %}
         {% if farmer.firstname is defined %}
-            Agriculteur : {{ farmer.firstname }}<br>
-            {% for farmerProduct in farmer.farmerProducts %}
-                {% if farmerProduct.product.id == product_id %}
-                Produit : {{ farmerProduct.product.name }}<br>
-                Type : {{ farmerProduct.unitType }}<br>
-                Prix : {{ farmerProduct.unitPrice }}<br>
-                Quantity : {{ farmerProduct.unitQuantity }}<br>
-                Minimum pour vente : {{ farmerProduct.unitMinimum }}<br>
-                {% endif %}
-            {% endfor %}
+            <div style="border-style: solid;">
+                Agriculteur : {{ farmer.firstname }}<br>
+                {% for farmerProduct in farmer.farmerProducts %}
+                    {% if farmerProduct.product.id == product_id %}
+                        Produit : {{ farmerProduct.product.name }}<br>
+                        Type : {{ farmerProduct.unitType }}<br>
+                        Prix : {{ farmerProduct.unitPrice }}<br>
+                        Quantity : {{ farmerProduct.unitQuantity }}<br>
+                        Minimum pour vente : {{ farmerProduct.unitMinimum }}<br><br>
+                    {% endif %}
+                {% endfor %}
+            </div><br>
         {% endif %}
     {% else %}
         Aucun agriculteurs en vend se produit
