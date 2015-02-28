@@ -3,6 +3,7 @@
 namespace OuiEatFrench\PublicBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use OuiEatFrench\PublicBundle\Entity\FarmerProductCart;
 
 class CartController extends Controller
 {
@@ -19,8 +20,28 @@ class CartController extends Controller
         return $this->render('OuiEatFrenchPublicBundle:Cart:show.html.twig', array('user' => $user, 'cart' => $cart));
     }
 
-    public function commandAction()
-   	{
-        return $this->redirect($this->generateUrl('oui_eat_french_public_panier_show'));
-   	}
+    public function addToCartAction($farmerProductId, $quantity)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $farmerProduct = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($farmerProductId);
+
+        $entity = new FarmerProductCart();
+        $entity->setUser($user);
+        $entity->setFarmerProduct($farmerProduct);
+        $entity->setUnitQuantity($quantity);-
+
+        $farmerProductNewQuantity = $farmerProduct->getUnitQuantity() - $quantity;
+        $farmerProduct->setUnitQuantity($farmerProductNewQuantity);
+        if ($farmerProductNewQuantity < $farmerProduct->getUnitMinimym()) {
+        	$farmerProduct->setSelling(0);
+        }
+
+        $em->persist($entity);
+        $em->flush();
+
+        $data["cart"] = $cart;
+        $data["user"] = $user;
+        return $this->render('OuiEatFrenchPublicBundle:Cart:show.html.twig', $data);
+    }
 }
