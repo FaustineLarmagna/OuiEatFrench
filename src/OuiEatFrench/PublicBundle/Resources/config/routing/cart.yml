@@ -1,3 +1,7 @@
-oui_eat_french_public_panier_index:
+oui_eat_french_public_panier_show:
     pattern:  /
-    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:index }
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:show }
+
+oui_eat_french_public_panier_add:
+    pattern:  /add
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:add }

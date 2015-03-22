@@ -37,3 +37,7 @@ oui_eat_french_admin_agriculturetype:
 oui_eat_french_admin_commandstatus:
     resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/commandstatus.yml"
     prefix: /statut-commande
+
+oui_eat_french_admin_cartstatus:
+    resource: "@OuiEatFrenchAdminBundle/Resources/config/routing/cartstatus.yml"
+    prefix: /statut-panier

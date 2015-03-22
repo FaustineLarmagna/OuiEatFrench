@@ -1,0 +1,15 @@
+oui_eat_french_admin_cartstatus_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:CartStatus:index }
+
+oui_eat_french_admin_cartstatus_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:CartStatus:create }
+
+oui_eat_french_admin_cartstatus_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:CartStatus:edit }
+
+oui_eat_french_admin_cartstatus_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:CartStatus:delete }

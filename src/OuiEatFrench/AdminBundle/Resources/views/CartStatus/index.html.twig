@@ -1,0 +1,31 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
+<h3>Index des status de paniers</h3>
+{% endblock %}
+{% block content %}
+<a href={{ path('oui_eat_french_admin_cartstatus_create') }}><button class="btn btn-success offset12" type="button">Ajouter</button></a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td><strong>Id</strong></td>
+        <td><strong>Nom</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.name }}</td>
+            <td>
+                <ul>
+                    <li><a href={{ path('oui_eat_french_admin_cartstatus_edit', {'id' : entity.id}) }}>Edition</a></li>
+                    <li><a class='delete' href={{ path('oui_eat_french_admin_cartstatus_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -32,6 +32,9 @@
         <li>
             <a href="{{ path('oui_eat_french_admin_commandstatus_index') }}">Statuts de commandes</a>
         </li>
+        <li>
+            <a href="{{ path('oui_eat_french_admin_cartstatus_index') }}">Statuts de paniers</a>
+        </li>
     </ul>
 
 
@@ -59,3 +62,4 @@
     </tbody>
 </table>#}
 {% endblock %}
+{% block javascripts %}{{ parent() }}{% endblock %}

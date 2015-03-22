@@ -7,6 +7,7 @@ parameters:
     oui_eat_french.admin.form.type.unittype.class: OuiEatFrench\AdminBundle\Form\UnitTypeType
     oui_eat_french.admin.form.type.agriculturetype.class: OuiEatFrench\AdminBundle\Form\AgricultureTypeType
     oui_eat_french.admin.form.type.commandstatus.class: OuiEatFrench\AdminBundle\Form\CommandStatusType
+    oui_eat_french.admin.form.type.cartstatus.class: OuiEatFrench\AdminBundle\Form\CartStatusType
 
 services:
     oui_eat_french.admin.form.type.product:
@@ -56,3 +57,9 @@ services:
             arguments: [ @service_container ]
             tags:
                   - { name: form.type, alias: ouieatfrench_adminbundle_commandstatustype }
+
+    oui_eat_french.admin.form.type.cartstatus:
+            class: OuiEatFrench\AdminBundle\Form\CartStatusType
+            arguments: [ @service_container ]
+            tags:
+                  - { name: form.type, alias: ouieatfrench_adminbundle_cartstatustype }
