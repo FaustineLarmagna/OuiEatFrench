@@ -3,10 +3,10 @@ Filtres pour les agriculteurs: <br><br>
 
 <form>
     Sous catégorie !<br>
-    <select id="product">
+    <select id="productId">
         <option value="all">Tous</option>
         {% for product in productAndParentProduct %}
-            <option value="{{ product.name }}">{{ product.name|capitalize }}</option>
+            <option value="{{ product.id }}">{{ product.name|capitalize }}</option>
         {% endfor %}
     </select><br>
 </form>
@@ -19,7 +19,7 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                 {% for farmerProduct in farmer.farmerProducts %}
                     {% if farmerProduct.product is not null %}
                         {% if farmerProduct.product.id == product_id or (farmerProduct.product.parentProduct is not null and farmerProduct.product.parentProduct.id == product_id) %}
-                            <tr class="{{ farmerProduct.id }}-{{ farmerProduct.product.id }}">
+                            <tr class="{{ farmerProduct.id }}">
                                 <td>
                                     Agriculteur : {{ farmer.firstname }}
                                 </td>
@@ -58,7 +58,7 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                     type: 'POST',
                     data:
                     {
-                        product : $("#product").val()
+                        productId : $("#productId").val()
                     },
                     dataType: 'json',
                     success: function(response)
@@ -68,6 +68,7 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                         $('#farmerTable tr').each(function()
                         {
                             var id = $(this).attr('class');
+                            console.log(response.indexOf(parseInt(id)));
                             if(response.indexOf(parseInt(id)) > -1)
                             {$(this).show();}
                             else

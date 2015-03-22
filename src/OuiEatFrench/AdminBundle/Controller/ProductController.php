@@ -17,10 +17,19 @@ class ProductController extends Controller
 
         if($request->isXmlHttpRequest())
         {
-            $product = $request->request->get('product');
+            $productId = $request->request->get('productId');
 
-            return new JsonResponse(json_encode($product));
+            $productFilter = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findFarmerProductByFilters($productId);
+
+            $productArray = array();
+            foreach($productFilter as $product)
+            {
+                $productArray[] = $product->getId();
+            }
+
+            return new JsonResponse(json_encode($productArray));
         }
+        return new JsonResponse();
     }
 
     public function ajaxAction()
@@ -117,7 +126,7 @@ class ProductController extends Controller
 
             return new JsonResponse(json_encode($idProducts));
         }
-        return new JsonResponse('toto');
+        return new JsonResponse();
     }
 
     public function indexAction()
