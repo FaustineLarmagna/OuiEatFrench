@@ -14,18 +14,18 @@ class ProductController extends Controller
         return $this->render('OuiEatFrenchPublicBundle:Product:index.html.twig', $data);
     }
 
-    public function farmerProductSelectedAction($product_id)
+    public function farmerProductSelectedAction($productId)
     {
-        $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProductAndParent($product_id);
+        $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProductAndParent($productId);
 
-        $productAndParentProduct = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findProductAndChildProduct($product_id);
+        $productAndParentProduct = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findProductAndChildProduct($productId);
 
 
         return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig',
             array(
                 'farmers' => $farmers,
                 'productAndParentProduct' => $productAndParentProduct,
-                'product_id' => $product_id
+                'product_id' => $productId
             ));
     }
 }

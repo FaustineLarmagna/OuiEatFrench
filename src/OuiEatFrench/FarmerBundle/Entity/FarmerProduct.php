@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Farmer-Product
  *
  * @ORM\Table(name="farmer_product")
- * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Repository\UserFarmerRepository")
+ * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Repository\FarmerProductRepository")
  */
 class FarmerProduct
 {

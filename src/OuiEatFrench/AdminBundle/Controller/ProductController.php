@@ -17,17 +17,28 @@ class ProductController extends Controller
 
         if($request->isXmlHttpRequest())
         {
-            $productId = $request->request->get('productId');
+            $categoryId = 1; //Fruits
+            $companyPostCode = '77590';
+            $parameters = array(
+                'kilo'      =>  '1',
+                'unitée'   => '1'
+            );
+            $farmerProductsFilter = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findFarmerProductByFilters($categoryId, $companyPostCode);
 
-            $productFilter = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findFarmerProductByFilters($productId);
-
-            $productArray = array();
-            foreach($productFilter as $product)
+            $productSelected = array();
+            foreach ($farmerProductsFilter as $farmerProduct)
             {
-                $productArray[] = $product->getId();
+                foreach ($parameters as $key => $value)
+                {
+                    if ($farmerProduct->getUnitType()->getName() == $key and $farmerProduct->getUnitQuantity() >= $value)
+                    {
+                        $productSelected[] = $farmerProduct;
+                        break;
+                    }
+                }
             }
 
-            return new JsonResponse(json_encode($productArray));
+            return new JsonResponse(json_encode($productSelected));
         }
         return new JsonResponse();
     }

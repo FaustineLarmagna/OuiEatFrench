@@ -34,7 +34,7 @@
             <td>{{ product.description }}</td>
             <td>{{ product.calories }}</td>
             <td>
-                <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'product_id' : product.id }) }}">
+                <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product.id }) }}">
                     <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}">
                 </a>
             </td>

@@ -19,27 +19,29 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                 {% for farmerProduct in farmer.farmerProducts %}
                     {% if farmerProduct.product is not null %}
                         {% if farmerProduct.product.id == product_id or (farmerProduct.product.parentProduct is not null and farmerProduct.product.parentProduct.id == product_id) %}
-                            <tr class="{{ farmerProduct.id }}">
-                                <td>
-                                    Agriculteur : {{ farmer.firstname }}
-                                </td>
-                                <td>
-                                    <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
-                                </td>
-                                <td>
-                                    Produit : {{ farmerProduct.product.name }}<br>
-                                    Type : {{ farmerProduct.unitType }}<br>
-                                    Prix : {{ farmerProduct.unitPrice }}<br>
-                                    Quantity : {{ farmerProduct.unitQuantity }}<br>
-                                    Minimum pour vente : {{ farmerProduct.unitMinimum }}
-                                </td>
-                            </tr>
+                            {% if farmerProduct.unitQuantity >= farmerProduct.unitMinimum  %}
+                                <tr class="{{ farmerProduct.id }}">
+                                    <td>
+                                        Agriculteur : {{ farmer.firstname }}
+                                    </td>
+                                    <td>
+                                        <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
+                                    </td>
+                                    <td>
+                                        Produit : {{ farmerProduct.product.name }}<br>
+                                        Type : {{ farmerProduct.unitType }}<br>
+                                        Prix : {{ farmerProduct.unitPrice }}<br>
+                                        Quantity : {{ farmerProduct.unitQuantity }}<br>
+                                        Minimum pour vente : {{ farmerProduct.unitMinimum }}
+                                    </td>
+                                </tr>
+                            {% endif %}
                         {% endif %}
                     {% endif %}
                 {% endfor %}
             {% endif %}
         {% else %}
-            Aucun agriculteurs en vend se produit
+            Aucun agriculteurs ne vend ce produit
         {% endfor %}
     </table><br>
 {% endif %}
