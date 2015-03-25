@@ -11,17 +11,16 @@ use Doctrine\ORM\EntityRepository;
 */
 class FarmerProductRepository extends EntityRepository
 {
-    public function findFarmerProductByFilters($categoryId, $companyPostCode)
+    public function findFarmerProductByFilters($productId, $companyPostCode)
     {
         $q = $this->createQueryBuilder('fp')
             ->select ('fp')
             ->join('fp.product','p')
-            ->join('p.category','c')
             ->join('fp.farmer','f')
-            ->where('c.id LIKE :categoryId')
+            ->where('p.id LIKE :productId')
             ->andWhere('f.companyPostcode LIKE :companyPostCode')
             ->setParameters(array(
-                'categoryId'        => $categoryId,
+                'productId'        => $productId,
                 'companyPostCode'   => $companyPostCode.'%'
             ))
             ->getQuery();

@@ -8,7 +8,7 @@ oui_eat_french_public_product_index:
 
 oui_eat_french_public_product_ajax_farmer:
     pattern:  /ajax-farmer
-    defaults: { _controller: OuiEatFrenchAdminBundle:Product:ajaxFarmer }
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:ajaxFarmer }
 
 oui_eat_french_public_product_ajax:
     pattern:  /ajax

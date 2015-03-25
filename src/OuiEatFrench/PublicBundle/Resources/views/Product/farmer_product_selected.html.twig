@@ -3,12 +3,18 @@ Filtres pour les agriculteurs: <br><br>
 
 <form>
     Sous catégorie !<br>
-    <select id="productId">
-        <option value="all">Tous</option>
+    <select id="product">
+        <option value="%">Tous</option>
         {% for product in productAndParentProduct %}
             <option value="{{ product.id }}">{{ product.name|capitalize }}</option>
         {% endfor %}
     </select><br>
+    Code postal de la compagnie<br>
+    <input type="text" id="companyPostCode" ><br>
+    Prix max au kilo<br>
+    <input type="text" id="kilos" ><br>
+    Prix max a l'unitée<br>
+    <input type="text" id="unitee" ><br>
 </form>
 
 Liste des agriculteurs correspondant a votre produit : <br><br>
@@ -54,19 +60,36 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                 refresh();
             });
 
+            $("#companyPostCode").change(function(){
+                refresh();
+            });
+
+            $("#kilos").change(function(){
+                refresh();
+            });
+
+            $("#unitee").change(function(){
+                refresh();
+            });
+
             function refresh(){
                 $.ajax({
                     url: '{{ path('oui_eat_french_public_product_ajax_farmer') }}',
                     type: 'POST',
                     data:
                     {
-                        productId : $("#productId").val()
+                        product : $('#product').val(),
+                        companyPostCode : $('#companyPostCode').val(),
+                        parameters : [
+                            [
+                                ["kilo", $('#kilos').val()],
+                                ["unitee", $('#unitee').val()]
+                            ]
+                        ]
                     },
                     dataType: 'json',
                     success: function(response)
                     {
-                        console.log(response);
-
                         $('#farmerTable tr').each(function()
                         {
                             var id = $(this).attr('class');

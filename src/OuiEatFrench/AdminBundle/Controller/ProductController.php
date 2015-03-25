@@ -10,39 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends Controller
 {
-
-    public function ajaxFarmerAction()
-    {
-        $request = $this->getRequest();
-
-        if($request->isXmlHttpRequest())
-        {
-            $categoryId = 1; //Fruits
-            $companyPostCode = '77590';
-            $parameters = array(
-                'kilo'      =>  '1',
-                'unitée'   => '1'
-            );
-            $farmerProductsFilter = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findFarmerProductByFilters($categoryId, $companyPostCode);
-
-            $productSelected = array();
-            foreach ($farmerProductsFilter as $farmerProduct)
-            {
-                foreach ($parameters as $key => $value)
-                {
-                    if ($farmerProduct->getUnitType()->getName() == $key and $farmerProduct->getUnitQuantity() >= $value)
-                    {
-                        $productSelected[] = $farmerProduct;
-                        break;
-                    }
-                }
-            }
-
-            return new JsonResponse(json_encode($productSelected));
-        }
-        return new JsonResponse();
-    }
-
     public function ajaxAction()
     {
         $request = $this->getRequest();
