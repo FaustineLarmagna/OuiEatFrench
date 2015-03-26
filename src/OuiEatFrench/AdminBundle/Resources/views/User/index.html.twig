@@ -1,0 +1,31 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block title %}
+<h3>Liste des adminitrateur</h3>
+{% endblock %}
+{% block content %}
+<a href={{ path('oui_eat_french_admin_user_create') }}><button class="btn btn-success offset12" type="button">Ajouter</button></a>
+<table class="table">
+    <thead>
+    <tr>
+        <td><strong>Nom d'utilisateur</strong></td>
+        <td><strong>Email</strong></td>
+        <td><strong>Actions</strong></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.username }}</td>
+            <td>{{ entity.email }}</td>
+            <td>
+                <ul>
+                    <li><a href={{ path('oui_eat_french_admin_user_edit', {'id' : entity.id}) }}>Edition</a></li>
+                    <li><a class='delete' href={{ path('oui_eat_french_admin_user_delete', {'id' : entity.id}) }}>Supprimer</a></li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

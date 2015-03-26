@@ -1,0 +1,15 @@
+oui_eat_french_admin_user_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchAdminBundle:User:index }
+
+oui_eat_french_admin_user_create:
+    pattern:  /ajouter
+    defaults: { _controller: OuiEatFrenchAdminBundle:User:create }
+
+oui_eat_french_admin_user_edit:
+    pattern:  /editer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:User:edit }
+
+oui_eat_french_admin_user_delete:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: OuiEatFrenchAdminBundle:User:delete }
