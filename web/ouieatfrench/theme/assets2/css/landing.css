@@ -69,14 +69,16 @@ body
 .title-text
 {
 	color: #7296bd; 
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: 500;
+	margin-bottom: 20px;
 }
 
 .text-oef
 {
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 500;
+	text-align: justify;
 }
 
 .text-presentation
