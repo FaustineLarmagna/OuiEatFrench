@@ -1,235 +1,257 @@
-/* ! Bootstrap styles ! */
-.col-lg-6{
+body
+{
+	background-image: url("../img/background.jpg");
+	background-repeat: no-repeat;
+}
+
+.navbar-oef
+{
+	margin-top: 50px;
+}
+
+.navbar-oef a
+{
+	color: #fff;
+	font-size: 22px;
+	font-weight: 500;
+}
+
+.navbar-margin
+{
 	margin-top: 40px;
-	margin-bottom: 40px;
 }
 
-/* Links */
-a{
-    color: #333333;
-    word-wrap: break-word;
-
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
+.navbar-abonne
+{
+	border: 3px solid #a4d335;
+	padding: 2px;
+	text-align: center;
+	margin-top: 34px;
 }
 
-/* Header styles */
-#headerwrap{
-	padding-top: 80px;
-	padding-bottom: 80px;
+.navbar-abonne a
+{
+	color:#a4d335;
+}
+
+.row
+{
+	margin-right: 0px !important;
+}
+
+.slogan
+{
+	font-size: 55px;
+	color: #fff;
+	margin-top: 120px;
+	margin-left: 30%;
+}
+
+.slogan-word
+{
+	font-style: italic;
+}
+
+.presentation
+{
+	background-color: #fff;
+	border-top:4px solid #a3a69a;
+	height: 600px;
+	margin-top: 250px;
+}
+
+.img-pc
+{
 	position: relative;
-	background-color: #a4d335;
+	bottom: 117px;
 }
 
-#slider
+.title-text
 {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	bottom: 0px;
-}
-
-#headerwrap h1{
-	font-size: 80px;
-	margin-top: 0px !important;
-	margin-bottom: 30px;
-}
-#oef_logo{
-	max-width: 250px;
-}
-
-/* Navbar styles */
-
-.navbar-default{
-	background-color: #ffffff;
-	border-color: transparent;
-}
-.navbar-default .navbar-nav > li > a{
-	color: #333333;
-	line-height: 60px;
-}
-.navbar-default .navbar-nav > li > a:hover{
-	color: #a4d335;
-}
-
-.link-home
-{
-	color:#a4d335 !important;
-}
-
-/* Paragraph & texts */
-h1{
-	text-align: left;
-	font-weight: 400;
-}
-#headerwrap .white-title, #headerwrap .white-text{
-	text-shadow: 0px 0px 5px white;
-}
-.white-title, .white-text{
-	color: #ffffff;
-	margin-bottom: 25px;
-}
-#productors .col-lg-9 p{
-	text-align: left;
-}
-#productors h2{
-	color: #ffffff;
-}
-p{
-    line-height: 32px;
-    margin-bottom: 25px;
-    margin-top: 10px;
-    font-size: 22px;
-    color: #000000;
-}
-.title_section{
-	margin-top: 70px;
-	margin-bottom: 60px;
-}
-.last_section{
-	margin-top: -30px;
-}
-#special-title{
-	margin-bottom: 70px;
-}
-ul>li>a{
-	font-size: 20px;
-	font-weight: 400;
-}
-
-/* Boutons */
-.btn-warning, .btn-success{
-	background-color: #ffc624;
-	border: none;
-	width: 50%;
-	margin-top: 10px;
-	margin-right: 15px;
-}
-.btn-success:hover{
-	background-color: #ed9c28;
-}
-.btn-lg{
+	color: #7296bd; 
 	font-size: 25px;
-}
-div#howit .btn-warning, div#productors .btn-warning{
-	margin-bottom: 60px !important;
-	margin-top: 60px !important;
+	font-weight: 500;
 }
 
-/* Form homepage */
-h2#form-title{
-	font-weight: 400 !important;
-	margin: 0 0 30px 0;
-	font-size: 40px;
-}
-.col-lg-6 .form-inline{
-	background-color: rgba(255, 255, 255, 0.8);
-	padding: 35px;
-}
-.form-control{
-	width: 100%;
-	height: 50px;
-	margin-bottom: 30px;
-	font-weight: 300;
-	font-size: 20px;
-}
-	::-webkit-input-placeholder {
-   		color: #c2c2c2 !important;
-	}
-	:-moz-placeholder { /* Firefox 18- */
-   		color: #c2c2c2 !important;  
-	}
-	::-moz-placeholder {  /* Firefox 19+ */
-   		color: #c2c2c2 !important;  
-	}
-	:-ms-input-placeholder {  
-   		color: #c2c2c2 !important;  
-	}
-	#exampleInputPostcode{
-		width: 45%;
-		float: right;
-	}
-	#exampleInputSelect{
-		width: 45%;
-		float: left;
-		margin-right: 10%;
-	}
-	.form-inline .btn-warning{
-		background-color: #ffc624;
-		border: none;
-		width: 100%;
-		margin-top: 10px;
-	}
-	.form-inline .btn-warning:hover{
-		background-color: #ed9c28;
-		border-color: #eea236;
-	}
-.form-group2{
-	width: 80%;
-	margin: 0 auto;
-	height: 50px;
-}
-#giveMail{
-	width: 45%;
-	float: left;
-	height: 50px;
-}
-#btn-giveMail{
-	width: 45%;
-	float: right;
-	height: 50px;
-	margin-top: 0;
-}
-
-/* Howit */
-#howit{
-	background-color: #f8f8f8;
-}
-
-/* Productors */
-#productors{
-	background-color: #a4d335;
-}
-.steps{
-	margin-top: 20px;
-}
-div#productors .btn-success{
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
-}
-
-/* Footer */
-#footer{
-	background-color: #f8f8f8;
-	height: 50px;
-	font-size: 14px;
-	margin: 0;
-}
-#footer.container{
-	height: 50px;
-}
-#footer p{
-	font-size: 16px !important;
-	margin: 25px 0;
-}
-
-@media screen and (max-width: 768px) {
-  .form-group2{height: 130px;}
-  #giveMail, #btn-giveMail{width: 100%;}
-  .btn-lg{font-size: 20px;}
-  .white-title{padding-left: 15px;}
-  #headerwrap .white-title{padding:0;}
-}
-
-@-moz-document url-prefix()
+.text-oef
 {
-	@media screen and (max-width: 1200px) {
-	    #exampleInputPostcode{
-			width: 45%;
-			float: none;
-		}
-	}
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.text-presentation
+{
+	margin-top: -75px;
+	margin-left: 4%;
+	width: 28%
+}
+
+.presentation-oef
+{
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.video-oef
+{
+	border: 2px solid #e7e7e7;
+	height: 175px;
+	margin-top: 20px;
+	width: 52%;
+	margin-left:29%;
+	margin-bottom: 100px;
+	padding: 10px;
+}
+
+.bandeau-img
+{
+	background-image: url("../img/background_testimony.png");
+	width: 100%;
+	height: 471px;
+}
+
+.black_opacity
+{
+	background-color: rgba(0,0,0,0.3) ;
+	height: 471px;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	padding: 20px;
+	padding-top: 28px;
+}
+
+.guillemets
+{
+	position: relative;
+	right: 707px;
+}
+
+.pattern
+{
+	background-image: url("../img/pattern_formulaire.png");
+	height: 800px;
+}
+
+.producteurs
+{
+	font-size: 40px;
+	font-weight: 500;
+	margin-top: 150px;
+}
+
+.producteurs-text
+{
+	font-size: 20px;
+	font-weight: 400;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.producteurs-form input
+{
+	height: 50px;
+	width: 300px;
+	font-size: 20px;
+	font-style: italic;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.img-plateforme
+{
+	position: relative;
+	bottom: 130px;
+}
+
+.btn-inscription
+{
+	background-color: #a4d335;
+	height: 50px;
+	text-align: center;
+	font-weight: 500;
+	padding-top: 12px;
+	font-size: 20px;
+	width: 12%;
+	position: relative;
+	bottom: 185px;
+	left: 17px;
+}
+
+.btn-inscription a
+{
+	color:#fff;
+}
+
+.who
+{
+	height: 900px;
+	background-color: #f5f0eb;
+}
+
+.font150
+{
+	font-size: 120px;
+}
+
+.font120
+{
+	font-size: 60px;
+}
+
+.text-who
+{
+	font-size: 40px;
+	font-weight: 500;
+	margin-top: 50px;
+}
+
+.vignette
+{
+	background-color: #fff;
+	height: 240px;
+	margin-top: 50px;
+	width: 200px;
+	margin-left: 50px;
+}
+
+.vignette-first
+{
+	background-color: #fff;
+	height: 240px;
+	margin-top: 50px;
+	width: 200px;
+}
+
+.job
+{
+	font-size: 20px;
+	font-weight: 400;
+	text-align: center;
+	margin-left: 27%
+}
+
+.job-other
+{
+	font-size: 20px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.footer
+{
+	height: 100px;
+}
+
+.text-footer
+{
+	font-weight: 400;
+	font-size: 20px;
+	margin-top: 35px;
+}
+
+.img-vignette
+{
+	background-image: url("../img/wendy.jpg");
 }

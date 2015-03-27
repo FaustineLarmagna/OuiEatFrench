@@ -36,182 +36,135 @@
 </head>
 
 <body>
-<!-- Fixed navbar -->
-<div class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ path('oui_eat_french_mailing_landing_index') }}"><img src="{{ asset("ouieatfrench/theme/assets2/img/logo.png") }}" id="oef_logo"></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('oui_eat_french_mailing_landing_index') }}" class="link-home">Accueil</a></li>
-                <li><a href="#howit" id="howitworks">Comment ça marche ?</a></li>
-                <li><a href="{{ path('oui_eat_french_mailing_landing_next') }}#forms">Rejoignez-nous</a></li>
-                <li><a data-toggle="modal" data-target="#myModal">Qui sommes-nous ?</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
+
+<div class="row navbar-oef">
+    <div class="col-md-offset-3 col-md-2">
+        <img src="{{ asset("ouieatfrench/theme/assets2/img/logo.png") }}" alt="logo">
+    </div>
+    <div class="col-md-offset-1  col-md-1 navbar-margin">
+        <a href="#">Le concept</a>
+    </div>
+    <div class=" col-md-2 navbar-margin" style="width:11%">
+        <a href="#">Restez informés</a>
+    </div>
+    <div class=" col-md-1 navbar-margin">
+        <a href="#">L'équipe</a>
+    </div>
+    <div class=" col-md-1 navbar-margin navbar-abonne">
+        <a href="#">M'abonner</a>
     </div>
 </div>
-<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" style="color:#A4D335;">OOlala les curieux ! </h4>
-            </div>
-            <div class="modal-body">
-                <p>Et vous avez bien raison ! Chez OuiEatFrench, la transparence est un mot d'ordre que ce soit sur les produits de nos agriculteurs que sur notre équipe. Cette rubrique est donc en cours de construction mais promis, vous ne serez pas déçus.. À bientôt !</p>
-            </div>
-            <div class="modal-footer" style="text-align:center">
-                <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+
+<div class="row">
+    <div class="col-md-6 slogan">
+        La solution <br>
+        pour manger <span class="slogan-word">sain</span> et <span class="slogan-word">français</span>
+    </div>
 </div>
-<div id="headerwrap">
-    <!--<div id="slider"></div>-->
-    <div class="container">
+
+<div class="row">
+    <div class="col-md-7 col-md-offset-3 presentation">
+        <img src="{{ asset("ouieatfrench/theme/assets2/img/pointun_concept.png") }}" alt="img-pc" class="img-pc col-md-offset-1">
+        <img src="{{ asset("ouieatfrench/theme/assets2/img/pointdeux_concept.png") }}" alt="img-pc" class="img-pc" style="margin-left:13%">
+        <img src="{{ asset("ouieatfrench/theme/assets2/img/pointtrois_concept.png") }}" alt="img-pc" class="img-pc" style="margin-left:14%">
+        <div class="col-md-3 text-presentation">
+            <div class="title-text">
+                Cum sociis natoque penatibus
+            </div>
+            <div class="text-oef">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum odio sit amet varius laoreet. Vestibulum finibus ac ex quis vulputate.Nullam velit libero, dignissim ac arcu vitae, viverra consectetur diam. Nulla facilisi.
+            </div>
+        </div>
+        <div class="col-md-3 text-presentation">
+            <div class="title-text">
+                Cum sociis natoque penatibus
+            </div>
+            <div class="text-oef">
+                Morbi pulvinar nec libero et sagittis. Nam molestie quam blandit convallis porta. Aliquam lorem odio, placerat in malesuada ac, tristique eu ante. Phasellus ante nisi, sodales ac est ac, mattis rutrum justo
+            </div>
+        </div>
+        <div class="col-md-3 text-presentation">
+            <div class="title-text">
+                Cum sociis natoque penatibus
+            </div>
+            <div class="text-oef">
+                 Etiam porttitor gravida massa, lacinia ultrices lectus porttitor id. Mauris sollicitudin purus quis ullamcorper tristique.Vestibulum sed erat sapien. In elementum feugiat mollis. Proin vitae aliquet purus.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-5 presentation-oef">
+        OuiEatFrench, en 2min et en vidéo
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 video-oef">
+        <div style="background-color:#d2d2d2;height:150px;">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="bandeau-img">
+        <div class="col-md-4 col-md-offset-6 black_opacity">
+            <div class="col-md-10 col-md-offset-1">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis mollis ex. Vivamus ut consequat orci, quis malesuada felis. Donec ullamcorper efficitur ipsum, sit amet bibendum enim cursus quis. Nunc consequat, dui vel placerat ullamcorper, purus est eleifend mauris, at egestas dui urna quis turpis. Curabitur in sem a tellus rutrum accumsan. Mauris sed massa at justo vulputate gravida. Morbi sit amet condimentum nibh. Nunc venenatis tempus tempor. In consectetur lacinia diam.
+            </div>
+            <div class="col-md-offset-9">
+                Alban P.
+            </div>
+            <div class="col-md-offset-8">
+                <img src="{{ asset("ouieatfrench/theme/assets2/img/signature_testimony.png") }}">
+            </div>
+        </div>
+        <div class="guillemets">
+            <img src="{{ asset("ouieatfrench/theme/assets2/img/guillemets_testimony.png") }}" alt="guillemets">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 pattern">
         <div class="row">
-            <div class="col-lg-6">
-                <h1 class="white-title">La solution pour manger sain et français</h1>
-                <p class="white-text">OuiEatFrench permet à tout le monde d’acheter ses fruits et légumes directement au producteur, et de connaître en temps réel l’avancement de sa commande.</p>
-                <a class="fancybox-media" href="https://vimeo.com/100193277" rel="media-gallery"><img height="115" src="{{ asset("ouieatfrench/theme/assets2/img/panier.jpg") }}"></a>
-
-            </div><!-- /col-lg-6 -->
-            <div class="col-lg-6">
-                <form action="{{ path(route) }}" method="post" {{ form_enctype(formBoth) }} novalidate="novalidate" class="form-inline" role="form">
-                    {{ form_start(formBoth) }}
-                    <h2 id="form-title">Tenez-moi au courant !</h2>
-                    <div class="form-group">
-                        <select class="form-control" id="exampleInputSelect" name="select">
-                            <option value="landing_seller">Producteur</option>
-                            <option value="landing_customer">Consommateur</option>
-                        </select>
-                        {% if form_errors(formBoth.postcode) != "" %}
-                            {{ form_widget(formBoth.postcode, {'attr': {'placeholder': 'Code postal', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputPostcode', 'style' : 'width:45%; float:right'} }) }}
-                        {% else %}
-                            {{ form_widget(formBoth.postcode, {'attr': {'placeholder': 'Code postal', 'class' : 'form-control', 'id' : 'exampleInputPostcode', 'style' : 'width:45%; float:right'} }) }}
-                        {% endif %}
-                        {% if form_errors(formBoth.lastname) != "" %}
-                            {{ form_widget(formBoth.lastname, {'attr': {'placeholder': 'Votre prénom', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputFirstname'} }) }}
-                        {% else %}
-                            {{ form_widget(formBoth.lastname, {'attr': {'placeholder': 'Votre prénom', 'class' : 'form-control', 'id' : 'exampleInputFirstname'} }) }}
-                        {% endif %}
-                        {% if form_errors(formBoth.firstname) != "" %}
-                            {{ form_widget(formBoth.firstname, {'attr': {'placeholder': 'Votre nom', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputLastname'} }) }}
-                        {% else %}
-                            {{ form_widget(formBoth.firstname, {'attr': {'placeholder': 'Votre nom', 'class' : 'form-control', 'id' : 'exampleInputLastname'} }) }}
-                        {% endif %}
-                        {% if form_errors(formBoth.email) != "" %}
-                            {{ form_widget(formBoth.email, {'attr': {'placeholder': 'Votre email', 'class' : 'form-control form-color-failed', 'id' : 'exampleInputEmail1'} }) }}
-                        {% else %}
-                            {{ form_widget(formBoth.email, {'attr': {'placeholder': 'Votre email', 'class' : 'form-control', 'id' : 'exampleInputEmail1'} }) }}
-                        {% endif %}<br>
-                        {% if not formBoth.vars.valid %}
-                            <span style="color:red">Les données que vous avez saisies ne sont pas valides.</span>
-                        {% elseif formBothValid == 1 %}
-                            <span style="color:green">Votre demande a été validée.</span>
-                        {% endif %}
-                    </div>
-                    <button type="submit" class="btn btn-warning btn-lg">Je valide</button>
-                    {{ form_end(formBoth) }}
+            <div class="col-md-6 col-md-offset-3 producteurs">
+                Producteurs, restez informés !
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3 producteurs-text">
+                Pellentesque eget voluptat quam. Morbi 
+                semper mattis arcu a dapibus. <br>
+                Eret eto tenata.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3 producteurs-form">
+                <form action="#" method="post">
+                    <input type="text" name="prenom" placeholder="Prénom">
+                    <input type="text" name="nom" placeholder="Nom">
+                    <input type="text" name="email" placeholder="Email">
+                    <input type="text" name="cp" placeholder="Code Postal">
                 </form>
-
-                <!-- anchor --><span id="howitworks"></span>
-            </div><!-- /col-lg-6 -->
-
-        </div><!-- /row -->
-    </div><!-- /container -->
-</div><!-- /headerwrap -->
-
-<div id="howit">
-    <div class="container">
-        <div class="row mt title_section">
-            <div>
-                <h1>Un fonctionnement simple en 4 points clés</h1>
             </div>
-        </div><!-- /row -->
-
-        <div class="row mt centered">
-            <div class="col-lg-3">
-                <img src="{{ asset("ouieatfrench/theme/assets2/img/icone1.png") }}" width="200" alt="">
-                <h4><img src="{{ asset("ouieatfrench/theme/assets2/img/green1.png") }}" class="steps"></h4>
-                <p>Des produits de saison</p>
-            </div><!--/col-lg-3 -->
-            <div class="col-lg-3">
-                <img src="{{ asset("ouieatfrench/theme/assets2/img/icone2.png") }}" width="200" alt="">
-                <h4><img src="{{ asset("ouieatfrench/theme/assets2/img/green2.png") }}" class="steps"></h4>
-                <p>Un service de livraison</p>
-            </div><!--/col-lg-3 -->
-
-            <div class="col-lg-3">
-                <img src="{{ asset("ouieatfrench/theme/assets2/img/icone3.png") }}" width="200" alt="">
-                <h4><img src="{{ asset("ouieatfrench/theme/assets2/img/green3.png") }}" class="steps"></h4>
-                <p>Un outil de traçabilité et de géolocalisation</p>
-            </div><!--/col-lg-3 -->
-
-            <div class="col-lg-3">
-                <img src="{{ asset("ouieatfrench/theme/assets2/img/icone4.png") }}" width="200" alt="">
-                <h4><img src="{{ asset("ouieatfrench/theme/assets2/img/green4.png") }}" class="steps"></h4>
-                <p>Une interface simple d’utilisation</p>
-            </div><!--/col-lg-3 -->
-            <a href="{{ path('oui_eat_french_mailing_landing_next') }}"><button class="btn btn-warning btn-lg join-us-button">En savoir plus !</button></a>
-        </div><!-- /row -->
-    </div><!-- /container -->
-</div><!-- /howit -->
-
-<div id="productors">
-    <div class="container">
-        <div class="row mt title_section">
-            <div class="centered">
-                <h1 class="white-title">Les producteurs, notre communauté</h1>
+            <div class="col-md-5 img-plateforme">
+                <img src="{{ asset("ouieatfrench/theme/assets2/img/vue_plateforme.png") }}">
             </div>
-        </div><!-- /row -->
+            <div class="col-md-2 col-md-offset-3 btn-inscription">
+                <a href="#">INSCRIVEZ-VOUS</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <div class="row mt centered">
-            <div class="col-lg-3">
-                <img src="{{ asset("ouieatfrench/theme/assets2/img/icone5.png") }}" alt="">
-            </div>
-            <div class="col-lg-9">
-                <p class="white-text">Vous êtes producteur français et vous souhaitez étendre votre activité ? <br><br>
-                    OuiEatFrench est la solution pour élargir votre clientèle. Dans un premier temps, nous ne ciblerons que les agriculteurs d'Ile-de-France. Cette région représente en effet, le plus grand pouvoir d'achat, soit un fort potentiel de développement pour notre place de marché et votre production. Puis, nous ouvrirons OuiEatFrench petit à petit au reste de la France.<br><br>
-                    Que vous vendiez des fruits, des légumes ou tout autre produit, inscrivez-vous dès maintenant pour adhérer en avant-première à notre solution et ouvrir dès début 2015 votre "stand" OuiEatFrench !
-                </p>
-            </div>
-            {#<a href="formulaire.html#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>#}
-            <a href="{{ path('oui_eat_french_mailing_landing_next') }}#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>
-        </div><!-- /row -->
-        <div class="row mt last_section">
-            <div class="centered">
-                <h1 class="white-title">La santé de nos consommateurs, notre priorité</h1>
-            </div>
-        </div><!-- /row -->
 
-        <div class="row mt centered">
-            <div class="col-lg-3">
-                <img src="{{ asset("ouieatfrench/theme/assets2/img/icone6.png") }}" alt="">
-            </div>
-            <div class="col-lg-9">
-                <p class="white-text">Vous vous préoccupez de votre santé à travers votre alimentation ? Vous aimez cuisiner des produits frais ? Et vous privilégiez les produits français ? <br><br>
-                    Ne cherchez plus ! OuiEatFrench est une place de marché en ligne qui répondra à vos attentes. Nous vous proposerons des aliments français de qualité dont la provenance française sera contrôlée via un service de traçabilité. <br><br>
-                    Pour rester au courant des nouveautés et de la sortie de OuiEatFrench, rejoignez-nous en vous inscrivant à notre newsletter !
-            </div>
-            {#<a href="formulaire.html#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>#}
-            <a href="{{ path('oui_eat_french_mailing_landing_next') }}#forms"><button class="btn btn-warning btn-lg join-us-button">Rejoignez-nous !</button></a>
-        </div><!-- /row -->
-    </div><! --/container -->
-</div><!-- /productors -->
-
-<div id="footer">
-    <div class="container">
-        <p class="centered">2014 © OuiEatFrench - Tous droits réservés</p>
-    </div><!-- /container -->
-</div><!-- /footer -->
+<div class="row footer">
+    <div class="col-md-3 col-md-offset-5 text-footer">
+        2015 &copy; OuiEatFrench
+    </div>
+</div>
 
 
 <!-- Bootstrap core JavaScript
