@@ -1,3 +1,6 @@
+{% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
+{% block title %}Foire Aux Questions{% endblock %}
+{% block content %}
 Faq !
 <table>
     {% for faq in faqs %}
@@ -8,3 +11,4 @@ Faq !
         </tr>
     {% endfor %}
 </table>
+{% endblock %}

@@ -1,3 +1,6 @@
+{% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
+{% block title %}OuiEatFrench{% endblock %}
+{% block content %}
 Edito !
 {% if edito != null %}
 <h3>{{ edito.title }}</h3>
@@ -9,3 +12,4 @@ Edito !
     {{ edito.text }}
 </p>
 {% endif %}
+{% endblock %}

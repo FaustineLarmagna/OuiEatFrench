@@ -1,3 +1,6 @@
+{% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
+{% block title %}OuiEatFrench{% endblock %}
+{% block content %}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div id="produit"></div>
 <form id="name">
@@ -42,6 +45,9 @@
     {% endfor %}
 </table>
 {{ dump(path('oui_eat_french_public_product_ajax')) }}
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
 <script type="text/javascript">
 $(function () {
     jQuery(document).ready(function() {
@@ -91,3 +97,4 @@ $(function () {
     });
 });
 </script>
+{% endblock %}
