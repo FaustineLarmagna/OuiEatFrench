@@ -1,0 +1,36 @@
+.navbar{
+	margin-bottom: 0 !important;
+}
+
+/* Forms */
+#forms{
+	background-color: #f8f8f8;
+	margin-bottom: 50px;
+}
+#exampleInputPostcode{
+	width: 45%;
+	float: left !important;
+}
+
+/* Texts */
+h1{
+	padding-left: 15px;
+}
+#forms h1{
+	margin-bottom: 20px;
+}
+.col-lg-9 p{
+	text-align: left;
+}
+p{
+	margin-bottom: 40px !important;
+}
+@media screen and (max-width: 768px) {
+  #black-title{padding-left: 15px;}
+}
+
+
+/* Team */
+#team{
+	background-color: #a4d335;
+}
