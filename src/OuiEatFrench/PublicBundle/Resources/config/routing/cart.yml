@@ -4,4 +4,4 @@ oui_eat_french_public_panier_show:
 
 oui_eat_french_public_panier_add:
     pattern:  /add
-    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:add }
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:addToCart }

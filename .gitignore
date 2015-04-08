@@ -1,8 +1,6 @@
 /.idea/
 /web/bundles/
-/web/bootstrap/
 /web/OEF/
-/web/ouieatfrench/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml

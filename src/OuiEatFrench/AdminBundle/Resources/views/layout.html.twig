@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>admin OEF</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
-    <link href="{{ asset('bootstrap/css/bootstrap-responsive.css')}}" rel="stylesheet" media="screen">
-</head>
-<body>
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
+{% extends 'base.html.twig' %}
+{% block title %}admin OEF{% endblock %}
+{% block body %}
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -72,10 +63,10 @@
     <br>
     <br>
     <br>
-    {% block title %}
+    {% block page_title %}
     {% endblock %}
     {% block content %}
     {% endblock %}
 </div>
-</body>
-</html>
+{% endblock %}
+{% block javascripts %}{{ parent() }}{% endblock %}

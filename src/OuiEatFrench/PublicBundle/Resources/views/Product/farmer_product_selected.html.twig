@@ -1,3 +1,6 @@
+{% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
+{% block title %}OuiEatFrench{% endblock %}
+{% block content %}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 Filtres pour les agriculteurs: <br><br>
 
@@ -51,7 +54,9 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
         {% endfor %}
     </table><br>
 {% endif %}
-
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
 <script type="text/javascript">
     $(function () {
         jQuery(document).ready(function() {
@@ -106,3 +111,4 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
         });
     });
 </script>
+{% endblock %}

@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mon Stand Producteur</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
-    <link href="{{ asset('bootstrap/css/bootstrap-responsive.css')}}" rel="stylesheet" media="screen">
-    <link href="{{ asset('bundles/ouieatfrenchfarmer/css/style.css')}}" rel="stylesheet" media="screen">
-</head>
-<body>
-<!--<script src="http://code.jquery.com/jquery.js"></script>-->
-<script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
+{% extends 'base.html.twig' %}
+{% block title %}Mon Stand Producteur{% endblock %}
+{% block body %}
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -45,11 +35,10 @@
     <br>
     <br>
     <br>
-    {% block title %}
+    {% block page_title %}
     {% endblock %}
     {% block content %}
     {% endblock %}
-    {% block javascripts %}<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>{% endblock %}
 </div>
-</body>
-</html>
+{% endblock %}
+{% block javascripts %}{{ parent() }}{% endblock %}

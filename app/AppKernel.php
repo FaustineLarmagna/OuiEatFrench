@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new OuiEatFrench\MailingBundle\OuiEatFrenchMailingBundle(),
             new OuiEatFrench\CommandBundle\OuiEatFrenchCommandBundle(),
             new OuiEatFrench\PublicBundle\OuiEatFrenchPublicBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,4 +1,9 @@
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
+
+{% block page_title %}
 <h3>Candidature de {{farmer.firstname}} {{farmer.lastname}}</h3>
+{% endblock %}
+{% block content %}
 
 <h4>status : {{farmer.status.name}}</h4>
 
@@ -14,3 +19,4 @@
 	<li>Nom de l'exploitation : {{farmer.companyName}}</li>
 	<li>Adresse de l'exploitation : {{farmer.companyStreet}} {{farmer.companyPostcode}} {{farmer.companyCity}}</li>
 </ul>
+{% endblock %}
