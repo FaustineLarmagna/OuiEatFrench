@@ -717,7 +717,7 @@ $this->session = $session;
 public function getClientIps()
 {
 $ip = $this->server->get('REMOTE_ADDR');
-if (!self::$trustedProxies) {
+if (!$this->isFromTrustedProxy()) {
 return array($ip);
 }
 if (!self::$trustedHeaders[self::HEADER_CLIENT_IP] || !$this->headers->has(self::$trustedHeaders[self::HEADER_CLIENT_IP])) {
@@ -772,7 +772,7 @@ return $this->isSecure() ?'https':'http';
 }
 public function getPort()
 {
-if (self::$trustedProxies) {
+if ($this->isFromTrustedProxy()) {
 if (self::$trustedHeaders[self::HEADER_CLIENT_PORT] && $port = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PORT])) {
 return $port;
 }
@@ -848,7 +848,7 @@ return''=== $qs ? null : $qs;
 }
 public function isSecure()
 {
-if (self::$trustedProxies && self::$trustedHeaders[self::HEADER_CLIENT_PROTO] && $proto = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO])) {
+if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_PROTO] && $proto = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO])) {
 return in_array(strtolower(current(explode(',', $proto))), array('https','on','ssl','1'));
 }
 $https = $this->server->get('HTTPS');
@@ -856,7 +856,7 @@ return !empty($https) &&'off'!== strtolower($https);
 }
 public function getHost()
 {
-if (self::$trustedProxies && self::$trustedHeaders[self::HEADER_CLIENT_HOST] && $host = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_HOST])) {
+if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_HOST] && $host = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_HOST])) {
 $elements = explode(',', $host);
 $host = $elements[count($elements) - 1];
 } elseif (!$host = $this->headers->get('HOST')) {
@@ -1215,6 +1215,10 @@ throw new \LogicException('The Request factory must return an instance of Symfon
 return $request;
 }
 return new static($query, $request, $attributes, $cookies, $files, $server, $content);
+}
+private function isFromTrustedProxy()
+{
+return self::$trustedProxies && IpUtils::checkIp($this->server->get('REMOTE_ADDR'), self::$trustedProxies);
 }
 }
 }
