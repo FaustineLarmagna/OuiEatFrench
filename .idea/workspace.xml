@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/index.html.twig" />
-    </list>
+    <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="" />
     <ignored path="OuiEatFrench.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +26,7 @@
       <file leaf-file-name="edit.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="360">
+            <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -37,7 +35,7 @@
       <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.61931187" vertical-offset="0" max-vertical-offset="901">
+            <state line="31" column="0" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.6025918" vertical-offset="0" max-vertical-offset="926">
               <folding />
             </state>
           </provider>
@@ -46,10 +44,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="0" selection-start="2617" selection-end="2617" vertical-scroll-proportion="-8.425287" vertical-offset="635" max-vertical-offset="1476">
-              <folding>
-                <element signature="e#55#112#0" expanded="true" />
-              </folding>
+            <state line="76" column="0" selection-start="2617" selection-end="2617" vertical-scroll-proportion="0.0" vertical-offset="635" max-vertical-offset="1476">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,7 +53,7 @@
       <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Admin/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="9" selection-start="1471" selection-end="1471" vertical-scroll-proportion="-26.666666" vertical-offset="0" max-vertical-offset="1278">
+            <state line="40" column="9" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1278">
               <folding />
             </state>
           </provider>
@@ -66,7 +62,7 @@
       <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="25" selection-start="3298" selection-end="3298" vertical-scroll-proportion="-26.37037" vertical-offset="440" max-vertical-offset="1566">
+            <state line="64" column="25" selection-start="3298" selection-end="3298" vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1566">
               <folding />
             </state>
           </provider>
@@ -75,7 +71,7 @@
       <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="954">
+            <state line="23" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="954">
               <folding />
             </state>
           </provider>
@@ -84,7 +80,7 @@
       <file leaf-file-name="user.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/user.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="-4.5" vertical-offset="0" max-vertical-offset="378">
+            <state line="15" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="378">
               <folding />
             </state>
           </provider>
@@ -93,10 +89,8 @@
       <file leaf-file-name="Faq.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Faq.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="-3.925926" vertical-offset="2" max-vertical-offset="2898">
-              <folding>
-                <element signature="e#51#83#0" expanded="true" />
-              </folding>
+            <state line="6" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="2898">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,10 +98,8 @@
       <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="-21.62963" vertical-offset="244" max-vertical-offset="2034">
-              <folding>
-                <element signature="e#51#83#0" expanded="true" />
-              </folding>
+            <state line="46" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="2034">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,7 +107,7 @@
       <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="46" selection-start="612" selection-end="612" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="486">
+            <state line="13" column="46" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="486">
               <folding />
             </state>
           </provider>
@@ -837,137 +829,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Repository/FarmerProductRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="646" selection-end="646" vertical-scroll-proportion="0.40820736" vertical-offset="0" max-vertical-offset="926">
-          <folding />
-        </state>
+        <state line="21" column="34" selection-start="646" selection-end="646" vertical-scroll-proportion="0.40820736" vertical-offset="0" max-vertical-offset="926" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/FarmerProduct.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="7" selection-start="4008" selection-end="4008" vertical-scroll-proportion="0.0" vertical-offset="3204" max-vertical-offset="7650">
-          <folding />
-        </state>
+        <state line="178" column="7" selection-start="4008" selection-end="4008" vertical-scroll-proportion="0.0" vertical-offset="3204" max-vertical-offset="7650" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/FarmerProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="41" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="2628">
-          <folding />
-        </state>
+        <state line="36" column="41" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="2628" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Product/farmer_product_selected.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="31" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.33406353" vertical-offset="1027" max-vertical-offset="2052">
-          <folding />
-        </state>
+        <state line="74" column="31" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.33406353" vertical-offset="1027" max-vertical-offset="2052" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="6" selection-start="2517" selection-end="2517" vertical-scroll-proportion="-12.666667" vertical-offset="1710" max-vertical-offset="6804">
-          <folding />
-        </state>
+        <state line="116" column="6" selection-start="2517" selection-end="2517" vertical-scroll-proportion="-12.666667" vertical-offset="1710" max-vertical-offset="6804" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/EditoType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="953">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="953" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/UserType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1113" selection-end="1113" vertical-scroll-proportion="-26.666666" vertical-offset="0" max-vertical-offset="828">
-          <folding>
-            <element signature="e#49#89#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="40" column="0" selection-start="1113" selection-end="1113" vertical-scroll-proportion="-26.666666" vertical-offset="0" max-vertical-offset="828" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/form.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="3521" selection-end="3521" vertical-scroll-proportion="0.0" vertical-offset="451" max-vertical-offset="1404">
-          <folding>
-            <marker date="1427405746443" expanded="true" signature="-1:-1" placeholder="parameters:" />
-            <marker date="1427405746443" expanded="true" signature="-1:-1" placeholder="services:" />
-            <marker date="1427405746443" expanded="true" signature="-1:-1" placeholder="oui_eat_french.admin.form.type.user:" />
-            <marker date="1427405746443" expanded="true" signature="-1:-1" placeholder="tags:" />
-          </folding>
-        </state>
+        <state line="72" column="0" selection-start="3521" selection-end="3521" vertical-scroll-proportion="0.0" vertical-offset="451" max-vertical-offset="1404" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/create.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="360">
-          <folding>
-            <marker date="1427405847571" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="14" column="0" selection-start="429" selection-end="429" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="360" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="1" selection-start="283" selection-end="283" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="324">
-          <folding />
-        </state>
+        <state line="12" column="1" selection-start="283" selection-end="283" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="324" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/FaqController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="567" selection-end="567" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="1692">
-          <folding />
-        </state>
+        <state line="21" column="0" selection-start="567" selection-end="567" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="1692" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/FilterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1458">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1458" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/bootstrap/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="13" selection-start="1463" selection-end="1463" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="40824">
-          <folding />
-        </state>
+        <state line="40" column="13" selection-start="1463" selection-end="1463" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="40824" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="612" selection-end="612" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="486">
+        <state line="13" column="46" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="486">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="360">
+        <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="360">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="0" selection-start="2617" selection-end="2617" vertical-scroll-proportion="-8.425287" vertical-offset="635" max-vertical-offset="1476">
-          <folding>
-            <element signature="e#55#112#0" expanded="true" />
-          </folding>
+        <state line="76" column="0" selection-start="2617" selection-end="2617" vertical-scroll-proportion="0.0" vertical-offset="635" max-vertical-offset="1476">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Admin/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="9" selection-start="1471" selection-end="1471" vertical-scroll-proportion="-26.666666" vertical-offset="0" max-vertical-offset="1278">
+        <state line="40" column="9" selection-start="1471" selection-end="1471" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1278">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="25" selection-start="3298" selection-end="3298" vertical-scroll-proportion="-26.37037" vertical-offset="440" max-vertical-offset="1566">
+        <state line="64" column="25" selection-start="3298" selection-end="3298" vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1566">
           <folding />
         </state>
       </provider>
@@ -981,32 +936,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/user.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="-4.5" vertical-offset="0" max-vertical-offset="378">
+        <state line="15" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="378">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Faq.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="-3.925926" vertical-offset="2" max-vertical-offset="2898">
-          <folding>
-            <element signature="e#51#83#0" expanded="true" />
-          </folding>
+        <state line="6" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="2898">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="-21.62963" vertical-offset="244" max-vertical-offset="2034">
-          <folding>
-            <element signature="e#51#83#0" expanded="true" />
-          </folding>
+        <state line="46" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="2034">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.61931187" vertical-offset="0" max-vertical-offset="901">
+        <state line="31" column="0" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.6025918" vertical-offset="0" max-vertical-offset="926">
           <folding />
         </state>
       </provider>
