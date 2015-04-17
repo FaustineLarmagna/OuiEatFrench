@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="" />
+    <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="OuiEatFrench.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -132,7 +134,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,6 +208,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,14 +276,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19407009" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19407009" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -289,11 +291,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -517,72 +519,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="701" selection-end="701" vertical-scroll-proportion="0.2526998" vertical-offset="0" max-vertical-offset="926">
-          <folding />
-        </state>
+        <state line="13" column="46" selection-start="701" selection-end="701" vertical-scroll-proportion="0.2526998" vertical-offset="0" max-vertical-offset="926" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="360">
-          <folding />
-        </state>
+        <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="360" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="0" selection-start="2617" selection-end="2617" vertical-scroll-proportion="0.8833693" vertical-offset="550" max-vertical-offset="1476">
-          <folding />
-        </state>
+        <state line="76" column="0" selection-start="2617" selection-end="2617" vertical-scroll-proportion="0.8833693" vertical-offset="550" max-vertical-offset="1476" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/Admin/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.41684666" vertical-offset="352" max-vertical-offset="1278">
-          <folding />
-        </state>
+        <state line="41" column="0" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.41684666" vertical-offset="352" max-vertical-offset="1278" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="25" selection-start="2891" selection-end="2891" vertical-scroll-proportion="0.7688985" vertical-offset="278" max-vertical-offset="1386">
-          <folding />
-        </state>
+        <state line="55" column="25" selection-start="2891" selection-end="2891" vertical-scroll-proportion="0.7688985" vertical-offset="278" max-vertical-offset="1386" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="0.43336833" vertical-offset="1" max-vertical-offset="954">
-          <folding />
-        </state>
+        <state line="23" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="0.43336833" vertical-offset="1" max-vertical-offset="954" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/config/routing/user.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="0.28331584" vertical-offset="0" max-vertical-offset="953">
-          <folding />
-        </state>
+        <state line="15" column="0" selection-start="497" selection-end="497" vertical-scroll-proportion="0.28331584" vertical-offset="0" max-vertical-offset="953" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Faq.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="0.11447084" vertical-offset="2" max-vertical-offset="2898">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="139" selection-end="139" vertical-scroll-proportion="0.11447084" vertical-offset="2" max-vertical-offset="2898" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="2034">
-          <folding />
-        </state>
+        <state line="46" column="0" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="2034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/User/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.6025918" vertical-offset="0" max-vertical-offset="926">
-          <folding />
-        </state>
+        <state line="31" column="0" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.6025918" vertical-offset="0" max-vertical-offset="926" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
