@@ -68,27 +68,4 @@ class CartStatus
     {
         return $this->name;
     }
-
-    /**
-     * Set traduction
-     *
-     * @param string $traduction
-     * @return CartStatus
-     */
-    public function setTraduction($traduction)
-    {
-        $this->traduction = $traduction;
-
-        return $this;
-    }
-
-    /**
-     * Get traduction
-     *
-     * @return string 
-     */
-    public function getTraduction()
-    {
-        return $this->traduction;
-    }
 }

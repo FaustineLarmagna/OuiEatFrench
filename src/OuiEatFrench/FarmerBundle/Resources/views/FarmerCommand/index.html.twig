@@ -1,0 +1,9 @@
+{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
+
+{% block content %}
+	{% if commands %}
+		{{ dump(commands[0].cart) }}
+{# 		{% for command in commands %}
+		{% endfor %} #}
+	{% endif %}
+{% endblock %}
