@@ -51,7 +51,7 @@ class UserFarmerController extends Controller
         $data["entities"] = $entities;
         $farmerId = $this->get('session')->get('farmer');
         if ($farmerId)
-        { 
+        {
             $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);//$this->get('security.context')->getToken()->getUser();
         }
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:index.html.twig', $data);
