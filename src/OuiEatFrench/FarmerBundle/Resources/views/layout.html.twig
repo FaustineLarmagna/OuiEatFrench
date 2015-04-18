@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}Mon Stand Producteur{% endblock %}
 {% block body %}
+{% if app.user %}
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -31,6 +32,7 @@
         </div>
     </div>
 </div>
+{% endif %}
 <div class="container">
     <br>
     <br>

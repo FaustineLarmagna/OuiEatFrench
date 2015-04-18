@@ -4,14 +4,14 @@ oui_eat_french_public:
 
 # oui_eat_french_command:
 #     resource: "@OuiEatFrenchCommandBundle/Resources/config/routing.yml"
-#     prefix:   /monstand/{id}
+#     prefix:   /mon-stand/{id}
 
 # oui_eat_french_farmer_connection:
 #     path:     /monstand/connexion
 #     defaults: { _controller: OuiEatFrenchFarmerBundle:Security:login }
 
 # oui_eat_french_farmer_connection_check:
-#     path:     /monstand/connexion_check
+#     path:     /mon-stand/connexion_check
 
 oui_eat_french_farmer:
     resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing.yml"
