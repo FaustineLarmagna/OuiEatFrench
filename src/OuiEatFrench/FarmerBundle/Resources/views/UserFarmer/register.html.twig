@@ -1,12 +1,52 @@
-{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
-{% block content %}
-Formulaire nouveau stand producteur
-<br><br>
-<form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
-    {% for child in form.children %}
-        {{ form_row(child) }}
-    {% endfor %}
-    <br>
-    <input class="btn btn-success" type="submit" value="Je m'inscris !">
-</form>
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="row">
+	<div class="span4 inscription offset5">
+		<div class="row title-inscription-form">
+			INSCRIPTION
+		</div>
+		<div class="row inscription-form">
+			<form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate" id="form-inscription">
+			    {% for child in form.children %}
+			        {{ form_row(child) }}
+			    {% endfor %}
+			    <br>
+			    <button class="btn-inscription" type="submit" form="form-inscription">JE M'INSCRIS <i class="icon-arrow-right icon-white"></i></button>
+			</form>
+		</div>
+	</div>
+	<div class="span4 connexion">
+		<div class="row title-connexion-form">
+			CONNEXION
+		</div>
+		<div class="row text-connexion">
+			Déjà un compte sur notre <br>
+			 plateforme ?<br>
+			 Connectez vous !
+		</div>
+		<hr></hr>
+		<div class="row text-password">
+			<a href="">Mot de passe oublié ?</a>
+		</div>
+		<div class="row inscription-form">
+			<form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate" id="form-inscription">
+			    {% for child in form.children %}
+			        {{ form_row(child) }}
+			    {% endfor %}
+			    <br>
+			    <button class="btn-connexion" type="submit" form="form-conenxion">JE ME CONNECTE</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="bottom-link offset5">
+	  <a href="">CGV</a> |
+	  <a href="">Foire aux questions</a> |
+	  <a href="">La politique de confidentialité</a> |
+	  <a href="">Qui sommes-nous ?</a> |
+	  <a href="">Comment ça marche ?</a>
+	</div>
+</div>
+
 {% endblock %}

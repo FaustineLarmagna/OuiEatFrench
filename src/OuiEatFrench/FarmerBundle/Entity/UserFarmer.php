@@ -140,9 +140,15 @@ class UserFarmer
      */
     private $farmerProducts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="\OuiEatFrench\FarmerBundle\Entity\Command", mappedBy="farmer")
+     */
+    private $command;
+
 
     public function __construct() {
         $this->farmerProducts = new ArrayCollection();
+        $this->command = new ArrayCollection();
     }
 
     public function __toString()
