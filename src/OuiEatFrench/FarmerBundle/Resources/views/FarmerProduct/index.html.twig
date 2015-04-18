@@ -19,17 +19,17 @@
 {% else %}
 <div id="farmerproducts">
 {% for farmerproduct in farmerproducts %}
-    <div class="farmerproduct" style="float:{% if loop.index is odd %}left{% else %}right{% endif %};">
+    <div class="farmerproduct" style="float:left;">
         {# <div class="title_product"><span style="float:left;">Produit : {% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</span> <span style="float:right;"><a href={{ path('oui_eat_french_farmer_product_edit', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Modifier</a> | <a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Supprimer</a></span></div><div style="clear:both"></div> #}
         <div class="product_description">
             {% if farmerproduct.product is not null %}
-                <img src="{{ asset('ouieatfrench/theme/assets2/img/' ~ farmerproduct.product.imageName) }}" width="250" alt="image de {{ farmerproduct.product.name }}" class="product_img">
+                <img src="{{ asset('ouieatfrench/theme/assets2/img/' ~ farmerproduct.product.imageName) }}" height="185" width="250" alt="image de {{ farmerproduct.product.name }}" class="product_img">
             {% endif %}
             <div class="product_description_left">
                 <div class="name_product">{% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</div>
                 <div class="type_agriculture">Agriculture {{ farmerproduct.agricultureType }}</div>
                 <div class="price_products">
-                    <span class="quantity_product">12 kg</span>
+                    <span class="quantity_product">{{ farmerproduct.unitQuantity }} {{ farmerproduct.unitType }}</span>
                      à 
                      <span class="price_product">{{ farmerproduct.unitPrice }}€</span>
                 </div>
