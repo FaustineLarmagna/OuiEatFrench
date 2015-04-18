@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Cart
  *
  * @ORM\Table(name="cart")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="OuiEatFrench\PublicBundle\Repository\CartRepository")
  */
 class Cart
 {
@@ -54,8 +54,14 @@ class Cart
      */
     protected $farmerProductCarts;
 
+    /**
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\Command", mappedBy="cart")
+     */
+    protected $command;
+
     public function __construct() {
         $this->farmerProductCarts = new ArrayCollection();
+        $this->command = new ArrayCollection();
     }
 
     /**

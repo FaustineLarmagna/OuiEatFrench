@@ -28,6 +28,21 @@ class CommandStatus
      */
     private $name;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="traduction", type="string", length=255)
+     */
+    private $traduction;
+
+    /**
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\Command", mappedBy="status")
+     */
+    protected $command;
+
+    public function __construct() {
+        $this->command = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -60,5 +75,28 @@ class CommandStatus
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set traduction
+     *
+     * @param string $traduction
+     * @return CartStatus
+     */
+    public function setTraduction($traduction)
+    {
+        $this->traduction = $traduction;
+
+        return $this;
+    }
+
+    /**
+     * Get traduction
+     *
+     * @return string 
+     */
+    public function getTraduction()
+    {
+        return $this->traduction;
     }
 }

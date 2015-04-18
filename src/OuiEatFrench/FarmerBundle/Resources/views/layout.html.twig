@@ -13,7 +13,7 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li>
-                        <a href="">Mes commandes</a>
+                        <a href="{{ path('oui_eat_french_farmer_command_index', {'farmerId' : farmer.id}) }}">Mes commandes</a>
                     </li>
                     <li>
                         <a href="{{ path('oui_eat_french_farmer_product_index', {'farmerId' : farmer.id}) }}">Mon catalogue</a>
