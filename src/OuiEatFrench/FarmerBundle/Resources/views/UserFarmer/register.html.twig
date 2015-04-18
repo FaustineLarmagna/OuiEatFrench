@@ -6,7 +6,7 @@
 			INSCRIPTION
 		</div>
 		<div class="row inscription-form">
-			<form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate" id="form-inscription">
+			<form action="{{ path('oui_eat_french_farmer_user_register') }}" method="post" {{ form_enctype(form) }} novalidate="novalidate" id="form-inscription">
 			    {% for child in form.children %}
 			        {{ form_row(child) }}
 			    {% endfor %}
@@ -28,14 +28,15 @@
 		<div class="row text-password">
 			<a href="">Mot de passe oublié ?</a>
 		</div>
-		<div class="row inscription-form">
-			<form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate" id="form-inscription">
-			    {% for child in form.children %}
-			        {{ form_row(child) }}
-			    {% endfor %}
-			    <br>
-			    <button class="btn-connexion" type="submit" form="form-conenxion">JE ME CONNECTE</button>
-			</form>
+		<div class="row connexion-form">
+            <form action="{{ path('oui_eat_french_farmer_user_login') }}" method="post" novalidate="novalidate" id="form-connexion">
+                <input type="text" name="email">
+                <input type="password" name="password"><br>
+                <button class="btn-connexion" type="submit" form="form-connexion">JE ME CONNECTE</button>
+            </form>
+            {% if error is defined and error is not null %}
+                {{ error }}
+            {% endif %}
 		</div>
 	</div>
 </div>

@@ -7,11 +7,53 @@ use OuiEatFrench\FarmerBundle\Entity\UserFarmer;
 
 class UserFarmerController extends Controller
 {
+    public function logoutAction()
+    {
+        $this->get('session')->remove('farmer');
+        return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
+    }
+
+    public function loginAction()
+    {
+        $parameters = array();
+
+        $request = $this->get('request');
+
+        $email = $request->get('email');
+        $password = $request->get('password');
+
+        if ($request->getMethod() == 'POST')
+        {
+            if ($email == '' or $password == '')
+            {
+                $parameters['error'] = 'Champs manquants';
+            }
+            else
+            {
+                $password = sha1($password);
+                $user = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findOneBy(array('email' => $email, 'password' => $password));
+
+                if ($user)
+                {
+                    $this->get('session')->set('farmer', $user->getId());
+                    return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
+                }
+                $parameters['error'] = 'Indentifiants ou mot de passe incorrect';
+            }
+        }
+
+        return $this->registerAction();
+    }
+
     public function indexAction()
     {
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
         $data["entities"] = $entities;
-        $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find(1);//$this->get('security.context')->getToken()->getUser();
+        $farmerId = $this->get('session')->get('farmer');
+        if ($farmerId)
+        {
+            $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);//$this->get('security.context')->getToken()->getUser();
+        }
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:index.html.twig', $data);
     }
 
@@ -37,7 +79,6 @@ class UserFarmerController extends Controller
             }
         }
         $data["form"] = $form->createView();
-        $data["route"] = "oui_eat_french_farmer_user_register";
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:register.html.twig', $data);
     }
 

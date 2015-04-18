@@ -1,0 +1,11 @@
+oui_eat_french_farmer_availability_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerAvailability:index }
+
+oui_eat_french_farmer_availability_edit:
+    pattern:  /{id}/editer
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerAvailability:edit }
+
+oui_eat_french_farmer_availability_delete:
+    pattern:  /{id}/supprimer
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerAvailability:delete }

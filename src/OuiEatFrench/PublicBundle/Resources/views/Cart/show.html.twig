@@ -7,6 +7,11 @@
 			<h3>{{app.user | title}}, voici votre panier :</h3>
 		</div>
 	</div>
+
+	{% for flashMessage in app.session.flashbag.get('error') %}
+	    <div class="alert alert-error">{{ flashMessage }}</div>
+	{% endfor %}
+
 	<div class="row">
 		<div class="col-md-10">
 			<table class="table">
@@ -21,9 +26,14 @@
 					{% set total = 0 %}
 				    {% for farmerProductCart in cart.farmerProductCarts %}
 				    	{% set price = farmerProductCart.farmerProduct.unitPrice * farmerProductCart.unitQuantity %}
-				        <tr id="{{ farmerProductCart.farmerProduct.product.id }}">
+				        <tr>
 				            <td>{{ farmerProductCart.farmerProduct.product.name|capitalize }}</td>
-				            <td>{{ farmerProductCart.unitQuantity }}</td>
+				            <td>
+				            	<form action="{{ path('oui_eat_french_public_cart_modify', {'farmerProductCartId' : farmerProductCart.id}) }}" method="post">
+				            		<input type="text" value="{{ farmerProductCart.unitQuantity }}" name="quantity">
+				            		<input type="submit" value="modifier" name="submit">
+			            		</form>
+			            	</td>
 				            <td>{{ farmerProductCart.farmerProduct.unitType.name }}</td>
 				            <td>{{ price|number_format(2, '.', ',') }}€</td>
 				            <td><a href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}">Supprimer</a></td>
@@ -36,6 +46,12 @@
 				    </tr>
 				</tbody>
 			</table>
+		    <table style="width:500px;">
+		    	<tr>
+		    		<td><a href="{{ path('oui_eat_french_public_cart_valid') }}" class="btn btn-action">Valider</a></td>
+		    		<td><a href="{{ path('oui_eat_french_public_cart_reset') }}" class="btn btn-danger">Vider le panier</a></td>
+		    	</tr>
+		    </div>
 		</div>
 	</div>
 </div>
