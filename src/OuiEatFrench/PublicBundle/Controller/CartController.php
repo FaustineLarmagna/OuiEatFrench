@@ -23,14 +23,14 @@ class CartController extends Controller
 
     public function addToCartAction($farmerProductId)
     {
-        if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity'])) {
-            $this->get('session')->getFlashBag()->add('error', "Quantité de produit invalide. Le produit n'a pas été ajouté à votre panier.");
-            return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
-        }
-
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $farmerProduct = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($farmerProductId);
+        $farmerProductUnitType = $farmerProduct->getUnitType();
+        if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity']) || (is_float(floatval($_POST['quantity'])) && $farmerProductUnitType->getId() !== 1)) {
+            $this->get('session')->getFlashBag()->add('error', "Quantité de produit invalide. Le produit n'a pas été ajouté à votre panier.");
+            return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+        }
 
         if ($_POST['quantity'] > $farmerProduct->getUnitQuantity()) {
             //out of stock

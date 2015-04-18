@@ -39,7 +39,7 @@ class FarmerProductCart
     /**
      * @var integer
      *
-     * @ORM\Column(name="unitQuantity", type="integer")
+     * @ORM\Column(name="unitQuantity", type="float")
      */
     private $unitQuantity;
 
