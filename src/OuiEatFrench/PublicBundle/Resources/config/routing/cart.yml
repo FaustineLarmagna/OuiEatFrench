@@ -3,5 +3,9 @@ oui_eat_french_public_cart_show:
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:show }
 
 oui_eat_french_public_cart_add:
-    pattern:  /add/{farmerProductId}
+    pattern:  /ajouter/{farmerProductId}
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:addToCart }
+
+oui_eat_french_public_cart_remove:
+    pattern:  /supprimer/{farmerProductCartId}
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:removeFromCart }
