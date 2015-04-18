@@ -14,16 +14,18 @@
     Saisons !<br>
     <select id="saisontxt">
         <option value="all">Tous</option>
-        <option value="ete">été</option>
-        <option value="automne">Automne</option>
-        <option value="hiver">Hiver</option>
-        <option value="printemps">Printemps</option>
+        {% for season in seasons %}
+            <option value="{{ season.name }}">{{ season.name|capitalize }}</option>
+        {% endfor %}
     </select><br>
     Calories !<br>
     <input type="number" id="caloriesint" value="0"><br>
     Categorie !<br>
     <select id="categorytxt">
         <option value="all">Tous</option>
+        {% for categorie in categories %}
+            {{ categorie.name|capitalize }}
+        {% endfor %}
         <option value="Fruits">Fruits</option>
         <option value="Legumes">Legumes</option>
         <option value="Autres">Autres</option>
