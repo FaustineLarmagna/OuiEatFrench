@@ -64,7 +64,7 @@ class FarmerProduct
      * @var integer
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="unit_quantity", type="integer")
+     * @ORM\Column(name="unit_quantity", type="float")
      */
     private $unitQuantity;
 

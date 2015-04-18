@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}Mon Stand Producteur{% endblock %}
 {% block body %}
-{% if app.user %}
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -12,6 +11,7 @@
             </button>
             <div class="nav-collapse collapse">
                 <ul class="nav">
+                {% if farmer is defined %}
                     <li>
                         <a href="{{ path('oui_eat_french_farmer_command_index', {'farmerId' : farmer.id}) }}">Mes commandes</a>
                     </li>
@@ -27,12 +27,12 @@
                     <li>
                         <a href="">Déconnexion</a>
                     </li>
+                {% endif %}
                 </ul>
             </div>
         </div>
     </div>
 </div>
-{% endif %}
 <div class="container">
     <br>
     <br>
