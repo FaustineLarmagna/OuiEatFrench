@@ -11,7 +11,7 @@
             </button>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                {% if farmer is define %}
+                {% if farmer is defined %}
                     <li>
                         <a href="{{ path('oui_eat_french_farmer_command_index', {'farmerId' : farmer.id}) }}">Mes commandes</a>
                     </li>
