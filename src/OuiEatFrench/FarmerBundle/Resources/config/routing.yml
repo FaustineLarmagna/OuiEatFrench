@@ -12,4 +12,4 @@ oui_eat_french_farmer_user:
 
 oui_eat_french_farmer_command:
     resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing/command.yml"
-    prefix: /{farmerId}/commande
+    prefix: /commande
