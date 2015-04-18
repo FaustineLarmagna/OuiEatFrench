@@ -1,6 +1,7 @@
 {% extends "base.html.twig" %}
 {% block title %}OuiEatFrench | Panier{% endblock %}
 {% block body %}
+<div style="width:1500px;margin:auto;">
 	<div class="row">
 		<div class="col-md-10">
 			<h3>{{app.user | title}}, voici votre panier :</h3>
@@ -10,14 +11,32 @@
 		<div class="col-md-10">
 			<table class="table">
 				<thead>
-					<th>Article</th>
-					<th>Nom du produit</th>
-					<th>Prix</th>
+					<th>Produit</th>
 					<th>Quantité</th>
-					<th>Total</th>
+					<th>Unité</th>
+					<th>Prix</th>
 					<th></th>
 				</thead>
+				<tbody>
+					{% set total = 0 %}
+				    {% for farmerProductCart in cart.farmerProductCarts %}
+				    	{% set price = farmerProductCart.farmerProduct.unitPrice * farmerProductCart.unitQuantity %}
+				        <tr id="{{ farmerProductCart.farmerProduct.product.id }}">
+				            <td>{{ farmerProductCart.farmerProduct.product.name|capitalize }}</td>
+				            <td>{{ farmerProductCart.unitQuantity }}</td>
+				            <td>{{ farmerProductCart.farmerProduct.unitType.name }}</td>
+				            <td>{{ price|number_format(2, '.', ',') }}€</td>
+				            <td><a href="#">Supprimer</a></td>
+				        </tr>
+				        {% set total = total+price %}
+				    {% endfor %}
+				    <tr>
+				    	<td colspan="3"></td>
+				    	<td colspan="2" style="line-height:50px"><strong>Total</strong> : {{ total|number_format(2, '.', ',') }}€</td>
+				    </tr>
+				</tbody>
 			</table>
 		</div>
 	</div>
+</div>
 {% endblock %}
