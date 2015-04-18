@@ -1,7 +1,10 @@
 {% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
 {% block title %}OuiEatFrench{% endblock %}
 {% block content %}
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+{% for flashMessage in app.session.flashbag.get('error') %}
+    {{ flashMessage }}
+{% endfor %}
+
 <div id="produit"></div>
 <form id="name">
     Produits !<br>

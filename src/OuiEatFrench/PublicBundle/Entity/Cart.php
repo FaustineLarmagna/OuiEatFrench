@@ -38,6 +38,18 @@ class Cart
     private $status;
 
     /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="datetime", name="created_at")
+     */
+    private $createdAt;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="datetime", name="updated_at")
+     */
+    private $updatedAt;
+
+    /**
      * @ORM\OneToMany(targetEntity="FarmerProductCart", mappedBy="cart")
      */
     protected $farmerProductCarts;
@@ -139,5 +151,53 @@ class Cart
     public function getFarmerProductCarts()
     {
         return $this->farmerProductCarts;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Cart
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Cart
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

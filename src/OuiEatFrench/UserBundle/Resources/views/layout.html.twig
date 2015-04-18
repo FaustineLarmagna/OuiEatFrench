@@ -1,6 +1,7 @@
 {% extends "base.html.twig" %}
 {% block title %}OuiEatFrench | Profile{% endblock %}
 {% block body %}
+<div style="width:1024px;margin:auto;">
 <div class="row">
     <div class="col-md-2">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -31,6 +32,7 @@
             <a href="{{ path('oui_eat_french_profile_edit', {'id':app.user.id}) }}">Modifier son profil</a>
         {% endif %}
     </div>
+</div>
 </div>
 
 {% endblock %}
