@@ -2,7 +2,7 @@
 {% block title %}OuiEatFrench{% endblock %}
 {% block content %}
 {% for flashMessage in app.session.flashbag.get('error') %}
-    {{ flashMessage }}
+    <div class="alert alert-error">{{ flashMessage }}</div>
 {% endfor %}
 
 <div id="produit"></div>
