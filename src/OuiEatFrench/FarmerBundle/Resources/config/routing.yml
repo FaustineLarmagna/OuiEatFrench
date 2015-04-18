@@ -1,3 +1,7 @@
+oui_eat_french_farmer_availability_index:
+    resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing/availability.yml"
+    prefix: /{farmerId}/disponibilite
+
 oui_eat_french_farmer_product:
     resource: "@OuiEatFrenchFarmerBundle/Resources/config/routing/product.yml"
     prefix: /produit

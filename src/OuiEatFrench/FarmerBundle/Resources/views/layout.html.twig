@@ -8,6 +8,9 @@
     <ul class="offset8">
     {% if farmer is defined and farmer is not null %}
         <li>
+            <a href="{{ path('oui_eat_french_farmer_availability_index', {'farmerId' : farmer.id}) }}">MES DISPONIBILITÉE</a>
+        </li>
+        <li>
             <a href="{{ path('oui_eat_french_farmer_command_index', {'farmerId' : farmer.id}) }}">MES COMMANDES</a>
         </li>
         <li>
