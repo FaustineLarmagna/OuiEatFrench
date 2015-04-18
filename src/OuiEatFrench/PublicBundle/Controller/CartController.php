@@ -4,6 +4,7 @@ namespace OuiEatFrench\PublicBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OuiEatFrench\PublicBundle\Entity\FarmerProductCart;
+use OuiEatFrench\PublicBundle\Entity\Cart;
 
 class CartController extends Controller
 {
@@ -22,9 +23,9 @@ class CartController extends Controller
 
     public function addToCartAction($farmerProductId)
     {
-        if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_float($_POST['quantity'])) {
-            $this->addFlash('error', "Quantité de produit invalide. Le produit n'a pas été ajouté à votre panier.");
-            return $this->render('OuiEatFrenchPublicBundle:Product:index.html.twig');
+        if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity'])) {
+            $this->get('session')->getFlashBag()->add('error', "Quantité de produit invalide. Le produit n'a pas été ajouté à votre panier.");
+            return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
 
         $em = $this->getDoctrine()->getManager();
@@ -33,14 +34,27 @@ class CartController extends Controller
 
         if ($_POST['quantity'] > $farmerProduct->getUnitQuantity()) {
             //out of stock
-            $this->addFlash('error', "Quantité de produit supérieure au stock de l'agriculteur. Le produit n'a pas été ajouté à votre panier.");
-            return $this->render('OuiEatFrenchPublicBundle:Product:index.html.twig');
+            $this->get('session')->getFlashBag()->add('error', "Quantité de produit supérieure au stock de l'agriculteur. Le produit n'a pas été ajouté à votre panier.");
+            return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+        }
+
+        $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array('user' => $user, 'status' => 1));
+        if (!$cart) {
+            $cartStatus = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->find(1);
+            $date = new \DateTime();
+            $cart = new Cart();
+            $cart->setStatus($cartStatus);
+            $cart->setUser($user);
+            $cart->setCreatedAt($date);
+            $cart->setUpdatedAt($date);
+        
+            $em->persist($cart);
         }
 
         $entity = new FarmerProductCart();
-        $entity->setUser($user);
         $entity->setFarmerProduct($farmerProduct);
         $entity->setUnitQuantity($_POST['quantity']);
+        $entity->setCart($cart);
 
         $farmerProductNewQuantity = $farmerProduct->getUnitQuantity() - $_POST['quantity'];
         $farmerProduct->setUnitQuantity($farmerProductNewQuantity);
@@ -51,8 +65,6 @@ class CartController extends Controller
         $em->persist($entity);
         $em->flush();
 
-        $data["cart"] = $cart;
-        $data["user"] = $user;
-        return $this->render('OuiEatFrenchPublicBundle:Cart:show.html.twig', $data);
+        return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
     }
 }
