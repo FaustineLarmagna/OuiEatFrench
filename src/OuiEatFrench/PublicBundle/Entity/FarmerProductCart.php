@@ -80,7 +80,7 @@ class FarmerProductCart
     /**
      * Set farmerProduct
      *
-     * @param string $farmerProduct
+     * @param OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct
      * @return ProductCart
      */
     public function setFarmerProduct($farmerProduct)
@@ -93,7 +93,7 @@ class FarmerProductCart
     /**
      * Get farmerProduct
      *
-     * @return string 
+     * @return OuiEatFrench\FarmerBundle\Entity\FarmerProduct 
      */
     public function getFarmerProduct()
     {
