@@ -49,11 +49,10 @@ class FarmerProductController extends Controller
         return new JsonResponse();
     }
 
-    public function indexAction($farmerId)
+    public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
-        // $farmer = $this->get('security.context')->getToken()->getUser();
+        $farmer = $this->get('session')->get('farmer');
         $farmerproducts = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findBy(array('farmer' => $farmer));
         $data["farmerproducts"] = $farmerproducts;
         $data['farmer'] = $farmer;
@@ -61,10 +60,10 @@ class FarmerProductController extends Controller
         return $this->render('OuiEatFrenchFarmerBundle:FarmerProduct:index.html.twig', $data);
     }
 
-    public function addAction($farmerId)
+    public function addAction()
     {
         $em = $this->getDoctrine()->getManager();
-    	$farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+        $farmer = $this->get('session')->get('farmer');
         $entity = new FarmerProduct();
         $entity->setFarmer($farmer);
         $request = $this->get("request");
@@ -89,19 +88,16 @@ class FarmerProductController extends Controller
         return $this->render('OuiEatFrenchFarmerBundle:FarmerProduct:add.html.twig', $data);
     }
 
-    public function editAction($farmerId, $id)
+    public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
-        //$user = $this->get('security.context')->getToken()->getUser();
+        $farmer = $this->get('session')->get('farmer');
+        if (!$farmer) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas modifier ce produit.");
+            return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
+        }
+
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
-
-        // if ($user != $farmer || $user != $query->getFarmer()) {
-        //     $this->get('session')->getFlashBag()->add('warning', "Vous ne pouvez pas modifier ce produit.");
-
-        //     return $this->redirect($this->generateUrl('oui_eat_french_farmer_product_index', array('farmerId' => $user->getId())));
-        // }
-        
         if($query)
         {
             $request = $this->get("request");
@@ -125,11 +121,16 @@ class FarmerProductController extends Controller
         return $this->render('OuiEatFrenchFarmerBundle:FarmerProduct:edit.html.twig', $data);
     }
 
-    public function deleteAction($farmerId, $id)
+    public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
+        $farmer = $this->get('session')->get('farmer');
+        if (!$farmer) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas supprimer ce produit.");
+            return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
+        }
 
+        $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
         if ($query)
         {
             $em->remove($query);

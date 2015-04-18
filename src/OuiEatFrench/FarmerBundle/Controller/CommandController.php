@@ -12,7 +12,7 @@ class CommandController extends Controller
     {
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
         $data["entities"] = $entities;
-        $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find(1);//$this->get('security.context')->getToken()->getUser();
+        $data['farmer'] = $this->get('session')->get('farmer');
         $data['commands'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array('farmer' => $data['farmer']));
         return $this->render('OuiEatFrenchFarmerBundle:FarmerCommand:index.html.twig', $data);
     }
