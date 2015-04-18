@@ -1,11 +1,11 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
 Edition des liens entre producteurs et produits
-<form action="{{ path(route, {'farmerId' : farmer.id, 'id' : id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
+<form action="{{ path(route, {'id' : id}) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
     {% for child in form.children %}
         {{ form_row(child) }}
     {% endfor %}
     <br>
     <input class="btn btn-success" type="submit" value="Envoyer">
 </form>
-{% endblocké %}
+{% endblock %}

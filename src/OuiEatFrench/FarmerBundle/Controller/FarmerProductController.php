@@ -52,7 +52,8 @@ class FarmerProductController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
+        $farmerId = $this->get('session')->get('farmer');
+        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
         $farmerproducts = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findBy(array('farmer' => $farmer));
         $data["farmerproducts"] = $farmerproducts;
         $data['farmer'] = $farmer;
@@ -63,7 +64,9 @@ class FarmerProductController extends Controller
     public function addAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
+        $farmerId = $this->get('session')->get('farmer');
+        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+
         $entity = new FarmerProduct();
         $entity->setFarmer($farmer);
         $request = $this->get("request");
@@ -91,7 +94,8 @@ class FarmerProductController extends Controller
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
+        $farmerId = $this->get('session')->get('farmer');
+        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
         if (!$farmer) {
             $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas modifier ce produit.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
@@ -124,7 +128,8 @@ class FarmerProductController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
+        $farmerId = $this->get('session')->get('farmer');
+        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
         if (!$farmer) {
             $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas supprimer ce produit.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
