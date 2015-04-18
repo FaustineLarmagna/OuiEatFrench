@@ -15,9 +15,11 @@
 <div id="farmerproducts">
 {% for farmerproduct in farmerproducts %}
     <div class="farmerproduct" style="float:{% if loop.index is odd %}left{% else %}right{% endif %};">
-        <div class="title_product"><span style="float:left;">{{ farmerproduct.product.name|capitalize }}</span> <span style="float:right;"><a href={{ path('oui_eat_french_farmer_product_edit', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Modifier</a> | <a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Supprimer</a></span></div><div style="clear:both"></div>
+        <div class="title_product"><span style="float:left;">Produit : {% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</span> <span style="float:right;"><a href={{ path('oui_eat_french_farmer_product_edit', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Modifier</a> | <a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Supprimer</a></span></div><div style="clear:both"></div>
         <div class="product_description">
-            <img src="{{ asset('OEF/img_admin_product/' ~ farmerproduct.product.imageName) }}" width="100" alt="image de {{ farmerproduct.product.name }}" class="product_img">
+            {% if farmerproduct.product is not null %}
+                <img src="{{ asset('OEF/img_admin_product/' ~ farmerproduct.product.imageName) }}" width="100" alt="image de {{ farmerproduct.product.name }}" class="product_img">
+            {% endif %}
             <div class="product_description_left">
                 <span class="product_attribute">Récolte</span> : {{ farmerproduct.harvest|date('M Y') }}<br>
                 <span class="product_attribute">Agriculture</span> : {{ farmerproduct.agricultureType }}<br>
