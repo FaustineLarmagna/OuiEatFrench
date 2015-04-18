@@ -9,7 +9,11 @@ class ProductController extends Controller
     public function indexAction()
     {
         $products = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findBy(array('parentProduct' => null));
+        $categories = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Category')->findAll();
+        $seasons = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Season')->findAll();
         $data["products"] = $products;
+        $data["categories"] = $categories;
+        $data["seasons"] = $seasons;
 
         return $this->render('OuiEatFrenchPublicBundle:Product:index.html.twig', $data);
     }

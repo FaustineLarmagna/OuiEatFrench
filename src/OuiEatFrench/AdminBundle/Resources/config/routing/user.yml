@@ -6,6 +6,14 @@ oui_eat_french_admin_user_create:
     pattern:  /ajouter
     defaults: { _controller: OuiEatFrenchAdminBundle:User:create }
 
+oui_eat_french_admin_user_login:
+    pattern:  /connexion
+    defaults: { _controller: OuiEatFrenchAdminBundle:User:login }
+
+oui_eat_french_admin_user_logout:
+    pattern:  /deconnexion
+    defaults: { _controller: OuiEatFrenchAdminBundle:User:logout }
+
 oui_eat_french_admin_user_edit:
     pattern:  /editer/{id}
     defaults: { _controller: OuiEatFrenchAdminBundle:User:edit }

@@ -1,37 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block title %}Mon Stand Producteur{% endblock %}
 {% block body %}
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                {% if farmer is defined and farmer is not null %}
-                    <li>
-                        <a href="{{ path('oui_eat_french_farmer_command_index', {'farmerId' : farmer.id}) }}">Mes commandes</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('oui_eat_french_farmer_product_index', {'farmerId' : farmer.id}) }}">Mon catalogue</a>
-                    </li>
-                    <li>
-                        <a href="">Mon stock</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('oui_eat_french_farmer_user_show', {'id' : farmer.id}) }}">Mon profil</a>
-                    </li>
-                    <li>
-                        <a href="">Déconnexion</a>
-                    </li>
-                {% endif %}
-                </ul>
-            </div>
-        </div>
+<div class="row navbar-producteurs">
+    <div class="span4 offset3" style="color:#fff">
+        OUIEATFRENCH
     </div>
+    <ul class="offset8">
+    {% if farmer is defined and farmer is not null %}
+        <li>
+            <a href="{{ path('oui_eat_french_farmer_command_index', {'farmerId' : farmer.id}) }}">MES COMMANDES</a>
+        </li>
+        <li>
+            <a href="{{ path('oui_eat_french_farmer_product_index', {'farmerId' : farmer.id}) }}">MON CATALOGUE</a>
+        </li>
+        <li>
+            <a href="">MON STOCK</a>
+        </li>
+        <li>
+            <a href="{{ path('oui_eat_french_farmer_user_show', {'id' : farmer.id}) }}">MON PROFIL</a>
+        </li>
+        <li>
+            <a href="{{ path('oui_eat_french_farmer_user_logout') }}">DECONNEXION</a>
+        </li>
+    {% endif %}
+    </ul>
 </div>
 <div class="container">
     <br>
