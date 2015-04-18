@@ -11,7 +11,7 @@
     </div>
 </div>
 <div style="width:100%;height:80px;border-style:solid;text-align:center;padding-top:15px;margin-bottom:40px;letter-spacing:1px;margin-top:20px">
-    <a href="{{ path('oui_eat_french_farmer_product_add', {'farmerId' : farmer.id}) }}"><h3>Ajouter un produit à mon stand</h3></a>
+    <a href="{{ path('oui_eat_french_farmer_product_add') }}"><h3>Ajouter un produit à mon stand</h3></a>
 </div>
 
 {% if farmerproducts|length == 0 %}
@@ -35,7 +35,7 @@
                 </div>
                 <hr class="hr-produits"></hr>
                 <div class="link_update_product">
-                    <a href="{{ path('oui_eat_french_farmer_product_edit', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}">Modifier ce produit</a>
+                    <a href="{{ path('oui_eat_french_farmer_product_edit', {'id' : farmerproduct.id}) }}">Modifier ce produit</a>
                 </div>
             </div>
         </div>
