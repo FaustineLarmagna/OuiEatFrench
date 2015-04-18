@@ -1,0 +1,156 @@
+.inscription
+{
+	background-color:#eccc15;
+	color: #fff;
+	text-align: center;
+	margin-top: 100px;
+	height: 450px;
+}
+
+.inscription input[type="text"], input[type="password"], input[type="email"]
+{
+	border-radius: 0px !important;
+	height: 30px;
+	width: 250px;
+	margin-left: 0px;
+	box-shadow: none;
+}
+
+.title-inscription-form
+{
+	font-size: 20px;
+	height: 70px;
+	line-height:70px;
+	text-align: center;
+	margin-left: 0px;
+}
+
+.inscription-form
+{
+	margin-left: 0px;
+}
+
+.btn-inscription
+{
+	background-color: #baa111;
+	border:none;
+	color: #fff;
+	width: 260px !important;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15px;
+	font-weight: 550;
+}
+
+.btn-connexion
+{
+	background-color: #90bd2c;
+	border:none;
+	color: #fff;
+	width: 260px !important;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15px;
+	font-weight: 550;
+}
+
+.connexion
+{
+	background-color:#a3d634;
+	color: #fff;
+	text-align: center;
+	margin-top: 100px;
+	height: 450px;
+	margin-left: 0px;
+}
+
+.title-connexion-form
+{
+	font-size: 20px;
+	height: 70px;
+	line-height:70px;
+	text-align: center;
+	margin-left: 0px;
+}
+
+.text-connexion
+{
+	font-size: 18px;
+	text-align: left;
+	margin-left: 55px;
+}
+
+hr
+{
+	margin-left: 55px;
+	width: 260px;
+	opacity: 0.6;
+}
+
+.text-password a
+{
+	font-size: 15px;
+	text-align: left;
+	margin-left: 55px;
+	font-style: italic;
+	color: #fff;
+}
+
+.text-password a:hover
+{
+	text-decoration: none;
+}
+
+.bottom-link
+{
+	height: 100px;
+	line-height: 100px;
+}
+
+.bottom-link a
+{
+	color: #867359;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.bottom-link a:hover
+{
+	text-decoration: none;
+}
+
+.navbar-producteurs li
+{
+	margin-left:2px;
+ 	float:left;
+ 	list-style-type: none;
+ 	line-height: 50px;
+ 	color: #fff;
+ 	padding-left: 10px;
+ 	padding-right: 10px;
+}
+
+.navbar-producteurs
+{
+	height: 50px;
+	background-color: #a3d634;
+	line-height: 50px;
+
+}
+
+.navbar-producteurs li a
+{
+	color: #fff;
+}
+
+.navbar-producteurs li a
+{
+	text-decoration: none;
+}
+
+.navbar-producteurs li:hover
+{
+	background-color: #90bd2c;
+}
