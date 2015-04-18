@@ -1,7 +1,6 @@
 {% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
 {% block title %}OuiEatFrench{% endblock %}
 {% block content %}
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 Filtres pour les agriculteurs: <br><br>
 
 <form>
@@ -43,6 +42,13 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                                         Quantity : {{ farmerProduct.unitQuantity }}<br>
                                         Minimum pour vente : {{ farmerProduct.unitMinimum }}
                                     </td>
+                                    <td>
+                                        <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
+                                            <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {{farmerProduct.unitType.name}}(s) soit 
+                                            <input type="text" name="price" id="price_{{farmerProduct.id}}">€
+                                            <input type="submit" name="addProduct" value="Ajouter à mon panier">
+                                        </form>
+                                    </td>
                                 </tr>
                             {% endif %}
                         {% endif %}
@@ -60,7 +66,6 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
 <script type="text/javascript">
     $(function () {
         jQuery(document).ready(function() {
-
             $("#product").change(function(){
                 refresh();
             });
