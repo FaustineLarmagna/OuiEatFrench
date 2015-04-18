@@ -5,6 +5,11 @@
         {{ flashMessage }}
     </div>
 {% endfor %}
+<div class="row">
+    <div class="text-catalogue offset1">
+        L'ensemble de vos produits actuellement disponible dans votre boutique
+    </div>
+</div>
 <div style="width:100%;height:80px;border-style:solid;text-align:center;padding-top:15px;margin-bottom:40px;letter-spacing:1px;margin-top:20px">
     <a href="{{ path('oui_eat_french_farmer_product_add') }}"><h3>Ajouter un produit à mon stand</h3></a>
 </div>
@@ -14,23 +19,24 @@
 {% else %}
 <div id="farmerproducts">
 {% for farmerproduct in farmerproducts %}
-    <div class="farmerproduct" style="float:{% if loop.index is odd %}left{% else %}right{% endif %};">
-        <div class="title_product"><span style="float:left;">Produit : {% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</span> <span style="float:right;"><a href={{ path('oui_eat_french_farmer_product_edit', {'id' : farmerproduct.id}) }}>Modifier</a> | <a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'id' : farmerproduct.id}) }}>Supprimer</a></span></div><div style="clear:both"></div>
+    <div class="farmerproduct" style="float:left;">
+        {# <div class="title_product"><span style="float:left;">Produit : {% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</span> <span style="float:right;"><a href={{ path('oui_eat_french_farmer_product_edit', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Modifier</a> | <a class='delete' href={{ path('oui_eat_french_farmer_product_delete', {'farmerId' : farmer.id, 'id' : farmerproduct.id}) }}>Supprimer</a></span></div><div style="clear:both"></div> #}
         <div class="product_description">
             {% if farmerproduct.product is not null %}
-                <img src="{{ asset('OEF/img_admin_product/' ~ farmerproduct.product.imageName) }}" width="100" alt="image de {{ farmerproduct.product.name }}" class="product_img">
+                <img src="{{ asset('ouieatfrench/theme/assets2/img/' ~ farmerproduct.product.imageName) }}" height="185" width="250" alt="image de {{ farmerproduct.product.name }}" class="product_img">
             {% endif %}
             <div class="product_description_left">
-                <span class="product_attribute">Récolte</span> : {{ farmerproduct.harvest|date('M Y') }}<br>
-                <span class="product_attribute">Agriculture</span> : {{ farmerproduct.agricultureType }}<br>
-                <span class="product_attribute">Prix</span> : {{ farmerproduct.unitPrice|number_format(2, '.', ',') }}€<br>
-                <span class="product_attribute">Unité</span> : {{ farmerproduct.unitType }}<br>
-                <span class="product_attribute">Stock</span> : {{ farmerproduct.unitQuantity }} unité(s)
-            </div>
-            <div class="product_description_right">
-                <span class="product_attribute">Plantation</span> : {{ farmerproduct.plantation|date('M Y') }}<br>
-                <span class="product_attribute">Minimum</span> : {{ farmerproduct.unitMinimum }} unité(s)<br>
-                <span class="product_attribute">Conservation</span> : {{ farmerproduct.conservation }}<br>
+                <div class="name_product">{% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</div>
+                <div class="type_agriculture">Agriculture {{ farmerproduct.agricultureType }}</div>
+                <div class="price_products">
+                    <span class="quantity_product">{{ farmerproduct.unitQuantity }} {{ farmerproduct.unitType }}</span>
+                     à 
+                     <span class="price_product">{{ farmerproduct.unitPrice }}€</span>
+                </div>
+                <hr class="hr-produits"></hr>
+                <div class="link_update_product">
+                    <a href="{{ path('oui_eat_french_farmer_product_edit', {'id' : farmerproduct.id}) }}">Modifier ce produit</a>
+                </div>
             </div>
         </div>
     </div>

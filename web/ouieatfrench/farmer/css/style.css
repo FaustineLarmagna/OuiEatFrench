@@ -154,3 +154,68 @@ hr
 {
 	background-color: #90bd2c;
 }
+
+.text-catalogue
+{
+	font-size: 30px;
+	color: #8c9087;
+}
+
+.product_description
+{
+	background-color: #fff;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.product_description_left
+{
+	margin-left: 50px;
+	margin-top: 20px;
+	color: #8c9087;
+	font-size: 17px;
+}
+
+.name_product, .quantity_product, .price_products
+{
+	font-weight: bold;
+}
+
+.hr-produits
+{
+	width: 185px;
+	opacity: 0.6;
+	margin-left: 0px;
+	margin-bottom: 10px;
+}
+
+.price_products
+{
+	margin-top: 20px;
+}
+
+.price_product
+{
+	color: #efd337;
+}
+
+.link_update_product a
+{
+ 	color: #c2c7bd;
+ 	font-style: italic;
+}
+
+.link_update_product a:hover
+{
+	text-decoration: none;
+}
+
+.farmerproduct
+{
+	margin-right: 10px;
+}
+
+.product_description img
+{
+	height: 185px;
+}
