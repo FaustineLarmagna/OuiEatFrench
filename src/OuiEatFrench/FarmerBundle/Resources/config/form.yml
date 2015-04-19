@@ -1,5 +1,6 @@
 parameters:
     oui_eat_french.farmer.form.type.farmerproduct.class: OuiEatFrench\FarmerBundle\Form\FarmerProductType
+    oui_eat_french.farmer.form.type.availability_farmer.class: OuiEatFrench\FarmerBundle\Form\AvailabilityFarmerType
 
 services:
     oui_eat_french.farmer.form.type.farmerproduct:
@@ -19,3 +20,9 @@ services:
         arguments: [ @service_container ]
         tags:
               - { name: form.type, alias: ouieatfrench_farmerbundle_userfarmertype }
+
+    oui_eat_french.farmer.form.type.availability_farmer:
+        class: OuiEatFrench\FarmerBundle\Form\AvailabilityFarmerType
+        arguments: [ @service_container ]
+        tags:
+              - { name: form.type, alias: ouieatfrench_farmerbundle_availabilityfarmertype }

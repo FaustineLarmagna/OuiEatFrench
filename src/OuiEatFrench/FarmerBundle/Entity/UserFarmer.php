@@ -145,6 +145,10 @@ class UserFarmer
      */
     private $command;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AvailabilityFarmer", mappedBy="farmer")
+     */
+    private $availabilityFarmers;
 
     public function __construct() {
         $this->farmerProducts = new ArrayCollection();
@@ -626,5 +630,38 @@ class UserFarmer
     public function getFarmerProducts()
     {
         return $this->farmerProducts;
+    }
+
+    /**
+     * Add availabilityFarmer
+     *
+     * @param AvailabilityFarmer $availabilityFarmer
+     * @return UserFarmer
+     */
+    public function addAvailabilityFarmer(AvailabilityFarmer $availabilityFarmer)
+    {
+        $this->availabilityFarmers[] = $availabilityFarmer;
+
+        return $this;
+    }
+
+    /**
+     * Remove availabilityFarmer
+     *
+     * @param AvailabilityFarmer $availabilityFarmer
+     */
+    public function removeAvailabilityFarmer(AvailabilityFarmer $availabilityFarmer)
+    {
+        $this->availabilityFarmers->removeElement($availabilityFarmer);
+    }
+
+    /**
+     * Get availabilityFarmers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAvailabilityFarmers()
+    {
+        return $this->availabilityFarmers;
     }
 }
