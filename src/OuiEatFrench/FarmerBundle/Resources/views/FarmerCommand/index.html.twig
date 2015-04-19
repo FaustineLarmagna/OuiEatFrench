@@ -11,7 +11,7 @@
 	</div>
 	<div class="row all-commandes">
 		<div class="span12 offset8 text-vos-commandes">
-			Vos 3 commandes en cours
+			Vos {{commands|length}} commandes en cours
 		</div>
 
 		{% for flashMessage in app.session.flashbag.get('error') %}

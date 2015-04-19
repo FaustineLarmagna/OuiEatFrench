@@ -208,6 +208,7 @@ hr
 .link_update_product i
 {
 	opacity: 0.4;
+	margin-top:5px;
 }
 
 .link_update_product a:hover
