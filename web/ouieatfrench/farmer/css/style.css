@@ -276,7 +276,7 @@ hr
 	text-align: center;
 	float: left;
 	text-align: center;
-	line-height: 40px;
+	line-height: 45px;
 	margin-right: 20px;
 	margin-bottom: 10px;
 	cursor: pointer;
@@ -405,6 +405,7 @@ hr
 	color: #8c9087;
 	opacity: 0.5;
 	cursor: pointer;
+	width: 100px;
 }
 
 .valider-commande
@@ -420,4 +421,9 @@ hr
 .bold
 {
 	font-weight: bold;
+}
+
+body
+{
+	font-family: 'Open Sans';
 }
