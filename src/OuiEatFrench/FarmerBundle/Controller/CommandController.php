@@ -11,20 +11,17 @@ class CommandController extends Controller
     public function indexAction()
     {
         $farmer = $this->get('session')->get('farmer');
-        $farmer = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
-        $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
-        $data["entities"] = $entities;
         $data['farmer'] = $farmer;
-        $data['commands'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array('farmer' => $data['farmer']));
+
+        $data['commands'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array('farmer' => $farmer));
         return $this->render('OuiEatFrenchFarmerBundle:FarmerCommand:index.html.twig', $data);
     }
 
     public function showAction($id)
     {
-        $farmerId = $this->get('session')->get('farmer');
-        $farmer = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+        $farmer = $this->get('session')->get('farmer');
         if (!$farmer) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas voir cet élément.");
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
         }
 
@@ -35,10 +32,9 @@ class CommandController extends Controller
 
     public function editAction($id)
     {
-        $farmerId = $this->get('session')->get('farmer');
-        $farmer = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+        $farmer = $this->get('session')->get('farmer');
         if (!$farmer) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas voir cet élément.");
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
         }
 
@@ -49,10 +45,9 @@ class CommandController extends Controller
 
     public function deleteAction($id)
     {
-        $farmerId = $this->get('session')->get('farmer');
-        $farmer = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+        $farmer = $this->get('session')->get('farmer');
         if (!$farmer) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas voir cet élément.");
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
         }
 
