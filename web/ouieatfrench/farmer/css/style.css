@@ -205,6 +205,11 @@ hr
  	font-style: italic;
 }
 
+.link_update_product i
+{
+	opacity: 0.4;
+}
+
 .link_update_product a:hover
 {
 	text-decoration: none;
@@ -260,4 +265,40 @@ hr
 .text-button-new-product:hover
 {
 	text-decoration: none !important;
+}
+
+.moin_stock, .plus_stock
+{
+	height: 40px;
+	width: 40px;
+	border-radius: 40px;
+	border: 1px solid #e8eae2;
+	text-align: center;
+	float: left;
+	text-align: center;
+	line-height: 40px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.moin_stock
+{
+	margin-left: 20px;
+}
+
+.unit_type
+{
+	margin-top: 10px;
+	clear: both;
+	margin-left: 50px;
+}
+
+.quantity_product_stock
+{
+	float: left;
+	margin-right: 20px;
+	line-height: 40px;
+	height: 40px;
 }

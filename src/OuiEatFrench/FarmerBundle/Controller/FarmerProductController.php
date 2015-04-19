@@ -141,6 +141,6 @@ class FarmerProductController extends Controller
             $em->remove($query);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl('oui_eat_french_farmer_product_index'));
+        return $this->redirect($this->generateUrl('oui_eat_french_farmer_stock_index'));
     }
 }
