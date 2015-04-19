@@ -6,9 +6,9 @@
         OUIEATFRENCH
     </div>
     <ul class="offset8">
-    {% if farmer is defined and farmer is not null %}
+    {% if farmer is defined and farmer.id is defined %}
         <li>
-            <a href="{{ path('oui_eat_french_farmer_availability_index', {'farmerId' : farmer.id}) }}">MES DISPONIBILITÉS</a>
+            <a href="{{ path('oui_eat_french_farmer_availability_index') }}">MES DISPONIBILITÉS</a>
         </li>
         <li>
             <a href="{{ path('oui_eat_french_farmer_command_index') }}">MES COMMANDES</a>
@@ -20,7 +20,7 @@
             <a href="{{ path('oui_eat_french_farmer_stock_index') }}">MON STOCK</a>
         </li>
         <li>
-            <a href="{{ path('oui_eat_french_farmer_user_show', {'id' : farmer.id}) }}">MON PROFIL</a>
+            <a href="{{ path('oui_eat_french_farmer_user_show') }}">MON PROFIL</a>
         </li>
         <li>
             <a href="{{ path('oui_eat_french_farmer_user_logout') }}">DECONNEXION</a>

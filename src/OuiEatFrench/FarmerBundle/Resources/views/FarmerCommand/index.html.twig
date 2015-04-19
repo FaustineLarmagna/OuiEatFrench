@@ -10,10 +10,13 @@
 	{% for flashMessage in app.session.flashbag.get('error') %}
 	    <div class="alert alert-error">{{ flashMessage }}</div>
 	{% endfor %}
+	{% for flashMessage in app.session.flashbag.get('info') %}
+	    <div class="alert alert-info">{{ flashMessage }}</div>
+	{% endfor %}
 
 	{% for command in commands %}
 	    <div style="width:1024px;margin:auto;margin-bottom:50px;">
-	    	<div style="background-color:white;height:40px;padding:10px;line-height:40px;">{{command.cart.user.username}} ({{command.farmerProductClones|length}})</div>
+	    	<div style="background-color:white;height:40px;padding:10px;line-height:40px;">{{command.cart.user.username}} ({{command.farmerProductClones|length}})<span style="text-align:right"><a href="{{path('oui_eat_french_farmer_command_ready', {'id' : command.id})}}">Valider</a><a href="{{path('oui_eat_french_farmer_command_closed', {'id' : command.id})}}">Cloturer</a></span></div>
 	    	<div style="background-color:none;height:100px;padding:10px;">
 	    		{% set total = 0 %}
 				{% for farmerProductClone in command.farmerProductClones %}

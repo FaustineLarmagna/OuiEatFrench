@@ -2,14 +2,14 @@ oui_eat_french_farmer_command_index:
     pattern:  /
     defaults: { _controller: OuiEatFrenchFarmerBundle:Command:index }
 
-oui_eat_french_farmer_command_edit:
-    pattern:  /{id}/editer
-    defaults: { _controller: OuiEatFrenchFarmerBundle:Command:edit }
+oui_eat_french_farmer_command_ready:
+    pattern:  /{id}/prete
+    defaults: { _controller: OuiEatFrenchFarmerBundle:Command:ready }
 
-oui_eat_french_farmer_command_show:
-    pattern:  /{id}/voir
-    defaults: { _controller: OuiEatFrenchFarmerBundle:Command:show }
+oui_eat_french_farmer_command_closed:
+    pattern:  /{id}/terminee
+    defaults: { _controller: OuiEatFrenchFarmerBundle:Command:closed }
 
-oui_eat_french_farmer_command_delete:
-    pattern:  /{id}/supprimer
-    defaults: { _controller: OuiEatFrenchFarmerBundle:Command:delete }
+# oui_eat_french_farmer_command_delete:
+#     pattern:  /{id}/supprimer
+#     defaults: { _controller: OuiEatFrenchFarmerBundle:Command:delete }
