@@ -1,5 +1,6 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
+<div class="container">
 {% for flashMessage in app.session.flashbag.get('warning') %}
     <div class="flash-warning">
         {{ flashMessage }}
@@ -65,7 +66,7 @@
   </div>
 </div>
 {% endif %}
-
+</div>
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}

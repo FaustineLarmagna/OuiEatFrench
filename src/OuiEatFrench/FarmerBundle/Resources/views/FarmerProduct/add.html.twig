@@ -1,55 +1,57 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
-<h2>Liaison des producteurs et de leurs produits</h2><br>
-<form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
-<table>
-    <tr>
-    	<td>{{ form_label(form.product) }}</td>
-    	<td>{{ form_widget(form.product) }}</td>
-    	<td>{{ form_errors(form.product) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.plantation) }}</td>
-    	<td>{{ form_widget(form.plantation) }}</td>
-    	<td>{{ form_errors(form.plantation) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.harvest) }}</td>
-    	<td>{{ form_widget(form.harvest) }}</td>
-    	<td>{{ form_errors(form.harvest) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.unitMinimum) }}</td>
-    	<td>{{ form_widget(form.unitMinimum) }}</td>
-    	<td>{{ form_errors(form.unitMinimum) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.agricultureType) }}</td>
-    	<td>{{ form_widget(form.agricultureType) }}</td>
-    	<td>{{ form_errors(form.agricultureType) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.conservation) }}</td>
-    	<td>{{ form_widget(form.conservation) }}</td>
-    	<td>{{ form_errors(form.conservation) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.unitPrice) }}</td>
-    	<td>{{ form_widget(form.unitPrice) }}</td>
-    	<td>{{ form_errors(form.unitPrice) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.unitQuantity) }}</td>
-    	<td>{{ form_widget(form.unitQuantity) }}</td>
-    	<td>{{ form_errors(form.unitQuantity) }}</td>
-   	</tr>
-    <tr>
-    	<td>{{ form_label(form.unitType) }}</td>
-    	<td>{{ form_widget(form.unitType) }}</td>
-    	<td>{{ form_errors(form.unitType) }}</td>
-   	</tr>
-    <tr><td colspan="3">{{ form_rest(form) }}</td></tr>
-    <tr><td colspan="3"><input class="btn btn-success" type="submit" value="Ajouter"></td></tr>
-</table>
-</form>
+<div class="container">
+    <h2>Liaison des producteurs et de leurs produits</h2><br>
+    <form action="{{ path(route) }}" method="post" {{ form_enctype(form) }} novalidate="novalidate">
+    <table>
+        <tr>
+        	<td>{{ form_label(form.product) }}</td>
+        	<td>{{ form_widget(form.product) }}</td>
+        	<td>{{ form_errors(form.product) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.plantation) }}</td>
+        	<td>{{ form_widget(form.plantation) }}</td>
+        	<td>{{ form_errors(form.plantation) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.harvest) }}</td>
+        	<td>{{ form_widget(form.harvest) }}</td>
+        	<td>{{ form_errors(form.harvest) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.unitMinimum) }}</td>
+        	<td>{{ form_widget(form.unitMinimum) }}</td>
+        	<td>{{ form_errors(form.unitMinimum) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.agricultureType) }}</td>
+        	<td>{{ form_widget(form.agricultureType) }}</td>
+        	<td>{{ form_errors(form.agricultureType) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.conservation) }}</td>
+        	<td>{{ form_widget(form.conservation) }}</td>
+        	<td>{{ form_errors(form.conservation) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.unitPrice) }}</td>
+        	<td>{{ form_widget(form.unitPrice) }}</td>
+        	<td>{{ form_errors(form.unitPrice) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.unitQuantity) }}</td>
+        	<td>{{ form_widget(form.unitQuantity) }}</td>
+        	<td>{{ form_errors(form.unitQuantity) }}</td>
+       	</tr>
+        <tr>
+        	<td>{{ form_label(form.unitType) }}</td>
+        	<td>{{ form_widget(form.unitType) }}</td>
+        	<td>{{ form_errors(form.unitType) }}</td>
+       	</tr>
+        <tr><td colspan="3">{{ form_rest(form) }}</td></tr>
+        <tr><td colspan="3"><input class="btn btn-success" type="submit" value="Ajouter"></td></tr>
+    </table>
+    </form>
+</div>
 {% endblock %}

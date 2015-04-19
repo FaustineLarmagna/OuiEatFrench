@@ -302,3 +302,73 @@ hr
 	line-height: 40px;
 	height: 40px;
 }
+
+#farmerproducts
+{
+	margin-left: 6%;
+}
+
+.type-commandes
+{
+	background-color: #fff;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.active-commandes
+{
+	color:#e5ca36;
+	border-bottom: 2px solid #e5ca36;
+}
+
+.all-commandes
+{
+	height: 500px;
+	margin-top: 100px;
+}
+
+.commandes-finies:hover, .commandes-en-cours:hover
+{
+	color:#e5ca36;
+	border-bottom: 2px solid #e5ca36;
+}
+
+.commandes-finies, .commandes-en-cours
+{
+	cursor: pointer;
+}
+
+.text-vos-commandes
+{
+	font-size: 30px;
+	color: #8c9087;
+	margin-bottom: 50px;
+}
+
+.commande-producteur
+{
+	background-color: #fff;
+}
+
+.details-commande, .prix-commande
+{
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+}
+
+.produits-commande
+{
+	background-color: #f8faf2;
+	margin-left: 0px;
+}
+
+.name-product
+{
+	height: 60px;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 0px;
+	width: 240px;
+}

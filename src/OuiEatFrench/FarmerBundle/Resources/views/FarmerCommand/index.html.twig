@@ -1,9 +1,65 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 
 {% block content %}
-	{% if commands %}
-		{{ dump(commands[0].cart) }}
-{# 		{% for command in commands %}
-		{% endfor %} #}
-	{% endif %}
+	<div class="row type-commandes">
+		<div class="commandes-en-cours offset5 span5 active-commandes">
+			Mes commandes en cours (3)
+		</div>
+		<div class="commandes-finies span5">
+			Mes commandes clôturées (14)
+		</div>
+	</div>
+	<div class="row all-commandes">
+		<div class="span12 offset8 text-vos-commandes">
+			Vos 3 commandes en cours
+		</div>
+		<div class="row">
+			<div class="span10 offset5 commande-producteur">
+				<div class="row details-commande">
+					<div class="span2 date-livraison">
+						Pour le 12/03
+					</div>
+					<div class="span1 numero-commande">
+						# 00002
+					</div>
+					<div class="span3 nom-client">
+						Jérome Guillot (3 produits)
+					</div>
+					<div class="offset1 span1 valider-commande">
+						Valider
+					</div>
+					<div class="span1 cloturer-commande">
+						Cloturer
+					</div>
+				</div>
+				<div class="row produits-commande">
+					<div class="span2 name-product">
+						Choux de Bruxelles <br>
+						(200g)
+					</div>
+					<div class="span2 name-product">
+						Fraise <br>
+						(3 barquettes)
+					</div>
+					<div class="span2 name-product">
+						Radis <br>
+						(4 bottes)
+					</div>
+					<div class="span2 name-product">
+						Radis <br>
+						(4 bottes)
+					</div>
+					<div class="span2 name-product">
+						Radis <br>
+						(4 bottes)
+					</div>
+				</div>
+				<div class="row prix-commande">
+					<div class="span2 offset8">
+						Total : 12,90€
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
