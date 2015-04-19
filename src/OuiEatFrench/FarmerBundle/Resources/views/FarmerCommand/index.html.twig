@@ -13,53 +13,72 @@
 		<div class="span12 offset8 text-vos-commandes">
 			Vos 3 commandes en cours
 		</div>
-		<div class="row">
-			<div class="span10 offset5 commande-producteur">
-				<div class="row details-commande">
-					<div class="span2 date-livraison">
-						Pour le 12/03
+
+		{% for flashMessage in app.session.flashbag.get('error') %}
+		    <div class="alert alert-error">{{ flashMessage }}</div>
+		{% endfor %}
+		{% for flashMessage in app.session.flashbag.get('info') %}
+			    <div class="alert alert-info">{{ flashMessage }}</div>
+			{% endfor %}
+
+		{% for command in commands %}
+			<div class="row">
+				<div class="span10 offset5 commande-producteur">
+					<div class="row details-commande">
+						<div class="span2 date-livraison">
+							Pour le 12/03
+						</div>
+						<div class="span1 numero-commande">
+							# {{command.id}}
+						</div>
+						<div class="span3 nom-client">
+							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produits)
+						</div>
+						<div class="offset1 span1 valider-commande">
+							<i class="icon-ok"></i> Valider
+						</div>
+						<div class="span1 cloturer-commande">
+							<i class="icon-remove"></i> Cloturer
+						</div>
 					</div>
-					<div class="span1 numero-commande">
-						# 00002
+					<div class="row produits-commande">
+						{% set total = 0 %}
+						{% for farmerProductClone in command.farmerProductClones %}
+							{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
+							<div class="span2 name-product">
+									{{farmerProductClone.product.name}}<br><span class="bold">{{farmerProductClone.quantity}}({{farmerProductClone.unitType.name}})</span>
+							</div>
+						{% endfor %}
 					</div>
-					<div class="span3 nom-client">
-						Jérome Guillot (3 produits)
-					</div>
-					<div class="offset1 span1 valider-commande">
-						Valider
-					</div>
-					<div class="span1 cloturer-commande">
-						Cloturer
-					</div>
-				</div>
-				<div class="row produits-commande">
-					<div class="span2 name-product">
-						Choux de Bruxelles <br>
-						(200g)
-					</div>
-					<div class="span2 name-product">
-						Fraise <br>
-						(3 barquettes)
-					</div>
-					<div class="span2 name-product">
-						Radis <br>
-						(4 bottes)
-					</div>
-					<div class="span2 name-product">
-						Radis <br>
-						(4 bottes)
-					</div>
-					<div class="span2 name-product">
-						Radis <br>
-						(4 bottes)
-					</div>
-				</div>
-				<div class="row prix-commande">
-					<div class="span2 offset8">
-						Total : 12,90€
+					<div class="row prix-commande">
+						<div class="span2 offset8">
+							Total : <span class="bold">{{total|number_format(2, '.', ',')}}€</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		{% endfor %}
 	</div>
+{# 	<div class="row">
+		<div class="col-md-10">
+			<h3>{{farmer.firstname | title}}, voici les commandes qui vont ont été faites :</h3>
+		</div>
+	</div> #}
+
+	
+{# 
+	{% for command in commands %}
+	    <div style="width:1024px;margin:auto;margin-bottom:50px;">
+	    	<div style="background-color:white;height:40px;padding:10px;line-height:40px;">{{command.cart.user.username}} ({{command.farmerProductClones|length}})</div>
+	    	<div style="background-color:none;height:100px;padding:10px;">
+	    		{% set total = 0 %}
+				{% for farmerProductClone in command.farmerProductClones %}
+					{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
+					<div style="width:225px;height:50px;float:left;text-align:center;">
+						{{farmerProductClone.product.name}}<br>{{farmerProductClone.quantity}}({{farmerProductClone.unitType.name}})
+					</div>
+				{% endfor %}
+	    	</div>
+	    </div>
+	{% endfor %} #}
 {% endblock %}

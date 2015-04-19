@@ -16,6 +16,7 @@ class CartStatusType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('translation')
         ;
     }
     

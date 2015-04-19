@@ -349,6 +349,10 @@ hr
 .commande-producteur
 {
 	background-color: #fff;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.2);
+	box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.2);
 }
 
 .details-commande, .prix-commande
@@ -371,4 +375,49 @@ hr
 	margin-top: 20px;
 	margin-left: 0px;
 	width: 240px;
+	color: #8c9087;
+}
+
+.date-livraison, .valider-commande
+{
+	color: #8c9087;
+	font-weight: bold;
+}
+
+.numero-commande
+{
+	color:#efd337;
+	font-weight: bold;
+}
+
+.nom-client, .prix-commande
+{
+	color: #8c9087;
+}
+
+.valider-commande i
+{
+	opacity: 0.5;
+}
+
+.cloturer-commande
+{
+	color: #8c9087;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.valider-commande
+{
+	cursor: pointer;
+}
+
+.cloturer-commande i
+{
+	opacity: 0.4;
+}
+
+.bold
+{
+	font-weight: bold;
 }

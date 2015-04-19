@@ -88,11 +88,18 @@ class Product
     protected $farmerProducts;
 
     /**
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProductClone", mappedBy="product")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    protected $farmerProductClones;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->farmerProducts = new ArrayCollection();
+        $this->farmerProductClones = new ArrayCollection();
         $this->filter = new ArrayCollection();
         $this->season = new ArrayCollection();
     }
@@ -370,5 +377,39 @@ class Product
     public function getFarmerProducts()
     {
         return $this->farmerProducts;
+    }
+
+    /**
+     * Add farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     *
+     * @return Product
+     */
+    public function addFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones[] = $farmerProductClone;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     */
+    public function removeFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones->removeElement($farmerProductClone);
+    }
+
+    /**
+     * Get farmerProductClones
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFarmerProductClones()
+    {
+        return $this->farmerProductClones;
     }
 }

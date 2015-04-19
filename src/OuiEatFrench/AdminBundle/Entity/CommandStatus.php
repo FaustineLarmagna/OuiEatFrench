@@ -3,6 +3,7 @@
 namespace OuiEatFrench\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * CommandStatus
@@ -31,17 +32,17 @@ class CommandStatus
     /**
      * @var string
      *
-     * @ORM\Column(name="traduction", type="string", length=255)
+     * @ORM\Column(name="translation", type="string", length=255)
      */
-    private $traduction;
+    private $translation;
 
     /**
      * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\Command", mappedBy="status")
      */
-    protected $command;
+    protected $commands;
 
     public function __construct() {
-        $this->command = new ArrayCollection();
+        $this->commands = new ArrayCollection();
     }
 
     /**
@@ -78,25 +79,59 @@ class CommandStatus
     }
 
     /**
-     * Set traduction
+     * Set translation
      *
-     * @param string $traduction
+     * @param string $translation
      * @return CartStatus
      */
-    public function setTraduction($traduction)
+    public function setTranslation($translation)
     {
-        $this->traduction = $traduction;
+        $this->translation = $translation;
 
         return $this;
     }
 
     /**
-     * Get traduction
+     * Get translation
      *
      * @return string 
      */
-    public function getTraduction()
+    public function getTranslation()
     {
-        return $this->traduction;
+        return $this->translation;
+    }
+
+    /**
+     * Add command
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\Command $command
+     *
+     * @return CommandStatus
+     */
+    public function addCommand(\OuiEatFrench\FarmerBundle\Entity\Command $command)
+    {
+        $this->commands[] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Remove command
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\Command $command
+     */
+    public function removeCommand(\OuiEatFrench\FarmerBundle\Entity\Command $command)
+    {
+        $this->commands->removeElement($command);
+    }
+
+    /**
+     * Get commands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommands()
+    {
+        return $this->commands;
     }
 }

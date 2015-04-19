@@ -4,11 +4,12 @@ namespace OuiEatFrench\FarmerBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Command
  *
- * @ORM\Table()
+ * @ORM\Table(name="command")
  * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Entity\CommandRepository")
  */
 class Command
@@ -31,17 +32,36 @@ class Command
 
     /**
      * @Assert\NotBlank()
-     * @ORM\ManyToOne(targetEntity="UserFarmer", inversedBy="command")
+     * @ORM\ManyToOne(targetEntity="UserFarmer", inversedBy="commands")
      * @ORM\JoinColumn(name="farmer_id", referencedColumnName="id")
      */
     private $farmer;
 
     /**
      * @Assert\NotBlank()
-     * @ORM\ManyToOne(targetEntity="OuiEatFrench\AdminBundle\Entity\CommandStatus", inversedBy="command")
+     * @ORM\ManyToOne(targetEntity="OuiEatFrench\AdminBundle\Entity\CommandStatus", inversedBy="commands")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
+
+    /**
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProductClone", mappedBy="command")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    protected $farmerProductClones;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->farmerProductClones = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return "Command";
+    }
 
 
     /**
@@ -122,5 +142,39 @@ class Command
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Add farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     *
+     * @return Command
+     */
+    public function addFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones[] = $farmerProductClone;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     */
+    public function removeFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones->removeElement($farmerProductClone);
+    }
+
+    /**
+     * Get farmerProductClones
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFarmerProductClones()
+    {
+        return $this->farmerProductClones;
     }
 }

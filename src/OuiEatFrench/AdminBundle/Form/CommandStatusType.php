@@ -16,6 +16,7 @@ class CommandStatusType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('translation')
         ;
     }
     
