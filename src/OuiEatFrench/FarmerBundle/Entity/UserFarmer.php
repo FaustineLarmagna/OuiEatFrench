@@ -141,14 +141,20 @@ class UserFarmer
     private $farmerProducts;
 
     /**
+     * @ORM\OneToMany(targetEntity="FarmerProductClone", mappedBy="farmer")
+     */
+    private $farmerProductClones;
+
+    /**
      * @ORM\OneToMany(targetEntity="\OuiEatFrench\FarmerBundle\Entity\Command", mappedBy="farmer")
      */
-    private $command;
+    private $commands;
 
 
     public function __construct() {
         $this->farmerProducts = new ArrayCollection();
-        $this->command = new ArrayCollection();
+        $this->farmerProductClones = new ArrayCollection();
+        $this->commands = new ArrayCollection();
     }
 
     public function __toString()
@@ -626,5 +632,73 @@ class UserFarmer
     public function getFarmerProducts()
     {
         return $this->farmerProducts;
+    }
+
+    /**
+     * Add command
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\Command $command
+     *
+     * @return UserFarmer
+     */
+    public function addCommand(\OuiEatFrench\FarmerBundle\Entity\Command $command)
+    {
+        $this->commands[] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Remove command
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\Command $command
+     */
+    public function removeCommand(\OuiEatFrench\FarmerBundle\Entity\Command $command)
+    {
+        $this->commands->removeElement($command);
+    }
+
+    /**
+     * Get commands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommands()
+    {
+        return $this->commands;
+    }
+
+    /**
+     * Add farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     *
+     * @return UserFarmer
+     */
+    public function addFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones[] = $farmerProductClone;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     */
+    public function removeFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones->removeElement($farmerProductClone);
+    }
+
+    /**
+     * Get farmerProductClones
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFarmerProductClones()
+    {
+        return $this->farmerProductClones;
     }
 }

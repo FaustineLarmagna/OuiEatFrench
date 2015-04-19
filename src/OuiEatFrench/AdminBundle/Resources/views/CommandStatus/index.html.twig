@@ -8,9 +8,10 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <td><strong>Id</strong></td>
-        <td><strong>Nom</strong></td>
-        <td><strong>Actions</strong></td>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Traduction</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
         <tr>
             <td>{{ entity.id }}</td>
             <td>{{ entity.name }}</td>
+            <td>{{ entity.translation }}</td>
             <td>
                 <ul>
                     <li><a href={{ path('oui_eat_french_admin_commandstatus_edit', {'id' : entity.id}) }}>Edition</a></li>

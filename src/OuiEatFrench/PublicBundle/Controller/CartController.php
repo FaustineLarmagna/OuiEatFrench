@@ -5,6 +5,8 @@ namespace OuiEatFrench\PublicBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OuiEatFrench\PublicBundle\Entity\FarmerProductCart;
 use OuiEatFrench\PublicBundle\Entity\Cart;
+use OuiEatFrench\FarmerBundle\Entity\FarmerProductClone;
+use OuiEatFrench\FarmerBundle\Entity\Command;
 
 class CartController extends Controller
 {
@@ -12,7 +14,11 @@ class CartController extends Controller
     {
     	$em = $this->getDoctrine()->getManager();
     	$user = $this->get('security.context')->getToken()->getUser();
-    	$status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->find(1);	// id of status "in_progress"
+        if (is_string($user)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous devez vous connecter.");
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
+        }
+    	$status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");	// id of status "in_progress"
     	$cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
     			'user' => $user,
     			'status' => $status,
@@ -40,6 +46,7 @@ class CartController extends Controller
         $farmerProduct = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($farmerProductId);
         $farmerProductUnitType = $farmerProduct->getUnitType();
 
+        // checking $_POST['quantity'] format
         if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity']) || (is_numeric($_POST['quantity']) && floor(floatval($_POST['quantity'])) != floatval($_POST['quantity']) && $farmerProductUnitType->getId() !== 1)) {
             $this->get('session')->getFlashBag()->add('error', "Quantité de produit invalide. Le produit n'a pas été ajouté à votre panier.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
@@ -51,12 +58,13 @@ class CartController extends Controller
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
 
-        $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array('user' => $user, 'status' => 1));
+        // finding the user's current cart. If he has no in_progress cart, creating one
+        $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");
+        $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array('user' => $user, 'status' => $status));
         if (!$cart) {
-            $cartStatus = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->find(1);
             $date = new \DateTime();
             $cart = new Cart();
-            $cart->setStatus($cartStatus);
+            $cart->setStatus($status);
             $cart->setUser($user);
             $cart->setCreatedAt($date);
             $cart->setUpdatedAt($date);
@@ -64,11 +72,17 @@ class CartController extends Controller
             $em->persist($cart);
         }
 
+        // creating the entity that register products in carts
         $entity = new FarmerProductCart();
         $entity->setFarmerProduct($farmerProduct);
         $entity->setUnitQuantity($_POST['quantity']);
         $entity->setCart($cart);
 
+        // cart has been updated so we change the value of his attribute updatedAt
+        $date = new \DateTime();
+        $cart->setUpdatedAt($date);
+
+        // removing quantity to the farmer's stock. Checking if there are still enough product according to the unitMinimum attribute
         $farmerProductNewQuantity = $farmerProduct->getUnitQuantity() - $_POST['quantity'];
         $farmerProduct->setUnitQuantity($farmerProductNewQuantity);
         if ($farmerProductNewQuantity < $farmerProduct->getUnitMinimum()) {
@@ -90,7 +104,12 @@ class CartController extends Controller
         $farmerProductNewQuantity = $farmerProduct->getUnitQuantity() + $farmerProductCart->getUnitQuantity();
         $farmerProduct->setUnitQuantity($farmerProductNewQuantity);
 
+        // removing entity and changing updatedAt attribute in the cart
         $em->remove($farmerProductCart);
+        $cart = $farmerProductCart->getCart();
+        $date = new \DateTime();
+        $cart->setUpdatedAt($date);
+
         $em->flush();
 
         return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
@@ -120,6 +139,9 @@ class CartController extends Controller
         }
 
         $farmerProductCart->setUnitQuantity($_POST['quantity']);
+        $cart = $farmerProductCart->getCart();
+        $date = new \DateTime();
+        $cart->setUpdatedAt($date);
 
         $em->flush();
 
@@ -130,7 +152,7 @@ class CartController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
-        $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->find(1);    // id of status "in_progress"
+        $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");
         $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
                 'user' => $user,
                 'status' => $status,
@@ -141,13 +163,16 @@ class CartController extends Controller
         }
 
         $farmerProductCarts = $em->getRepository('OuiEatFrenchPublicBundle:FarmerProductCart')->findBy(array('cart' => $cart));
-        
+        // removing every entities in cart so that the cart become empty
         foreach($farmerProductCarts as $farmerProductCart) {
             $farmerProduct = $farmerProductCart->getFarmerProduct();
             $farmerProductNewQuantity = $farmerProduct->getUnitQuantity() + $farmerProductCart->getUnitQuantity();
             $farmerProduct->setUnitQuantity($farmerProductNewQuantity);
             $em->remove($farmerProductCart);
         }
+
+        $date = new \DateTime();
+        $cart->setUpdatedAt($date);
 
         $em->flush();
 
@@ -157,7 +182,7 @@ class CartController extends Controller
     public function validCartAction() {
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
-        $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->find(1);    // id of status "in_progress"
+        $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");    // id of status "in_progress"
         $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
                 'user' => $user,
                 'status' => $status,
@@ -171,21 +196,55 @@ class CartController extends Controller
                 LE PAIEMENT S'EFFECTUE ICI
         */
 
-        $newStatus = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->find(2); // id of status "paid"
+    // change cart's status to "paid"
+        $newStatus = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("paid");
         $date = new \DateTime();
         $cart->setStatus($newStatus);
         $cart->setUpdatedAt($date);
 
+    // create a new empty cart with status "in_progress" (which is first step)
         $newDate = new \DateTime();
         $newCart = new Cart();
         $newCart->setStatus($status);
         $newCart->setUser($user);
         $newCart->setCreatedAt($date);
         $newCart->setUpdatedAt($date);
-        
+
         $em->persist($newCart);
+        
+    // create a command for each farmer concerned by this cart (which sells one or more product in this cart)
+        $farmerCommand = array();
+        $commandStatus = $em->getRepository('OuiEatFrenchAdminBundle:CommandStatus')->findOneByName("paid");
+        foreach ($cart->getFarmerProductCarts() as $farmerProductCart) {
+            $farmerProduct = $farmerProductCart->getFarmerProduct();
+            $farmerProductClone = new FarmerProductClone($farmerProduct);
+            $farmerProductClone->setQuantity($farmerProductCart->getUnitQuantity());
+
+            $key = $farmerProduct->getFarmer()->getId();
+            if (array_key_exists($key, $farmerCommand)) {
+                $farmerProductClone->setCommand($farmerCommand[$key]['command']);
+            } else {
+                $command = new Command();
+                $command->setCart($cart);
+                $command->setFarmer($farmerProduct->getFarmer());
+                $command->setStatus($commandStatus);
+                
+                $em->persist($command);
+                $farmerProductClone->setCommand($command);
+                $farmerCommand[$key]['command'] = $command;
+            }
+
+            $farmerCommand[$key]['products'][] = $farmerProductClone;
+        }
+
+        foreach ($farmerCommand as $farmer => $array) {
+            foreach ($array['products'] as $product) {
+                $em->persist($product);
+            }
+        }
+
         $em->flush();
 
-        return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+        return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
     }
 }

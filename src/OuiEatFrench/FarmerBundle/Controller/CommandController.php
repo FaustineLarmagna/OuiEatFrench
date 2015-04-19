@@ -10,7 +10,7 @@ class CommandController extends Controller
 {
     public function indexAction()
     {
-        $farmerId = $this->get('session')->get('farmer');
+        $farmer = $this->get('session')->get('farmer');
         $farmer = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
         $data["entities"] = $entities;
