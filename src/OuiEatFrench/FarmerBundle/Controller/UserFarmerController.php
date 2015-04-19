@@ -35,7 +35,7 @@ class UserFarmerController extends Controller
 
                 if ($user)
                 {
-                    $this->get('session')->set('farmer', $user->getId());
+                    $this->get('session')->set('farmer', $user);
                     return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
                 }
                 $parameters['error'] = 'Indentifiants ou mot de passe incorrect';
@@ -49,10 +49,10 @@ class UserFarmerController extends Controller
     {
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
         $data["entities"] = $entities;
-        $farmerId = $this->get('session')->get('farmer');
-        if ($farmerId)
+        $farmer = $this->get('session')->get('farmer');
+        if ($farmer)
         {
-            $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);//$this->get('security.context')->getToken()->getUser();
+            $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmer->getId());//$this->get('security.context')->getToken()->getUser();
         }
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:index.html.twig', $data);
     }

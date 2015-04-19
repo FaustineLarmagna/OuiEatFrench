@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * UserFarmer
+ * AvailabilityFarmer
  *
  * @ORM\Table(name="availability_farmer")
- * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Repository\UserFarmerRepository")
+ * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Repository\AvailabilityFarmerRepository")
  */
 class AvailabilityFarmer
 {
@@ -22,8 +22,20 @@ class AvailabilityFarmer
      */
     private $id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AvailabilitySlot")
+     */
+    private $availabilitySlots;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\FarmerBundle\Entity\UserFarmer", inversedBy="availabilityFarmers", cascade={"persist"})
+     * @ORM\JoinColumn(name="farmer_id", referencedColumnName="id")
+     */
+    private $farmer;
+
     public function __construct()
     {
+        $availabilitySlots = new ArrayCollection();
     }
 
     public function __toString()
@@ -39,5 +51,61 @@ class AvailabilityFarmer
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add availabilitySlots
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\AvailabilitySlot $availabilitySlots
+     * @return UserFarmer
+     */
+    public function addAvailabilitySlot($availabilitySlots)
+    {
+        $this->availabilitySlots[] = $availabilitySlots;
+
+        return $this;
+    }
+
+    /**
+     * Remove availabilitySlots
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\AvailabilitySlot $availabilitySlots
+     */
+    public function removeAvailabilitySlot($availabilitySlots)
+    {
+        $this->availabilitySlots->removeElement($availabilitySlots);
+    }
+
+    /**
+     * Get availabilitySlots
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAvailabilitySlots()
+    {
+        return $this->availabilitySlots;
+    }
+
+    /**
+     * Set \OuiEatFrench\FarmerBundle\Entity\UserFarmer
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\UserFarmer $farmer
+     * @return AvailabilityFarmer
+     */
+    public function setFarmer($farmer)
+    {
+        $this->farmer = $farmer;
+
+        return $this;
+    }
+
+    /**
+     * Get \OuiEatFrench\FarmerBundle\Entity\UserFarmer
+     *
+     * @return \OuiEatFrench\FarmerBundle\Entity\UserFarmer
+     */
+    public function getFarmer()
+    {
+        return $this->farmer;
     }
 }
