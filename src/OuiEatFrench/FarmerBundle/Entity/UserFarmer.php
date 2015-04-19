@@ -150,6 +150,10 @@ class UserFarmer
      */
     private $commands;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AvailabilityFarmer", mappedBy="farmer")
+     */
+    private $availabilityFarmers;
 
     public function __construct() {
         $this->farmerProducts = new ArrayCollection();
@@ -635,6 +639,40 @@ class UserFarmer
     }
 
     /**
+     * Add farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     *
+     * @return UserFarmer
+     */
+    public function addFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones[] = $farmerProductClone;
+
+        return $this;
+    }
+
+    /**
+     * Remove farmerProductClone
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     */
+    public function removeFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    {
+        $this->farmerProductClones->removeElement($farmerProductClone);
+    }
+
+    /**
+     * Get farmerProductClones
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFarmerProductClones()
+    {
+        return $this->farmerProductClones;
+    }
+
+    /**
      * Add command
      *
      * @param \OuiEatFrench\FarmerBundle\Entity\Command $command
@@ -669,36 +707,36 @@ class UserFarmer
     }
 
     /**
-     * Add farmerProductClone
+     * Add availabilityFarmer
      *
-     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     * @param \OuiEatFrench\FarmerBundle\Entity\AvailabilityFarmer $availabilityFarmer
      *
      * @return UserFarmer
      */
-    public function addFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    public function addAvailabilityFarmer(\OuiEatFrench\FarmerBundle\Entity\AvailabilityFarmer $availabilityFarmer)
     {
-        $this->farmerProductClones[] = $farmerProductClone;
+        $this->availabilityFarmers[] = $availabilityFarmer;
 
         return $this;
     }
 
     /**
-     * Remove farmerProductClone
+     * Remove availabilityFarmer
      *
-     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
+     * @param \OuiEatFrench\FarmerBundle\Entity\AvailabilityFarmer $availabilityFarmer
      */
-    public function removeFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
+    public function removeAvailabilityFarmer(\OuiEatFrench\FarmerBundle\Entity\AvailabilityFarmer $availabilityFarmer)
     {
-        $this->farmerProductClones->removeElement($farmerProductClone);
+        $this->availabilityFarmers->removeElement($availabilityFarmer);
     }
 
     /**
-     * Get farmerProductClones
+     * Get availabilityFarmers
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFarmerProductClones()
+    public function getAvailabilityFarmers()
     {
-        return $this->farmerProductClones;
+        return $this->availabilityFarmers;
     }
 }

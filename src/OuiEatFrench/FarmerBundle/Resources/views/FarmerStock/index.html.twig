@@ -1,0 +1,105 @@
+{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
+{% block content %}
+{% for flashMessage in app.session.flashbag.get('warning') %}
+    <div class="flash-warning">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+<div class="row" style="margin-bottom: 100px;">
+    <div class="text-catalogue offset2">
+        L'ensemble de vos produits et de leurs stocks
+    </div>
+</div>
+{% if farmerproducts|length == 0 %}
+    Vous n'avez aucun produit dans votre stand
+{% else %}
+<div id="farmerproducts">
+{% for farmerproduct in farmerproducts %}
+    <div class="farmerproduct product-{{farmerproduct.id}}" style="float:left;">
+        <div class="product_description">
+            {% if farmerproduct.product is not null %}
+                <img src="{{ asset('OEF/img_admin_product/' ~ farmerproduct.product.imageName) }}" height="185" width="250" alt="image de {{ farmerproduct.product.name }}" class="product_img">
+            {% endif %}
+            <div class="product_description_left" id="{{farmerproduct.id}}">
+                <div class="name_product">{% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</div>
+                <div class="type_agriculture">Agriculture {{ farmerproduct.agricultureType }}</div>
+                <hr class="hr-produits"></hr>
+                <div class="stocks_product">
+                	<div class="button_stock">
+            			<div class="moin_stock product_{{farmerproduct.id}}">
+            				<i class="icon-minus"></i>
+            			</div>
+            			<div class="quantity_product_stock">
+            				{{ farmerproduct.unitQuantity }}
+            			</div>
+            			<div class="plus_stock product_{{farmerproduct.product.id}}">
+            				<i class="icon-plus"></i>
+            			</div>
+                	</div>
+                	<div class="unit_type">
+                		{{ farmerproduct.unitType }} en stock
+                	</div>
+                </div>
+                <hr class="hr-produits"></hr>
+                <div class="link_update_product">
+                    <a href="#modal-delete"  role="button" data-id="{{farmerproduct.id }}" data-toggle="modal"><i class="icon-trash"></i>Supprimer ce produit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<!-- Modal -->
+<div id="modal-delete" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Supprimer un produit</h3>
+  </div>
+  <div class="modal-body">
+    <p>Voulez-vous vraiment supprimer ce produit ?</p>
+    <input type="hidden" class="data-modal">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+    <button class="btn btn-danger modal-delete-button" data-dismiss="modal">Supprimer</button>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(function () {
+    jQuery(document).ready(function() {
+
+	$('.link_update_product a').on('click', function(){
+		$('.data-modal').val($(this).data('id'));
+	});
+
+	$('.modal-delete-button').on('click', function(){
+		var id = $('.data-modal').val();
+		deleteProductStock(id);
+	});
+        function deleteProductStock(product_id){
+                $.ajax({
+                    url: '{{ path('oui_eat_french_farmer_stock_delete_ajax') }}',
+                    type: 'POST',
+                    data:
+                    {
+                        'id' : product_id,
+                    },
+                    dataType: 'json',
+                    success: function(response)
+                    {
+                        $(".product-"+response).fadeOut(300, function() { 
+                        	$(this).remove(); 
+                        });
+                    }
+                });
+            return false;
+        };
+    });
+});
+</script>
+{% endblock %}

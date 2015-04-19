@@ -1,0 +1,8 @@
+{% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
+{% block content %}
+Mes disponibilitées
+<a href="{{ path('oui_eat_french_farmer_availability_edit', { 'id': entity.id }) }}">Renseigner mes disponibilitées</a><br>
+{% for availabilitySlots in entity.availabilitySlots %}
+    {{ availabilitySlots.name }}<br>
+{% endfor %}
+{% endblock %}

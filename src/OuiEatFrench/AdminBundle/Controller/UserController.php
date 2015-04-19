@@ -35,7 +35,7 @@ class UserController extends Controller
 
                 if ($user)
                 {
-                    $this->get('session')->set('admin', $email);
+                    $this->get('session')->set('admin', $user);
                     return $this->redirect($this->generateUrl('oui_eat_french_admin'));
                 }
                 $parameters['error'] = 'Indentifiants ou mot de passe incorrect';
