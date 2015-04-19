@@ -1,22 +1,75 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 
 {% block content %}
-	<div class="row">
+	<div class="row type-commandes">
+		<div class="commandes-en-cours offset5 span5 active-commandes">
+			Mes commandes en cours (3)
+		</div>
+		<div class="commandes-finies span5">
+			Mes commandes clôturées (14)
+		</div>
+	</div>
+	<div class="row all-commandes">
+		<div class="span12 offset8 text-vos-commandes">
+			Vos 3 commandes en cours
+		</div>
+
+		{% for flashMessage in app.session.flashbag.get('error') %}
+		    <div class="alert alert-error">{{ flashMessage }}</div>
+		{% endfor %}
+		{% for flashMessage in app.session.flashbag.get('info') %}
+			    <div class="alert alert-info">{{ flashMessage }}</div>
+			{% endfor %}
+
+		{% for command in commands %}
+			<div class="row">
+				<div class="span10 offset5 commande-producteur">
+					<div class="row details-commande">
+						<div class="span2 date-livraison">
+							Pour le 12/03
+						</div>
+						<div class="span1 numero-commande">
+							# {{command.id}}
+						</div>
+						<div class="span3 nom-client">
+							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produits)
+						</div>
+						<div class="offset1 span1 valider-commande">
+							<i class="icon-ok"></i> Valider
+						</div>
+						<div class="span1 cloturer-commande">
+							<i class="icon-remove"></i> Cloturer
+						</div>
+					</div>
+					<div class="row produits-commande">
+						{% set total = 0 %}
+						{% for farmerProductClone in command.farmerProductClones %}
+							{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
+							<div class="span2 name-product">
+									{{farmerProductClone.product.name}}<br><span class="bold">{{farmerProductClone.quantity}}({{farmerProductClone.unitType.name}})</span>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="row prix-commande">
+						<div class="span2 offset8">
+							Total : <span class="bold">{{total|number_format(2, '.', ',')}}€</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{# 	<div class="row">
 		<div class="col-md-10">
 			<h3>{{farmer.firstname | title}}, voici les commandes qui vont ont été faites :</h3>
 		</div>
-	</div>
+	</div> #}
 
-	{% for flashMessage in app.session.flashbag.get('error') %}
-	    <div class="alert alert-error">{{ flashMessage }}</div>
-	{% endfor %}
-	{% for flashMessage in app.session.flashbag.get('info') %}
-	    <div class="alert alert-info">{{ flashMessage }}</div>
-	{% endfor %}
-
+	
+{# 
 	{% for command in commands %}
 	    <div style="width:1024px;margin:auto;margin-bottom:50px;">
-	    	<div style="background-color:white;height:40px;padding:10px;line-height:40px;">{{command.cart.user.username}} ({{command.farmerProductClones|length}})<span style="text-align:right"><a href="{{path('oui_eat_french_farmer_command_ready', {'id' : command.id})}}">Valider</a><a href="{{path('oui_eat_french_farmer_command_closed', {'id' : command.id})}}">Cloturer</a></span></div>
+	    	<div style="background-color:white;height:40px;padding:10px;line-height:40px;">{{command.cart.user.username}} ({{command.farmerProductClones|length}})</div>
 	    	<div style="background-color:none;height:100px;padding:10px;">
 	    		{% set total = 0 %}
 				{% for farmerProductClone in command.farmerProductClones %}
@@ -26,7 +79,6 @@
 					</div>
 				{% endfor %}
 	    	</div>
-	    	<div style="text-align:right;background-color:white;height:40px;padding:10px;">Total : <strong>{{total|number_format(2, '.', ',')}}€</strong></div>
 	    </div>
-	{% endfor %}
+	{% endfor %} #}
 {% endblock %}

@@ -276,7 +276,7 @@ hr
 	text-align: center;
 	float: left;
 	text-align: center;
-	line-height: 40px;
+	line-height: 45px;
 	margin-right: 20px;
 	margin-bottom: 10px;
 	cursor: pointer;
@@ -301,4 +301,129 @@ hr
 	margin-right: 20px;
 	line-height: 40px;
 	height: 40px;
+}
+
+#farmerproducts
+{
+	margin-left: 6%;
+}
+
+.type-commandes
+{
+	background-color: #fff;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.active-commandes
+{
+	color:#e5ca36;
+	border-bottom: 2px solid #e5ca36;
+}
+
+.all-commandes
+{
+	height: 500px;
+	margin-top: 100px;
+}
+
+.commandes-finies:hover, .commandes-en-cours:hover
+{
+	color:#e5ca36;
+	border-bottom: 2px solid #e5ca36;
+}
+
+.commandes-finies, .commandes-en-cours
+{
+	cursor: pointer;
+}
+
+.text-vos-commandes
+{
+	font-size: 30px;
+	color: #8c9087;
+	margin-bottom: 50px;
+}
+
+.commande-producteur
+{
+	background-color: #fff;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.2);
+	box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.2);
+}
+
+.details-commande, .prix-commande
+{
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+}
+
+.produits-commande
+{
+	background-color: #f8faf2;
+	margin-left: 0px;
+}
+
+.name-product
+{
+	height: 60px;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 0px;
+	width: 240px;
+	color: #8c9087;
+}
+
+.date-livraison, .valider-commande
+{
+	color: #8c9087;
+	font-weight: bold;
+}
+
+.numero-commande
+{
+	color:#efd337;
+	font-weight: bold;
+}
+
+.nom-client, .prix-commande
+{
+	color: #8c9087;
+}
+
+.valider-commande i
+{
+	opacity: 0.5;
+}
+
+.cloturer-commande
+{
+	color: #8c9087;
+	opacity: 0.5;
+	cursor: pointer;
+	width: 100px;
+}
+
+.valider-commande
+{
+	cursor: pointer;
+}
+
+.cloturer-commande i
+{
+	opacity: 0.4;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+body
+{
+	font-family: 'Open Sans';
 }

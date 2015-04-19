@@ -33,7 +33,7 @@ class FarmerStockController extends Controller
         if($request->isXmlHttpRequest())
         {
             $id = $request->request->get('id');
-            /*$em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
             $farmerId = $this->get('session')->get('farmer');
             $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
             if (!$farmer) {
@@ -46,7 +46,7 @@ class FarmerStockController extends Controller
             {
                 $em->remove($query);
                 $em->flush();
-            }*/
+            }
             return new JsonResponse($id);
         }
        
