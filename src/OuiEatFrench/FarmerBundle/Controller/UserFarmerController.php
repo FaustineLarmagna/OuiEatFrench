@@ -75,6 +75,7 @@ class UserFarmerController extends Controller
 
                 $em->persist($entity);
                 $em->flush();
+                $this->get('session')->set('farmer', $entity);
                 return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
             }
         }
