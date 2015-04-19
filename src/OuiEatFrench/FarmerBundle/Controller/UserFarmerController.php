@@ -50,10 +50,13 @@ class UserFarmerController extends Controller
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
         $data["entities"] = $entities;
         $farmer = $this->get('session')->get('farmer');
-        if ($farmer)
-        {
-            $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmer->getId());//$this->get('security.context')->getToken()->getUser();
+        if (!$farmer || is_string($farmer)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
+            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
         }
+        
+        $data['farmer'] = $farmer;
+        
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:index.html.twig', $data);
     }
 
@@ -70,7 +73,7 @@ class UserFarmerController extends Controller
             {
                 $em = $this->getDoctrine()->getManager();
                 
-                $status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(1);
+                $status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->findOneByName('to_review');
                 $entity->setStatus($status);
 
                 $em->persist($entity);
@@ -83,58 +86,63 @@ class UserFarmerController extends Controller
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:register.html.twig', $data);
     }
 
-    public function editAction($id)
+    public function editAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-        if($query)
-        {
-            $request = $this->get("request");
-            $form = $this->createForm("ouieatfrench_farmerbundle_userfarmertype", $query);
-            if ($request->getMethod() == 'POST')
-            {
-                $form->bind($request);
-                if ($form->isValid())
-                {
-                    if($query->getFileAvatar() !== null) {
-                        $this->upload($query->getFileAvatar(), $query);
-                        $query->setAvatar($query->getFileAvatar()->getClientOriginalName());
-                    }
-
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($query);
-                    $em->flush();
-                    return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
-                }
-            }
-            $data["id"] = $id;
-            $data["form"] = $form->createView();
-            $data["route"] = "oui_eat_french_farmer_user_edit";
+        $query = $this->get('session')->get('farmer');
+        if (!$query || is_string($query)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
+            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
         }
+        
+        $request = $this->get("request");
+        $form = $this->createForm("ouieatfrench_farmerbundle_userfarmertype", $query);
+        if ($request->getMethod() == 'POST')
+        {
+            $form->bind($request);
+            if ($form->isValid())
+            {
+                if($query->getFileAvatar() !== null) {
+                    $this->upload($query->getFileAvatar(), $query);
+                    $query->setAvatar($query->getFileAvatar()->getClientOriginalName());
+                }
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($query);
+                $em->flush();
+                return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
+            }
+        }
+        $data["id"] = $id;
+        $data["form"] = $form->createView();
+        $data["route"] = "oui_eat_french_farmer_user_edit";
+        
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:edit.html.twig', $data);
     }
 
-    public function showAction($id)
+    public function showAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-        if($query)
-        {
-            $data["farmer"] = $query;
+        $query = $this->get('session')->get('farmer');
+        if (!$query || is_string($query)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
+            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
         }
+
+        $data["farmer"] = $query;
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:profil.html.twig', $data);
     }
 
-    public function deleteAction($id)
+    public function deleteAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-
-        if ($query)
-        {
-            $em->remove($query);
-            $em->flush();
+        $query = $this->get('session')->get('farmer');
+        if (!$query || is_string($query)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
+            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
         }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($query);
+        $em->flush();
+        
         return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
     }
 
