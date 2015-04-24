@@ -45,6 +45,10 @@ class CartStatus
         $this->carts = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->translation;
+    }
 
     /**
      * Get id
