@@ -27,7 +27,7 @@ class UnitType
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="name", type="string")
+     * @ORM\Column(name="name", type="string", unique=true)
      */
     private $name;
 

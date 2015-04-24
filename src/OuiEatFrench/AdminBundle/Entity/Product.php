@@ -27,7 +27,7 @@ class Product
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="name", type="string", length=100)
+     * @ORM\Column(name="name", type="string", length=100, unique=true)
      */
     protected $name;
 

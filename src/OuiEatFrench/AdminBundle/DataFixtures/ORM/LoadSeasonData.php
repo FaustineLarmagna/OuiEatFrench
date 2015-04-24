@@ -28,10 +28,10 @@ class LoadSeasonData implements FixtureInterface
     public function feedSeason()
     {
     	return array(
-    		"ete",
     		"printemps",
-    		"hiver",
-            "automne"
+            "ete",
+            "automne",
+            "hiver"
     		);
     }
 }
