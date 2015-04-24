@@ -2,14 +2,16 @@
 {% block content %}
 <h3>Profil</h3>
 <p>
-	{% if farmer.status.name == "to_review" %}
-		Votre candidature est en court d'évaluation
-	{% elseif farmer.status.name == "missing_doc" %}
-		Il manque un document pour que votre candidature soit étudiée
-	{% elseif farmer.status.name == "validate" %}
-		Vous pouvez accéder à la composition de votre stand
-	{% elseif farmer.status.name == "banned" %}
-		Vous ne pouvez plus agir sur ouieatfrench jusqu'à nouvel ordre. Contacter l'équipe Ouieatfrench pour toute réclamation
+    {% if farmer.status is defined and farmer.status is not null %}
+        {% if farmer.status.name == "to_review" %}
+            Votre candidature est en court d'évaluation
+        {% elseif farmer.status.name == "missing_doc" %}
+            Il manque un document pour que votre candidature soit étudiée
+        {% elseif farmer.status.name == "validate" %}
+            Vous pouvez accéder à la composition de votre stand
+        {% elseif farmer.status.name == "banned" %}
+            Vous ne pouvez plus agir sur ouieatfrench jusqu'à nouvel ordre. Contacter l'équipe Ouieatfrench pour toute réclamation
+        {% endif %}
 	{% endif %}
 </p>
 <img src="{{ asset(farmer.getUploadDir() ~ '/' ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar">

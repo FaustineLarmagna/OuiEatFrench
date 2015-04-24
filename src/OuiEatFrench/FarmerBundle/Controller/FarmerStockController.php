@@ -13,12 +13,8 @@ class FarmerStockController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
-        
+        $farmer = $this->get('security.context')->getToken()->getUser();
+
         $farmerproducts = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findBy(array('farmer' => $farmer));
         $data["farmerproducts"] = $farmerproducts;
         $data['farmer'] = $farmer;

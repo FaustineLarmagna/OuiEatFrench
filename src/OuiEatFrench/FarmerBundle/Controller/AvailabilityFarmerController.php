@@ -9,11 +9,7 @@ class AvailabilityFarmerController extends Controller
 {
     public function indexAction()
     {
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
+        $farmer = $this->get('security.context')->getToken()->getUser();
 
         $data['farmer'] = $farmer;
         $entity = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:AvailabilityFarmer')->findOneBy(array('farmer' => $farmer));
@@ -32,11 +28,7 @@ class AvailabilityFarmerController extends Controller
 
     public function editAction($id)
     {
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
+        $farmer = $this->get('security.context')->getToken()->getUser();
 
         $em = $this->getDoctrine()->getManager();
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:AvailabilityFarmer')->findOneBy(array('id' => $id, 'farmer' => $farmer));

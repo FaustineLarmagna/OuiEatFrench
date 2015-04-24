@@ -52,8 +52,7 @@ class FarmerProductController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $farmerId = $this->get('session')->get('farmer');
-        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+        $farmer = $this->get('security.context')->getToken()->getUser();
         $farmerproducts = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findBy(array('farmer' => $farmer));
         $data["farmerproducts"] = $farmerproducts;
         $data['farmer'] = $farmer;
@@ -64,11 +63,7 @@ class FarmerProductController extends Controller
     public function addAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
+        $farmer = $this->get('security.context')->getToken()->getUser();
 
         $entity = new FarmerProduct();
         $entity->setFarmer($farmer);
@@ -97,11 +92,7 @@ class FarmerProductController extends Controller
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
+        $farmer = $this->get('security.context')->getToken()->getUser();
 
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
         if($query)
@@ -130,12 +121,6 @@ class FarmerProductController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
-
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
         if ($query)
         {

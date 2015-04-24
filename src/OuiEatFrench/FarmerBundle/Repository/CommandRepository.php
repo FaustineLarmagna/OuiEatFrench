@@ -1,6 +1,6 @@
 <?php
 
-namespace OuiEatFrench\FarmerBundle\Entity;
+namespace OuiEatFrench\FarmerBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

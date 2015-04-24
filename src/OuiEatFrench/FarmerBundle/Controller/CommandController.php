@@ -10,25 +10,16 @@ class CommandController extends Controller
 {
     public function indexAction()
     {
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
+        $farmer = $this->get('security.context')->getToken()->getUser();
         $data['farmer'] = $farmer;
-
-        $data['commands'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array('farmer' => $farmer));
+        $data['commands'] = $this->getDoctrine()->getManager()->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array('farmer' => $farmer));
         return $this->render('OuiEatFrenchFarmerBundle:FarmerCommand:index.html.twig', $data);
     }
 
     public function readyAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
+        $farmer = $this->get('security.context')->getToken()->getUser();
 
         $command = $em->getRepository('OuiEatFrenchFarmerBundle:Command')->find($id);
         if (!$command || $command->getFarmer()->getId() != $farmer->getId()) {
@@ -48,11 +39,7 @@ class CommandController extends Controller
     public function closedAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmer = $this->get('session')->get('farmer');
-        if (!$farmer || is_string($farmer)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
-            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
-        }
+        $farmer = $this->get('security.context')->getToken()->getUser();
 
         $command = $em->getRepository('OuiEatFrenchFarmerBundle:Command')->find($id);
         if (!$command || $command->getFarmer()->getId() != $farmer->getId()) {

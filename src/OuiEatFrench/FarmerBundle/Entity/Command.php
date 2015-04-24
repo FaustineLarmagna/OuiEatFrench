@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Command
  *
  * @ORM\Table(name="command")
- * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Entity\CommandRepository")
+ * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Repository\CommandRepository")
  */
 class Command
 {
