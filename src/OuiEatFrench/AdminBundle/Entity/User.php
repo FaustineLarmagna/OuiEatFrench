@@ -4,19 +4,34 @@ namespace OuiEatFrench\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user_admin")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
+     */
+    private $salt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="roles", type="string", length=255, nullable=true)
+     */
+    private $roles;
 
     /**
      * @var string
@@ -24,7 +39,7 @@ class User
      * @Assert\NotBlank()
      * @ORM\Column(name="username", type="string", length=100)
      */
-    protected $username;
+    private $username;
 
     /**
      * @var string
@@ -32,19 +47,47 @@ class User
      * @Assert\NotBlank()
      * @ORM\Column(name="email", type="string", length=100)
      */
-    protected $email;
+    private $email;
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="password", type="string", length=100)
+     * @ORM\Column(name="password", type="string", length=255)
      */
-    protected $password;
+    private $password;
 
     public function __construct()
     {
 
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_ADMIN');
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 
     /**
@@ -78,7 +121,7 @@ class User
      */
     public function setPassword($password)
     {
-        $this->password = sha1($password);
+        $this->password = $password;
     }
 
     /**
@@ -86,22 +129,16 @@ class User
      */
     public function getPassword()
     {
-        return sha1($this->password);
+        return $this->password;
     }
 
-    /**
-     * @param mixed $username
-     */
-    public function setUsername($username)
+    public function getSalt()
     {
-        $this->username = $username;
+        return $this->salt;
     }
 
-    /**
-     * @return string
-     */
-    public function getUsername()
+    public function eraseCredentials()
     {
-        return $this->username;
+
     }
 }

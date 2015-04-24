@@ -7,7 +7,7 @@
     </div>
     <ul class="offset8">
         <li>
-            <a href="{{ path('oui_eat_french_farmer_availability_index', { 'farmerId': farmer.id}) }}">MES DISPONIBILITÉS</a>
+            <a href="{{ path('oui_eat_french_farmer_availability_index', { 'farmerId': app.user.id}) }}">MES DISPONIBILITÉS</a>
         </li>
         <li>
             <a href="{{ path('oui_eat_french_farmer_command_index') }}">MES COMMANDES</a>

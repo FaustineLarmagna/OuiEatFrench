@@ -20,9 +20,12 @@ class UserFarmerController extends Controller
         $session = $request->getSession();
 
         // On vérifie s'il y a des erreurs d'une précédente soumission du formulaire
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR))
+        {
             $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-        } else {
+        }
+        else
+        {
             $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
             $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }

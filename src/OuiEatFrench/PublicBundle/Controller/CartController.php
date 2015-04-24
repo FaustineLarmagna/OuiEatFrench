@@ -14,10 +14,6 @@ class CartController extends Controller
     {
     	$em = $this->getDoctrine()->getManager();
     	$user = $this->get('security.context')->getToken()->getUser();
-        if (is_string($user)) {
-            $this->get('session')->getFlashBag()->add('error', "Vous devez vous connecter.");
-            return $this->redirect($this->generateUrl('fos_user_security_login'));
-        }
     	$status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");	// id of status "in_progress"
     	$cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
     			'user' => $user,

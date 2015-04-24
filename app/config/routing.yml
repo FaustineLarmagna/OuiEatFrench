@@ -29,6 +29,10 @@ oui_eat_french_farmer_user_login:
 oui_eat_french_farmer_user_login_check:
     pattern:  /mon-stand/check
 
+oui_eat_french_admin_user_login:
+    pattern:  /administrateur/connexion
+    defaults: { _controller: OuiEatFrenchAdminBundle:User:login }
+
 oui_eat_french_mailing:
     resource: "@OuiEatFrenchMailingBundle/Resources/config/routing.yml"
     prefix:   /presentation

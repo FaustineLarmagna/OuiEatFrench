@@ -2,6 +2,10 @@ security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
         Symfony\Component\Security\Core\User\User: plaintext
+        OuiEatFrench\AdminBundle\Entity\User:
+            algorithm: sha512
+            encode_as_base64: false
+            iterations: 1
         OuiEatFrench\FarmerBundle\Entity\UserFarmer:
             algorithm: sha512
             encode_as_base64: false
@@ -11,15 +15,27 @@ security:
         ROLE_USER:              ROLE_USER
         ROLE_USER_FARMER:       ROLE_USER
         ROLE_ADMIN:             ROLE_USER
-        ROLE_SUPER_ADMIN:       [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         user_farmer_area:
             entity: { class: OuiEatFrenchFarmerBundle:UserFarmer, property: username }
+        admin:
+            entity: { class: OuiEatFrenchAdminBundle:User, property: username }
         main:
             id: fos_user.user_provider.username
 
     firewalls:
+        admin:
+            pattern: ^/admin
+            anonymous: true
+            provider: admin
+            form_login:
+                login_path: oui_eat_french_admin_user_login
+                check_path: oui_eat_french_admin_user_login_check
+            logout:
+                path: oui_eat_french_admin_user_logout
+                target: /administrateur/connexion
+                invalidate_session: false
         user_farmer_area:
             pattern: ^/mon-stand
             anonymous: true
@@ -28,9 +44,9 @@ security:
                 login_path: oui_eat_french_farmer_user_login
                 check_path: oui_eat_french_farmer_user_login_check
             logout:
-               path: oui_eat_french_farmer_user_logout
-               target: /producteur/connexion
-               invalidate_session: false
+                path: oui_eat_french_farmer_user_logout
+                target: /producteur/connexion
+                invalidate_session: false
         main:
             pattern: ^/
             anonymous: true
@@ -45,4 +61,6 @@ security:
                 key:        %secret%
 
     access_control:
-        - { path: ^/mon-stand, roles: ROLE_USER_FARMER }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/panier/, roles: ROLE_USER }
+        - { path: ^/mon-stand/, roles: ROLE_USER_FARMER }

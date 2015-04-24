@@ -42,6 +42,11 @@ class User extends BaseUser
         return $this->id;
     }
 
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
     /**
      * Add carts
      *

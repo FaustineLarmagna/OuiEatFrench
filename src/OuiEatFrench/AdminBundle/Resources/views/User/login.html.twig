@@ -2,12 +2,12 @@
 {% block title %}admin OEF{% endblock %}
 {% block body %}
     <h3>Connexion Administrateur</h3>
-    <form action="{{ path('oui_eat_french_admin_user_login') }}" method="post" novalidate="novalidate">
-        <label for="email" >Email :</label><input id="email" type="text" name="email">
-        <label for="password" >Mot de passe : </label><input id="password" type="password" name="password"><br>
+    <form action="{{ path('oui_eat_french_admin_user_login_check') }}" method="post" novalidate="novalidate">
+        <input type="text" placeholder="Nom d'utilisateur" id="username" name="_username" value="{% if last_username is defined %}{{ last_username }}{% endif %}" />
+        <input type="password" id="password" name="_password" placeholder="Mot de passe" />
         <input class="btn btn-success" type="submit" value="submit"/>
     </form>
     {% if error is defined and error is not null %}
-       {{ error }}
+        <div class="alert alert-danger">{{ error.message }}</div>
     {% endif %}
 {% endblock %}

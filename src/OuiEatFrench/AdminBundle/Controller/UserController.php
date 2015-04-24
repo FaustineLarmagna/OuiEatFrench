@@ -4,45 +4,35 @@ namespace OuiEatFrench\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OuiEatFrench\AdminBundle\Entity\User;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class UserController extends Controller
 {
     public function logoutAction()
     {
-        $this->get('session')->remove('admin');
+        $this->container->get('security.context')->setToken(null);
         return $this->redirect($this->generateUrl('oui_eat_french_admin_user_login'));
     }
 
-    public function loginAction()
+    public function loginAction(Request $request)
     {
-        $parameters = array();
+        $session = $request->getSession();
 
-        $request = $this->get('request');
-
-        $email = $request->get('email');
-        $password = $request->get('password');
-
-        if ($request->getMethod() == 'POST')
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR))
         {
-            if ($email == '' or $password == '')
-            {
-                $parameters['error'] = 'Champs manquants';
-            }
-            else
-            {
-                $password = sha1($password);
-                $user = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:User')->findOneBy(array('email' => $email, 'password' => $password));
-
-                if ($user)
-                {
-                    $this->get('session')->set('admin', $user);
-                    return $this->redirect($this->generateUrl('oui_eat_french_admin'));
-                }
-                $parameters['error'] = 'Indentifiants ou mot de passe incorrect';
-            }
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        }
+        else
+        {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
 
-        return $this->render('OuiEatFrenchAdminBundle:User:login.html.twig', $parameters);
+        return $this->render('OuiEatFrenchAdminBundle:User:login.html.twig', array(
+            'last_username'    => $session->get(SecurityContext::LAST_USERNAME),
+            'error'         => $error,
+        ));
     }
 
     public function indexAction()
@@ -62,6 +52,11 @@ class UserController extends Controller
             $form->bind($request);
             if ($form->isValid())
             {
+                $password = $entity->getPassword();
+                $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
+                $encodedPass = $encoder->encodePassword($password, $entity->getSalt());
+                $entity->setPassword($encodedPass);
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
