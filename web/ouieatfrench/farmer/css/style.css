@@ -3,31 +3,34 @@
 	background-color:#eccc15;
 	color: #fff;
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 20px;
 	height: 450px;
 }
 
 .inscription input[type="text"], input[type="password"], input[type="email"]
 {
 	border-radius: 0px !important;
-	height: 30px;
-	width: 250px;
+	height: 40px;
+	width: 270px;
 	margin-left: 0px;
 	box-shadow: none;
+	border: 0px;
+	padding-left: 20px;
 }
 
 .title-inscription-form
 {
-	font-size: 20px;
-	height: 70px;
-	line-height:70px;
-	text-align: center;
-	margin-left: 0px;
+	font-size: 18px;
+	height: 75px;
+	line-height:75px;
+	text-align: left;
+	margin-left: 35px;
+	font-weight: 700;
 }
 
 .inscription-form
 {
-	margin-left: 0px;
+	margin-left: -35px;
 }
 
 .btn-inscription
@@ -35,12 +38,14 @@
 	background-color: #baa111;
 	border:none;
 	color: #fff;
-	width: 260px !important;
+	width: 297px;
 	text-align: center;
 	height: 50px;
 	line-height: 50px;
 	font-size: 15px;
 	font-weight: 550;
+	margin-left: 36px;
+	margin-top: 10px;
 }
 
 .btn-connexion
@@ -61,30 +66,31 @@
 	background-color:#a3d634;
 	color: #fff;
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 20px;
 	height: 450px;
 	margin-left: 0px;
 }
 
 .title-connexion-form
 {
-	font-size: 20px;
-	height: 70px;
-	line-height:70px;
-	text-align: center;
-	margin-left: 0px;
+	font-size: 18px;
+	height: 75px;
+	line-height:75px;
+	text-align: left;
+	margin-left: 35px;
+	font-weight: 700;
 }
 
 .text-connexion
 {
 	font-size: 18px;
 	text-align: left;
-	margin-left: 55px;
+	margin-left: 35px;
 }
 
 hr
 {
-	margin-left: 55px;
+	margin-left: 35px;
 	width: 260px;
 	opacity: 0.6;
 }
@@ -325,7 +331,6 @@ hr
 
 .all-commandes
 {
-	height: 500px;
 	margin-top: 100px;
 }
 
@@ -428,4 +433,56 @@ hr
 body
 {
 	font-family: 'Open Sans';
+}
+
+.why-work-whith-us, .temoignage
+{
+	background-color: #fff;
+	height: 160px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.img-work, .img-temoignage
+{
+	height: 110px;
+	background-color: red;
+}
+
+.temoignage
+{
+	margin-left: 0px;
+}
+
+.text-work
+{
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	margin: 10px 0;
+	border-right: 1px solid #a09482;
+}
+
+.text-temoignage
+{
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+}
+
+.login-background
+{
+	background-image: url('../img/login-background.jpg');
+}
+
+.logo-oef
+{
+	margin-top: 100px;
+	margin-left: 902px;
+}
+
+.inscription-form form div
+{
+	position: relative;
+	left: 17px;
 }

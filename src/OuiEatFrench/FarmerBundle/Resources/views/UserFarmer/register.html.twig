@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<div class="row">
-	<div class="span4 inscription offset5">
+<div class="row login-background">
+	<div class="logo-oef">
+		<img src="{{ asset('ouieatfrench/farmer/img/login-logo.png')}}">
+	</div>
+	<div class="span4 inscription offset6">
 		<div class="row title-inscription-form">
 			INSCRIPTION
 		</div>
@@ -10,7 +13,6 @@
 			    {% for child in form.children %}
 			        {{ form_row(child) }}
 			    {% endfor %}
-			    <br>
 			    <button class="btn-inscription" type="submit" form="form-inscription">JE M'INSCRIS <i class="icon-arrow-right icon-white"></i></button>
 			</form>
 		</div>
@@ -39,9 +41,25 @@
             {% endif %}
 		</div>
 	</div>
+	<div class="why-work-whith-us span4 offset6">
+		<div class="img-work">
+			<img src="{{ asset('ouieatfrench/farmer/img/login-why-work.png')}}">
+		</div>
+		<div class="text-work">
+			Pourquoi travailler avec nous ?
+		</div>
+	</div>
+	<div class="temoignage span4">
+		<div class="img-temoignage">
+			<img src="{{ asset('ouieatfrench/farmer/img/login-temoignagne.png')}}">
+		</div>
+		<div class="text-temoignage">
+			Témoignage : Jean Paul et nous
+		</div>
+	</div>
 </div>
 <div class="row">
-	<div class="bottom-link offset5">
+	<div class="bottom-link offset6">
 	  <a href="">CGV</a> |
 	  <a href="">Foire aux questions</a> |
 	  <a href="">La politique de confidentialité</a> |

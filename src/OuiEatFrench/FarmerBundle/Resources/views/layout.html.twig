@@ -8,7 +8,7 @@
     <ul class="offset8">
     {% if farmer is defined and farmer.id is defined %}
         <li>
-            <a href="{{ path('oui_eat_french_farmer_availability_index') }}">MES DISPONIBILITÉS</a>
+            <a href="{{ path('oui_eat_french_farmer_availability_index', { 'farmerId': farmer.id}) }}">MES DISPONIBILITÉS</a>
         </li>
         <li>
             <a href="{{ path('oui_eat_french_farmer_command_index') }}">MES COMMANDES</a>
@@ -32,8 +32,8 @@
     {% endblock %}
     {% block content %}
     {% endblock %}
-<div class="row" style="background-color: #fff">
-    <div class="bottom-link offset5">
+<div class="row" style="background-color: #fff; text-align:center">
+    <div class="bottom-link">
       <a href="">CGV</a> |
       <a href="">Foire aux questions</a> |
       <a href="">La politique de confidentialité</a> |
