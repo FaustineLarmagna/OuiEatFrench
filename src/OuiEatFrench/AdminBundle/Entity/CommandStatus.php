@@ -45,6 +45,11 @@ class CommandStatus
         $this->commands = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->translation;
+    }
+
     /**
      * Get id
      *

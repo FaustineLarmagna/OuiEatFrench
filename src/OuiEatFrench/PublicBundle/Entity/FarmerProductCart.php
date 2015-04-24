@@ -44,6 +44,11 @@ class FarmerProductCart
     private $unitQuantity;
 
 
+    public function __toString()
+    {
+        return "FarmerProductCart";
+    }
+
     /**
      * Get id
      *
