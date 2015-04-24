@@ -22,7 +22,7 @@ class UserFarmerShortType extends AbstractType
             ->add('password', 'repeated', array(
                 'type' => 'password',
                 'first_options'  => array('attr' => array('placeholder' => 'Mot de passe'), 'label' => false),
-                'second_options' => array('attr' => array('placeholder' => 'Confirmation'), 'label' => false),
+                'second_options' => array('attr' => array('placeholder' => 'Confirmation de mot de passe'), 'label' => false),
                 ))
         ;
     }

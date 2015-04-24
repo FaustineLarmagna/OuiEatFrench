@@ -31,14 +31,10 @@
 			<a href="">Mot de passe oublié ?</a>
 		</div>
 		<div class="row connexion-form">
-            <form action="{{ path('oui_eat_french_farmer_user_login_check') }}" method="post">
-                <label for="username">Login :</label>
-                <input type="text" id="username" name="_username" value="{% if last_username is defined %}{{ last_username }}{% endif %}" />
-
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="_password" />
-                <br />
-                <input type="submit" value="Connexion" />
+            <form action="{{ path('oui_eat_french_farmer_user_login_check') }}" method="post" id="form-connexion">
+                <input type="text" placeholder="Nom d'utilisateur" id="username" name="_username" value="{% if last_username is defined %}{{ last_username }}{% endif %}" />
+                <input type="password" id="password" name="_password" placeholder="Mot de passe" />
+                <button class="btn-connexion" type="submit" form="form-connexion">JE ME CONNECTE</button>
             </form>
             {% if error is defined and error %}
                 <div class="alert alert-danger">{{ error.message }}</div>

@@ -4,10 +4,10 @@
 	color: #fff;
 	text-align: center;
 	margin-top: 20px;
-	height: 450px;
+	height: 520px;
 }
 
-.inscription input[type="text"], input[type="password"], input[type="email"]
+input[type="text"], input[type="password"], input[type="email"]
 {
 	border-radius: 0px !important;
 	height: 40px;
@@ -53,12 +53,13 @@
 	background-color: #90bd2c;
 	border:none;
 	color: #fff;
-	width: 260px !important;
+	width: 297px;
 	text-align: center;
 	height: 50px;
 	line-height: 50px;
 	font-size: 15px;
 	font-weight: 550;
+	margin-top: 10px;
 }
 
 .connexion
@@ -67,8 +68,13 @@
 	color: #fff;
 	text-align: center;
 	margin-top: 20px;
-	height: 450px;
+	height: 520px;
 	margin-left: 0px;
+}
+
+.connexion-form
+{
+	margin-left: -5px;
 }
 
 .title-connexion-form
@@ -86,12 +92,13 @@
 	font-size: 18px;
 	text-align: left;
 	margin-left: 35px;
+	line-height: 22px;
 }
 
 hr
 {
 	margin-left: 35px;
-	width: 260px;
+	width: 297px;
 	opacity: 0.6;
 }
 
@@ -99,9 +106,14 @@ hr
 {
 	font-size: 15px;
 	text-align: left;
-	margin-left: 55px;
+	margin-left: -118px;
 	font-style: italic;
 	color: #fff;
+}
+
+.text-password
+{
+	margin-bottom: 103px;
 }
 
 .text-password a:hover
@@ -141,9 +153,8 @@ hr
 .navbar-producteurs
 {
 	height: 50px;
-	background-color: #a3d634;
 	line-height: 50px;
-
+	background: #a3d634 url('../img/pattern-ble-01.png') repeat-x;
 }
 
 .navbar-producteurs li a
