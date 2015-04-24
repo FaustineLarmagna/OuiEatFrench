@@ -28,8 +28,9 @@ security:
                 login_path: oui_eat_french_farmer_user_login
                 check_path: oui_eat_french_farmer_user_login_check
             logout:
-               path: oui_eat_french_farmer_user_auto_logout
-               target: /producteur/deconnexion
+               path: oui_eat_french_farmer_user_logout
+               target: /producteur/connexion
+               invalidate_session: false
         main:
             pattern: ^/
             anonymous: true
@@ -44,8 +45,4 @@ security:
                 key:        %secret%
 
     access_control:
-        - { path: ^/mon-stand, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/mon-stand/disponibilite, roles: ROLE_USER_FARMER }
-        #- { path: ^/mon-stand, roles: ROLE_USER_FARMER, requires_channel: https }
-        #- { path: ^/monstand, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        #- { path: ^/monstand/, roles: ROLE_USER_FARMER, requires_channel: https }
+        - { path: ^/mon-stand, roles: ROLE_USER_FARMER }

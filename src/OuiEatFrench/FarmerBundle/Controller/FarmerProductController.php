@@ -64,8 +64,11 @@ class FarmerProductController extends Controller
     public function addAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $farmerId = $this->get('session')->get('farmer');
-        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
+        $farmer = $this->get('session')->get('farmer');
+        if (!$farmer || is_string($farmer)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
+            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
+        }
 
         $entity = new FarmerProduct();
         $entity->setFarmer($farmer);
@@ -82,7 +85,7 @@ class FarmerProductController extends Controller
 
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('oui_eat_french_farmer_product_index', array('farmerId' => $farmerId)));
+                return $this->redirect($this->generateUrl('oui_eat_french_farmer_product_index', array('farmerId' => $farmer->getId())));
             }
         }
         $data["form"] = $form->createView();
@@ -94,11 +97,10 @@ class FarmerProductController extends Controller
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmerId = $this->get('session')->get('farmer');
-        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
-        if (!$farmer) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas modifier ce produit.");
-            return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
+        $farmer = $this->get('session')->get('farmer');
+        if (!$farmer || is_string($farmer)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
+            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
         }
 
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
@@ -128,11 +130,10 @@ class FarmerProductController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $farmerId = $this->get('session')->get('farmer');
-        $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
-        if (!$farmer) {
-            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas supprimer ce produit.");
-            return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
+        $farmer = $this->get('session')->get('farmer');
+        if (!$farmer || is_string($farmer)) {
+            $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas accéder cet élément.");
+            return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
         }
 
         $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
@@ -141,6 +142,6 @@ class FarmerProductController extends Controller
             $em->remove($query);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl('oui_eat_french_farmer_product_index'));
+        return $this->redirect($this->generateUrl('oui_eat_french_farmer_stock_index'));
     }
 }

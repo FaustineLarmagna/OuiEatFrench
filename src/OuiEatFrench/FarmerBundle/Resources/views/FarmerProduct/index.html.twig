@@ -1,11 +1,12 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
+<div class="container">
 {% for flashMessage in app.session.flashbag.get('warning') %}
     <div class="flash-warning">
         {{ flashMessage }}
     </div>
 {% endfor %}
-<div class="row" style="margin-bottom: 100px;">
+<div class="row" style="margin-bottom: 100px;margin-top: 50px;">
     <div class="text-catalogue offset1">
         L'ensemble de vos produits actuellement disponible dans votre boutique
     </div>
@@ -31,7 +32,7 @@
                 </div>
                 <hr class="hr-produits"></hr>
                 <div class="link_update_product">
-                    <a href="{{ path('oui_eat_french_farmer_product_edit', {'id' : farmerproduct.id}) }}">Modifier ce produit</a>
+                    <a href="{{ path('oui_eat_french_farmer_product_edit', {'id' : farmerproduct.id}) }}"><i class="icon-cog"></i>Modifier ce produit</a>
                 </div>
             </div>
         </div>
@@ -52,5 +53,5 @@
     </div>
 </div>
 {% endif %}
-
+</div>
 {% endblock %}

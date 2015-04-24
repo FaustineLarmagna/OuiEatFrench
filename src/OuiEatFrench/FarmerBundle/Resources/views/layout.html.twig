@@ -6,9 +6,8 @@
         OUIEATFRENCH
     </div>
     <ul class="offset8">
-    {% if farmer is defined and farmer is not null %}
         <li>
-            <a href="{{ path('oui_eat_french_farmer_availability_index', {'farmerId' : farmer.id}) }}">MES DISPONIBILITÉE</a>
+            <a href="{{ path('oui_eat_french_farmer_availability_index') }}">MES DISPONIBILITÉS</a>
         </li>
         <li>
             <a href="{{ path('oui_eat_french_farmer_command_index') }}">MES COMMANDES</a>
@@ -17,26 +16,20 @@
             <a href="{{ path('oui_eat_french_farmer_product_index') }}">MON CATALOGUE</a>
         </li>
         <li>
-            <a href="">MON STOCK</a>
+            <a href="{{ path('oui_eat_french_farmer_stock_index') }}">MON STOCK</a>
         </li>
         <li>
-            <a href="{{ path('oui_eat_french_farmer_user_show', {'id' : farmer.id}) }}">MON PROFIL</a>
+            <a href="{{ path('oui_eat_french_farmer_user_show') }}">MON PROFIL</a>
         </li>
-    {% endif %}
         <li>
-            <a href="{{ path('oui_eat_french_farmer_user_auto_logout') }}">DECONNEXION</a>
+            <a href="{{ path('oui_eat_french_farmer_user_logout') }}">DECONNEXION</a>
         </li>
     </ul>
 </div>
-<div class="container">
-    <br>
-    <br>
-    <br>
     {% block page_title %}
     {% endblock %}
     {% block content %}
     {% endblock %}
-</div>
 <div class="row" style="background-color: #fff">
     <div class="bottom-link offset5">
       <a href="">CGV</a> |

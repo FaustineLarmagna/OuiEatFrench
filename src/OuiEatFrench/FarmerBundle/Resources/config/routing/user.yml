@@ -9,15 +9,15 @@ oui_eat_french_farmer_user_logout:
 
 # A farmer edits his account
 oui_eat_french_farmer_user_edit:
-    pattern:  /{id}/editer
+    pattern:  /editer-mon-compte
     defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:edit }
 
 # A farmer looks his profil
 oui_eat_french_farmer_user_show:
-    pattern:  /{id}/profil
+    pattern:  /profil
     defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:show }
 
 # A farmer deletes his account
 oui_eat_french_farmer_user_delete:
-    pattern:  /{id}/supprimer
+    pattern:  /supprimer-mon-compte
     defaults: { _controller: OuiEatFrenchFarmerBundle:UserFarmer:delete }

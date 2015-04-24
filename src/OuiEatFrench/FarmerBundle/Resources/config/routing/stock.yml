@@ -1,0 +1,15 @@
+oui_eat_french_farmer_stock_index:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:index }
+
+oui_eat_french_farmer_stock_edit:
+    pattern:  /{id}/editer
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:edit }
+
+oui_eat_french_farmer_stock_show:
+    pattern:  /{id}/voir
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:show }
+
+oui_eat_french_farmer_stock_delete_ajax:
+    pattern:  /ajax_delete
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:delete }

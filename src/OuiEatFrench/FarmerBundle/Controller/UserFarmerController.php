@@ -11,7 +11,7 @@ class UserFarmerController extends Controller
 {
     public function logoutAction()
     {
-        $this->get('session')->remove('farmer');
+        $this->container->get('security.context')->setToken(null);
         return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
     }
 
@@ -43,11 +43,8 @@ class UserFarmerController extends Controller
     {
         $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
         $data["entities"] = $entities;
-        $farmer = $this->get('session')->get('farmer');
-        if ($farmer)
-        {
-            $data['farmer'] = $this->get('security.context')->getToken()->getUser();
-        }
+        $data['farmer'] = $this->get('security.context')->getToken()->getUser();
+
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:index.html.twig', $data);
     }
 
@@ -64,11 +61,11 @@ class UserFarmerController extends Controller
             {
                 $em = $this->getDoctrine()->getManager();
                 
-                $status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(1);
                 $password = $entity->getPassword();
                 $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
                 $encodedPass = $encoder->encodePassword($password, $entity->getSalt());
                 $entity->setPassword($encodedPass);
+                $status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->findOneByName('to_review');
                 $entity->setStatus($status);
 
                 $em->persist($entity);
@@ -80,58 +77,47 @@ class UserFarmerController extends Controller
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:register.html.twig', $data);
     }
 
-    public function editAction($id)
+    public function editAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-        if($query)
+        $request = $this->get("request");
+        $user = $this->get('security.context')->getToken()->getUser();
+        $form = $this->createForm("ouieatfrench_farmerbundle_userfarmertype", $user);
+        if ($request->getMethod() == 'POST')
         {
-            $request = $this->get("request");
-            $form = $this->createForm("ouieatfrench_farmerbundle_userfarmertype", $query);
-            if ($request->getMethod() == 'POST')
+            $form->bind($request);
+            if ($form->isValid())
             {
-                $form->bind($request);
-                if ($form->isValid())
-                {
-                    if($query->getFileAvatar() !== null) {
-                        $this->upload($query->getFileAvatar(), $query);
-                        $query->setAvatar($query->getFileAvatar()->getClientOriginalName());
-                    }
-
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($query);
-                    $em->flush();
-                    return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
+                if($user->getFileAvatar() !== null) {
+                    $this->upload($user->getFileAvatar(), $user);
+                    $user->setAvatar($user->getFileAvatar()->getClientOriginalName());
                 }
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
             }
-            $data["id"] = $id;
-            $data["form"] = $form->createView();
-            $data["route"] = "oui_eat_french_farmer_user_edit";
         }
+        $data["id"] = $user->getId();
+        $data["form"] = $form->createView();
+        $data["route"] = "oui_eat_french_farmer_user_edit";
+        
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:edit.html.twig', $data);
     }
 
-    public function showAction($id)
+    public function showAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-        if($query)
-        {
-            $data["farmer"] = $query;
-        }
+        $data["farmer"] = $this->get('security.context')->getToken()->getUser();
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:profil.html.twig', $data);
     }
 
-    public function deleteAction($id)
+    public function deleteAction()
     {
+        $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($id);
-
-        if ($query)
-        {
-            $em->remove($query);
-            $em->flush();
-        }
+        $em->remove($user);
+        $em->flush();
+        
         return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
     }
 

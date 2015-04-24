@@ -2,14 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4743dc56-0823-4e06-8e26-07cf21c2aa2f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/FarmerProductClone.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/FarmerStockController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DataFixtures/ORM/LoadAdminData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DataFixtures/ORM/LoadAgricultureTypeData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DataFixtures/ORM/LoadCartStatusData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DataFixtures/ORM/LoadCommandStatusData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DataFixtures/ORM/LoadUnitTypeData.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerStock/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/stock.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/private/exports-oef.csv" afterPath="$PROJECT_DIR$/app/private/exports-oef.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/AgricultureType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/AgricultureType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/AvailabilityFarmerController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/AvailabilityFarmerController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/CartController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/CartController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/CartStatus.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/CartStatus.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/CartStatusType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/CartStatusType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Category.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Category.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/Command.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/Command.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/CommandController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/CommandController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/CommandStatus.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/CommandStatus.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/CommandStatusType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Form/CommandStatusType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/FarmerProductController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/FarmerProductController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DataFixtures/ORM/LoadSeasonData.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/DataFixtures/ORM/LoadSeasonData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Product.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Season.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/Season.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/UnitType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Entity/UnitType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/UserFarmerController.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/UserFarmerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Form/UserFarmerShortType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Form/UserFarmerShortType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Form/UserFarmerType.php" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Form/UserFarmerType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/add.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/add.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/command.yml" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/command.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/edit.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/CartStatus/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/CartStatus/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/CommandStatus/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/AdminBundle/Resources/views/CommandStatus/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerCommand/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerCommand/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/index.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/FarmerProduct/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/UserFarmer/register.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/UserFarmer/register.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Cart/show.html.twig" afterPath="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Resources/views/Cart/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ouieatfrench/farmer/css/style.css" afterPath="$PROJECT_DIR$/web/ouieatfrench/farmer/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/user.yml" afterPath="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/user.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,39 +67,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="security.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="security.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/security.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="29" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1008">
+            <state line="31" column="44" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.58551943" vertical-offset="0" max-vertical-offset="972">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="13" selection-start="939" selection-end="939" vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="864">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="39" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="1206">
               <folding>
-                <marker date="1429867756941" expanded="true" signature="144:281" placeholder="OuiEatFrench\FarmerBundle\Entity\UserFarmer:" />
+                <marker date="1429869589481" expanded="true" signature="927:998" placeholder="oui_eat_french_farmer_user_login_check:" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserFarmer.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="253" column="5" selection-start="5044" selection-end="5044" vertical-scroll-proportion="-24.555555" vertical-offset="3855" max-vertical-offset="12672">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/UserFarmer/register.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="23" selection-start="1648" selection-end="1648" vertical-scroll-proportion="-27.666666" vertical-offset="9" max-vertical-offset="1116">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserFarmerController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserFarmerController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/UserFarmerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="87" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.7224622" vertical-offset="501" max-vertical-offset="2682">
+            <state line="13" column="66" selection-start="418" selection-end="418" vertical-scroll-proportion="-2.6666667" vertical-offset="108" max-vertical-offset="2430">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/user.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
               <folding />
             </state>
           </provider>
@@ -125,23 +167,23 @@
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/AvailabilityFarmer/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/AvailabilityFarmerController.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/PublicBundle/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/user.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Form/UserFarmerType.php" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Form/UserFarmerShortType.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/UserFarmer/register.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/UserFarmerController.php" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
+    <option name="x" value="-1855" />
     <option name="y" value="24" />
     <option name="width" value="1855" />
     <option name="height" value="1056" />
@@ -299,150 +341,6 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserFarmer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmerBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmerBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmerBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FarmerBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OuiEatFrench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -513,7 +411,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="-1855" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -521,7 +419,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20916443" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22371967" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -562,7 +460,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="7" selection-start="488" selection-end="488" vertical-scroll-proportion="0.29157668" vertical-offset="0" max-vertical-offset="926" />
+        <state line="22" column="7" selection-start="488" selection-end="488" vertical-scroll-proportion="0.29157668" vertical-offset="0" max-vertical-offset="926">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
@@ -746,11 +646,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1656" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="48" selection-start="1226" selection-end="1226" vertical-scroll-proportion="-26.0" vertical-offset="0" max-vertical-offset="990" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/User/UserInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="39" selection-start="2472" selection-end="2472" vertical-scroll-proportion="-30.222221" vertical-offset="588" max-vertical-offset="1548">
@@ -766,27 +661,6 @@
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/form.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="0" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/user.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0780065" vertical-offset="0" max-vertical-offset="923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="30" selection-start="184" selection-end="184" vertical-scroll-proportion="0.07555089" vertical-offset="0" max-vertical-offset="953">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.61070305" vertical-offset="12" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
@@ -812,18 +686,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="29" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1008">
-          <folding>
-            <marker date="1429867756941" expanded="true" signature="144:281" placeholder="OuiEatFrench\FarmerBundle\Entity\UserFarmer:" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Entity/UserFarmer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="5" selection-start="5044" selection-end="5044" vertical-scroll-proportion="-24.555555" vertical-offset="3855" max-vertical-offset="12672">
+        <state line="258" column="20" selection-start="5205" selection-end="5205" vertical-scroll-proportion="-23.88889" vertical-offset="3963" max-vertical-offset="14022">
           <folding />
         </state>
       </provider>
@@ -835,9 +700,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="663" selection-end="663" vertical-scroll-proportion="0.35886675" vertical-offset="0" max-vertical-offset="953">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="39" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="1206">
+          <folding>
+            <marker date="1429869589481" expanded="true" signature="927:998" placeholder="oui_eat_french_farmer_user_login_check:" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="13" selection-start="939" selection-end="939" vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Resources/config/routing/user.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="304" selection-end="304" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/OuiEatFrench/FarmerBundle/Controller/UserFarmerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="87" selection-start="2665" selection-end="2665" vertical-scroll-proportion="0.7224622" vertical-offset="501" max-vertical-offset="2682">
+        <state line="13" column="66" selection-start="418" selection-end="418" vertical-scroll-proportion="-2.6666667" vertical-offset="108" max-vertical-offset="2430">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="44" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.58551943" vertical-offset="0" max-vertical-offset="972">
           <folding />
         </state>
       </provider>

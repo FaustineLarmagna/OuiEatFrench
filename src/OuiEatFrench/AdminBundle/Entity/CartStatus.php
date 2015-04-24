@@ -3,6 +3,7 @@
 namespace OuiEatFrench\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * CartStatus
@@ -24,16 +25,25 @@ class CartStatus
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="traduction", type="string", length=255)
+     * @ORM\Column(name="translation", type="string", length=255)
      */
-    private $traduction;
+    private $translation;
+
+    /**
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\PublicBundle\Entity\Cart", mappedBy="status")
+     */
+    protected $carts;
+
+    public function __construct() {
+        $this->carts = new ArrayCollection();
+    }
 
 
     /**
@@ -70,25 +80,59 @@ class CartStatus
     }
 
     /**
-     * Set traduction
+     * Set translation
      *
-     * @param string $traduction
+     * @param string $translation
      * @return CartStatus
      */
-    public function setTraduction($traduction)
+    public function setTranslation($translation)
     {
-        $this->traduction = $traduction;
+        $this->translation = $translation;
 
         return $this;
     }
 
     /**
-     * Get traduction
+     * Get translation
      *
      * @return string 
      */
-    public function getTraduction()
+    public function getTranslation()
     {
-        return $this->traduction;
+        return $this->translation;
+    }
+
+    /**
+     * Add cart
+     *
+     * @param \OuiEatFrench\PublicBundle\Entity\Cart $cart
+     *
+     * @return CartStatus
+     */
+    public function addCart(\OuiEatFrench\PublicBundle\Entity\Cart $cart)
+    {
+        $this->carts[] = $cart;
+
+        return $this;
+    }
+
+    /**
+     * Remove cart
+     *
+     * @param \OuiEatFrench\PublicBundle\Entity\Cart $cart
+     */
+    public function removeCart(\OuiEatFrench\PublicBundle\Entity\Cart $cart)
+    {
+        $this->carts->removeElement($cart);
+    }
+
+    /**
+     * Get carts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCarts()
+    {
+        return $this->carts;
     }
 }
