@@ -9,8 +9,8 @@
 			INSCRIPTION
 		</div>
 		<div class="row inscription-form">
-			<form action="{{ path('oui_eat_french_farmer_user_register') }}" method="post" {{ form_enctype(form) }} novalidate="novalidate" id="form-inscription">
-			    {% for child in form.children %}
+			<form action="{{ path('oui_eat_french_farmer_user_register') }}" method="post" novalidate="novalidate" id="form-inscription">
+                {% for child in form.children %}
 			        {{ form_row(child) }}
 			    {% endfor %}
 			    <button class="btn-inscription" type="submit" form="form-inscription">JE M'INSCRIS <i class="icon-arrow-right icon-white"></i></button>
@@ -31,13 +31,17 @@
 			<a href="">Mot de passe oublié ?</a>
 		</div>
 		<div class="row connexion-form">
-            <form action="{{ path('oui_eat_french_farmer_user_login') }}" method="post" novalidate="novalidate" id="form-connexion">
-                <input type="text" name="email">
-                <input type="password" name="password"><br>
-                <button class="btn-connexion" type="submit" form="form-connexion">JE ME CONNECTE</button>
+            <form action="{{ path('oui_eat_french_farmer_user_login_check') }}" method="post">
+                <label for="username">Login :</label>
+                <input type="text" id="username" name="_username" value="{% if last_username is defined %}{{ last_username }}{% endif %}" />
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="_password" />
+                <br />
+                <input type="submit" value="Connexion" />
             </form>
-            {% if error is defined and error is not null %}
-                {{ error }}
+            {% if error is defined and error %}
+                <div class="alert alert-danger">{{ error.message }}</div>
             {% endif %}
 		</div>
 	</div>

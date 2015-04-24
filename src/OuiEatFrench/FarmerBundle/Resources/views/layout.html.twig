@@ -6,7 +6,6 @@
         OUIEATFRENCH
     </div>
     <ul class="offset8">
-    {% if farmer is defined and farmer.id is defined %}
         <li>
             <a href="{{ path('oui_eat_french_farmer_availability_index', { 'farmerId': farmer.id}) }}">MES DISPONIBILITÉS</a>
         </li>
@@ -25,7 +24,6 @@
         <li>
             <a href="{{ path('oui_eat_french_farmer_user_logout') }}">DECONNEXION</a>
         </li>
-    {% endif %}
     </ul>
 </div>
     {% block page_title %}

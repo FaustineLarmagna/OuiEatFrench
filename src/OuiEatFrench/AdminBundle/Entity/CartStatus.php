@@ -25,7 +25,7 @@ class CartStatus
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
@@ -45,6 +45,10 @@ class CartStatus
         $this->carts = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->translation;
+    }
 
     /**
      * Get id

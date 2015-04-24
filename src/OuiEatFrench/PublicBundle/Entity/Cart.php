@@ -64,6 +64,11 @@ class Cart
         $this->command = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return "Cart";
+    }
+
     /**
      * Get id
      *
