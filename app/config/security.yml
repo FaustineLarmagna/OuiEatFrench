@@ -1,33 +1,39 @@
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
-        OuiEatFrench\FarmerBundle\UserFarmer: sha512
+        Symfony\Component\Security\Core\User\User: plaintext
+        OuiEatFrench\FarmerBundle\Entity\UserFarmer:
+            algorithm: sha512
+            encode_as_base64: false
+            iterations: 1
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_USER:              ROLE_USER
+        ROLE_USER_FARMER:       ROLE_USER
+        ROLE_ADMIN:             ROLE_USER
+        ROLE_SUPER_ADMIN:       [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         user_farmer_area:
-            entity: { class: OuiEatFrenchFarmerBundle:UserFarmer, property: email }
+            entity: { class: OuiEatFrenchFarmerBundle:UserFarmer, property: username }
         main:
             id: fos_user.user_provider.username
 
     firewalls:
-        # user_farmer_area:
-        #     pattern: ^/monstand
-        #     anonymous:      false
-        #     provider:       user_farmer_area
-        #     form_login:
-        #         login_path: oui_eat_french_farmer_connection
-        #         check_path: oui_eat_french_farmer_connection_check
-        #    logout:
-        #        path:   /monstand/deconnexion
-        #        target: /monstand
+        user_farmer_area:
+            pattern: ^/mon-stand
+            anonymous: true
+            provider: user_farmer_area
+            form_login:
+                login_path: oui_eat_french_farmer_user_login
+                check_path: oui_eat_french_farmer_user_login_check
+            logout:
+               path: oui_eat_french_farmer_user_auto_logout
+               target: /producteur/deconnexion
         main:
             pattern: ^/
-            anonymous:      true
-            provider:       main
+            anonymous: true
+            provider: main
             form_login:
                 login_path: fos_user_security_login
                 check_path: fos_user_security_check
@@ -38,6 +44,8 @@ security:
                 key:        %secret%
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/mon-stand, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/mon-stand/disponibilite, roles: ROLE_USER_FARMER }
+        #- { path: ^/mon-stand, roles: ROLE_USER_FARMER, requires_channel: https }
         #- { path: ^/monstand, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         #- { path: ^/monstand/, roles: ROLE_USER_FARMER, requires_channel: https }

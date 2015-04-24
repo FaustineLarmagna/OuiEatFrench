@@ -4,6 +4,7 @@ namespace OuiEatFrench\FarmerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * UserFarmer
@@ -11,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="user_farmer")
  * @ORM\Entity(repositoryClass="OuiEatFrench\FarmerBundle\Repository\UserFarmerRepository")
  */
-class UserFarmer
+class UserFarmer implements UserInterface
 {
     /**
      * @var integer
@@ -25,9 +26,30 @@ class UserFarmer
     /**
      * @var string
      *
+     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
+     */
+    private $salt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="roles", type="string", length=255, nullable=true)
+     */
+    private $roles;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=100, nullable=false)
      */
     private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=100, nullable=false, unique=true)
+     */
+    private $username;
 
     /**
      * @var string
@@ -130,7 +152,7 @@ class UserFarmer
     private $lastConnection;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UserFarmerStatus", inversedBy="userFarmers")
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UserFarmerStatus")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
@@ -150,7 +172,8 @@ class UserFarmer
      */
     private $availabilityFarmers;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->farmerProducts = new ArrayCollection();
         $this->command = new ArrayCollection();
     }
@@ -158,6 +181,11 @@ class UserFarmer
     public function __toString()
     {
         return $this->firstname.' '.$this->lastname;
+    }
+
+    public function getSalt()
+    {
+        return $this->salt;
     }
 
     /**
@@ -224,7 +252,7 @@ class UserFarmer
      */
     public function setPassword($password)
     {
-        $this->password = sha1($password);
+        $this->password = $password;
 
         return $this;
     }
@@ -236,7 +264,7 @@ class UserFarmer
      */
     public function getPassword()
     {
-        return sha1($this->password);
+        return $this->password;
     }
 
     /**
@@ -518,7 +546,7 @@ class UserFarmer
     /**
      * Set fileAvatar
      *
-     * @param string $avatar
+     * @param string $fileAvatar
      * @return UserFarmer
      */
     public function setFileAvatar($fileAvatar)
@@ -663,5 +691,10 @@ class UserFarmer
     public function getAvailabilityFarmers()
     {
         return $this->availabilityFarmers;
+    }
+
+    public function eraseCredentials()
+    {
+
     }
 }

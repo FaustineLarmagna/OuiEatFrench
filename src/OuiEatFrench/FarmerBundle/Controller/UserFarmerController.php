@@ -4,6 +4,8 @@ namespace OuiEatFrench\FarmerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OuiEatFrench\FarmerBundle\Entity\UserFarmer;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class UserFarmerController extends Controller
 {
@@ -13,36 +15,28 @@ class UserFarmerController extends Controller
         return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_login'));
     }
 
-    public function loginAction()
+    public function loginAction(Request $request)
     {
-        $parameters = array();
+        $session = $request->getSession();
 
-        $request = $this->get('request');
-
-        $email = $request->get('email');
-        $password = $request->get('password');
-
-        if ($request->getMethod() == 'POST')
-        {
-            if ($email == '' or $password == '')
-            {
-                $parameters['error'] = 'Champs manquants';
-            }
-            else
-            {
-                $password = sha1($password);
-                $user = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findOneBy(array('email' => $email, 'password' => $password));
-
-                if ($user)
-                {
-                    $this->get('session')->set('farmer', $user);
-                    return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
-                }
-                $parameters['error'] = 'Indentifiants ou mot de passe incorrect';
-            }
+        // On vérifie s'il y a des erreurs d'une précédente soumission du formulaire
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
 
-        return $this->registerAction();
+        //Register form
+        $entity = new UserFarmer();
+        $form = $this->createForm("ouieatfrench_farmerbundle_userfarmershorttype", $entity);
+
+        return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:register.html.twig', array(
+            // Valeur du précédent nom d'utilisateur entré par l'internaute
+            'last_email'    => $session->get(SecurityContext::LAST_USERNAME),
+            'error'         => $error,
+            'form'          => $form->createView(),
+        ));
     }
 
     public function indexAction()
@@ -52,7 +46,7 @@ class UserFarmerController extends Controller
         $farmer = $this->get('session')->get('farmer');
         if ($farmer)
         {
-            $data['farmer'] = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmer->getId());//$this->get('security.context')->getToken()->getUser();
+            $data['farmer'] = $this->get('security.context')->getToken()->getUser();
         }
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:index.html.twig', $data);
     }
@@ -71,12 +65,15 @@ class UserFarmerController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 
                 $status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(1);
+                $password = $entity->getPassword();
+                $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
+                $encodedPass = $encoder->encodePassword($password, $entity->getSalt());
+                $entity->setPassword($encodedPass);
                 $entity->setStatus($status);
 
                 $em->persist($entity);
                 $em->flush();
                 $this->get('session')->set('farmer', $entity);
-                return $this->redirect($this->generateUrl('oui_eat_french_farmer_user_index'));
             }
         }
         $data["form"] = $form->createView();

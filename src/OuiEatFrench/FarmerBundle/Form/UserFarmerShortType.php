@@ -15,6 +15,7 @@ class UserFarmerShortType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('username', null, array('attr' => array('placeholder' => 'Nom d\'utilisateur'), 'label' => false))
             ->add('lastname', null, array('attr' => array('placeholder' => 'Nom'), 'label' => false))
             ->add('firstname', null, array('attr' => array('placeholder' => 'Prénom'), 'label' => false))
             ->add('email', 'email', array('attr' => array('placeholder' => 'Email'), 'label' => false))

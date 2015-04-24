@@ -18,6 +18,7 @@ class UserFarmerType extends AbstractType
         $year = $date['year'] - 18;
 
         $builder
+            ->add('username', null, array('label' => 'Nom d\'utilisateur'))
             ->add('lastname', null, array('label' => 'Nom'))
             ->add('firstname', null, array('label' => 'Prénom'))
             ->add('birthday', 'date', array(
