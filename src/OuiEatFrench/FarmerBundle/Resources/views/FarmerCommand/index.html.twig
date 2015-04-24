@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="row type-commandes">
-		<div class="commandes-en-cours offset5 span5 active-commandes">
+		<div class="commandes-en-cours offset4 span5 active-commandes">
 			Mes commandes en cours ({{commands|length}})
 		</div>
 		<div class="commandes-finies span5">
@@ -34,7 +34,7 @@
 						<div class="span3 nom-client">
 							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produits)
 						</div>
-						<div class="offset1 span1 valider-commande">
+						<div class="offset2 span1 valider-commande">
 							<i class="icon-ok"></i> Valider
 						</div>
 						<div class="span1 cloturer-commande">
@@ -51,7 +51,7 @@
 						{% endfor %}
 					</div>
 					<div class="row prix-commande">
-						<div class="span2 offset8">
+						<div class="span1 offset8 prix-total">
 							Total : <span class="bold">{{total|number_format(2, '.', ',')}}€</span>
 						</div>
 					</div>

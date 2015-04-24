@@ -5,16 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
         <link href="{{ asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
         <link href="{{ asset('bootstrap/css/bootstrap-responsive.css')}}" rel="stylesheet" media="screen">
         <link href="{{ asset('ouieatfrench/farmer/css/style.css')}}" rel="stylesheet" media="screen">
+        <link rel="icon" type="image/png" href="{{ asset('ouieatfrench/farmer/img/favicon2.png')}}" />
 
         <script src="{{ asset('ouieatfrench/theme/assets2/js/jquery-1.11.2.min.js')}}"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
     </head>
-    <body style="background-color: #f5f7f0">
+    <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
