@@ -38,20 +38,20 @@
         </div>
     </div>
 {% endfor %}
-    <div class="new-product">
-        <a href="{{ path('oui_eat_french_farmer_product_add') }}">
-            <div class="button-new-product no-text-decoration">
-                <div class="button-plus">
-                    <i class="icon-plus icon-white"></i>
-                </div>
-                <div class="text-button-new-product">
-                    Ajouter <br>
-                    un nouveau produit
-                </div>
-            </div>
-        </a>
-    </div>
 </div>
 {% endif %}
+<div class="new-product">
+    <a href="{{ path('oui_eat_french_farmer_product_add') }}">
+        <div class="button-new-product no-text-decoration">
+            <div class="button-plus">
+                <i class="icon-plus icon-white"></i>
+            </div>
+            <div class="text-button-new-product">
+                Ajouter <br>
+                un nouveau produit
+            </div>
+        </div>
+    </a>
+</div>
 </div>
 {% endblock %}
