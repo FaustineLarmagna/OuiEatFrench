@@ -1,0 +1,3 @@
+oui_eat_french_prepare_payment:
+    pattern:  /paypal-prepare
+    defaults: { _controller: OuiEatFrenchPaymentBundle:Payment:prepare }

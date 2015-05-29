@@ -72,3 +72,22 @@ fos_user:
     db_driver:     orm
     firewall_name: main
     user_class:    OuiEatFrench\UserBundle\Entity\User
+
+payum:
+    security:
+        token_storage:
+            OuiEatFrench\PaymentBundle\Entity\PaymentToken: { doctrine: orm }
+
+    storages:
+        OuiEatFrench\PaymentBundle\Entity\Payment: { doctrine: orm }
+        OuiEatFrench\PaymentBundle\Entity\PaymentDetails: { doctrine: orm }
+
+    gateways:
+        offline:
+            offline: ~
+        ouieatfrench_command_paypal:
+            paypal_express_checkout_nvp:
+                username:  'dimtrek.hunter-facilitator_api1.hotmail.fr'
+                password:  'VTB9V6GGKP2ATMMB'
+                signature: 'Ac-MO9Z533rlg7fSZzdoc9aO3CAAABiOiucV8GTP07z1RQF.vqP1Qaae'
+                sandbox: true

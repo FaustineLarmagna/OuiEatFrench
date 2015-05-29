@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new OuiEatFrench\CommandBundle\OuiEatFrenchCommandBundle(),
             new OuiEatFrench\PublicBundle\OuiEatFrenchPublicBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Payum\Bundle\PayumBundle\PayumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
