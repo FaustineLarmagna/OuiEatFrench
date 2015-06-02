@@ -1,8 +1,79 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
-Mes disponibilitées
-<a href="{{ path('oui_eat_french_farmer_availability_edit', { 'id': entity.id }) }}">Renseigner mes disponibilitées</a><br>
-{% for availabilitySlots in entity.availabilitySlots %}
+<div class="row">
+	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;">
+		<p class="titre-disponibilites">Mes disponibilités</p>
+	</div>
+</div>
+<div class="row">
+	<div class="span8 offset6" style="margin-bottom:20px;">
+		<p class="description-disponibilites">
+			Vos disponibilités représentent les moments où vous acceptez des visites dans votre exploitation. <br>
+			<span class="offset1">Ces informations se retrouveront sur votre boutique.</span>
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="span9 offset5">
+		<table class="table table-striped" id="table-disponibilites">
+			<thead>
+				<th style="width:100px;"></th>
+				<th style="width:300px;text-align: center">Matin</th>
+				<th style="width:300px;text-align: center">Après-midi</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Lundi</td>
+					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Mardi</td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Mercredi</td>
+					<td> - </td>
+					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
+				</tr>
+				<tr>
+					<td>Jeudi</td>
+					<td> - </td>
+					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
+				</tr>
+				<tr>
+					<td>Vendredi</td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Samedi</td>
+					<td></td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Dimanche</td>
+					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
+					<td> - </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="row" style="margin-top: 20px;">
+	<div class="span5 offset8">
+		<button id="button-change-disponibilites">
+			<a href="{{ path('oui_eat_french_farmer_availability_edit', { 'id': entity.id }) }}">
+			Modifier mes disponibilités
+			</a>
+		</button>
+	</div>
+</div>
+
+
+{# {% for availabilitySlots in entity.availabilitySlots %}
     {{ availabilitySlots.name }}<br>
-{% endfor %}
+    {{ dump(availabilitySlots) }}
+{% endfor %} #}
 {% endblock %}
