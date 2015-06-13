@@ -79,8 +79,7 @@ payum:
             OuiEatFrench\PaymentBundle\Entity\PaymentToken: { doctrine: orm }
 
     storages:
-        OuiEatFrench\PaymentBundle\Entity\Payment: { doctrine: orm }
-        OuiEatFrench\PaymentBundle\Entity\PaymentDetails: { doctrine: orm }
+        OuiEatFrench\PaymentBundle\Entity\Order: { doctrine: orm }
 
     gateways:
         offline:

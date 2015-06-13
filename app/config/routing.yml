@@ -2,6 +2,10 @@ oui_eat_french_public:
     resource: "@OuiEatFrenchPublicBundle/Resources/config/routing.yml"
     prefix:   /
 
+oui_eat_french_payment:
+    resource: "@OuiEatFrenchPaymentBundle/Resources/config/routing.yml"
+    prefix:   /payment
+
 # oui_eat_french_command:
 #     resource: "@OuiEatFrenchCommandBundle/Resources/config/routing.yml"
 #     prefix:   /mon-stand/{id}

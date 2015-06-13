@@ -2,97 +2,188 @@
 
 namespace OuiEatFrench\PaymentBundle\Controller;
 
-class PaymentController extends Controller 
+use OuiEatFrench\PaymentBundle\Entity\Order;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Payum\Core\Registry\RegistryInterface;
+use Payum\Core\Request\GetHumanStatus;
+use Payum\Paypal\ExpressCheckout\Nvp\Api;
+use Payum\Core\Security\GenericTokenFactoryInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+class PaymentController extends Controller
 {
-    public function preparePaypalAction(Request $request)
-    {
-        $gatewayName = 'ouieatfrench_command_paypal';
+    const TAX = 0.2;
+    const SHIPPING_AMOUNT = 6.00;
 
-        $form = $this->createPurchaseForm();
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            $data = $form->getData();
-
-            $storage = $this->getPayum()->getStorage('OuiEatFrench\PaymentBundle\Entity\PaymentDetails');
-
-            /** @var $payment PaymentDetails */
-            $payment = $storage->create();
-            $payment['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
-            $payment['PAYMENTREQUEST_0_AMT'] = $data['amount'];
-            $storage->update($payment);
-
-            $captureToken = $this->getTokenFactory()->createCaptureToken(
-                $gatewayName,
-                $payment,
-                'acme_payment_details_view'
-            );
-
-            $payment['INVNUM'] = $payment->getId();
-            $storage->update($payment);
-
-            return $this->redirect($captureToken->getTargetUrl());
-        }
-
-        return array(
-            'form' => $form->createView(),
-            'gatewayName' => $gatewayName
-        );
-    }
-
-    // public function preparePaypalExpressCheckoutPaymentAction($amount)
+    // public function preparePaypalExpressCheckoutPaymentAction()
     // {
+    //     $em = $this->getDoctrine()->getManager();
     //     $user = $this->get('security.context')->getToken()->getUser();
-    //     $gatewayName = 'paypal_express_checkout_nvp';
+    //     $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");    // id of status "in_progress"
+    //     $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
+    //             'user' => $user,
+    //             'status' => $status,
+    //         ));
 
-    //     $storage = $this->get('payum')->getStorage('OuiEatFrench\PaymentBundle\Entity\Payment');
+    //     if (!$cart) {
+    //         return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+    //     }
 
-    //     /** @var \OuiEatFrench\PaymentBundle\Entity\Payment $payment */
-    //     $payment = $storage->create();
-    //     $payment->setNumber(uniqid());
-    //     $payment->setCurrencyCode('EUR');
-    //     $payment->setTotalAmount($amount); // 123 = 1.23 EUR
-    //     $payment->setDescription('Commande OuiEatFrench');
-    //     $payment->setClientId($user->getId());
-    //     $payment->setClientEmail($user->getEmail());
+    //     $paymentName = 'ouieatfrench_command_paypal';
+    //     $date = new \DateTime;
+    //     $storage = $this->get('payum')->getStorage('OuiEatFrench\PaymentBundle\Entity\Order');
+    //     $paymentDetails = $storage->create();
+    //     $paymentDetails->setNumber(uniqid());
+    //     $paymentDetails->setCurrencyCode('EUR');
+    //     $paymentDetails->setDescription("Panier de l'utilisateur ".$user->getUsername()." le ".$date->format('d-m-Y'));
+    //     $paymentDetails->setClient($user);
 
-    //     $storage->update($payment);
+    //     $totalAmount = 0;
+    //     foreach ($cart->getFarmerProductCarts() as $key => $farmerProductCart) {
+    //         $farmerProduct = $farmerProductCart->getFarmerProduct();
+    //         $product = $farmerProduct->getProduct();
+    //         $amount = ($farmerProduct->getUnitPrice()*$farmerProductCart->getUnitQuantity());
+    //         $totalAmount += $amount;
 
-    //     $captureToken = $this->get('payum.security.token_factory')->createCaptureToken(
-    //         $gatewayName,
-    //         $payment,
-    //         'oui_eat_french_public_home' // the route to redirect after capture;
+    //         $paymentDetails['L_PAYMENTREQUEST_0_AMT'.$key] = $farmerProduct->getUnitPrice();
+    //         $paymentDetails['L_PAYMENTREQUEST_0_QTY'.$key] = $farmerProductCart->getUnitQuantity();
+    //         $paymentDetails['L_PAYMENTREQUEST_0_NAME'.$key] = $product->getName();
+    //         $paymentDetails['L_PAYMENTREQUEST_0_DESC'.$key] = $product->getDescription();
+    //     }
+    //     var_dump($paymentDetails);
+
+    //     $paymentDetails['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
+    //     $paymentDetails['PAYMENTREQUEST_0_AMT'] = $totalAmount;
+    //     $paymentDetails['PAYMENTREQUEST_0_TAXAMT']=$totalAmount * self::TAX;
+    //     // $paymentDetails['PAYMENTREQUEST_0_SHIPPINGAMT']=self::SHIPPING_AMOUNT;
+    //     $paymentDetails['PAYMENTREQUEST_0_HANDLINGAMT']=0.00;
+    //     $paymentDetails['NOSHIPPING'] = Api::NOSHIPPING_NOT_DISPLAY_ADDRESS;
+    //     $paymentDetails['REQCONFIRMSHIPPING'] = Api::REQCONFIRMSHIPPING_NOT_REQUIRED;
+    //     $paymentDetails->setTotalAmount($totalAmount);
+
+    //     $storage->update($paymentDetails);
+    //     $captureToken = $this->getTokenFactory()->createCaptureToken(
+    //         $paymentName,
+    //         $paymentDetails,
+    //         'oui_eat_french_payment_done'
     //     );
+    //     $paymentDetails['INVNUM'] = $paymentDetails->getId();
+    //     $storage->update($paymentDetails);
 
     //     return $this->redirect($captureToken->getTargetUrl());
     // }
+    public function preparePaypalExpressCheckoutPaymentAction(Request $request)
+        {
+            $em = $this->getDoctrine()->getManager();
+            $user = $this->get('security.context')->getToken()->getUser();
+            $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");    // id of status "in_progress"
+            $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
+                    'user' => $user,
+                    'status' => $status,
+                ));
 
-    // public function doneAction(Request $request)
-    // {
-    //     $token = $this->get('payum.security.http_request_verifier')->verify($request);
+            if (!$cart) {
+                return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+            }
 
-    //     $gateway = $this->get('payum')->getGateway($token->getGatewayName());
+            $paymentName = 'ouieatfrench_command_paypal';
+            $eBook = array(
+                'author' => 'Jules Verne',
+                'name' => 'The Mysterious Island',
+                'description' => 'The Mysterious Island is a novel by Jules Verne, published in 1874.',
+                'price' => 8.64,
+                'currency_symbol' => '$',
+                'currency' => 'USD'
+            );
 
-    //     // you can invalidate the token. The url could not be requested any more.
-    //     // $this->get('payum.security.http_request_verifier')->invalidate($token);
+            $date = new \DateTime;
+            $storage = $this->get('payum')->getStorage('OuiEatFrench\PaymentBundle\Entity\Order');
+            $paymentDetails = $storage->create();
+            $paymentDetails->setNumber(uniqid());
+            $paymentDetails->setCurrencyCode('EUR');
+            $paymentDetails->setDescription("Panier de l'utilisateur ".$user->getUsername()." le ".$date->format('d-m-Y'));
+            $paymentDetails->setClient($user);
 
-    //     // Once you have token you can get the model from the storage directly. 
-    //     //$identity = $token->getDetails();
-    //     //$payment = $payum->getStorage($identity->getClass())->find($identity);
+            $paymentDetails['LOCALECODE'] = 'FR';
 
-    //     // or Payum can fetch the model for you while executing a request (Preferred).
-    //     $gateway->execute($status = new GetHumanStatus($token));
-    //     $payment = $status->getFirstModel();
+            $totalAmount = 0;
+            foreach ($cart->getFarmerProductCarts() as $key => $farmerProductCart) {
+                $farmerProduct = $farmerProductCart->getFarmerProduct();
+                $product = $farmerProduct->getProduct();
+                $amount = ($farmerProduct->getUnitPrice()*$farmerProductCart->getUnitQuantity());
+                $totalAmount += $amount;
 
-    //     // you have order and payment status 
-    //     // so you can do whatever you want for example you can just print status and payment details.
+                $paymentDetails['L_PAYMENTREQUEST_0_AMT'.$key] = $farmerProduct->getUnitPrice();
+                $paymentDetails['L_PAYMENTREQUEST_0_QTY'.$key] = $farmerProductCart->getUnitQuantity();
+                $paymentDetails['L_PAYMENTREQUEST_0_NAME'.$key] = $product->getName();
+                $paymentDetails['L_PAYMENTREQUEST_0_DESC'.$key] = $product->getDescription();
+            }
 
-    //     return new JsonResponse(array(
-    //         'status' => $status->getValue(),
-    //         'payment' => array(
-    //             'total_amount' => $payment->getTotalAmount(),
-    //             'currency_code' => $payment->getCurrencyCode(),
-    //             'details' => $payment->getDetails(),
-    //         ),
-    //     ));
-    // }
+            $paymentDetails['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
+            $paymentDetails['PAYMENTREQUEST_0_AMT'] = $totalAmount;
+            // $paymentDetails['PAYMENTREQUEST_0_SHIPPINGAMT'] = 6.55;
+            $paymentDetails->setTotalAmount($totalAmount);
+
+            $storage->update($paymentDetails);
+            $captureToken = $this->getTokenFactory()->createCaptureToken(
+                $paymentName,
+                $paymentDetails,
+                'oui_eat_french_payment_done'
+            );
+            $paymentDetails['INVNUM'] = $paymentDetails->getId();
+            $storage->update($paymentDetails);
+            return $this->redirect($captureToken->getTargetUrl());
+
+
+        }
+
+    public function doneAction(Request $request)
+    {
+        $token = $this->get('payum.security.http_request_verifier')->verify($request);
+        var_dump($token);
+
+        // return $this->redirect($this->generateUrl('oui_eat_french_public_cart_valid', array('order' => $token->getDetails()->getId())));
+
+        $gateway = $this->get('payum')->getGateway('ouieatfrench_command_paypal');
+
+        // you can invalidate the token. The url could not be requested any more.
+        // $this->get('payum.security.http_request_verifier')->invalidate($token);
+
+        // Once you have token you can get the model from the storage directly.
+        //$identity = $token->getDetails();
+        //$order = $payum->getStorage($identity->getClass())->find($identity);
+
+        // or Payum can fetch the model for you while executing a request (Preferred).
+        $gateway->execute($status = new GetHumanStatus($token));
+        $order = $status->getFirstModel();
+
+        // you have order and payment status
+        // so you can do whatever you want for example you can just print status and payment details.
+
+        return new JsonResponse(array(
+            'status' => $status->getValue(),
+            'response' => array(
+                'order' => $order->getTotalAmount(),
+                'currency_code' => $order->getCurrencyCode(),
+                'details' => $order->getDetails(),
+            ),
+        ));
+    }
+
+    /**
+     * @return RegistryInterface
+     */
+    protected function getPayum()
+    {
+        return $this->get('payum');
+    }
+    /**
+     * @return GenericTokenFactoryInterface
+     */
+    protected function getTokenFactory()
+    {
+        return $this->get('payum.security.token_factory');
+    }
 }
