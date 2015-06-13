@@ -188,20 +188,26 @@ hr
 
 .product_description_left
 {
-	margin-left: 50px;
-	margin-top: 20px;
+	margin-left: 15px;
+	margin-top: 15px;
 	color: #8c9087;
 	font-size: 17px;
 }
 
-.name_product, .quantity_product, .price_products
+.name_product, .price_product
 {
 	font-weight: bold;
 }
 
+.name_product
+{
+	font-size: 19px;
+	margin-bottom: 5px;
+}
+
 .hr-produits
 {
-	width: 185px;
+	width: 220px;
 	opacity: 0.6;
 	margin-left: 0px;
 	margin-bottom: 10px;
@@ -223,10 +229,16 @@ hr
  	font-style: italic;
 }
 
+.link_update_product
+{
+	margin-bottom: 15px;
+}
+
 .link_update_product i
 {
 	opacity: 0.4;
 	margin-top:5px;
+	margin-right: 8px;
 }
 
 .link_update_product a:hover
@@ -246,7 +258,7 @@ hr
 
 .new-product
 {
-	height: 347px;
+	height: 407px;
 	width: 250px; 
 	float: left;
 	margin-bottom: 20px;
@@ -255,7 +267,7 @@ hr
 
 .button-new-product 
 {
-	height: 315px;
+	height: 375px;
 	width: 217px;
 	border: 1px solid #e8eae2;
 	margin:15px;
@@ -268,8 +280,8 @@ hr
 	height: 50px;
 	width: 50px;
 	text-align: center;
-	line-height: 50px;
-	margin-top: 100px;
+	line-height: 54px;
+	margin-top: 140px;
 	margin-left: 85px;
 }
 
@@ -549,4 +561,168 @@ body
 .bottom-img
 {
 	margin-bottom: 50px;
+}
+
+.italic
+{
+	font-style: italic;
+	color: #d7ddd1;
+}
+
+.link_add_recette a
+{
+ 	color: #a3d634;
+ 	font-style: italic;
+}
+
+.link_add_recette a:hover
+{
+ 	text-decoration: none;
+}
+
+.link_add_recette
+{
+	margin-bottom: 3px;
+}
+
+.link_add_recette img
+{
+	height: 13px;
+	width: 12px;
+	margin-right: 8px;
+}
+
+.titre-disponibilites, .titre-index
+{
+	font-size: 30px;
+	font-weight: 300;
+	color:#8c9087;
+}
+
+.description-disponibilites
+{
+	font-size: 16px;
+	color: #8c9087;
+}
+
+#button-change-disponibilites
+{
+	border:2px solid #a3d634;
+	background-color: #f5f7f0;
+	width: 200px;
+	height: 30px;
+}
+
+#button-change-disponibilites a
+{
+	color: #a3d634;
+}
+
+#button-change-disponibilites a:hover
+{
+	text-decoration: none;
+}
+
+
+#table-disponibilites
+{
+	-moz-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	-webkit-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	-o-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	box-shadow: 2px 2px 5px 0px #e6e9e3;
+}
+
+#table-disponibilites td
+{
+	height: 50px;
+	line-height: 50px;
+	border-right: 1px solid #ddd;
+	text-align: center;
+	font-size: 18px;
+	color: #8c9087;
+}
+
+#table-disponibilites thead
+{
+	background-color: #8c9087;
+	color: #fff;
+	height: 20px;
+	font-size: 18px;
+}
+
+.disponible
+{
+	color: #a3d634;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.commerce-chiffres, .title-best-selling
+{
+	background-color: #fff;
+	height: 50px;
+	line-height: 50px;
+	color:#8c9087;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.chiffres-commandes
+{
+	background-color:#e6e9e3;
+	color: #8c9087;
+	-moz-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	-webkit-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	-o-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	box-shadow: 2px 2px 5px 0px #e6e9e3;
+}
+
+.chiffres-data
+{
+	height: 70px;
+	line-height: 30px;
+	border-right:1px dashed #d7d9d2;
+	width: 190px;
+}
+
+
+.product-best-selling
+{
+	background-color: #fff;
+}
+
+.product-best-selling .span2
+{
+	margin-left: 0px;
+	margin-right: 10px;
+	width: 217px;
+	color:#8c9087;
+}
+
+.product-best-selling .span2:last-child
+{
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 219px;
+}
+
+.name-product-best
+{
+	height: 40px;
+	line-height: 40px;
+	margin-left: 10px;
+}
+
+.product-best-selling .span2 img
+{
+	height: 163px;
+}
+
+.product-best-selling
+{
+	-moz-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	-webkit-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	-o-box-shadow: 2px 2px 5px 0px #e6e9e3;
+	box-shadow: 2px 2px 5px 0px #e6e9e3;
 }
