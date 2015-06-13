@@ -49,6 +49,27 @@ class FarmerProductController extends Controller
         return new JsonResponse();
     }
 
+    public function ajaxUnityTypeAction()
+    {
+        //return new JsonResponse('test');
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+
+            $productId = $request->request->get('product');
+            $farmerProduct = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($productId);
+            $type = $farmerProduct->getProduct()->getUnitType();
+            if ($type)
+            {
+                return new JsonResponse(json_encode($type->getName()));
+            }
+
+            return new JsonResponse();
+        }
+        return new JsonResponse();
+    }
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();

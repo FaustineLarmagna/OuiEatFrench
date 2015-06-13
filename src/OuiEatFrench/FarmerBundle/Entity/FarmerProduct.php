@@ -43,14 +43,6 @@ class FarmerProduct
     private $selling = false;
 
     /**
-     * Like "kg", "barquette", "pièce", "filet"
-     *
-     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UnitType", inversedBy="farmerProducts")
-     * @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
-     */
-    private $unitType;
-
-    /**
      * @var integer
      *
      * @Assert\NotBlank()
@@ -228,28 +220,6 @@ class FarmerProduct
     public function getUnitPrice()
     {
         return $this->unitPrice;
-    }
-
-    /**
-     * Set \OuiEatFrench\AdminBundle\Entity\UnitType
-     *
-     * @param \OuiEatFrench\AdminBundle\Entity\UnitType $unitType
-     * @return FarmerProduct
-     */
-    public function setUnitType($unitType)
-    {
-        $this->unitType = $unitType;
-        return $this;
-    }
-
-    /**
-     * Get \OuiEatFrench\AdminBundle\Entity\UnitType
-     *
-     * @return \OuiEatFrench\AdminBundle\Entity\UnitType
-     */
-    public function getUnitType()
-    {
-        return $this->unitType;
     }
 
     /**

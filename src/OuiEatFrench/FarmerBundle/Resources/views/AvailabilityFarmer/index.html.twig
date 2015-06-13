@@ -1,7 +1,7 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
 <div class="row">
-	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;">
+	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 880px;">
 		<p class="titre-disponibilites">Mes disponibilités</p>
 	</div>
 </div>
@@ -18,11 +18,11 @@
 		<table class="table table-striped" id="table-disponibilites">
 			<thead>
 				<th style="width:100px;"></th>
-				<th style="width:300px;text-align: center">Matin</th>
-				<th style="width:300px;text-align: center">Après-midi</th>
+				<th style="width:300px;text-align: center;	font-weight: 500;">Matin (9h00 - 12h00)</th>
+				<th style="width:300px;text-align: center;	font-weight: 500;">Après-midi (14h00 - 17h00)</th>
 			</thead>
 			<tbody>
-				<tr>
+				<tr class="td-white">
 					<td>Lundi</td>
 					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
 					<td> - </td>
@@ -32,7 +32,7 @@
 					<td> - </td>
 					<td> - </td>
 				</tr>
-				<tr>
+				<tr class="td-white">
 					<td>Mercredi</td>
 					<td> - </td>
 					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
@@ -42,7 +42,7 @@
 					<td> - </td>
 					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
 				</tr>
-				<tr>
+				<tr class="td-white">
 					<td>Vendredi</td>
 					<td> - </td>
 					<td> - </td>
@@ -52,7 +52,7 @@
 					<td></td>
 					<td> - </td>
 				</tr>
-				<tr>
+				<tr class="td-white">
 					<td>Dimanche</td>
 					<td><span class="disponible"><img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> Disponible</span></td>
 					<td> - </td>
@@ -62,7 +62,7 @@
 	</div>
 </div>
 <div class="row" style="margin-top: 20px;">
-	<div class="span5 offset8">
+	<div class="span5 offset8" style="margin-left:850px;">
 		<button id="button-change-disponibilites">
 			<a href="{{ path('oui_eat_french_farmer_availability_edit', { 'id': entity.id }) }}">
 			Modifier mes disponibilités
@@ -71,6 +71,52 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="span9 offset5" id="separateur-dispo">
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 880px;">
+		<p class="titre-disponibilites">Mes vacances</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span8 offset7" style="margin-bottom:20px;margin-left: 805px;">
+		<p class="description-disponibilites">
+			Programmez vos vacances, ou improvisez les ! <br>
+			<span class="offset1" style="margin-left: 90px;">Définissez ici la durée.</span>
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span9 offset5" id="checkbox-vacances">
+		<span style="margin-left: 20px;margin-right: 20px;"><input type="checkbox" name="vacances"></span>
+		<span style="font-size: 15px;color:#999999;">Je suis en vacances (mes produits disparaîtront du store tant que cette case sera cochée), sans durée précise.</span>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span9 offset5" id="programmation-vacances">
+		<div id="input-vacances">
+			<span style="margin-left: 20px;margin-right: 5px;">Je programme mes vacances : du </span>
+			<span style="margin-right: 5px;"><input type="date" name="start-vacances" /></span>
+			<span style="margin-right: 5px;">au</span>
+			<span style="margin-right: 15px;"><input type="date" name="end-vacances" /></span>
+			<span><button class="btn-validate-vacances">Valider</button></span>
+		</div>
+		<div class="separateur-vacances">
+		</div>
+		<div class="vacances">
+			<div>
+				<img src="{{ asset('ouieatfrench/farmer/img/puce.png')}}"> <span style="margin-left:27px;">Programmation de vacances : du <span class="bold">20/07/2015</span> au <span class="bold">02/08/2015</span></span>
+				<span class="supprimer-vacances">Supprimer</span>
+			</div>
+		</div>
+	</div>
+</div>
 
 {# {% for availabilitySlots in entity.availabilitySlots %}
     {{ availabilitySlots.name }}<br>
