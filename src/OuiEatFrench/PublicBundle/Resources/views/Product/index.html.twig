@@ -6,34 +6,46 @@
 {% endfor %}
 
 <div id="produit"></div>
-<form id="name">
+{% set filter = app.session.get('filters') %}
+<form action="{{ path('oui_eat_french_public_product_index') }}" method="POST" id="name">
     Produits !<br>
-    <select id="nametxt">
+    <select id="nametxt" name="name">
         <option value="all">Tous</option>
-        {% for product in products %}
-            <option value="{{ product.name }}">{{ product.name|capitalize }}</option>
+        {% for product in productsSelect %}
+            <option value="{{ product.name }}" {% if filter is not null and filter['name'] == product.name %}selected{% endif %}>{{ product.name|capitalize }}</option>
         {% endfor %}
     </select><br>
     Saisons !<br>
-    <select id="saisontxt">
+    <select id="saisontxt" name="season">
         <option value="all">Tous</option>
         {% for season in seasons %}
-            <option value="{{ season.name }}">{{ season.name|capitalize }}</option>
+            <option value="{{ season.name }}" {% if filter is not null and filter['season'] == season.name %}selected{% endif %}>{{ season.name|capitalize }}</option>
         {% endfor %}
     </select><br>
     Calories !<br>
-    <input type="number" id="caloriesint" value="0"><br>
+    <input type="number" id="caloriesint"  value="{% if filter is not null %}{{ filter['calories'] }}{% else %}0{% endif %}" name="calories"><br>
     Categorie !<br>
-    <select id="categorytxt">
+    <select id="categorytxt" name="category">
         <option value="all">Tous</option>
         {% for categorie in categories %}
             {{ categorie.name|capitalize }}
+            <option value="{{ categorie.name }}" {% if filter is not null and filter['category'] == categorie.name %}selected{% endif %}>{{ categorie.name|capitalize }}</option>
         {% endfor %}
-        <option value="Fruits">Fruits</option>
-        <option value="Legumes">Legumes</option>
-        <option value="Autres">Autres</option>
     </select><br>
+    <input type="submit" value="Valider">
 </form>
+Pages :
+    {% if pagesNumber != 0 %}
+        {% if page > 1 %}
+            <a href="{{ path('oui_eat_french_public_product_index', {'page' : page-1}) }}" ><</a>&nbsp;
+        {% endif %}
+        {% for i in 1..pagesNumber %}<a href="{{ path('oui_eat_french_public_product_index', {'page' : i}) }}" {% if i == page %}style='color:red'{% endif %}>{{ i }}</a>&nbsp;{% endfor %}
+        {% if page != pagesNumber %}
+            &nbsp;<a href="{{ path('oui_eat_french_public_product_index', {'page' : page+1}) }}" >></a>
+        {% endif %}
+    {% else %}
+        Aucuns produit ne correspond aux demandes
+    {% endif %}
 <div id="result"></div>
 <table id="table">
     {% for product in products %}
@@ -49,15 +61,14 @@
         </tr>
     {% endfor %}
 </table>
-{{ dump(path('oui_eat_french_public_product_ajax')) }}
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
 <script type="text/javascript">
 $(function () {
     jQuery(document).ready(function() {
-
-        $("#nametxt").change(function(){
+      /*
+        $("#nametxt").change(function(){
             refresh();
         });
 
@@ -90,15 +101,18 @@ $(function () {
                         $('#table tr').each(function()
                         {
                             var id = $(this).attr('id');
-                            if(response.indexOf(parseInt(id)) > -1)
-                            {$(this).show();}
+
+                            if(response.indexOf('-'+id+'-') > -1)
+                            {
+                                $(this).show();
+                            }
                             else
                             {$(this).hide();}
                         });
                     }
                 });
             return false;
-        };
+        };*/
     });
 });
 </script>

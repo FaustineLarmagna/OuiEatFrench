@@ -41,7 +41,7 @@ class ProductController extends Controller
                 {
                     if(in_array($value, $idProducts))
                     {
-                        $merge[] = $value;
+                        $merge[$value] = $value;
                     }
                 }
                 $idProducts = $merge;
@@ -102,7 +102,13 @@ class ProductController extends Controller
                 $idProducts = $merge;
             }
 
-            return new JsonResponse(json_encode($idProducts));
+            $newsTable = array();
+            foreach ($idProducts as $idProduct)
+            {
+                $newsTable[] = '-' . $idProduct . '-';
+            }
+
+            return new JsonResponse(json_encode($newsTable));
         }
         return new JsonResponse();
     }
@@ -291,7 +297,7 @@ class ProductController extends Controller
                                     $queryProductFilter = "INSERT INTO product_filter(product_id,filter_id) VALUES('".$lastIdProduct."', '".$lastIdFilter."')"; 
 
                                     $p = mysql_query($queryProductFilter, $connect) or exit(mysql_error());
-                                }            
+                                }
                             }     
                         }
                     }
@@ -305,14 +311,13 @@ class ProductController extends Controller
             $data["entities"] = $entities;
             return $this->render('OuiEatFrenchAdminBundle:Product:index.html.twig', $data);
         }
-
-         else //Sinon (la fonction renvoie FALSE).
-           {
-                $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
-                $data["entities"] = $entities;
-                $data["errorImport"] = "Erreur au moment de l'import, veuillez envoyer le exports-oef.csv";
-                return $this->render('OuiEatFrenchAdminBundle:Product:index.html.twig', $data);
-           }
+       else //Sinon (la fonction renvoie FALSE).
+       {
+            $entities = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findAll();
+            $data["entities"] = $entities;
+            $data["errorImport"] = "Erreur au moment de l'import, veuillez envoyer le exports-oef.csv";
+            return $this->render('OuiEatFrenchAdminBundle:Product:index.html.twig', $data);
+       }
     }
 
     public function upload($image)

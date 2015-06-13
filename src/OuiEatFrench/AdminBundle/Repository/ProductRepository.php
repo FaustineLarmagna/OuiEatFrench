@@ -27,8 +27,7 @@ class ProductRepository extends EntityRepository
     {
         $q = $this->createQueryBuilder('a')
             ->select ('a')
-            ->where('a.calories > 0')
-            ->andWhere('a.calories <= :calories')
+            ->where('a.calories <= :calories')
             ->setParameter('calories', $calories)
             ->getQuery();
 
@@ -45,5 +44,37 @@ class ProductRepository extends EntityRepository
             ->getQuery();
 
         return $q->getResult();
+    }
+
+    public function findByParentNullAndLimitPage($page, $limit, $filters)
+    {
+        $implode = implode($filters, ',');
+
+        $q = $this->createQueryBuilder('p')
+            ->select ('p')
+            ->where('p.parentProduct IS NULL');
+            if ($implode != '')
+            {
+                $q->andWhere("p.id IN (:filters)")->setParameter('filters', $filters);
+            }
+            $q->setFirstResult(($page - 1)*$limit)
+            ->setMaxResults($limit);
+
+        return $q->getQuery()->getResult();
+    }
+
+    public function findByParentNull($filters)
+    {
+        $implode = implode($filters, ',');
+
+        $q = $this->createQueryBuilder('p')
+            ->select ('p')
+            ->where('p.parentProduct IS NULL');
+            if ($implode != '')
+            {
+                $q->andWhere("p.id IN (:filters)")->setParameter('filters', $filters);
+            }
+
+        return $q->getQuery()->getResult();
     }
 }
