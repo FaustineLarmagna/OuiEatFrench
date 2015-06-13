@@ -13,7 +13,7 @@
                 {% for child in form.children %}
 			        {{ form_row(child) }}
 			    {% endfor %}
-			    <button class="btn-inscription" type="submit" form="form-inscription">JE M'INSCRIS <i class="icon-arrow-right icon-white"></i></button>
+			    <button class="btn-inscription" type="submit" form="form-inscription">JE M'INSCRIS</button>
 			</form>
 		</div>
 	</div>
@@ -32,8 +32,10 @@
 		</div>
 		<div class="row connexion-form">
             <form action="{{ path('oui_eat_french_farmer_user_login_check') }}" method="post" id="form-connexion">
-                <input type="text" placeholder="Nom d'utilisateur" id="username" name="_username" value="{% if last_username is defined %}{{ last_username }}{% endif %}" />
-                <input type="password" id="password" name="_password" placeholder="Mot de passe" />
+            	<label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="_username" value="{% if last_username is defined %}{{ last_username }}{% endif %}" />
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="_password" />
                 <button class="btn-connexion" type="submit" form="form-connexion">JE ME CONNECTE</button>
             </form>
             {% if error is defined and error %}

@@ -21,11 +21,12 @@ class FarmerProductType extends AbstractType
                 ))
             ->add('plantation', 'date', array(
                 'required'  => true,
+                'label' => 'Plantation (JJ/MM/AA)',
                 'format'    => 'ddMMyyyy',
                 'years'     => range(date('Y') -5, date('Y'))
                 ))
             ->add('harvest', 'date', array(
-                'label' => 'Récolte',
+                'label' => 'Récolte (JJ/MM/AA)',
                 'required' => true,
                 'format' => 'ddMMyyyy',
                 'years'     => range(date('Y') -5, date('Y'))

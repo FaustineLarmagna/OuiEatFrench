@@ -15,14 +15,14 @@ class UserFarmerShortType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', null, array('attr' => array('placeholder' => 'Nom d\'utilisateur'), 'label' => false))
-            ->add('lastname', null, array('attr' => array('placeholder' => 'Nom'), 'label' => false))
-            ->add('firstname', null, array('attr' => array('placeholder' => 'Prénom'), 'label' => false))
-            ->add('email', 'email', array('attr' => array('placeholder' => 'Email'), 'label' => false))
+            ->add('username', null, array('label' => "Nom d'utilisateur"))
+            ->add('lastname', null, array('label' => 'Nom'))
+            ->add('firstname', null, array('label' => 'Prénom'))
+            ->add('email', 'email', array('label' => 'Email'))
             ->add('password', 'repeated', array(
                 'type' => 'password',
-                'first_options'  => array('attr' => array('placeholder' => 'Mot de passe'), 'label' => false),
-                'second_options' => array('attr' => array('placeholder' => 'Confirmation de mot de passe'), 'label' => false),
+                'first_options'  => array('label' => 'Mot de passe'),
+                'second_options' => array('label' => 'Confirmation de mot de passe'),
                 ))
         ;
     }
