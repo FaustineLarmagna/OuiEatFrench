@@ -47,6 +47,10 @@ class ProductType extends AbstractType
                 'multiple'  => true,
                 "required"   => true
             ))
+            ->add('unitType', null, array(
+                'label' => "Type d'unité",
+                'required' => true
+            ))
             ->add('image', 'file', array(
                 "label"     => "Image",
                 "required"   => true

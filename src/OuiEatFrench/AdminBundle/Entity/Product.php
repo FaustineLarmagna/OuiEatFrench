@@ -94,6 +94,14 @@ class Product
     protected $farmerProductClones;
 
     /**
+     * Like "kg", "barquette", "pièce", "filet"
+     *
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UnitType", inversedBy="farmerProducts")
+     * @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
+     */
+    private $unitType;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -411,5 +419,27 @@ class Product
     public function getFarmerProductClones()
     {
         return $this->farmerProductClones;
+    }
+
+    /**
+     * Set \OuiEatFrench\AdminBundle\Entity\UnitType
+     *
+     * @param \OuiEatFrench\AdminBundle\Entity\UnitType $unitType
+     * @return Product
+     */
+    public function setUnitType($unitType)
+    {
+        $this->unitType = $unitType;
+        return $this;
+    }
+
+    /**
+     * Get \OuiEatFrench\AdminBundle\Entity\UnitType
+     *
+     * @return \OuiEatFrench\AdminBundle\Entity\UnitType
+     */
+    public function getUnitType()
+    {
+        return $this->unitType;
     }
 }

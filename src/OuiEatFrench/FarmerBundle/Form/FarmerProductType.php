@@ -49,10 +49,6 @@ class FarmerProductType extends AbstractType
                 'label' => "Quantité d'unité",
                 'required' => true
                 ))
-            ->add('unitType', null, array(
-                'label' => "Type d'unité",
-                'required' => true
-                ))
         ;
     }
     
