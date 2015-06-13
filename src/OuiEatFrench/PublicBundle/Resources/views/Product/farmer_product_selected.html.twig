@@ -103,7 +103,6 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                         $('#farmerTable tr').each(function()
                         {
                             var id = $(this).attr('class');
-                            console.log(response.indexOf(parseInt(id)));
                             if(response.indexOf(parseInt(id)) > -1)
                             {$(this).show();}
                             else

@@ -13,7 +13,6 @@ class LoadSeasonData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        
         foreach($this->feedSeason() as $seasonName)
         {
         	$seasonAdmin = new Season();

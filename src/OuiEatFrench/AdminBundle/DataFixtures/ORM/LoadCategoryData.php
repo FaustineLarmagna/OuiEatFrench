@@ -13,7 +13,6 @@ class LoadCategoryData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        
         foreach($this->feedCategories() as $categoryName)
         {
         	$categoryAdmin = new Category();

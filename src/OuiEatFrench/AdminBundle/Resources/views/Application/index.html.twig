@@ -22,8 +22,8 @@
     {% for farmer in farmers %}
         <tr>
             <td><a href=""><img width="100px" src="{{ asset("OEF/user_farmer/avatar/" ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar"></a></td>
-            <td style="background-color:{{ farmer.status.color }};">{{farmer.firstname}}</td>
-            <td style="background-color:{{ farmer.status.color }};">{{farmer.lastname}}</td>
+            <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};"{% endif %}>{{farmer.firstname}}</td>
+            <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};"{% endif %}>{{farmer.lastname}}</td>
             <td>{{farmer.email}}</td>
             <td>{{farmer.phone}}</td>
             <td>{{farmer.street}} {{farmer.postcode}} {{farmer.city | title}}</td>
