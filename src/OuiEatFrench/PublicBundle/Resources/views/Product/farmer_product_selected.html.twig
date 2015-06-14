@@ -3,99 +3,66 @@
 {% block content %}
 Filtres pour les agriculteurs: <br><br>
 
-<form>
+{% set filter = app.session.get('filtersFarmerProduct') %}
+<form method="POST">
     Code postal de la compagnie<br>
-    <input type="text" id="companyPostCode" ><br>
+    <input type="text" id="companyPostCode" name="companyPostCode" value="{{ filter['companyPostCode'] }}"><br>
     Sous catégorie !<br>
-    <select id="product">
+    <select id="product" name="product">
         <option value="%">Tous</option>
         {% for product in productAndParentProduct %}
-            <option value="{{ product.id }}">{{ product.name|capitalize }}</option>
+            <option value="{{ product.id }}" {% if filter is not null and filter['product'] == product.id %}selected{% endif %}>{{ product.name|capitalize }}</option>
         {% endfor %}
     </select><br>
-    <input type="text" id="unitType" > Par {% if product.unitType is not null %}{{ product.unitType.name }}{% endif %}<br>
+    <input type="text" id="maxPrice" name="maxPrice" value="{{ filter['maxPrice'] }}"> Par {% if product.unitType is not null %}{{ product.unitType.name }}{% endif %}<br>
+    <input type="submit" value="valider">
 </form>
-
-Liste des agriculteurs correspondant a votre produit : <br><br>
-{% if farmers is not null %}
-    <table id="farmerTable">
-        {% for farmer in farmers %}
-            {% if farmer.firstname is defined %}
-                {% for farmerProduct in farmer.farmerProducts %}
-                    {% if farmerProduct.product is not null %}
-                        {% if farmerProduct.product.id == product_id or (farmerProduct.product.parentProduct is not null and farmerProduct.product.parentProduct.id == product_id) %}
-                            {% if farmerProduct.unitQuantity >= farmerProduct.unitMinimum  %}
-                                <tr class="{{ farmerProduct.id }}">
-                                    <td>
-                                        Agriculteur : {{ farmer.firstname }}
-                                    </td>
-                                    <td>
-                                        <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
-                                    </td>
-                                    <td>
-                                        Produit : {{ farmerProduct.product.name }}<br>
-                                        Type : {{ farmerProduct.product.unitType }}<br>
-                                        Prix : {{ farmerProduct.unitPrice }}<br>
-                                        Quantity : {{ farmerProduct.unitQuantity }}<br>
-                                        Minimum pour vente : {{ farmerProduct.unitMinimum }}
-                                    </td>
-                                    <td>
-                                        <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
-                                            <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
-                                            <input type="text" name="price" id="price_{{farmerProduct.id}}">€
-                                            <input type="submit" name="addProduct" value="Ajouter à mon panier">
-                                        </form>
-                                    </td>
-                                </tr>
-                            {% endif %}
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% else %}
-            Aucun agriculteurs ne vend ce produit
-        {% endfor %}
-    </table><br>
+Pages :
+{% if pagesNumber != 0 %}
+    {% if page > 1 %}
+        <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page-1 }) }}" ><</a>&nbsp;
+    {% endif %}
+    {% for i in 1..pagesNumber %}<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : i }) }}" {% if i == page %}style='color:red'{% endif %}>{{ i }}</a>&nbsp;{% endfor %}
+    {% if page != pagesNumber %}
+        &nbsp;<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page+1 }) }}" >></a>
+    {% endif %}
+{% else %}
+    Aucuns produit ne correspond aux demandes
 {% endif %}
+Liste des agriculteurs correspondant a votre produit : <br><br>
+<table id="farmerTable">
+{% for farmerProduct in farmersProducts %}
+    <tr class="{{ farmerProduct.id }}">
+        <td>
+            Agriculteur : {{ farmerProduct.farmer.firstname }}
+        </td>
+        <td>
+            <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
+        </td>
+        <td>
+            Produit : {{ farmerProduct.product.name }}<br>
+            Type : {{ farmerProduct.product.unitType }}<br>
+            Prix : {{ farmerProduct.unitPrice }}<br>
+            Quantity : {{ farmerProduct.unitQuantity }}<br>
+            Minimum pour vente : {{ farmerProduct.unitMinimum }}
+        </td>
+        <td>
+            <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
+                <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
+                <input type="text" name="price" id="price_{{farmerProduct.id}}">€
+                <input type="submit" name="addProduct" value="Ajouter à mon panier">
+            </form><br>
+        </td>
+    </tr>
+{% endfor %}
+</table>
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
 <script type="text/javascript">
     $(function () {
         jQuery(document).ready(function() {
-            $("#product").change(function(){
-                refresh();
-            });
 
-            $("#companyPostCode").change(function(){
-                refresh();
-            });
-
-
-            function refresh(){
-                $.ajax({
-                    url: '{{ path('oui_eat_french_public_product_ajax_farmer') }}',
-                    type: 'POST',
-                    data:
-                    {
-                        product : $('#product').val(),
-                        companyPostCode : $('#companyPostCode').val()
-                    },
-                    dataType: 'json',
-                    success: function(response)
-                    {
-                        $('#farmerTable tr').each(function()
-                        {
-                            var id = $(this).attr('class');
-                            if(response.indexOf(parseInt(id)) > -1)
-                            {$(this).show();}
-                            else
-                            {$(this).hide();}
-                        });
-                    }
-                });
-                return false;
-            };
         });
     });
 </script>

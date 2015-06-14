@@ -23,7 +23,6 @@ class FarmerProductController extends Controller
             foreach ($farmerProductsFilter as $farmerProduct)
             {
                 $productSelected[] = $farmerProduct->getId();
-                break;
             }
 
             return new JsonResponse(json_encode($productSelected));

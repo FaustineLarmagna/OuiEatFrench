@@ -38,7 +38,7 @@
             			</div>
                 	</div>
                 	<div class="unit_type">
-                		{{ farmerproduct.unitType }} en stock
+                		{{ farmerproduct.product.unitType }} en stock
                 	</div>
                 </div>
                 <hr class="hr-produits"></hr>
@@ -80,6 +80,7 @@ $(function () {
 
 	$('.modal-delete-button').on('click', function(){
 		var id = $('.data-modal').val();
+        console.log(id);
 		deleteProductStock(id);
 	});
         function deleteProductStock(product_id){

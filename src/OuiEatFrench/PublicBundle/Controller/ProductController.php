@@ -137,20 +137,56 @@ class ProductController extends Controller
         return $idProducts;
     }
 
-    public function farmerProductSelectedAction($productId)
+    public function searchByFilterProductFarmer($productBaseId, $page)
     {
+        $request = $this->getRequest();
+        $productId = $request->request->get('product');
+        $companyPostCode = $request->request->get('companyPostCode');
+        $maxPrice = $request->request->get('maxPrice');
+        $filters = $this->get('session')->get('filtersFarmerProduct');
+
+        if (!isset($filters) or $filters === null)
+        {
+            $this->get('session')->set('filtersFarmerProduct', array('product' => '%', 'companyPostCode' => '', 'maxPrice' => 100));
+        }
+
+        if (!$productId and !$companyPostCode)
+        {
+            $filters = $this->get('session')->get('filtersFarmerProduct');
+            $productId = $filters['product'];
+            $companyPostCode = $filters['companyPostCode'];
+            $maxPrice = $filters['maxPrice'];
+        }
+        else
+        {
+            $this->get('session')->set('filtersFarmerProduct', array('product' => $productId, 'companyPostCode' => $companyPostCode, 'maxPrice' => $maxPrice));
+        }
+
+        $farmerProductsFilter = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findFarmerProductByFilters($productBaseId, $productId, $companyPostCode, $maxPrice);
+        $farmerProductsFilterWithLimit = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->findFarmerProductByFiltersWithLimit($productBaseId, $productId, $companyPostCode, $maxPrice, $page, 5);
+
+        return array('filter' => $farmerProductsFilter, 'filterWithLimit' => $farmerProductsFilterWithLimit);
+    }
+
+    public function farmerProductSelectedAction($productId, $page = 1)
+    {
+        $filters = $this->searchByFilterProductFarmer($productId, $page);
         $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findFarmerByProductAndParent($productId);
+        $farmersProducts = $filters['filter'];
+        $farmersProductsPagination = $filters['filterWithLimit'];
 
         $productAndParentProduct = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->findProductAndChildProduct($productId);
         $product = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->find($productId);
 
-
         return $this->render('OuiEatFrenchPublicBundle:Product:farmer_product_selected.html.twig',
             array(
-                'farmers' => $farmers,
-                'productAndParentProduct' => $productAndParentProduct,
-                'product_id' => $productId,
-                'product' => $product
+                'farmersProducts'           => $farmersProductsPagination,
+                'farmers'                   => $farmers,
+                'productAndParentProduct'   => $productAndParentProduct,
+                'product_id'                => $productId,
+                'product'                   => $product,
+                'page'                      => $page,
+                'pagesNumber'               => ceil(count($farmersProducts)/5)
             ));
     }
 }
