@@ -181,7 +181,7 @@ class UserFarmer implements UserInterface
      * @var boolean
      * @ORM\Column(name="vacancy", type="boolean")
      */
-    private $vacancy;
+    private $vacancy = 0;
 
     public function __construct()
     {

@@ -180,10 +180,16 @@ class CartController extends Controller
         $em = $this->getDoctrine()->getManager();
         $order = $em->getRepository('OuiEatFrenchPaymentBundle:Order')->find($order);
         if (!$order) {
+            $this->get('session')->getFlashBag()->add('error', "Une erreur s'est produite. Si l'erreur persiste, veuillez contacter un administrateur.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
 
         $user = $this->get('security.context')->getToken()->getUser();
+        if ($user != $order->getClient()) {
+            $this->get('session')->getFlashBag()->add('error', "Une erreur s'est produite. Si l'erreur persiste, veuillez contacter un administrateur.");
+            return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+        }
+
         $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");    // id of status "in_progress"
         $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
                 'user' => $user,
@@ -191,11 +197,13 @@ class CartController extends Controller
             ));
 
         if (!$cart) {
+            $this->get('session')->getFlashBag()->add('error', "Une erreur s'est produite. Si l'erreur persiste, veuillez contacter un administrateur.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
 
     // add order to cart
         $cart->setOrder($order);
+        $order->setCart($cart);
 
     // change cart's status to "paid"
         $newStatus = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("paid");

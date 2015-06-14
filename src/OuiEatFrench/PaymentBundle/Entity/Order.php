@@ -31,6 +31,13 @@ class Order extends BasePaymentDetails
     private $number;
 
     /**
+     * @var \Datetime
+     *
+     * @ORM\Column(name="datetime", type="date")
+     */
+    private $date;
+
+    /**
      * @var string
      *
      * @Assert\NotBlank()
@@ -62,7 +69,7 @@ class Order extends BasePaymentDetails
      */
     private $currency_code;
 
-   protected $details;
+    protected $details;
 
     /**
      * @ORM\OneToOne(targetEntity="OuiEatFrench\PublicBundle\Entity\Cart", inversedBy="order")
@@ -240,5 +247,29 @@ class Order extends BasePaymentDetails
     public function getCart()
     {
         return $this->cart;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Order
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

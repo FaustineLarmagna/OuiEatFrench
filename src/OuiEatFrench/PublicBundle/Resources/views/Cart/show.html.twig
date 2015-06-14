@@ -34,7 +34,7 @@
 				            		<input type="submit" value="modifier" name="submit">
 			            		</form>
 			            	</td>
-				            <td>{{ farmerProductCart.farmerProduct.unitType.name }}</td>
+				            <td>{{ farmerProductCart.farmerProduct.product.unitType.name }}</td>
 				            <td>{{ price|number_format(2, '.', ',') }}€</td>
 				            <td><a href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}">Supprimer</a></td>
 				        </tr>

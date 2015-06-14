@@ -46,7 +46,7 @@
 						{% for farmerProductClone in command.farmerProductClones %}
 							{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
 							<div class="span2 name-product">
-									{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}}({{farmerProductClone.unitType.name}})</span>
+									{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}}({{farmerProductClone.product.unitType.name}})</span>
 							</div>
 						{% endfor %}
 					</div>
