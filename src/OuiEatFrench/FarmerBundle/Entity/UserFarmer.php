@@ -177,6 +177,12 @@ class UserFarmer implements UserInterface
      */
     private $availabilityFarmers;
 
+    /**
+     * @var boolean
+     * @ORM\Column(name="vacancy", type="boolean")
+     */
+    private $vacancy;
+
     public function __construct()
     {
         $this->farmerProducts = new ArrayCollection();
@@ -771,5 +777,57 @@ class UserFarmer implements UserInterface
     public function eraseCredentials()
     {
 
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return UserFarmer
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param string $roles
+     *
+     * @return UserFarmer
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Set vacancy
+     *
+     * @param boolean $vacancy
+     *
+     * @return UserFarmer
+     */
+    public function setVacancy($vacancy)
+    {
+        $this->vacancy = $vacancy;
+
+        return $this;
+    }
+
+    /**
+     * Get vacancy
+     *
+     * @return boolean
+     */
+    public function getVacancy()
+    {
+        return $this->vacancy;
     }
 }

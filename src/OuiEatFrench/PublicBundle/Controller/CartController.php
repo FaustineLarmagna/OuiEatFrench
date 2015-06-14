@@ -40,7 +40,7 @@ class CartController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $farmerProduct = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($farmerProductId);
-        $farmerProductUnitType = $farmerProduct->getUnitType();
+        $farmerProductUnitType = $farmerProduct->getProduct()->getUnitType();
 
         // checking $_POST['quantity'] format
         if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity']) || (is_numeric($_POST['quantity']) && floor(floatval($_POST['quantity'])) != floatval($_POST['quantity']) && $farmerProductUnitType->getId() !== 1)) {
