@@ -1,0 +1,7 @@
+oui_eat_french_payment_prepare_paypal:
+    pattern:  /paypal-prepare
+    defaults: { _controller: OuiEatFrenchPaymentBundle:Payment:preparePaypalExpressCheckoutPayment }
+
+oui_eat_french_payment_done:
+    pattern:  /paypal-done
+    defaults: { _controller: OuiEatFrenchPaymentBundle:Payment:done }

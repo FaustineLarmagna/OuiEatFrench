@@ -2,6 +2,10 @@ oui_eat_french_public:
     resource: "@OuiEatFrenchPublicBundle/Resources/config/routing.yml"
     prefix:   /
 
+oui_eat_french_payment:
+    resource: "@OuiEatFrenchPaymentBundle/Resources/config/routing.yml"
+    prefix:   /payment
+
 # oui_eat_french_command:
 #     resource: "@OuiEatFrenchCommandBundle/Resources/config/routing.yml"
 #     prefix:   /mon-stand/{id}
@@ -63,3 +67,12 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+payum_capture:
+    resource: "@PayumBundle/Resources/config/routing/capture.xml"
+
+payum_authorize:
+    resource: "@PayumBundle/Resources/config/routing/authorize.xml"
+
+payum_notify:
+    resource: "@PayumBundle/Resources/config/routing/notify.xml"

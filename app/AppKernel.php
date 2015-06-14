@@ -17,13 +17,15 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Payum\Bundle\PayumBundle\PayumBundle(),
             new OuiEatFrench\UserBundle\OuiEatFrenchUserBundle(),
             new OuiEatFrench\AdminBundle\OuiEatFrenchAdminBundle(),
             new OuiEatFrench\FarmerBundle\OuiEatFrenchFarmerBundle(),
             new OuiEatFrench\MailingBundle\OuiEatFrenchMailingBundle(),
             new OuiEatFrench\CommandBundle\OuiEatFrenchCommandBundle(),
             new OuiEatFrench\PublicBundle\OuiEatFrenchPublicBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new OuiEatFrench\PaymentBundle\OuiEatFrenchPaymentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

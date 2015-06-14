@@ -40,7 +40,7 @@ class CartController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $farmerProduct = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($farmerProductId);
-        $farmerProductUnitType = $farmerProduct->getUnitType();
+        $farmerProductUnitType = $farmerProduct->getProduct()->getUnitType();
 
         // checking $_POST['quantity'] format
         if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity']) || (is_numeric($_POST['quantity']) && floor(floatval($_POST['quantity'])) != floatval($_POST['quantity']) && $farmerProductUnitType->getId() !== 1)) {
@@ -175,8 +175,14 @@ class CartController extends Controller
         return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
     }
 
-    public function validCartAction() {
+    public function validCartAction($order) 
+    {
         $em = $this->getDoctrine()->getManager();
+        $order = $em->getRepository('OuiEatFrenchPaymentBundle:Order')->find($order);
+        if (!$order) {
+            return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+        }
+
         $user = $this->get('security.context')->getToken()->getUser();
         $status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");    // id of status "in_progress"
         $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
@@ -188,9 +194,8 @@ class CartController extends Controller
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
 
-        /*
-                LE PAIEMENT S'EFFECTUE ICI
-        */
+    // add order to cart
+        $cart->setOrder($order);
 
     // change cart's status to "paid"
         $newStatus = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("paid");
