@@ -31,6 +31,13 @@ class UserFarmer implements UserInterface
     private $salt;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $holidaysCheckbox;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="roles", type="string", length=255, nullable=true)
@@ -188,6 +195,7 @@ class UserFarmer implements UserInterface
         $this->farmerProducts = new ArrayCollection();
         $this->farmerProductClones = new ArrayCollection();
         $this->commands = new ArrayCollection();
+        $this->holidaysCheckbox = 0;
     }
 
     public function __toString()
@@ -198,6 +206,22 @@ class UserFarmer implements UserInterface
     public function getSalt()
     {
         return $this->salt;
+    }
+
+    /**
+     * @param boolean $holidaysCheckbox
+     */
+    public function setHolidaysCheckbox($holidaysCheckbox)
+    {
+        $this->holidaysCheckbox = $holidaysCheckbox;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getHolidaysCheckbox()
+    {
+        return $this->holidaysCheckbox;
     }
 
     /**

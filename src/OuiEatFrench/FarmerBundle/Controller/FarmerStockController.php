@@ -30,12 +30,6 @@ class FarmerStockController extends Controller
         {
             $id = $request->request->get('id');
             $em = $this->getDoctrine()->getManager();
-            $farmerId = $this->get('session')->get('farmer');
-            $farmer = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->find($farmerId);
-            if (!$farmer) {
-                $this->get('session')->getFlashBag()->add('error', "Vous ne pouvez pas supprimer ce produit.");
-                return $this->redirect($this->generateUrl('oui_eat_french_public_home'));
-            }
 
             $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
             if ($query)

@@ -114,6 +114,7 @@ class ProductController extends Controller
 
                if(move_uploaded_file($_FILES['import-file']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
                {
+
                     //on se connecte à la DB
                     $connect = mysql_connect($this->container->getParameter('database_host'), $this->container->getParameter('database_user'),$this->container->getParameter('database_password'));
 
@@ -137,25 +138,30 @@ class ProductController extends Controller
 
                     while (!feof($csvfile)) 
                     {
+
                         $csv_data[] = fgets($csvfile, 1024);
 
-                        $csv_array = explode(";", $csv_data[$i]);
-                        
+                        $csv_array = explode(",", $csv_data[$i]);
+
                         if(isset($csv_array[1]))
                         {
                             $insert_csv = array();
 
                             $insert_csv['filters'] = $csv_array[0];
 
-                            $insert_csv['name_product'] = $csv_array[1];
+                            $insert_csv['name_product'] = htmlentities($csv_array[1]);
 
-                            $insert_csv['description_product'] = $csv_array[2];
+                            $insert_csv['description_product'] = htmlentities($csv_array[2]);
 
                             $insert_csv['image_product'] = $csv_array[3];
 
                             $insert_csv['category_product'] = $csv_array[4];
 
                             $insert_csv['calories_product'] = $csv_array[5];
+
+                            $insert_csv['saison_produit'] = $csv_array[6];
+
+                            $insert_csv['unit_type'] = $csv_array[7];
 
                             $categoryQuery = "SELECT DISTINCT id
                                                 FROM `category`
@@ -170,11 +176,33 @@ class ProductController extends Controller
 
                             if (!empty($insert_csv['name_product']) && !empty($insert_csv['description_product']) && !empty($insert_csv['category_product'])) 
                             {
-                                //la requete pour insert
-                              $query = "INSERT INTO product(id,name,description,image_name,category_id,calories) VALUES ('', '".mysql_real_escape_string($insert_csv['name_product'])."', '".mysql_real_escape_string($insert_csv['description_product'])."', '".$insert_csv['image_product']."', '".$categoryResult."', '".$insert_csv['calories_product']."')
+
+                              $em = $this->getDoctrine()->getManager();
+                              $category = $em->getRepository('OuiEatFrenchAdminBundle:Category')->find($categoryResult);
+                              $unitType = $em->getRepository('OuiEatFrenchAdminBundle:UnitType')->findOneByName(trim($insert_csv['unit_type']));
+                              $product = new Product;
+                              $product->setName($insert_csv['name_product']);
+                              $product->setDescription($insert_csv['description_product']);
+                              $product->setImageName($insert_csv['image_product']);
+                              $product->setCategory($category);
+                              $product->setCalories($insert_csv['calories_product']);
+                              $product->setUnitType($unitType);
+                              $seasons = explode(";", $insert_csv['saison_produit']);
+
+                              foreach ($seasons as $season)
+                              {
+                                  $season = $em->getRepository('OuiEatFrenchAdminBundle:Season')->findOneByName($season);
+                                  $product->addSeason($season);
+                              }
+                              $em->persist($product);
+                              $em->flush();
+
+/*
+                              $query = "INSERT INTO product(id,name,description,image_name,category_id,calories,) VALUES ('', '".mysql_real_escape_string($insert_csv['name_product'])."', '".mysql_real_escape_string($insert_csv['description_product'])."', '".$insert_csv['image_product']."', '".$categoryResult."', '".$insert_csv['calories_product']."')
                               ";
 
                               $n = mysql_query($query, $connect) or exit(mysql_error());
+*/
 
                               $lastIdProduct = mysql_insert_id();
                             }

@@ -11,18 +11,49 @@ use Doctrine\ORM\EntityRepository;
 */
 class FarmerProductRepository extends EntityRepository
 {
-    public function findFarmerProductByFilters($productId, $companyPostCode)
+    public function findFarmerProductByFilters($productBaseId, $productId, $companyPostCode, $maxPrice)
     {
         $q = $this->createQueryBuilder('fp')
             ->select ('fp')
             ->join('fp.product','p')
             ->join('fp.farmer','f')
             ->where('p.id LIKE :productId')
+            ->andWhere('fp.unitPrice <= :maxPrice')
+            ->andWhere('p.id = :productBaseId OR p.parentProduct = :productBaseId')
             ->andWhere('f.companyPostcode LIKE :companyPostCode')
+            ->andWhere('f.holidaysCheckbox NOT LIKE :true')
             ->setParameters(array(
-                'productId'        => $productId,
-                'companyPostCode'   => $companyPostCode.'%'
+                'productBaseId'     => $productBaseId,
+                'productId'         => $productId,
+                'companyPostCode'   => $companyPostCode.'%',
+                'maxPrice'          => $maxPrice,
+                'true'              => 1
             ))
+            ->getQuery();
+
+        return $q->getResult();
+    }
+
+    public function findFarmerProductByFiltersWithLimit($productBaseId, $productId, $companyPostCode, $maxPrice, $page, $limit)
+    {
+        $q = $this->createQueryBuilder('fp')
+            ->select ('fp')
+            ->join('fp.product','p')
+            ->join('fp.farmer','f')
+            ->where('p.id LIKE :productId')
+            ->andWhere('fp.unitPrice <= :maxPrice')
+            ->andWhere('p.id = :productBaseId OR p.parentProduct = :productBaseId')
+            ->andWhere('f.companyPostcode LIKE :companyPostCode')
+            ->andWhere('f.holidaysCheckbox NOT LIKE :true')
+            ->setParameters(array(
+                'productBaseId'     => $productBaseId,
+                'productId'         => $productId,
+                'companyPostCode'   => $companyPostCode.'%',
+                'maxPrice'          => $maxPrice,
+                'true'              => 1
+            ))
+            ->setFirstResult(($page - 1)*$limit)
+            ->setMaxResults($limit)
             ->getQuery();
 
         return $q->getResult();

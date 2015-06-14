@@ -1,100 +1,100 @@
-filtres;nom_produit;description_produit;image_produit;categorie_produit;calories_produit
-;Abricot;L'abricot est un fruit.;abricot.jpg;fruits;48
-;Ail;L'ail est un légume.;ail.jpg;légumes;149
-;Airelle;L'airelle est un fruit;airelle.jpg;fruits;100
-;Amande;L'amande est un fruit;amande.jpg;fruits;580
-;Ananas;L'ananas est un fruit;ananas.jpg;fruits;50
-;Artichaud;L'artichaut est un légume.;artichaud.jpg;légumes;47
-;Asperge blanche;L'asperge blanche est un légume;asperge_blanche.jpg;légumes;24
-;Asperge verte;L'asperge verte est un légume;asperge_verte.jpg;légumes;20
-;Aubergine;L'aubergine est un légume ;aubergine.jpg;légumes;25
-;Avocat;L'avocat est un fruit;avocat.jpg;fruits;204
-;Banane;La banane est un fruit;banane.jpg;fruits;89
-;Bette;La bette est un légume;bette.jpg;légumes;19
-;Betterave rouge;La betterave rouge est un légume;betterave_rouge.jpg;légumes;44
-;Brocoli;Le brocoli est un légume;brocoli,jpg;légumes;34
-;Carotte;La carotte est un légume;carotte.jpg;légumes;41
-;Cassis;La cassis est un fruit;cassis.jpg;fruits;253
-;Catalonia;La catalonia est un légume;catalonia.jpg;légumes;
-;Céleri;Le céleri est un légume;celeri.jpg;légumes;16
-;Céleri branche;Le céleri branche un est légume;celeri_blanche.jpg;légumes;15
-;Céleri rave;Le céleri rave est un légume;celeri_rave.jpg;légumes;42
-;Cerise;La cerise est un fruit;cerise.jpg;fruits;50
-;Chou blanc;Le chou blanc est un légume;chou_blanc.jpg;légumes;25
-;Chou de bruxelles;Le chou de bruxelles est un légume;chou_de_bruxelles.jpg;légumes;43
-;Chou frisé;Le chou frisé est un légume;chou_frise.jpg;légumes;49
-;Chou romanesco;Le chou romanesco est un légume;chou_romane.jpg;légumes;29
-;Chou rouge;Le chou rouge est un légume;chou_rouge.jpg;légumes;31
-;Chou chinois;Le chou chinois est un légume;chou_chinois.jpg;légumes;12
-;Chou-fleur;Le chou-fleur est un légume ;chou_fleur.jpg;légumes;25
-;Chou-rave;Le chou-rave est un légume;chou_rave.jpg;légumes;27
-;Cima di rapa;Le cima di rapa est un légume;cima_di_rapa.jpg;légumes;22
-;Citron;Le citron est un fruit;citron.jpg;légumes;29
-;Citrouille;La citrouille est un légume;citrouille.jpg;légumes;26
-;Clémentine;La clémentine est un fruit;clementine.jpg;fruits;47
-;Coing;Le coing est un fruit;coing.jpg;fruits;57
-;Concombre;Le concombre est un légume;concombre.jpg;légumes;16
-;Courge;La courge est un légume;courge.jpg;légumes;26
-;Courgette;La courgette est un légume;courgette.jpg;légumes;17
-;Datte;La datte est un fruit;datte.jpg;fruits;300
-;Endive;L'endive est un légume;endive.jpg;légumes;17
-;Epinard;L'epinard est un légume;epinard.jpg;légumes;23
-;Fenouil;Le fenouil est un légume;fenouil.jpg;légumes;31
-;Figue fraîche;La figue fraîche est un fruit;figue_fraiche.jpg;fruits;73
-;Fraise;La fraise est un fruit;fraise.jpg;fruits;32
-;Fraise des bois;La fraise des bois est un fruit;fraise_des_bois.jpg;fruits;32
-;Framboise;La framboise est un fruit;framboise.jpg;fruits;53
-;Fruit de la passion;Le fruit de la passion est un fruit;fruit_de_la_passion.jpg;fruits;97
-;Grenade ;La grenade est un fruit;grenade.jpg;fruits;83
-;Groseille;La groseille est un fruit;groseille.jpg;fruits;56
-;Groseille à maquereau;La groseille à maquereau est un fruit;groseille_a_maquereau.jpg;fruits;44
-;Haricot;L'haricot est un légume;haricot.jpg;légumes;24
-;Kaki;Le kaki est un fruit;kaki.jpg;fruits;127
-;Kiwi;Le kiwi est un fruit;kiwi.jpg;fruits;61
-;Kumquat;Le kumquat est un fruit;kumquat.jpg;fruits;71
-;Laitue romaine;La laitue romaine est un légume;laitue_romaine.jpg;légumes;17
-;Litchi;Le litchi est un fruit;litchi.jpg;fruits;66
-;Mâche;La mâche est un légume;mache.jpg;légumes;21
-;Maïs;Le maïs est un légume;mais.jpg;légumes;365
-;Mandarine;La mandarine est un fruit;mandarine.jpg;fruits;53
-;Mangue;La mangue est un fruit;mangue.jpg;fruits;60
-;Marron;Le marron est un fruit;marron.jpg;fruits;170
-;Melon;Le melon est un fruit;melon.jpg;fruits;34
-;Mirabelle;La mirabelle est un fruit;mirabelle.jpg;fruits;62
-;Mûre;La mûre est un fruit;mure.jpg;fruits;43
-;Myrtille;La myrtille est un fruit;myrtille.jpg;fruits;57
-;Navet;Le navet est un légume;navet.jpg;légumes;28
-;Nectarine;La nectarine est un fruit;nectarine.jpg;fruits;44
-;Noisette;La noisette est un fruit;noisette.jpg;fruits;628
-;Noix;La noix est un fruit;noix.jpg;fruits;654
-;Oignon;L'oignon est un légume;oignon.jpg;légumes;40
-;Orange;L'orange est un fruit;orange.jpg;fruits;47
-;Orange sanguine;L'orange sanguine est un fruit;orange_sanguine.jpg;fruits;45
-;Pamplemousse;Le pamplemousse est un fruit;pamplemousse.jpg;fruits;42
-;Panais;Le panais est un légume;panais.jpg;légumes;75
-;Papaye;La papaye est un fruit;papaye.jpg;fruits;44
-;Pastéque;La pastéque est un fruit;pasteque.jpg;fruits;30
-;Pâtisson;Le pâtisson est un légume;patisson.jpg;légumes;18
-;Pêche;La pêche est un fruit;peche.jpg;fruits;39
-;Petit oignon blanc;Le petit oignon blanc est un légume;oignon_blanc.jpg;légumes;42
-;Petit pois;Le petit pois est un légume;petit_pois.jpg;légumes;82
-;Poire;La poire est un fruit;poire.jpg;fruits;58
-;Poireau;Le poireau est un légume;poireau.jpg;légumes;61
-;Pois mange-tout;Le pois mange-tout est un légume;pois_mange_tout.jpg;légumes;40
-;Poivron;Le poivron est un légume;poivron.jpg;légumes;20
-;Pomme;La pomme est un fruit;pomme.jpg;fruits;52
-;Pomme de terre;La pomme de terre est un légume;pomme_de_terre.jpg;légumes;77
-;Potimarron;Le potimarron est un légume;potimarron.jpg;légumes;26
-;Potiron;Le potiron est un légume;potiron.jpg;légumes;26
-;Prune;La prune est un fruit;prune.jpg;fruits;46
-;Quetsche;La quetsche est un fruit;quetsche.jpg;fruits;197
-;Radis;Le radis est un légume;radis.jpg;légumes;16
-;Radis long;Le radis long est un légume;radis_long.jpg;légumes;20
-;Raisin;Le raisin est un fruit;raisin.jpg;fruits;67
-;Reine-claude;La reine-claude est un fruit;reine_claude.jpg;fruits;43
-;Rhubarbe;La rhubarbe est un fruit;rhubarbe.jpg;fruits;21
-;Salsifis;Le salsifis est un légume;salsifis.jpg;légumes;80
-;Tomate;La tomate est un fruit;tomate.jpg;fruits;18
-;Tomate charnue;La tomate charnue est un fruit;tomate_charnue.jpg;fruits;16
-;Tomate peretti;La tomate peretti est un fruit;tomate_peretti.jpg;fruits;15
-;Topinambour;Le topinambour est un légume;topinambour.jpg;légumes;73
+filtres,nom_produit,description_produit,image_produit,categorie_produit,calories_produit,saison_produit,unit_type
+,Abricot,L'abricot est un fruit.,abricot.jpg,fruits,48,ete,kg
+,Ail,L'ail est un légume.,ail.jpg,légumes,149,printemps;ete,pièce(s)
+,Airelle,L'airelle est un fruit,airelle.jpg,fruits,100,ete,kg
+,Amande,L'amande est un fruit,amande.jpg,fruits,580,ete,kg
+,Ananas,L'ananas est un fruit,ananas.jpg,fruits,50,automne;hiver;printemps,pièce(s)
+,Artichaut,L'artichaut est un légume.,artichaud.jpg,légumes,47,ete,pièce(s)
+,Asperge blanche,L'asperge blanche est un légume,asperge_blanche.jpg,légumes,24,printemps,pièce(s)
+,Asperge verte,L'asperge verte est un légume,asperge_verte.jpg,légumes,20,printemps,pièce(s)
+,Aubergine,L'aubergine est un légume ,aubergine.jpg,légumes,25,printemps;ete,pièce(s)
+,Avocat,L'avocat est un fruit,avocat.jpg,fruits,204,printemps;ete;automne;hiver,pièce(s)
+,Banane,La banane est un fruit,banane.jpg,fruits,89,printemps;ete;automne;hiver,pièce(s)
+,Bette,La bette est un légume,bette.jpg,légumes,19,printemps;ete,kg
+,Betterave rouge,La betterave rouge est un légume,betterave_rouge.jpg,légumes,44,printemps;ete,pièce(s)
+,Brocoli,Le brocoli est un légume,brocoli.jpg,légumes,34,ete,pièce(s)
+,Carotte,La carotte est un légume,carotte.jpg,légumes,41,printemps;ete;automne;hiver,pièce(s)
+,Cassis,La cassis est un fruit,cassis.jpg,fruits,253,ete,kg
+,Catalonia,La catalonia est un légume,catalonia.jpg,légumes,15,ete;automne,pièce(s)
+,Céleri,Le céleri est un légume,celeri.jpg,légumes,16,printemps;ete;automne;hiver,kg
+,Céleri branche,Le céleri branche un est légume,celeri_blanche.jpg,légumes,15,ete;automne,kg
+,Céleri rave,Le céleri rave est un légume,celeri_rave.jpg,légumes,42,automne,kg
+,Cerise,La cerise est un fruit,cerise.jpg,fruits,50,ete,kg
+,Chou blanc,Le chou blanc est un légume,chou_blanc.jpg,légumes,25,printemps;ete;automne;hiver,pièce(s)
+,Chou de bruxelles,Le chou de bruxelles est un légume,chou_de_bruxelles.jpg,légumes,43,automne;hiver,kg
+,Chou frisé,Le chou frisé est un légume,chou_frise.jpg,légumes,49,printemps;ete;automne;hiver,pièce(s)
+,Chou romanesco,Le chou romanesco est un légume,chou_romane.jpg,légumes,29,ete,pièce(s)
+,Chou rouge,Le chou rouge est un légume,chou_rouge.jpg,légumes,31,printemps;ete;automne;hiver,pièce(s)
+,Chou chinois,Le chou chinois est un légume,chou_chinois.jpg,légumes,12,printemps;ete;automne;hiver,pièce(s)
+,Chou-fleur,Le chou-fleur est un légume ,chou_fleur.jpg,légumes,25,printemps;ete,pièce(s)
+,Chou-rave,Le chou-rave est un légume,chou_rave.jpg,légumes,27,printemps;ete;automne;hiver,pièce(s)
+,Cima di rapa,Le cima di rapa est un légume,cima_di_rapa.jpg,légumes,22,ete;automne,pièce(s)
+,Citron,Le citron est un fruit,citron.jpg,légumes,29,printemps;ete;automne;hiver,pièce(s)
+,Citrouille,La citrouille est un légume,citrouille.jpg,légumes,26,automne;hiver,pièce(s)
+,Clémentine,La clémentine est un fruit,clementine.jpg,fruits,47,hiver,kg
+,Coing,Le coing est un fruit,coing.jpg,fruits,57,automne,kg
+,Concombre,Le concombre est un légume,concombre.jpg,légumes,16,printemps;ete,pièce(s)
+,Courge,La courge est un légume,courge.jpg,légumes,26,printemps;ete,pièce(s)
+,Courgette,La courgette est un légume,courgette.jpg,légumes,17,ete,pièce(s)
+,Datte,La datte est un fruit,datte.jpg,fruits,300,ete;automne;hiver,kg
+,Endive,L'endive est un légume,endive.jpg,légumes,17,automne;hiver,kg
+,Epinard,L'epinard est un légume,epinard.jpg,légumes,23,printemps;ete;automne,kg
+,Fenouil,Le fenouil est un légume,fenouil.jpg,légumes,31,printemps;ete;automne,kg
+,Figue fraéche,La figue fraéche est un fruit,figue_fraiche.jpg,fruits,73,ete,kg
+,Fraise,La fraise est un fruit,fraise.jpg,fruits,32,printemps;ete,kg
+,Fraise des bois,La fraise des bois est un fruit,fraise_des_bois.jpg,fruits,32,printemps;ete,kg
+,Framboise,La framboise est un fruit,framboise.jpg,fruits,53,ete,kg
+,Fruit de la passion,Le fruit de la passion est un fruit,fruit_de_la_passion.jpg,fruits,97,printemps;ete;automne;hiver,kg
+,Grenade ,La grenade est un fruit,grenade.jpg,fruits,83,hiver,kg
+,Groseille,La groseille est un fruit,groseille.jpg,fruits,56,ete,kg
+,Groseille é maquereau,La groseille é maquereau est un fruit,groseille_a_maquereau.jpg,fruits,44,ete,kg
+,Haricot,L'haricot est un légume,haricot.jpg,légumes,24,ete,kg
+,Kaki,Le kaki est un fruit,kaki.jpg,fruits,127,hiver,kg
+,Kiwi,Le kiwi est un fruit,kiwi.jpg,fruits,61,ete;automne;printemps;hiver,kg
+,Kumquat,Le kumquat est un fruit,kumquat.jpg,fruits,71,hiver,kg
+,Laitue romaine,La laitue romaine est un légume,laitue_romaine.jpg,légumes,17,printemps;ete;automne,pièce(s)
+,Litchi,Le litchi est un fruit,litchi.jpg,fruits,66,hiver;ete;automne;printemps,kg
+,Méche,La méche est un légume,mache.jpg,légumes,21,hiver,pièce(s)
+,Maés,Le maés est un légume,mais.jpg,légumes,365,ete;automne,pièce(s)
+,Mandarine,La mandarine est un fruit,mandarine.jpg,fruits,53,automne;hiver,kg
+,Mangue,La mangue est un fruit,mangue.jpg,fruits,60,ete;automne;hiver;printemps,pièce(s)
+,Marron,Le marron est un fruit,marron.jpg,fruits,170,ete;automne,kg
+,Melon,Le melon est un fruit,melon.jpg,fruits,34,ete,pièce(s)
+,Mirabelle,La mirabelle est un fruit,mirabelle.jpg,fruits,62,ete,kg
+,Mére,La mére est un fruit,mure.jpg,fruits,43,ete,kg
+,Myrtille,La myrtille est un fruit,myrtille.jpg,fruits,57,ete,kg
+,Navet,Le navet est un légume,navet.jpg,légumes,28,ete,pièce(s)
+,Nectarine,La nectarine est un fruit,nectarine.jpg,fruits,44,ete,kg
+,Noisette,La noisette est un fruit,noisette.jpg,fruits,628,ete,kg
+,Noix,La noix est un fruit,noix.jpg,fruits,654,automne,kg
+,Oignon,L'oignon est un légume,oignon.jpg,légumes,40,ete;automne;hiver;printemps,kg
+,Orange,L'orange est un fruit,orange.jpg,fruits,47,automne;hiver,kg
+,Orange sanguine,L'orange sanguine est un fruit,orange_sanguine.jpg,fruits,45,hiver,kg
+,Pamplemousse,Le pamplemousse est un fruit,pamplemousse.jpg,fruits,42,hiver,pièce(s)
+,Panais,Le panais est un légume,panais.jpg,légumes,75,automne,pièce(s)
+,Papaye,La papaye est un fruit,papaye.jpg,fruits,44,hiver;printemps;ete;automne,pièce(s)
+,Pastéque,La pastéque est un fruit,pasteque.jpg,fruits,30,ete,pièce(s)
+,Pétisson,Le pétisson est un légume,patisson.jpg,légumes,18,ete,pièce(s)
+,Péche,La péche est un fruit,peche.jpg,fruits,39,ete,kg
+,Petit oignon blanc,Le petit oignon blanc est un légume,oignon_blanc.jpg,légumes,42,ete;automne;hiver,kg
+,Petit pois,Le petit pois est un légume,petit_pois.jpg,légumes,82,ete,kg
+,Poire,La poire est un fruit,poire.jpg,fruits,58,ete;automne,kg
+,Poireau,Le poireau est un légume,poireau.jpg,légumes,61,automne;hiver,pièce(s)
+,Pois mange-tout,Le pois mange-tout est un légume,pois_mange_tout.jpg,légumes,40,ete,kg
+,Poivron,Le poivron est un légume,poivron.jpg,légumes,20,ete;automne,pièce(s)
+,Pomme,La pomme est un fruit,pomme.jpg,fruits,52,automne;hiver,pièce(s)
+,Pomme de terre,La pomme de terre est un légume,pomme_de_terre.jpg,légumes,77,ete;automne;hiver,kg
+,Potimarron,Le potimarron est un légume,potimarron.jpg,légumes,26,automne,pièce(s)
+,Potiron,Le potiron est un légume,potiron.jpg,légumes,26,ete;automne,pièce(s)
+,Prune,La prune est un fruit,prune.jpg,fruits,46,ete,kg
+,Quetsche,La quetsche est un fruit,quetsche.jpg,fruits,197,ete;automne,kg
+,Radis,Le radis est un légume,radis.jpg,légumes,16,printemps,kg
+,Radis long,Le radis long est un légume,radis_long.jpg,légumes,20,printemps,kg
+,Raisin,Le raisin est un fruit,raisin.jpg,fruits,67,automne,kg
+,Reine-claude,La reine-claude est un fruit,reine_claude.jpg,fruits,43,ete,kg
+,Rhubarbe,La rhubarbe est un fruit,rhubarbe.jpg,fruits,21,printemps,kg
+,Salsifis,Le salsifis est un légume,salsifis.jpg,légumes,80,automne;hiver,kg
+,Tomate,La tomate est un fruit,tomate.jpg,fruits,18,automne;hiver,kg
+,Tomate charnue,La tomate charnue est un fruit,tomate_charnue.jpg,fruits,16,printemps;ete,kg
+,Tomate peretti,La tomate peretti est un fruit,tomate_peretti.jpg,fruits,15,ete,kg
+,Topinambour,Le topinambour est un légume,topinambour.jpg,légumes,73,automne;hiver,kg

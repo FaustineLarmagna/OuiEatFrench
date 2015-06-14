@@ -4,115 +4,186 @@
 {% for flashMessage in app.session.flashbag.get('error') %}
     <div class="alert alert-error">{{ flashMessage }}</div>
 {% endfor %}
-
-<div id="produit"></div>
-{% set filter = app.session.get('filters') %}
-<form action="{{ path('oui_eat_french_public_product_index') }}" method="POST" id="name">
-    Produits !<br>
-    <select id="nametxt" name="name">
-        <option value="all">Tous</option>
-        {% for product in productsSelect %}
-            <option value="{{ product.name }}" {% if filter is not null and filter['name'] == product.name %}selected{% endif %}>{{ product.name|capitalize }}</option>
-        {% endfor %}
-    </select><br>
-    Saisons !<br>
-    <select id="saisontxt" name="season">
-        <option value="all">Tous</option>
-        {% for season in seasons %}
-            <option value="{{ season.name }}" {% if filter is not null and filter['season'] == season.name %}selected{% endif %}>{{ season.name|capitalize }}</option>
-        {% endfor %}
-    </select><br>
-    Calories !<br>
-    <input type="number" id="caloriesint"  value="{% if filter is not null %}{{ filter['calories'] }}{% else %}0{% endif %}" name="calories"><br>
-    Categorie !<br>
-    <select id="categorytxt" name="category">
-        <option value="all">Tous</option>
-        {% for categorie in categories %}
-            {{ categorie.name|capitalize }}
-            <option value="{{ categorie.name }}" {% if filter is not null and filter['category'] == categorie.name %}selected{% endif %}>{{ categorie.name|capitalize }}</option>
-        {% endfor %}
-    </select><br>
-    <input type="submit" value="Valider">
-</form>
-Pages :
-    {% if pagesNumber != 0 %}
-        {% if page > 1 %}
-            <a href="{{ path('oui_eat_french_public_product_index', {'page' : page-1}) }}" ><</a>&nbsp;
-        {% endif %}
-        {% for i in 1..pagesNumber %}<a href="{{ path('oui_eat_french_public_product_index', {'page' : i}) }}" {% if i == page %}style='color:red'{% endif %}>{{ i }}</a>&nbsp;{% endfor %}
-        {% if page != pagesNumber %}
-            &nbsp;<a href="{{ path('oui_eat_french_public_product_index', {'page' : page+1}) }}" >></a>
-        {% endif %}
-    {% else %}
-        Aucuns produit ne correspond aux demandes
-    {% endif %}
-<div id="result"></div>
-<table id="table">
-    {% for product in products %}
-        <tr style="border-style: solid;" id="{{ product.id }}">
-            <td>{{ product.name }}</td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.calories }}</td>
-            <td>
+<div id="wrapper">
+    <div class="row">
+        <div class="title-product-client">
+            FRUITS ET L&Eacute;GUMES &Agrave; GOGO !
+        </div>
+    </div>
+    <div class="row">
+        <form action="{{ path('oui_eat_french_public_product_index') }}" method="POST" id="name">
+        {% set filter = app.session.get('filters') %}
+        <div class="span2 filter-product">
+            <div class="row" id="title-filter-product">
+                VITE, JE FILTRE
+            </div>
+            <div class="row" id="filter-type">
+                <div>
+                    <span>
+                        <input id="tous-filter" type="radio" name="category" value="all" {% if filter is not null and filter['category'] == "all" %}checked="checked"{% endif %}>
+                    </span>
+                    <span>
+                        <label for="tous-filter">Tous</label>
+                    </span>
+                    
+                </div>
+                {% for categorie in categories %}
+                    <div>
+                        <span>
+                            <input id="{{ categorie.name }}-filter" type="radio" name="category" value="{{ categorie.name }}" {% if filter is not null and filter['category'] == categorie.name %}checked="checked"{% endif %}>
+                        </span>
+                        <span>
+                            <label for="{{ categorie.name }}-filter">{{ categorie.name|capitalize }}</label>
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row" id="title-filter-aliments">
+                PAR ALIMENT
+            </div>
+            <div class="row" id="filter-aliments">
+                <select id="nametxt" name="name">
+                    <option value="all">Tous</option>
+                    {% for product in productsSelect %}
+                        <option value="{{ product.name }}" {% if filter is not null and filter['name'] == product.name %}selected{% endif %}>{{ product.name|capitalize }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="row" id="title-filter-saison">
+                PAR SAISON
+            </div>
+            <div class="row" id="filter-saison">
+                <div>
+                    <span>
+                        <input id="tous-filter-season" type="radio" name="season" value="all" {% if filter is not null and filter['season'] == "all" %}checked="checked"{% endif %}>
+                    </span>
+                    <span>
+                        <label for="tous-filter-season">Tous</label>
+                    </span>
+                    
+                </div>
+                {% for season in seasons %}
+                    <div>
+                        <span>
+                            <input id="{{ season.name }}-filter" type="radio" name="season" value="{{ season.name }}" {% if filter is not null and filter['season'] == season.name %}checked="checked"{% endif %}>
+                        </span>
+                        <span>
+                            <label for="{{ season.name }}-filter">{{ season.name|capitalize }}</label>
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row" id="title-filter-calories">
+                PAR CALORIES (100G)
+            </div>
+            <div class="row" id="filter-calories">
+                <input type="hidden" value="{% if filter is not null %}{{filter['calories']}}{% else %}200{% endif %}" id="val-calories" name="calories">
+                <div style="margin-bottom: 10px;">
+                    <span>0 kcal</span>
+                    <span style="margin-left: 45px;">200 kcal</span>
+                </div>
+                <div id="slider-range-min"></div>
+                <div id="amount">
+                    {% if filter is not null %}
+                        {{ filter['calories'] }}
+                    {% else %}
+                        0
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row" id="button-validate-form">
+                <button type="submit" id="validate-filter" form="name">Valider</button>
+            </div>
+        </div>
+        </form>
+        <div class="span9" id="result-product" style="width:950px;margin-top: -20px">
+            {% for product in products %}
                 <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product.id }) }}">
-                    <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}">
+                    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/" ~ product.imageName) }});height:200px;" id="{{ product.id }}">
+                        <div class="bottom-name-product">
+                            <span style="margin-left: 10px;display:inline-block;width:135px">{{ product.name }}</span>
+                            <span>
+                                <img src="{{ asset('ouieatfrench/theme/assets2/img/picto_stand.png')}}">
+                                15
+                            </span>
+                        </div>
+                    </div>
                 </a>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset9" id="pagination-product">
+            {% if pagesNumber != 0 %}
+                {% if page > 1 %}
+                    <a href="{{ path('oui_eat_french_public_product_index', {'page' : page-1}) }}" ><div class="arrow-left-pagination"></div></a>&nbsp;
+                {% endif %}
+                {% for i in 1..pagesNumber %}
+                    <a href="{{ path('oui_eat_french_public_product_index', {'page' : i}) }}" 
+                    {% if i == page %}style='color:#f9ac48;'{% endif %}>
+                        {{ i }}
+                    </a>
+                    &nbsp;.  
+                {% endfor %}
+                {% if page != pagesNumber %}
+                    &nbsp;<a href="{{ path('oui_eat_french_public_product_index', {'page' : page+1}) }}" ><div class="arrow-right-pagination"></div></a>
+                {% endif %}
+            {% else %}
+                Aucuns produit ne correspond aux demandes
+            {% endif %}
+        </div>
+    </div>
+{#     Pages :
+        {% if pagesNumber != 0 %}
+            {% if page > 1 %}
+                <a href="{{ path('oui_eat_french_public_product_index', {'page' : page-1}) }}" ><</a>&nbsp;
+            {% endif %}
+            {% for i in 1..pagesNumber %}<a href="{{ path('oui_eat_french_public_product_index', {'page' : i}) }}" {% if i == page %}style='color:red'{% endif %}>{{ i }}</a>&nbsp;{% endfor %}
+            {% if page != pagesNumber %}
+                &nbsp;<a href="{{ path('oui_eat_french_public_product_index', {'page' : page+1}) }}" >></a>
+            {% endif %}
+        {% else %}
+            Aucuns produit ne correspond aux demandes
+        {% endif %}
+ #}    {# <div id="result"></div> #}
+{#     <table id="table">
+        {% for product in products %}
+            <tr style="border-style: solid;" id="{{ product.id }}">
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.calories }}</td>
+                <td>
+                    <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product.id }) }}">
+                        <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}">
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table> #}
+</div>
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
 <script type="text/javascript">
 $(function () {
     jQuery(document).ready(function() {
-      /*
-        $("#nametxt").change(function(){
-            refresh();
+
+        var valueCalories = $("#val-calories").val();
+        $("#slider-range-min").slider({
+          range: "min",
+          min: 0,
+          max: 200,
+          step: 10,
+          value: valueCalories,
+          slide: function( event, ui ) 
+          {
+            $("#amount").text(ui.value);
+            $("#val-calories").val(ui.value);
+          }
         });
 
-        $("#saisontxt").change(function(){
-            refresh();
-        });
+        $("#amount").val($("#slider-range-min").slider("value") );
 
-        $("#caloriesint").bind('keyup mouseup', function(){
-            refresh();
-        });
-
-        $("#categorytxt").change(function(){
-            refresh();
-        });
-
-        function refresh(){
-                $.ajax({
-                    url: '{{ path('oui_eat_french_public_product_ajax') }}',
-                    type: 'POST',
-                    data:
-                    {
-                        name : $("#nametxt").val(),
-                        season : $("#saisontxt").val(),
-                        calories : $("#caloriesint").val(),
-                        category : $("#categorytxt").val()
-                    },
-                    dataType: 'json',
-                    success: function(response)
-                    {
-                        $('#table tr').each(function()
-                        {
-                            var id = $(this).attr('id');
-
-                            if(response.indexOf('-'+id+'-') > -1)
-                            {
-                                $(this).show();
-                            }
-                            else
-                            {$(this).hide();}
-                        });
-                    }
-                });
-            return false;
-        };*/
     });
 });
 </script>
