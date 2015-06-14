@@ -4,6 +4,8 @@
 Filtres pour les agriculteurs: <br><br>
 
 <form>
+    Code postal de la compagnie<br>
+    <input type="text" id="companyPostCode" ><br>
     Sous catégorie !<br>
     <select id="product">
         <option value="%">Tous</option>
@@ -11,12 +13,7 @@ Filtres pour les agriculteurs: <br><br>
             <option value="{{ product.id }}">{{ product.name|capitalize }}</option>
         {% endfor %}
     </select><br>
-    Code postal de la compagnie<br>
-    <input type="text" id="companyPostCode" ><br>
-    Prix max au kilo<br>
-    <input type="text" id="kilos" ><br>
-    Prix max a l'unitée<br>
-    <input type="text" id="unitee" ><br>
+    <input type="text" id="unitType" > Par {% if product.unitType is not null %}{{ product.unitType.name }}{% endif %}<br>
 </form>
 
 Liste des agriculteurs correspondant a votre produit : <br><br>
@@ -37,14 +34,14 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                                     </td>
                                     <td>
                                         Produit : {{ farmerProduct.product.name }}<br>
-                                        Type : {{ farmerProduct.unitType }}<br>
+                                        Type : {{ farmerProduct.product.unitType }}<br>
                                         Prix : {{ farmerProduct.unitPrice }}<br>
                                         Quantity : {{ farmerProduct.unitQuantity }}<br>
                                         Minimum pour vente : {{ farmerProduct.unitMinimum }}
                                     </td>
                                     <td>
                                         <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
-                                            <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {{farmerProduct.unitType.name}} soit 
+                                            <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
                                             <input type="text" name="price" id="price_{{farmerProduct.id}}">€
                                             <input type="submit" name="addProduct" value="Ajouter à mon panier">
                                         </form>
@@ -74,13 +71,6 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                 refresh();
             });
 
-            $("#kilos").change(function(){
-                refresh();
-            });
-
-            $("#unitee").change(function(){
-                refresh();
-            });
 
             function refresh(){
                 $.ajax({
@@ -89,13 +79,7 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                     data:
                     {
                         product : $('#product').val(),
-                        companyPostCode : $('#companyPostCode').val(),
-                        parameters : [
-                            [
-                                ["kilo", $('#kilos').val()],
-                                ["unitee", $('#unitee').val()]
-                            ]
-                        ]
+                        companyPostCode : $('#companyPostCode').val()
                     },
                     dataType: 'json',
                     success: function(response)

@@ -1,6 +1,5 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
-
 <!--  Titre Page -->
 <div class="row">
     <div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;">
@@ -58,14 +57,9 @@
             </div>
             <div class="content-fiche-produit">
                 <div class="champ-fiche-produit">
-                    <span>{{ form_errors(form.unitType) }}</span>
-                    <span class="label-fiche-produit-type-unite">{{ form_label(form.unitType) }}</span>
-                    <span class="type-unite-form">{{ form_widget(form.unitType) }}</span>
-                </div>
-                <div class="champ-fiche-produit">
                     <span>{{ form_errors(form.unitPrice) }}</span>
                     <span class="label-fiche-produit-unitPrice">{{ form_label(form.unitPrice) }}</span>
-                    <span class="unitPrice-form">{{ form_widget(form.unitPrice) }}</span>
+                    <span class="unitPrice-form">{{ form_widget(form.unitPrice) }} / <span id="unityType"></span></span>
                 </div>
                 <div class="champ-fiche-produit">
                     <span>{{ form_errors(form.unitQuantity) }}</span>
@@ -79,9 +73,47 @@
     <!-- Bouton "Valider" -->
     <div class="row">
         <div class="span3 offset9" id="button-add-product">
+            {{ form_rest(form) }}
             <button class="btn-validate-add-product" type="submit" form="form-ajout-produit">Valider</button>
         </div>
     </div>
 </form>
+<script type="text/javascript">
+    $(function () {
+        jQuery(document).ready(function() {
 
+            unitPrice($('#{{ form.product.vars.id }} option:selected').val());
+
+            $('#{{ form.product.vars.id }}').change(function(){
+                var idProduct = $('#{{ form.product.vars.id }} option:selected').val();
+                unitPrice(idProduct);
+            });
+
+            function unitPrice(idProduct)
+            {
+                $.ajax({
+                    url: '{{ path('oui_eat_french_farmer_product_ajax_unity_type') }}',
+                    type: 'POST',
+                    data:
+                    {
+                        'product' : idProduct
+                    },
+                    dataType: 'json',
+                    success: function(response)
+                    {
+                        if ( typeof response === 'string' )
+                        {
+                            $('#unityType').html(response.replace(/"/g, ''));
+                        }
+                        else
+                        {
+                            $('#unityType').html(response);
+                        }
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>
 {% endblock %}

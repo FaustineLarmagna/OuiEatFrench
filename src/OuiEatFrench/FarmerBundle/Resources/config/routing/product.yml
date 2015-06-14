@@ -21,3 +21,8 @@ oui_eat_french_farmer_product_edit:
 oui_eat_french_farmer_product_delete:
     pattern:  /{id}/supprimer
     defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:delete }
+
+# Remove product from the farmer's stand
+oui_eat_french_farmer_product_ajax_unity_type:
+    pattern:  /ajax/unity/type
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerProduct:ajaxUnityType }
