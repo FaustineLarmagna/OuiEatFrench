@@ -2,13 +2,13 @@
 {% block title %}Mon Stand Producteur{% endblock %}
 {% block body %}
 <div class="row navbar-producteurs">
-    <div class="span2 offset5" style="color:#fff">
+    <div class="span2 offset5" style="color:#fff;margin-left: 500px;">
         <a href="{{ path('oui_eat_french_farmer_user_index') }}">
             <img src="{{ asset('ouieatfrench/farmer/img/oef-professionnels.png')}}">
         </a>
     </div>
-    <ul class="offset8">
-        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_user_index' %}active{% endif %}">
+    <ul class="offset1">
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_user_index' %}active{% endif %}" style="margin-left: 30px;">
             <a href="{{ path('oui_eat_french_farmer_user_index') }}">
                 <img style="height:15px;position: relative;bottom:3px;" src="{{ asset('ouieatfrench/farmer/img/maison.png')}}">
             </a>
@@ -29,9 +29,9 @@
             {% endif %}
         </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_product_index' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_farmer_product_index') }}">MON CATALOGUE</a>
+            <a href="{{ path('oui_eat_french_farmer_product_index') }}">CATALOGUE</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_product_index' %}
-                <div class="arrow-up"  style="left: 53px;"></div>
+                <div class="arrow-up"  style="left: 30px;"></div>
             {% endif %}
         </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_stock_index' %}active{% endif %}">

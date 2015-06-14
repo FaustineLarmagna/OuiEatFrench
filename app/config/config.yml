@@ -78,3 +78,21 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - { name: twig.extension }
+
+payum:
+    security:
+        token_storage:
+            OuiEatFrench\PaymentBundle\Entity\PaymentToken: { doctrine: orm }
+
+    storages:
+        OuiEatFrench\PaymentBundle\Entity\Order: { doctrine: orm }
+
+    gateways:
+        offline:
+            offline: ~
+        ouieatfrench_command_paypal:
+            paypal_express_checkout_nvp:
+                username:  'dimtrek.hunter-facilitator_api1.hotmail.fr'
+                password:  'VTB9V6GGKP2ATMMB'
+                signature: 'Ac-MO9Z533rlg7fSZzdoc9aO3CAAABiOiucV8GTP07z1RQF.vqP1Qaae'
+                sandbox: true

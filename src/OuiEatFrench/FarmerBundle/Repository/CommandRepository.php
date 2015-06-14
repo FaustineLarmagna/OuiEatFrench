@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommandRepository extends EntityRepository
 {
+	public function getCommandsInProgress($farmer, $paidStatus, $readyStatus) 
+	{
+        $q = $this->createQueryBuilder('c')
+            ->select ('c')
+            ->where('c.status = :paidStatus OR c.status = :readyStatus')
+            ->andWhere('c.farmer = :farmer')
+            ->setParameter('paidStatus', $paidStatus)
+            ->setParameter('readyStatus', $readyStatus)
+            ->setParameter('farmer', $farmer)
+            ->getQuery();
+
+        return $q->getResult();
+	}
 }

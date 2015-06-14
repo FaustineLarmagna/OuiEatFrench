@@ -36,15 +36,9 @@ class UnitType
      */
     protected $products;
 
-    /**
-     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProductClone", mappedBy="unitType")
-     */
-    protected $farmerProductClones;
-
 
     public function __construct() {
-        $this->farmerProduct = new ArrayCollection();
-        $this->farmerProductClones = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function __toString()
@@ -117,39 +111,5 @@ class UnitType
     public function getProducts()
     {
         return $this->products;
-    }
-
-    /**
-     * Add farmerProductClone
-     *
-     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
-     *
-     * @return UnitType
-     */
-    public function addFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
-    {
-        $this->farmerProductClones[] = $farmerProductClone;
-
-        return $this;
-    }
-
-    /**
-     * Remove farmerProductClone
-     *
-     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone
-     */
-    public function removeFarmerProductClone(\OuiEatFrench\FarmerBundle\Entity\FarmerProductClone $farmerProductClone)
-    {
-        $this->farmerProductClones->removeElement($farmerProductClone);
-    }
-
-    /**
-     * Get farmerProductClones
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFarmerProductClones()
-    {
-        return $this->farmerProductClones;
     }
 }

@@ -1,8 +1,67 @@
 {% extends 'base.html.twig' %}
-{% block title %}{% endblock %}
+{% block title %}OuiEatFrench | Produits{% endblock %}
 {% block body %}
-	{% block content %}
-
-	{% endblock %}
+<div class="row navbar-commerce">
+    <div class="span2 offset2" style="color:#fff;">
+        <a href="{{ path('oui_eat_french_public_home_index') }}">
+            <img src="{{ asset('ouieatfrench/theme/assets2/img/logo.png')}}">
+        </a>
+    </div>
+    <ul class="offset9">
+{#         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_user_index' %}active{% endif %}" style="margin-left: 30px;">
+            <a href="{{ path('oui_eat_french_farmer_user_index') }}">
+                <img style="height:15px;position: relative;bottom:3px;" src="{{ asset('ouieatfrench/farmer/img/maison.png')}}">
+            </a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_user_index' %}
+                <div class="arrow-up-client"></div>
+            {% endif %}
+        </li> #}
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_product_index' %}active-client{% endif %}">
+            <a href="{{ path('oui_eat_french_public_product_index', { 'farmerId': app.user.id}) }}">LES PRODUITS</a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_public_product_index' %}
+                <div class="arrow-up-client" style="left: 50px;"></div>
+            {% endif %}
+        </li>
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_command_index' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_farmer_command_index') }}">LES PRODUCTEURS</a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_command_index' %}
+                <div class="arrow-up-client"  style="left: 40px;"></div>
+            {% endif %}
+        </li>
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_product_index' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_farmer_product_index') }}">MON COMPTE</a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_product_index' %}
+                <div class="arrow-up-client"  style="left: 30px;"></div>
+            {% endif %}
+        </li>
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_stock_index' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_farmer_stock_index') }}" style="color:#333333">
+            	<img src="{{ asset('ouieatfrench/theme/assets2/img/picto_panier.png')}}">
+            	MON PANIER
+            </a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_stock_index' %}
+                <div class="arrow-up-client"  style="left: 15px;"></div>
+            {% endif %}
+        </li>
+    </ul>
+</div>
+    {% block page_title %}
+    {% endblock %}
+    <div class="body-container-client">
+        {% block content %}
+        {% endblock %}
+    </div>
+<div class="row" style="background-color: #fff; text-align:center">
+    <div class="bottom-link">
+      <a href="">CGV</a> |
+      <a href="">Foire aux questions</a> |
+      <a href="">La politique de confidentialité</a> |
+      <a href="">Qui sommes-nous ?</a> |
+      <a href="">Comment ça marche ?</a>
+    </div>
+    <div class="bottom-img">
+        <img src="{{ asset('ouieatfrench/farmer/img/login-logo-footer.png')}}">
+    </div>
+</div>
 {% endblock %}
 {% block javascripts %}{{ parent() }}{% endblock %}

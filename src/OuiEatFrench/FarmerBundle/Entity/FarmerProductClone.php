@@ -44,14 +44,6 @@ class FarmerProductClone
     private $selling = false;
 
     /**
-     * Like "kg", "barquette", "pièce", "filet"
-     *
-     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UnitType", inversedBy="farmerProductClones")
-     * @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
-     */
-    private $unitType;
-
-    /**
      * @var integer
      *
      * @Assert\NotBlank()
@@ -134,7 +126,6 @@ class FarmerProductClone
     {
         $this->setProduct($farmerProduct->getProduct());
         $this->setFarmer($farmerProduct->getFarmer());
-        $this->setUnitType($farmerProduct->getUnitType());
         $this->setUnitPrice($farmerProduct->getUnitPrice());
         $this->setUnitQuantity($farmerProduct->getUnitQuantity());
         $this->setUnitMinimum($farmerProduct->getUnitMinimum());
@@ -248,28 +239,6 @@ class FarmerProductClone
     public function getUnitPrice()
     {
         return $this->unitPrice;
-    }
-
-    /**
-     * Set \OuiEatFrench\AdminBundle\Entity\UnitType
-     *
-     * @param \OuiEatFrench\AdminBundle\Entity\UnitType $unitType
-     * @return FarmerProductClone
-     */
-    public function setUnitType($unitType)
-    {
-        $this->unitType = $unitType;
-        return $this;
-    }
-
-    /**
-     * Get \OuiEatFrench\AdminBundle\Entity\UnitType
-     *
-     * @return \OuiEatFrench\AdminBundle\Entity\UnitType
-     */
-    public function getUnitType()
-    {
-        return $this->unitType;
     }
 
     /**

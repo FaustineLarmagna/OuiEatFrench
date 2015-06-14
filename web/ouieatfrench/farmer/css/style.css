@@ -349,7 +349,7 @@ hr
 
 #farmerproducts
 {
-	margin-left: 6%;
+	margin-left: 9%;
 }
 
 .type-commandes
@@ -489,7 +489,8 @@ hr
 .valider-commande
 {
 	cursor: pointer;
-	margin-left: 290px;
+	margin-left: 180px;
+	text-align: center;
 }
 
 .cloturer-commande i
@@ -714,6 +715,7 @@ body
 	margin-right: 10px;
 	width: 217px;
 	color:#8c9087;
+	text-align: center;
 }
 
 .product-best-selling .span2:last-child
@@ -727,12 +729,11 @@ body
 {
 	height: 40px;
 	line-height: 40px;
-	margin-left: 10px;
 }
 
 .product-best-selling .span2 img
 {
-	height: 163px;
+	height: 165px;
 }
 
 .product-best-selling
@@ -1300,4 +1301,242 @@ body
 	line-height: 70px;
 	width: 182px;
 	color: #fff;
+}
+
+.new-product a:hover
+{
+	text-decoration: none;
+}
+
+
+.navbar-commerce li
+{
+ 	float:left;
+ 	list-style-type: none;
+ 	line-height: 70px;
+ 	color: #fff;
+ 	padding-left: 30px;
+ 	padding-right: 30px;
+ 	height: 70px;
+ 	font-family: "Roboto";
+ 	font-size: 18px;
+}
+
+
+.navbar-commerce
+{
+	height: 70px;
+	line-height: 70px;
+	background: #f9ac48;
+}
+
+.navbar-commerce li img
+{
+	position: relative;
+	bottom: 5px;
+}
+
+.navbar-commerce li a
+{
+	color: #fff;
+}
+
+
+.navbar-commerce li a
+{
+	text-decoration: none;
+}
+
+
+.navbar-commerce li a:hover
+{
+	color: #333333;
+}
+
+.active-client
+{
+	font-weight: 600;
+}
+
+.body-container-client
+{
+	background: #fff url('../img/pattern-ble-02.png') repeat;
+	padding-bottom: 60px;
+}
+
+#wrapper
+{
+	width: 1160px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.title-product-client
+{
+	font-size: 40px;
+	text-align: center;
+	color: #333333;
+	margin-top: 100px;
+	margin-bottom: 60px;
+}
+
+.filter-product
+{
+	border:2px solid #a3d634;
+}
+
+#title-filter-product
+{
+	margin-left: 0px;
+	text-align: center;
+	color: #a3d634;
+	font-weight: 600;
+	margin-top: 20px;
+	margin-bottom:20px;
+}
+
+#filter-type, #filter-saison
+{
+	margin-left: 0px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#filter-type label, #filter-saison label
+{
+	display:inline-block;
+	width:100px;
+	text-align: left;
+	position: relative;
+	top: 3px;
+	left: 15px;
+	color: #333333;
+	font-weight: 600;
+}
+
+#title-filter-aliments, #title-filter-saison, #title-filter-calories
+{
+	margin-left: 0px;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #a3d634;
+	font-weight: 600;
+}
+
+#filter-aliments
+{
+	margin-left: 0px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#filter-aliments select
+{
+	border-radius: 0px;
+	box-shadow: none;
+	height: 35px;
+	width: 150px;
+}
+
+#filter-calories
+{
+	margin-left: 0px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#slider-range-min
+{
+	width: 150px;
+	margin:auto;
+	width: 130px;
+	margin-bottom: 10px;
+}
+
+#button-validate-form
+{
+	margin-left: 0px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#validate-filter
+{
+	box-shadow: none;
+	border-radius: 0px;
+	color: #fff;
+	background-color: #a3d634;
+	border:0px;
+	width: 75px;
+	height: 40px;
+}
+
+.product-client
+{
+	margin-bottom: 10px;
+	background-color: red;
+}
+
+.bottom-name-product
+{
+	background-color: rgba(255,255,255, 0.7);
+	height: 40px;
+	line-height: 40px;
+	margin-top: 160px;
+	color: #333333;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+#pagination-product
+{
+	font-size: 17px;
+	margin-top: 40px;
+}
+
+#pagination-product a
+{
+	color:#979797;
+}
+
+#pagination-product a:hover
+{
+	color:#f9ac48;
+	text-decoration: none;
+}
+
+.arrow-left-pagination {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	
+	border-right:10px solid #f9ac48; 
+	display: inline-block;
+	position: relative;
+	top: 2px;
+}
+
+.arrow-right-pagination {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent; 
+	
+	border-left:10px solid #f9ac48; 
+	display: inline-block;
+	position: relative;
+	top: 2px;
+}
+
+.arrow-up-client
+{
+	width: 0; 
+	height: 0; 
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #fff;
+	position: relative;
+	bottom: 5px;
+	left: 2px;
 }
