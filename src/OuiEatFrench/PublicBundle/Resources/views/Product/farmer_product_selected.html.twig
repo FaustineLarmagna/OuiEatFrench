@@ -42,7 +42,7 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
                                     <td>
                                         <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
                                             <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
-                                            <input type="text" name="price" id="price_{{farmerProduct.id}}">€
+                                            <input type="text" name="price" id="price_{{farmerProduct.id}}">&euro;
                                             <input type="submit" name="addProduct" value="Ajouter à mon panier">
                                         </form>
                                     </td>

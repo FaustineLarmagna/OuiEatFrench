@@ -2,7 +2,7 @@
 {% block content %}
 <div class="row">
     <div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;">
-        <p class="titre-index">Bienvenue Jean.R</p>
+        <p class="titre-index">Bienvenue {{farmer.firstname}}.{{farmer.lastname|first|capitalize}}</p>
     </div>
 </div>
 <div class="row">
@@ -13,19 +13,19 @@
         <div class="row chiffres-commandes">
             <div class="span2 chiffres-data">
                 Total de commande <br>
-                <span class="bold">17</span>
+                <span class="bold">{{commands_inprogress|length + commands_closed|length}}</span>
             </div>
             <div class="span2 chiffres-data">
                 Commandes en cours <br>
-                <span class="bold">3</span>
+                <span class="bold">{{commands_inprogress|length}}</span>
             </div>
             <div class="span2 chiffres-data">
-                Commandes validées <br>
-                <span class="bold">14</span>
+                Commandes clôturées <br>
+                <span class="bold">{{commands_closed|length}}</span>
             </div>
             <div class="span2 chiffres-data" style="border-right: 0px;">
                 Total de gain <br>
-               <span class="bold">570.30&euro;</span>
+               <span class="bold">{{total_benefice|number_format(2, '.', ',')}}&euro;</span>
             </div>
         </div>
     </div>
@@ -36,22 +36,12 @@
             Vos meilleures ventes
         </div>
         <div class="row product-best-selling">
+            {% for sell in my_best_sells %}
             <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/mangue.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Mangues</span>
+                 <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
+                 <span class="name-product-best">{{sell.product.name|capitalize}}</span>
             </div>
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/abricot.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Abricots</span>
-            </div>
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/cerise.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Cerises</span>
-            </div>
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/orange.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Oranges</span>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -62,22 +52,12 @@
             Les produits les plus demandés de la région
         </div>
         <div class="row product-best-selling">
+            {% for sell in all_best_sells %}
             <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/mangue.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Mangues</span>
+                 <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
+                 <span class="name-product-best">{{sell.product.name|capitalize}}</span>
             </div>
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/abricot.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Abricots</span>
-            </div>
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/cerise.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Cerises</span>
-            </div>
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/orange.jpg')}}" height="185" width="250" alt="image de mangue" class="product_img"> <br>
-                 <span class="name-product-best">Oranges</span>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

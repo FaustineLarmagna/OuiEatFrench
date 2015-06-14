@@ -185,7 +185,7 @@ class CartController extends Controller
         }
 
         $user = $this->get('security.context')->getToken()->getUser();
-        if ($user != $order->getClient()) {
+        if ($user != $order->getClient() || $order->getDetails()['ACK'] !== "Success") {
             $this->get('session')->getFlashBag()->add('error', "Une erreur s'est produite. Si l'erreur persiste, veuillez contacter un administrateur.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
@@ -237,6 +237,7 @@ class CartController extends Controller
                 $command->setCart($cart);
                 $command->setFarmer($farmerProduct->getFarmer());
                 $command->setStatus($commandStatus);
+                $command->setDate(new \DateTime);
                 
                 $em->persist($command);
                 $farmerProductClone->setCommand($command);

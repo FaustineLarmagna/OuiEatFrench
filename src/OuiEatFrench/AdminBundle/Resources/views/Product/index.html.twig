@@ -22,6 +22,7 @@
         <td><strong>Description</strong></td>
         <td><strong>Saisons</strong></td>
         <td><strong>Calories pour 100g</strong></td>
+        <td><strong>Type unité</strong></td>
         <td><strong>Actions</strong></td>
     </tr>
     </thead>
@@ -37,6 +38,7 @@
                 {% endfor %}
             </td>
             <td>{{ entity.calories }}</td>
+            <td>{{ entity.unitType.name }}</td>
             <td>
                 <ul>
                     <li><a href={{ path('oui_eat_french_admin_product_edit', {'id' : entity.id}) }}>Edition</a></li>

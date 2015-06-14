@@ -44,9 +44,24 @@ class UserFarmerController extends Controller
 
     public function indexAction()
     {
-        $entities = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
-        $data["entities"] = $entities;
-        $data['farmer'] = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $farmer = $this->get('security.context')->getToken()->getUser();
+        $paidStatus = $em->getRepository('OuiEatFrenchAdminBundle:CommandStatus')->findOneByName('paid');
+        $readyStatus = $em->getRepository('OuiEatFrenchAdminBundle:CommandStatus')->findOneByName('ready');
+        $closedStatus = $em->getRepository('OuiEatFrenchAdminBundle:CommandStatus')->findOneByName('closed');
+        $data['farmer'] = $farmer;
+        $data['commands_inprogress'] = $em->getRepository('OuiEatFrenchFarmerBundle:Command')->getCommandsInProgress($farmer, $paidStatus, $readyStatus);
+        $data['commands_closed'] = $em->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array(
+            'farmer' => $farmer,
+            'status' => $closedStatus
+        ));
+
+        $myBestSells = $this->getMyBestSells($farmer, $data['commands_closed']);
+        $allBestSells = $this->getAllBestSells($em);
+
+        $data['total_benefice'] = $myBestSells['benefice'];
+        $data['my_best_sells'] = $myBestSells['best_sells'];
+        $data['all_best_sells'] = $allBestSells;
 
         return $this->render('OuiEatFrenchFarmerBundle:UserFarmer:index.html.twig', $data);
     }
@@ -132,5 +147,94 @@ class UserFarmerController extends Controller
 
         $name = $image->getClientOriginalName();
         $image->move($entity->getUploadRootDir(), $name);
+    }
+
+    private function getMyBestSells($farmer, $commands) {
+        $totalBenefice = 0;
+        $bestSells = array();
+        foreach ($commands as $command) {
+            foreach ($command->getCart()->getFarmerProductCarts() as $productCart) {
+                if ($productCart->getFarmerProduct()->getFarmer()->getId() == $farmer->getId()) {
+                    $product = $productCart->getFarmerProduct()->getProduct();
+                    $productId = $product->getId();
+                    $totalBenefice += ($productCart->getFarmerProduct()->getUnitPrice() * $productCart->getUnitQuantity());
+                    if (array_key_exists($productId, $bestSells)) {
+                        $bestSells[$productId]['quantity'] += $productCart->getUnitQuantity();
+                    } else {
+                        $bestSells[$productId]['quantity'] = $productCart->getUnitQuantity();
+                        $bestSells[$productId]['product'] = $product;
+                    }
+                }
+            }
+        }
+
+        if (count($bestSells) > 4) {
+            $reducedBestSells = array();
+            while (count($reducedBestSells) < 4) {
+                $max = 0;
+                $id = 0;
+                $product = 0;
+                foreach($bestSells as $productId => $array) {
+                    if ($max !== 0 && $array['quantity'] > $max) {
+                        $max = $array['quantity'];
+                        $id = $productId;
+                        $product = $array['product'];
+                    } elseif ($max === 0) {
+                        $max = $array['quantity'];
+                        $id = $productId;
+                        $product = $array['product'];
+                    }
+                }
+                $reducedBestSells[$id]['quantity'] = $max;
+                $reducedBestSells[$id]['product'] = $product;
+                unset($bestSells[$id]);
+            }
+            $bestSells = $reducedBestSells;
+        }
+
+        return array('benefice' => $totalBenefice, 'best_sells' => $bestSells);
+    }
+
+    private function getAllBestSells($em) {
+        $commands = $em->getRepository('OuiEatFrenchFarmerBundle:Command')->findAll();
+        $bestSells = array();
+        foreach ($commands as $command) {
+            foreach ($command->getCart()->getFarmerProductCarts() as $productCart) {
+                $product = $productCart->getFarmerProduct()->getProduct();
+                $productId = $product->getId();
+                if (array_key_exists($productId, $bestSells)) {
+                    $bestSells[$productId]['quantity'] += $productCart->getUnitQuantity();
+                } else {
+                    $bestSells[$productId]['quantity'] = $productCart->getUnitQuantity();
+                    $bestSells[$productId]['product'] = $product;
+                }
+            }
+        }
+
+        if (count($bestSells) > 4) {
+            $reducedBestSells = array();
+            while (count($reducedBestSells) < 4) {
+                $max = 0;
+                $id = 0;
+                $product = 0;
+                foreach($bestSells as $productId => $array) {
+                    if ($max !== 0 && $array['quantity'] > $max) {
+                        $max = $array['quantity'];
+                        $id = $productId;
+                        $product = $array['product'];
+                    } elseif ($max === 0) {
+                        $max = $array['quantity'];
+                        $id = $productId;
+                        $product = $array['product'];
+                    }
+                }
+                $reducedBestSells[$id]['quantity'] = $max;
+                $reducedBestSells[$id]['product'] = $product;
+                unset($bestSells[$id]);
+            }
+            $bestSells = $reducedBestSells;
+        }
+
+        return $bestSells;
     }
 }

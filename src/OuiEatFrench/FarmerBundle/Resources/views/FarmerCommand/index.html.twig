@@ -26,13 +26,13 @@
 				<div class="span10 offset5 commande-producteur">
 					<div class="row details-commande">
 						<div class="span2 date-livraison">
-							Pour le 12/03
+							Pour le {{command.date|date_modify("+5 day")|date("d/m")}}
 						</div>
 						<div class="span1 numero-commande">
 							# {{command.id}}
 						</div>
 						<div class="span3 nom-client">
-							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produits)
+							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produit(s))
 						</div>
 						<div class="offset2 span1 valider-commande">
 							<i class="icon-ok"></i> Valider
@@ -46,13 +46,13 @@
 						{% for farmerProductClone in command.farmerProductClones %}
 							{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
 							<div class="span2 name-product">
-									{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}}({{farmerProductClone.product.unitType.name}})</span>
+									{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}} {{farmerProductClone.product.unitType.name}}</span>
 							</div>
 						{% endfor %}
 					</div>
 					<div class="row prix-commande">
 						<div class="span1 offset8 prix-total">
-							Total : <span class="bold">{{total|number_format(2, '.', ',')}}€</span>
+							Total : <span class="bold">{{total|number_format(2, '.', ',')}}&euro;</span>
 						</div>
 					</div>
 				</div>

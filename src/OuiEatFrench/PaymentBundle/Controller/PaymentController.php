@@ -32,14 +32,6 @@ class PaymentController extends Controller
             }
 
             $paymentName = 'ouieatfrench_command_paypal';
-            $eBook = array(
-                'author' => 'Jules Verne',
-                'name' => 'The Mysterious Island',
-                'description' => 'The Mysterious Island is a novel by Jules Verne, published in 1874.',
-                'price' => 8.64,
-                'currency_symbol' => '$',
-                'currency' => 'USD'
-            );
 
             $date = new \DateTime;
             $storage = $this->get('payum')->getStorage('OuiEatFrench\PaymentBundle\Entity\Order');
@@ -53,9 +45,15 @@ class PaymentController extends Controller
             $totalAmount = 0;
             $totalQuantity = 0;
             $i = 0;
+            $farmers = array();
             foreach ($cart->getFarmerProductCarts() as $key => $farmerProductCart) {
                 $i++;
                 $farmerProduct = $farmerProductCart->getFarmerProduct();
+                $farmerId = $farmerProduct->getFarmer()->getId();
+                if (!in_array($farmerId, $farmers)) {
+                    $farmers[] = $farmerId;
+                }
+
                 $product = $farmerProduct->getProduct();
                 $quantity = $farmerProductCart->getUnitQuantity();
                 $totalQuantity += $quantity;
@@ -68,15 +66,16 @@ class PaymentController extends Controller
                 $paymentDetails['L_PAYMENTREQUEST_0_DESC'.$key] = $product->getDescription();
             }
 
+            $shippingAmount = ($_GET['shipping'] == 0) ? count($farmers) * self::SHIPPING_AMOUNT : 0;
             $paymentDetails['LOCALECODE'] = 'FR';
             $paymentDetails['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
             $paymentDetails['PAYMENTREQUEST_0_ITEMAMT'] = $totalAmount;
-            $paymentDetails['PAYMENTREQUEST_0_TAXAMT'] = $totalAmount * self::TAX;
-            $paymentDetails['PAYMENTREQUEST_0_SHIPPINGAMT'] = self::SHIPPING_AMOUNT;
+            $paymentDetails['PAYMENTREQUEST_0_TAXAMT'] = floor($totalAmount * self::TAX);
+            $paymentDetails['PAYMENTREQUEST_0_SHIPPINGAMT'] = $shippingAmount;
             $paymentDetails['PAYMENTREQUEST_0_HANDLINGAMT'] = 0.00;
             $paymentDetails['PAYMENTREQUEST_0_QTY'] = $totalQuantity;
-            $paymentDetails['PAYMENTREQUEST_0_AMT'] = self::SHIPPING_AMOUNT + $paymentDetails['PAYMENTREQUEST_0_TAXAMT'] + $totalAmount;
-            $paymentDetails->setTotalAmount($totalAmount + self::SHIPPING_AMOUNT);
+            $paymentDetails['PAYMENTREQUEST_0_AMT'] = $shippingAmount + $paymentDetails['PAYMENTREQUEST_0_TAXAMT'] + $totalAmount;
+            $paymentDetails->setTotalAmount($totalAmount + $shippingAmount);
 
             $storage->update($paymentDetails);
             $captureToken = $this->getTokenFactory()->createCaptureToken(

@@ -24,8 +24,15 @@ class Command
     private $id;
 
     /**
+     * @var \Datetime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
      * @Assert\NotBlank()
-     * @ORM\ManyToOne(targetEntity="OuiEatFrench\PublicBundle\Entity\Cart", inversedBy="command")
+     * @ORM\ManyToOne(targetEntity="OuiEatFrench\PublicBundle\Entity\Cart", inversedBy="commands")
      * @ORM\JoinColumn(name="cart_id", referencedColumnName="id")
      */
     private $cart;
@@ -176,5 +183,29 @@ class Command
     public function getFarmerProductClones()
     {
         return $this->farmerProductClones;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Command
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

@@ -38,16 +38,13 @@ class FarmerProductController extends Controller
 
         if($request->isXmlHttpRequest())
         {
-
             $productId = $request->request->get('product');
-            $farmerProduct = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($productId);
-            if ($farmerProduct and $farmerProduct->getProduct() and $farmerProduct->getProduct()->getUnitType())
-            {
-                return new JsonResponse(json_encode($farmerProduct->getProduct()->getUnitType()->getName()));
+            $product = $this->getDoctrine()->getRepository('OuiEatFrenchAdminBundle:Product')->find($productId);
+            if ($product->getUnitType()) {
+                return new JsonResponse(json_encode(htmlentities($product->getUnitType()->getName())));
             }
-
-            return new JsonResponse();
         }
+
         return new JsonResponse();
     }
 

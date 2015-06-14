@@ -23,4 +23,9 @@ class UserFarmerRepository extends EntityRepository
 
         return $q->getResult();
     }
+
+    public function getAllBestSells()
+    {
+
+    }
 }

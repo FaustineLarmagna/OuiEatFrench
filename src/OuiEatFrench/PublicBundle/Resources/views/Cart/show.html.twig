@@ -35,7 +35,7 @@
 			            		</form>
 			            	</td>
 				            <td>{{ farmerProductCart.farmerProduct.product.unitType.name }}</td>
-				            <td>{{ price|number_format(2, '.', ',') }}€</td>
+				            <td>{{ price|number_format(2, '.', ',') }}&euro;</td>
 				            <td><a href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}">Supprimer</a></td>
 				        </tr>
 				        {% set total = total+price %}
@@ -46,13 +46,27 @@
 				    </tr>
 				</tbody>
 			</table>
+			<input type="checkbox" name="shipping" value="imgoing" id="shippingCheckbox"><label for="shippingCheckbox" style="display:inline-block">&nbsp;Je vais chercher moi-même ma commande</label><br><br>
 		    <table style="width:500px;">
 		    	<tr>
-		    		<td><a href="{{ path('oui_eat_french_payment_prepare_paypal') }}" class="btn btn-action">Valider</a></td>
+		    		<td><a href="" class="btn btn-action" id="validate">Valider</a></td>
 		    		<td><a href="{{ path('oui_eat_french_public_cart_reset') }}" class="btn btn-danger">Vider le panier</a></td>
 		    	</tr>
 		    </table>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$('#validate').click(function() {
+		var url = "{{ path('oui_eat_french_payment_prepare_paypal', {shipping : 'change_shipping'}) }}";
+		if ($("input[name='shipping']").is(':checked')) {
+			var newurl = url.replace('change_shipping', '1');
+		} else {
+			var newurl = url.replace('change_shipping', '0');
+		}
+
+		$(this).attr('href', newurl);
+	});
+</script>
 {% endblock %}
