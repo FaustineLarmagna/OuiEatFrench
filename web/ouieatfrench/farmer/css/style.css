@@ -1272,3 +1272,32 @@ body
 	bottom: 5px;
 	left: 2px;
 }
+
+.no-disponible
+{
+	text-decoration: underline;
+	display: inline-block;
+	width: 177px;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.disponible-no
+{
+	background-color: #eccc15;
+	height: 70px;
+	display: inline-block;
+	line-height: 70px;
+	width: 182px;
+	color: #fff;
+}
+
+.disponible-modif
+{
+	background-color: #a3d634;
+	height: 70px;
+	display: inline-block;
+	line-height: 70px;
+	width: 182px;
+	color: #fff;
+}

@@ -50,6 +50,8 @@ class AvailabilityFarmerController extends Controller
             }
             $data["id"] = $id;
             $data["form"] = $form->createView();
+            $entity = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:AvailabilityFarmer')->findOneBy(array('farmer' => $farmer));
+            $data["entity"] = $entity;
             $data["route"] = "oui_eat_french_farmer_availability_edit";
         }
         return $this->render('OuiEatFrenchFarmerBundle:AvailabilityFarmer:edit.html.twig', $data);
