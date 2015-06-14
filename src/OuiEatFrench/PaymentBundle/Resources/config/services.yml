@@ -1,0 +1,7 @@
+services:
+    payum.buzz.client:
+        class: Buzz\Client\ClientInterface
+        factory_class: Payum\Core\Bridge\Buzz\ClientFactory
+        factory_method: createCurl
+        calls:
+            - [setVerifyPeer, [false]]

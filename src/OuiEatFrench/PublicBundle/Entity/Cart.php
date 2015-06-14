@@ -57,11 +57,17 @@ class Cart
     /**
      * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\Command", mappedBy="cart")
      */
-    protected $command;
+    protected $commands;
+
+    /**
+     * @ORM\OneToOne(targetEntity="OuiEatFrench\PaymentBundle\Entity\Order", inversedBy="cart")
+     * @ORM\JoinColumn(name="order_id", referencedColumnName="id")
+     */
+    protected $order;
 
     public function __construct() {
         $this->farmerProductCarts = new ArrayCollection();
-        $this->command = new ArrayCollection();
+        $this->commands = new ArrayCollection();
     }
 
     public function __toString()
@@ -204,5 +210,63 @@ class Cart
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Add command
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\Command $command
+     *
+     * @return Cart
+     */
+    public function addCommand(\OuiEatFrench\FarmerBundle\Entity\Command $command)
+    {
+        $this->commands[] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Remove command
+     *
+     * @param \OuiEatFrench\FarmerBundle\Entity\Command $command
+     */
+    public function removeCommand(\OuiEatFrench\FarmerBundle\Entity\Command $command)
+    {
+        $this->commands->removeElement($command);
+    }
+
+    /**
+     * Get commands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommands()
+    {
+        return $this->commands;
+    }
+
+    /**
+     * Set order
+     *
+     * @param \OuiEatFrench\PaymentBundle\Entity\Order $order
+     *
+     * @return Cart
+     */
+    public function setOrder(\OuiEatFrench\PaymentBundle\Entity\Order $order = null)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return \OuiEatFrench\PaymentBundle\Entity\Order
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 }

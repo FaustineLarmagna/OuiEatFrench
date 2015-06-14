@@ -15,7 +15,7 @@ oui_eat_french_public_cart_reset:
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:resetCart }
 
 oui_eat_french_public_cart_valid:
-    pattern:  /valider
+    pattern:  /valider/{order}
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:validCart }
 
 oui_eat_french_public_cart_modify:
