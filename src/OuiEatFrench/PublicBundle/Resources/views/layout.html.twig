@@ -17,7 +17,7 @@
             {% endif %}
         </li> #}
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_product_index' %}active-client{% endif %}">
-            <a href="{{ path('oui_eat_french_public_product_index', { 'farmerId': app.user.id}) }}">LES PRODUITS</a>
+            <a href="{{ path('oui_eat_french_public_product_index') }}">LES PRODUITS</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_public_product_index' %}
                 <div class="arrow-up-client" style="left: 50px;"></div>
             {% endif %}
