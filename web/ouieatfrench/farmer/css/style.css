@@ -1301,3 +1301,8 @@ body
 	width: 182px;
 	color: #fff;
 }
+
+.new-product a:hover
+{
+	text-decoration: none;
+}
