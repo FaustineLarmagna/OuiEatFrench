@@ -1,7 +1,7 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
 <div class="row">
-	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 880px;">
+	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 850px;">
 		<p class="titre-disponibilites">Mes disponibilités</p>
 	</div>
 </div>
@@ -14,7 +14,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span9 offset5">
+	<div class="span9 offset5" style="margin-left: 500px;">
 		<table class="table table-striped" id="table-disponibilites">
 			<thead>
 				<th style="width:100px;"></th>
@@ -270,7 +270,7 @@
 	</div>
 </div>
 <div class="row" style="margin-top: 20px;">
-	<div class="span5 offset8" style="margin-left:850px;">
+	<div class="span5 offset8" style="margin-left:820px;">
 		<button id="button-change-disponibilites">
 			<a href="{{ path('oui_eat_french_farmer_availability_edit', { 'id': entity.id }) }}">
 			Modifier mes disponibilités
@@ -280,18 +280,18 @@
 </div>
 
 <div class="row">
-	<div class="span9 offset5" id="separateur-dispo">
+	<div class="span9 offset5" id="separateur-dispo" style="margin-left: 500px;">
 	</div>
 </div>
 
 <div class="row">
-	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 880px;">
+	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 850px;">
 		<p class="titre-disponibilites">Mes vacances</p>
 	</div>
 </div>
 
 <div class="row">
-	<div class="span8 offset7" style="margin-bottom:20px;margin-left: 805px;">
+	<div class="span8 offset7" style="margin-bottom:20px;margin-left: 775px;">
 		<p class="description-disponibilites">
 			Programmez vos vacances, ou improvisez les ! <br>
 			<span class="offset1" style="margin-left: 90px;">Définissez ici la durée.</span>
@@ -300,14 +300,14 @@
 </div>
 
 <div class="row">
-	<div class="span9 offset5" id="checkbox-vacances">
+	<div class="span9 offset5" id="checkbox-vacances" style="margin-left: 500px;">
 		<span style="margin-left: 20px;margin-right: 20px;"><input type="checkbox" name="vacances"></span>
 		<span style="font-size: 15px;color:#999999;">Je suis en vacances (mes produits disparaîtront du store tant que cette case sera cochée), sans durée précise.</span>
 	</div>
 </div>
 
 <div class="row">
-	<div class="span9 offset5" id="programmation-vacances">
+	<div class="span9 offset5" id="programmation-vacances" style="margin-left: 500px;">
 		<div id="input-vacances">
 			<span style="margin-left: 20px;margin-right: 5px;">Je programme mes vacances : du </span>
 			<span style="margin-right: 5px;"><input type="date" name="start-vacances" /></span>

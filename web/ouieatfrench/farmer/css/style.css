@@ -349,7 +349,7 @@ hr
 
 #farmerproducts
 {
-	margin-left: 6%;
+	margin-left: 9%;
 }
 
 .type-commandes
@@ -714,6 +714,7 @@ body
 	margin-right: 10px;
 	width: 217px;
 	color:#8c9087;
+	text-align: center;
 }
 
 .product-best-selling .span2:last-child
@@ -727,12 +728,11 @@ body
 {
 	height: 40px;
 	line-height: 40px;
-	margin-left: 10px;
 }
 
 .product-best-selling .span2 img
 {
-	height: 163px;
+	height: 165px;
 }
 
 .product-best-selling
