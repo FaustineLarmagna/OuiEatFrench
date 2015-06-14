@@ -35,6 +35,11 @@ class ProductController extends Controller
         $calories = $request->request->get('calories');
         $category = $request->request->get('category');
 
+        if (!isset($filters) or $filters === null)
+        {
+            $this->get('session')->set('filters', array('name' => 'all', 'season' => 'all', 'calories' => 'all', 'category' => 0));
+        }
+
         if (!$name and !$season and !$calories and !$category)
         {
             $filters = $this->get('session')->get('filters');

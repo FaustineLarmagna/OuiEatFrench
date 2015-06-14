@@ -21,11 +21,13 @@ class FarmerProductRepository extends EntityRepository
             ->andWhere('fp.unitPrice <= :maxPrice')
             ->andWhere('p.id = :productBaseId OR p.parentProduct = :productBaseId')
             ->andWhere('f.companyPostcode LIKE :companyPostCode')
+            ->andWhere('f.holidaysCheckbox NOT LIKE :true')
             ->setParameters(array(
                 'productBaseId'     => $productBaseId,
                 'productId'         => $productId,
                 'companyPostCode'   => $companyPostCode.'%',
-                'maxPrice'          => $maxPrice
+                'maxPrice'          => $maxPrice,
+                'true'              => 1
             ))
             ->getQuery();
 
@@ -42,11 +44,13 @@ class FarmerProductRepository extends EntityRepository
             ->andWhere('fp.unitPrice <= :maxPrice')
             ->andWhere('p.id = :productBaseId OR p.parentProduct = :productBaseId')
             ->andWhere('f.companyPostcode LIKE :companyPostCode')
+            ->andWhere('f.holidaysCheckbox NOT LIKE :true')
             ->setParameters(array(
                 'productBaseId'     => $productBaseId,
                 'productId'         => $productId,
                 'companyPostCode'   => $companyPostCode.'%',
-                'maxPrice'          => $maxPrice
+                'maxPrice'          => $maxPrice,
+                'true'              => 1
             ))
             ->setFirstResult(($page - 1)*$limit)
             ->setMaxResults($limit)

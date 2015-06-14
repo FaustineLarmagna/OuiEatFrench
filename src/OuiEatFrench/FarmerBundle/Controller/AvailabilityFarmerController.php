@@ -4,9 +4,37 @@ namespace OuiEatFrench\FarmerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OuiEatFrench\FarmerBundle\Entity\AvailabilityFarmer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AvailabilityFarmerController extends Controller
 {
+    public function ajaxHolidaysCheckBoxAction()
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+            $checkbox = $request->request->get('checkbox');
+            $farmer = $this->get('security.context')->getToken()->getUser();
+            $farmer = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findOneBy(array('id' => $farmer->getId()));
+            if ($checkbox == 'true')
+            {
+                $farmer->setHolidaysCheckbox(1);
+            }
+            else
+            {
+                $farmer->setHolidaysCheckbox(0);
+            }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($farmer);
+            $em->flush();
+
+            return new JsonResponse($checkbox);
+        }
+        return new JsonResponse();
+
+    }
+
     public function indexAction()
     {
         $farmer = $this->get('security.context')->getToken()->getUser();

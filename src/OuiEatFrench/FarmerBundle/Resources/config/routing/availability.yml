@@ -5,3 +5,7 @@ oui_eat_french_farmer_availability_index:
 oui_eat_french_farmer_availability_edit:
     pattern:  /{id}/editer
     defaults: { _controller: OuiEatFrenchFarmerBundle:AvailabilityFarmer:edit }
+
+oui_eat_french_farmer_availability_set_holidays_checkBox:
+    pattern:  /ajax/vacances/checkbox
+    defaults: { _controller: OuiEatFrenchFarmerBundle:AvailabilityFarmer:ajaxHolidaysCheckBox }
