@@ -32,9 +32,9 @@ class UnitType
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProduct", mappedBy="unitType")
+     * @ORM\OneToMany(targetEntity="OuiEatFrench\AdminBundle\Entity\Product", mappedBy="unitType")
      */
-    protected $farmerProducts;
+    protected $products;
 
     /**
      * @ORM\OneToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\FarmerProductClone", mappedBy="unitType")
@@ -86,37 +86,37 @@ class UnitType
     }
 
     /**
-     * Add farmerProduct
+     * Add product
      *
-     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct
+     * @param \OuiEatFrench\AdminBundle\Entity\Product $product
      *
      * @return UnitType
      */
-    public function addFarmerProduct(\OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct)
+    public function addProduct($product)
     {
-        $this->farmerProducts[] = $farmerProduct;
+        $this->products[] = $product;
 
         return $this;
     }
 
     /**
-     * Remove farmerProduct
+     * Remove product
      *
-     * @param \OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct
+     * @param \OuiEatFrench\AdminBundle\Entity\Product $product
      */
-    public function removeFarmerProduct(\OuiEatFrench\FarmerBundle\Entity\FarmerProduct $farmerProduct)
+    public function removeProduct($product)
     {
-        $this->farmerProducts->removeElement($farmerProduct);
+        $this->products->removeElement($product);
     }
 
     /**
-     * Get farmerProducts
+     * Get Products
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFarmerProducts()
+    public function getProducts()
     {
-        return $this->farmerProducts;
+        return $this->products;
     }
 
     /**

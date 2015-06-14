@@ -73,6 +73,7 @@
     <!-- Bouton "Valider" -->
     <div class="row">
         <div class="span3 offset9" id="button-add-product">
+            {{ form_rest(form) }}
             <button class="btn-validate-add-product" type="submit" form="form-ajout-produit">Valider</button>
         </div>
     </div>
@@ -85,7 +86,6 @@
 
             $('#{{ form.product.vars.id }}').change(function(){
                 var idProduct = $('#{{ form.product.vars.id }} option:selected').val();
-
                 unitPrice(idProduct);
             });
 
@@ -101,7 +101,14 @@
                     dataType: 'json',
                     success: function(response)
                     {
-                        $('#unityType').html(response.replace(/"/g, ''));
+                        if ( typeof response === 'string' )
+                        {
+                            $('#unityType').html(response.replace(/"/g, ''));
+                        }
+                        else
+                        {
+                            $('#unityType').html(response);
+                        }
                     }
                 });
                 return false;

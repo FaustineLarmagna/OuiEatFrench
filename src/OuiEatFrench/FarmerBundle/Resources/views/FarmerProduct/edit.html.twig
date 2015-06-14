@@ -74,6 +74,7 @@
     <!-- Bouton "Valider" -->
     <div class="row">
         <div class="span3 offset9" id="button-add-product">
+            {{ form_rest(form) }}
             <button class="btn-validate-add-product" type="submit" form="form-editer-produit">Valider</button>
         </div>
     </div>
@@ -105,6 +106,10 @@
                         if ( typeof response === 'string' )
                         {
                             $('#unityType').html(response.replace(/"/g, ''));
+                        }
+                        else
+                        {
+                            $('#unityType').html(response);
                         }
                     }
                 });

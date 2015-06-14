@@ -96,7 +96,7 @@ class Product
     /**
      * Like "kg", "barquette", "pièce", "filet"
      *
-     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UnitType", inversedBy="farmerProducts")
+     * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\UnitType", inversedBy="products")
      * @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
      */
     private $unitType;

@@ -71,8 +71,6 @@ class FarmerProduct
     private $unitMinimum;
 
     /**
-     * Like "conventionnelle" "précision" "raisonnée" "intégrée" "durable" "multifonctionnelle" "biologique"
-     *
      * @ORM\ManyToOne(targetEntity="\OuiEatFrench\AdminBundle\Entity\AgricultureType", inversedBy="farmerProducts")
      * @ORM\JoinColumn(name="agriculture_id", referencedColumnName="id")
      */
@@ -106,7 +104,6 @@ class FarmerProduct
      * @ORM\OneToMany(targetEntity="OuiEatFrench\PublicBundle\Entity\FarmerProductCart", mappedBy="farmerProduct")
      */
     protected $farmerProductCarts;
-
 
     /**
      * Constructor
