@@ -10,9 +10,18 @@ class CommandController extends Controller
 {
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
         $farmer = $this->get('security.context')->getToken()->getUser();
+        $paidStatus = $em->getRepository('OuiEatFrenchAdminBundle:CommandStatus')->findOneByName('paid');
+        $readyStatus = $em->getRepository('OuiEatFrenchAdminBundle:CommandStatus')->findOneByName('ready');
+        $closedStatus = $em->getRepository('OuiEatFrenchAdminBundle:CommandStatus')->findOneByName('closed');
         $data['farmer'] = $farmer;
-        $data['commands'] = $this->getDoctrine()->getManager()->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array('farmer' => $farmer));
+        $data['commands_inprogress'] = $em->getRepository('OuiEatFrenchFarmerBundle:Command')->getCommandsInProgress($farmer, $paidStatus, $readyStatus);
+        $data['commands_closed'] = $em->getRepository('OuiEatFrenchFarmerBundle:Command')->findBy(array(
+            'farmer' => $farmer,
+            'status' => $closedStatus
+        ));
+
         return $this->render('OuiEatFrenchFarmerBundle:FarmerCommand:index.html.twig', $data);
     }
 
