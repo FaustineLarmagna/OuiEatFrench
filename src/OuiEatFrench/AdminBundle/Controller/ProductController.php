@@ -171,31 +171,32 @@ class ProductController extends Controller
                             $categoryResult = mysql_result($categoryReq, 0);
 
                             $filtersProduct = explode('*', $insert_csv['filters']);
-                        
-                        
 
-                            if (!empty($insert_csv['name_product']) && !empty($insert_csv['description_product']) && !empty($insert_csv['category_product'])) 
+
+
+
+
+                            if (!empty($insert_csv['name_product']) && !empty($insert_csv['category_product']))
                             {
+                                $em = $this->getDoctrine()->getManager();
+                                $category = $em->getRepository('OuiEatFrenchAdminBundle:Category')->find($categoryResult);
+                                $unitType = $em->getRepository('OuiEatFrenchAdminBundle:UnitType')->findOneByName(trim($insert_csv['unit_type']));
+                                $product = new Product;
+                                $product->setName($insert_csv['name_product']);
+                                $product->setDescription($insert_csv['description_product']);
+                                $product->setImageName($insert_csv['image_product']);
+                                $product->setCategory($category);
+                                $product->setCalories($insert_csv['calories_product']);
+                                $product->setUnitType($unitType);
+                                $seasons = explode(";", $insert_csv['saison_produit']);
 
-                              $em = $this->getDoctrine()->getManager();
-                              $category = $em->getRepository('OuiEatFrenchAdminBundle:Category')->find($categoryResult);
-                              $unitType = $em->getRepository('OuiEatFrenchAdminBundle:UnitType')->findOneByName(trim($insert_csv['unit_type']));
-                              $product = new Product;
-                              $product->setName($insert_csv['name_product']);
-                              $product->setDescription($insert_csv['description_product']);
-                              $product->setImageName($insert_csv['image_product']);
-                              $product->setCategory($category);
-                              $product->setCalories($insert_csv['calories_product']);
-                              $product->setUnitType($unitType);
-                              $seasons = explode(";", $insert_csv['saison_produit']);
-
-                              foreach ($seasons as $season)
-                              {
-                                  $season = $em->getRepository('OuiEatFrenchAdminBundle:Season')->findOneByName($season);
-                                  $product->addSeason($season);
-                              }
-                              $em->persist($product);
-                              $em->flush();
+                                foreach ($seasons as $season)
+                                {
+                                    $season = $em->getRepository('OuiEatFrenchAdminBundle:Season')->findOneByName($season);
+                                    $product->addSeason($season);
+                                }
+                                $em->persist($product);
+                                $em->flush();
 
 /*
                               $query = "INSERT INTO product(id,name,description,image_name,category_id,calories,) VALUES ('', '".mysql_real_escape_string($insert_csv['name_product'])."', '".mysql_real_escape_string($insert_csv['description_product'])."', '".$insert_csv['image_product']."', '".$categoryResult."', '".$insert_csv['calories_product']."')
@@ -215,13 +216,13 @@ class ProductController extends Controller
                                 {
                                     $queryFilters = "INSERT INTO filter_for_product(id,name) VALUES ('', '".mysql_real_escape_string($filtersProduct[$q])."')";
 
-                                    $k = mysql_query($queryFilters, $connect) or exit(mysql_error());
+                                    //$k = mysql_query($queryFilters, $connect) or exit(mysql_error());
 
                                     $lastIdFilter = mysql_insert_id();
 
                                     $queryProductFilter = "INSERT INTO product_filter(product_id,filter_id) VALUES('".$lastIdProduct."', '".$lastIdFilter."')"; 
 
-                                    $p = mysql_query($queryProductFilter, $connect) or exit(mysql_error());
+                                    //$p = mysql_query($queryProductFilter, $connect) or exit(mysql_error());
                                 }
                             }     
                         }
