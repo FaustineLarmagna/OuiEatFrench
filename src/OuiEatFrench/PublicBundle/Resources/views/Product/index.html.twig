@@ -82,13 +82,11 @@
                     <span>0 kcal</span>
                     <span style="margin-left: 45px;">200 kcal</span>
                 </div>
-                <div id="slider-range-min"></div>
+                <div id="slider-range-min">
+                </div>
                 <div id="amount">
-                    {% if filter is not null %}
-                        {{ filter['calories'] }}
-                    {% else %}
-                        0
-                    {% endif %}
+                    {% if filter is not null %}{% set slyder = filter['calories']/2 %}{% else %}{% set slyder = 100 %}{% endif %}
+                    {{ slyder }}
                 </div>
             </div>
             <div class="row" id="button-validate-form">
@@ -99,7 +97,7 @@
         <div class="span9" id="result-product" style="width:950px;margin-top: -20px">
             {% for product in products %}
                 <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product.id }) }}">
-                    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/" ~ product.imageName) }});height:200px;" id="{{ product.id }}">
+                    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/" ~ product.imageName) }});height:200px;background-size: cover;" id="{{ product.id }}">
                         <div class="bottom-name-product">
                             <span style="margin-left: 10px;display:inline-block;width:135px">{{ product.name }}</span>
                             <span>

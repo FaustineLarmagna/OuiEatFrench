@@ -10,8 +10,8 @@
         </div>
     {% endif %}
 <form method="post" action="import" enctype="multipart/form-data" id="form-import" class="offset9 span5">
-        <input type="file" name="import-file" accept=".csv" id="button-import" required class="btn">
-        <input type="submit" value="Importer produits" id="button-submit" class="btn btn-info">
+        <!-- <input type="file" name="import-file" accept=".csv" id="button-import" required class="btn">
+        <input type="submit" value="Importer produits" id="button-submit" class="btn btn-info"> -->
 </form>
 <a href={{ path('oui_eat_french_admin_product_create') }}><button class="btn btn-success offset12" type="button">Ajouter</button></a>
 <table class="table table-hover">
@@ -38,7 +38,7 @@
                 {% endfor %}
             </td>
             <td>{{ entity.calories }}</td>
-            <td>{{ entity.unitType.name }}</td>
+            <td>{% if entity.unitType %}{{ entity.unitType.name }}{% endif %}</td>
             <td>
                 <ul>
                     <li><a href={{ path('oui_eat_french_admin_product_edit', {'id' : entity.id}) }}>Edition</a></li>
