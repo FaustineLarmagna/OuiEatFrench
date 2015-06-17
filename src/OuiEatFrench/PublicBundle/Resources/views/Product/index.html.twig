@@ -77,18 +77,16 @@
                 PAR CALORIES (100G)
             </div>
             <div class="row" id="filter-calories">
-                <input type="hidden" value="{% if filter is not null %}{{filter['calories']}}{% else %}200{% endif %}" id=" " name="calories">
+                <input type="hidden" value="{% if filter is not null %}{{filter['calories']}}{% else %}200{% endif %}" id="val-calories" name="calories">
                 <div style="margin-bottom: 10px;">
                     <span>0 kcal</span>
                     <span style="margin-left: 45px;">200 kcal</span>
                 </div>
-                <div id="slider-range-min"></div>
+                <div id="slider-range-min">
+                </div>
                 <div id="amount">
-                    {% if filter is not null %}
-                        {{ filter['calories'] }}
-                    {% else %}
-                        0
-                    {% endif %}
+                    {% if filter is not null %}{% set slyder = filter['calories']/2 %}{% else %}{% set slyder = 100 %}{% endif %}
+                    {{ slyder }}
                 </div>
             </div>
             <div class="row" id="button-validate-form">
