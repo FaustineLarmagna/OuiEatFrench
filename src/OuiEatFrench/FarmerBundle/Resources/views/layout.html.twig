@@ -17,7 +17,7 @@
             {% endif %}
         </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_availability_index' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_farmer_availability_index', { 'farmerId': app.user.id}) }}">DISPONIBILITÉS</a>
+            <a href="{{ path('oui_eat_french_farmer_availability_index') }}">DISPONIBILITÉS</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_availability_index' %}
                 <div class="arrow-up" style="left: 40px;"></div>
             {% endif %}
@@ -46,9 +46,9 @@
                 <div class="arrow-up"  style="left: 15px;"></div>
             {% endif %}
         </li>
-        <li>
+        <!-- <li>
             <a href="{{ path('oui_eat_french_farmer_user_logout') }}">DECONNEXION</a>
-        </li>
+        </li> -->
     </ul>
 </div>
     {% block page_title %}

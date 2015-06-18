@@ -655,6 +655,18 @@ body
 	text-decoration: none;
 }
 
+#button-change-disponibilites
+{
+	color: #a3d634;
+	font-weight: 500;
+	font-size: 17px;
+}
+
+#button-change-disponibilites:hover
+{
+	text-decoration: none;
+}
+
 
 #table-disponibilites
 {

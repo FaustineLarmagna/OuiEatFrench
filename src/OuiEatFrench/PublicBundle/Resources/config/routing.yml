@@ -13,3 +13,11 @@ oui_eat_french_public_product:
 oui_eat_french_public_cart:
     resource: "@OuiEatFrenchPublicBundle/Resources/config/routing/cart.yml"
     prefix: /panier
+
+oui_eat_french_public_farmer:
+    pattern:  /producteur
+    defaults: { _controller: OuiEatFrenchPublicBundle:Farmer:index }
+
+oui_eat_french_public_account:
+    pattern:  /mon-compte
+    defaults: { _controller: OuiEatFrenchPublicBundle:Account:index }

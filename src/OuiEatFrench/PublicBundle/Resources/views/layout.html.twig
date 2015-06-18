@@ -22,24 +22,24 @@
                 <div class="arrow-up-client" style="left: 50px;"></div>
             {% endif %}
         </li>
-        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_command_index' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_farmer_command_index') }}">LES PRODUCTEURS</a>
-            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_command_index' %}
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_public_farmer') }}">LES PRODUCTEURS</a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer' %}
                 <div class="arrow-up-client"  style="left: 40px;"></div>
             {% endif %}
         </li>
-        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_product_index' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_farmer_product_index') }}">MON COMPTE</a>
-            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_product_index' %}
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_account' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_public_account', {id : app.user.id}) }}">MON COMPTE</a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_public_account' %}
                 <div class="arrow-up-client"  style="left: 30px;"></div>
             {% endif %}
         </li>
-        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_stock_index' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_farmer_stock_index') }}" style="color:#333333">
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_cart_show' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_public_cart_show') }}" style="color:#333333">
             	<img src="{{ asset('ouieatfrench/theme/assets2/img/picto_panier.png')}}">
             	MON PANIER
             </a>
-            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_stock_index' %}
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_public_cart_show' %}
                 <div class="arrow-up-client"  style="left: 15px;"></div>
             {% endif %}
         </li>
