@@ -62,7 +62,36 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
 <script type="text/javascript">
     $(function () {
         jQuery(document).ready(function() {
-
+            $("#product").change(function(){
+                refresh();
+            });
+            $("#companyPostCode").change(function(){
+                refresh();
+            });
+            function refresh(){
+                $.ajax({
+                    url: '{{ path('oui_eat_french_public_product_ajax_farmer') }}',
+                    type: 'POST',
+                    data:
+                    {
+                        product : $('#product').val(),
+                        companyPostCode : $('#companyPostCode').val()
+                    },
+                    dataType: 'json',
+                    success: function(response)
+                    {
+                        $('#farmerTable tr').each(function()
+                        {
+                            var id = $(this).attr('class');
+                            if(response.indexOf(parseInt(id)) > -1)
+                            {$(this).show();}
+                            else
+                            {$(this).hide();}
+                        });
+                    }
+                });
+                return false;
+            };
         });
     });
 </script>

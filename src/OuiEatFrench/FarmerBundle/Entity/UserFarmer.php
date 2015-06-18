@@ -133,7 +133,7 @@ class UserFarmer implements UserInterface
      *
      * @ORM\Column(name="company_postcode", type="integer", length=5, nullable=true)
      */
-    private $companyPostcode;
+    private $companyPostcode = 11111;
 
     /**
      * @var string
@@ -183,12 +183,6 @@ class UserFarmer implements UserInterface
      * @ORM\OneToMany(targetEntity="AvailabilityFarmer", mappedBy="farmer")
      */
     private $availabilityFarmers;
-
-    /**
-     * @var boolean
-     * @ORM\Column(name="vacancy", type="boolean")
-     */
-    private $vacancy = 0;
 
     public function __construct()
     {
@@ -829,29 +823,5 @@ class UserFarmer implements UserInterface
         $this->roles = $roles;
 
         return $this;
-    }
-
-    /**
-     * Set vacancy
-     *
-     * @param boolean $vacancy
-     *
-     * @return UserFarmer
-     */
-    public function setVacancy($vacancy)
-    {
-        $this->vacancy = $vacancy;
-
-        return $this;
-    }
-
-    /**
-     * Get vacancy
-     *
-     * @return boolean
-     */
-    public function getVacancy()
-    {
-        return $this->vacancy;
     }
 }
