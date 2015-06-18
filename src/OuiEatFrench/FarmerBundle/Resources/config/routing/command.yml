@@ -3,11 +3,11 @@ oui_eat_french_farmer_command_index:
     defaults: { _controller: OuiEatFrenchFarmerBundle:Command:index }
 
 oui_eat_french_farmer_command_ready:
-    pattern:  /{id}/prete
+    pattern:  /ajax_ready
     defaults: { _controller: OuiEatFrenchFarmerBundle:Command:ready }
 
 oui_eat_french_farmer_command_closed:
-    pattern:  /{id}/terminee
+    pattern:  /ajax_closed
     defaults: { _controller: OuiEatFrenchFarmerBundle:Command:closed }
 
 # oui_eat_french_farmer_command_delete:

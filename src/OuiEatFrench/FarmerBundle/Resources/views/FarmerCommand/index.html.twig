@@ -2,16 +2,19 @@
 
 {% block content %}
 	<div class="row type-commandes">
-		<div class="commandes-en-cours offset4 span5 active-commandes">
+		<div class="commandes-en-cours offset4 span5 active-commandes" id="commands_inprogress_button">
 			Mes commandes en cours ({{commands_inprogress|length}})
 		</div>
-		<div class="commandes-finies span5">
+		<div class="commandes-finies span5" id="commands_closed_button">
 			Mes commandes clôturées ({{commands_closed|length}})
 		</div>
 	</div>
-	<div class="row all-commandes">
+	<div class="row all-commandes" id="commands_inprogress">
 		<div class="text-vos-commandes">
-			Vos {{commands_inprogress|length}} commandes en cours
+			{% if commands_inprogress|length == 0 %} Aucune commande en cours
+			{% elseif commands_inprogress|length == 1 %} Vos commandes en cours
+			{% else %}Vos {{commands_inprogress|length}}commandes en cours
+			{% endif %}
 		</div>
 
 		<div class="row">
@@ -43,10 +46,10 @@
 						<div class="span3 nom-client">
 							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produit(s))
 						</div>
-						<div class="offset2 span2 valider-commande">
+						<div class="offset2 span2 valider-commande {% if command.status.name == 'ready' %}green{% elseif command.status.name == 'closed' %}lightgrey{% else %}grey{% endif %}" id="link_ok_{{command.id}}" data-id="{{command.id}}">
 							<i class="icon-ok"></i> Prise en compte
 						</div>
-						<div class="span1 cloturer-commande">
+						<div class="span1 cloturer-commande {% if command.status.name == 'ready' %}grey{% elseif command.status.name == 'closed' %}green{% else %}lightgrey{% endif %}" id="link_close_{{command.id}}" data-id="{{command.id}}">
 							<i class="icon-remove"></i> Valider
 						</div>
 					</div>
@@ -68,4 +71,132 @@
 			</div>
 		{% endfor %}
 	</div>
+	<div class="row all-commandes" id="commands_closed">
+		<div class="text-vos-commandes">
+			{% if commands_closed|length == 0 %} Aucune commande clôturée
+			{% elseif commands_closed|length == 1 %} Vos commandes clôturées
+			{% else %}Vos {{commands_closed|length}} commandes clôturées
+			{% endif %}
+		</div>
+
+		{% for flashMessage in app.session.flashbag.get('error') %}
+		    <div class="alert alert-error">{{ flashMessage }}</div>
+		{% endfor %}
+		{% for flashMessage in app.session.flashbag.get('info') %}
+			    <div class="alert alert-info">{{ flashMessage }}</div>
+			{% endfor %}
+
+		{% for command in commands_closed %}
+			<div class="row">
+				<div class="span10 offset5 commande-producteur">
+					<div class="row details-commande">
+						<div class="span2 date-livraison">
+							Pour le {{command.date|date_modify("+5 day")|date("d/m")}}
+						</div>
+						<div class="span1 numero-commande">
+							# {{command.id}}
+						</div>
+						<div class="span3 nom-client">
+							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produit(s))
+						</div>
+					</div>
+					<div class="row produits-commande">
+						{% set total = 0 %}
+						{% for farmerProductClone in command.farmerProductClones %}
+							{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
+							<div class="span2 name-product">
+									{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}} {{farmerProductClone.product.unitType.name}}</span>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="row prix-commande">
+						<div class="span1 offset8 prix-total">
+							Total : <span class="bold">{{total|number_format(2, '.', ',')}}&euro;</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+$(function () {
+    jQuery(document).ready(function() {
+		$('#commands_closed').hide();
+
+		$('#commands_closed_button').on('click', function() {
+			if ($('#commands_inprogress').is(':visible')) {
+				$('#commands_inprogress').hide();
+				$('#commands_closed').show();
+				$('#commands_closed_button').addClass('active-commandes');
+				$('#commands_inprogress_button').removeClass('active-commandes');
+			}
+		});
+		
+		$('#commands_inprogress_button').on('click', function() {
+			if ($('#commands_closed').is(':visible')) {
+				$('#commands_closed').hide();
+				$('#commands_inprogress').show();
+				$('#commands_inprogress_button').addClass('active-commandes');
+				$('#commands_closed_button').removeClass('active-commandes');
+			}
+		});
+
+        $('.valider-commande').on('click', function(){
+            var id = $(this).data('id');
+            if (!$('#link_ok_'+id).hasClass('green') && !$('#link_ok_'+id).hasClass('lightgrey')) {
+				commandReady(id);
+            }
+        });
+
+        $('.cloturer-commande').on('click', function(){
+            var id = $(this).data('id');
+            if ($('#link_ok_'+id).hasClass('green') && !$('#link_close_'+id).hasClass('green')) {
+				commandClosed(id);
+            }
+        });
+
+        function commandReady(command_id) {
+            $.ajax({
+                url: '{{ path('oui_eat_french_farmer_command_ready') }}',
+                type: 'POST',
+                data:
+                {
+                    'id' : command_id
+                },
+                dataType: 'json',
+                success: function(response)
+                {
+                    $('#link_ok_'+command_id).addClass('green');
+                    $('#link_close_'+command_id).addClass('grey');
+                }
+            });
+
+            return false;
+        };
+
+        function commandClosed(command_id) {
+            $.ajax({
+                url: '{{ path('oui_eat_french_farmer_command_closed') }}',
+                type: 'POST',
+                data:
+                {
+                    'id' : command_id
+                },
+                dataType: 'json',
+                success: function(response)
+                {
+                    $('#link_ok_'+command_id).removeClass('green');
+                    $('#link_ok_'+command_id).addClass('lightgrey');
+                    $('#link_close_'+command_id).addClass('green');
+                }
+            });
+
+            return false;
+        };
+    });
+});
+</script>
 {% endblock %}
