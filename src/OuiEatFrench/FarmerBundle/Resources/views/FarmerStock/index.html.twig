@@ -27,14 +27,14 @@
                 <hr class="hr-produits"></hr>
                 <div class="stocks_product">
                 	<div class="button_stock">
-            			<div class="moin_stock product_{{farmerproduct.id}}">
-            				<i class="icon-minus"></i>
+            			<div class="moins_stock" id="product_moins_{{farmerproduct.id}}" data-id="{{farmerproduct.id }}">
+            				<i class="icon-minus" id="icon_minus_{{farmerproduct.id}}"></i>
             			</div>
-            			<div class="quantity_product_stock">
+            			<div class="quantity_product_stock" id="product_quantity_{{farmerproduct.id}}">
             				{{ farmerproduct.unitQuantity }}
             			</div>
-            			<div class="plus_stock product_{{farmerproduct.product.id}}">
-            				<i class="icon-plus"></i>
+            			<div class="plus_stock" id="product_plus_{{farmerproduct.product.id}}" data-id="{{farmerproduct.id }}">
+            				<i class="icon-plus" id="icon_plus_{{farmerproduct.id}}"></i>
             			</div>
                 	</div>
                 	<div class="unit_type">
@@ -79,13 +79,31 @@ $(function () {
 
     	$('.modal-delete-button').on('click', function(){
     		var id = $('.data-modal').val();
-            console.log(id);
     		deleteProductStock(id);
     	});
 
+        $('.plus_stock').on('click', function(){
+            var id = $(this).data('id');
+            addStock(id);
+            var stock = $('#product_quantity_'+id).text();
+            if (parseInt(stock) > 0 && $('#icon_minus_'+id).is(':hidden')) {
+                $('#icon_minus_'+id).show();
+            }
+        });
+
+        $('.moins_stock').on('click', function(){
+            var id = $(this).data('id');
+            var stock = $('#product_quantity_'+id).text();
+            if (parseInt(stock) > 0) {
+                removeStock(id);
+            } else {
+                $('#icon_minus_'+id).hide();
+            }
+        });
+
         function addStock(product_id) {
             $.ajax({
-                url: '{{ path('oui_eat_french_farmer_stock_delete_ajax') }}',
+                url: '{{ path('oui_eat_french_farmer_stock_add_ajax') }}',
                 type: 'POST',
                 data:
                 {
@@ -94,7 +112,12 @@ $(function () {
                 dataType: 'json',
                 success: function(response)
                 {
-                    // add 1 to number
+                    if (response !== 'null') {
+                        $('#product_quantity_'+product_id).text(response);
+                        if (parseInt(response) > 0 && $('#icon_minus_'+product_id).is(':hidden')) {
+                            $('#icon_minus_'+product_id).show();
+                        }
+                    }
                 }
             });
 
@@ -103,7 +126,7 @@ $(function () {
 
         function removeStock(product_id) {
             $.ajax({
-                url: '{{ path('oui_eat_french_farmer_stock_delete_ajax') }}',
+                url: '{{ path('oui_eat_french_farmer_stock_remove_ajax') }}',
                 type: 'POST',
                 data:
                 {
@@ -112,7 +135,12 @@ $(function () {
                 dataType: 'json',
                 success: function(response)
                 {
-                    // remove 1 to number
+                    if (response !== 'null') {
+                        $('#product_quantity_'+product_id).text(response);
+                        if (parseInt(response) === 0) {
+                            $('#icon_minus_'+product_id).hide();
+                        }
+                    }
                 }
             });
 

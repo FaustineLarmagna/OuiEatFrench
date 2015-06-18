@@ -311,7 +311,7 @@ hr
 	text-decoration: none !important;
 }
 
-.moin_stock, .plus_stock
+.moins_stock, .plus_stock
 {
 	height: 40px;
 	width: 40px;
@@ -327,7 +327,7 @@ hr
 	opacity: 0.5;
 }
 
-.moin_stock
+.moins_stock
 {
 	margin-left: 20px;
 }
