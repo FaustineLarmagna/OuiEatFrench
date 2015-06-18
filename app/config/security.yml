@@ -30,6 +30,7 @@ security:
             anonymous: true
             provider: admin
             form_login:
+                default_target_path: oui_eat_french_admin
                 login_path: oui_eat_french_admin_user_login
                 check_path: oui_eat_french_admin_user_login_check
             logout:
@@ -41,6 +42,7 @@ security:
             anonymous: true
             provider: user_farmer_area
             form_login:
+                default_target_path: oui_eat_french_farmer_user_index
                 login_path: oui_eat_french_farmer_user_login
                 check_path: oui_eat_french_farmer_user_login_check
             logout:

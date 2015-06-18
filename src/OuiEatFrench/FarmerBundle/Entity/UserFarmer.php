@@ -133,7 +133,7 @@ class UserFarmer implements UserInterface
      *
      * @ORM\Column(name="company_postcode", type="integer", length=5, nullable=true)
      */
-    private $companyPostcode;
+    private $companyPostcode = 11111;
 
     /**
      * @var string

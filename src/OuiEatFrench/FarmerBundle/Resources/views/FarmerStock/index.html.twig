@@ -73,32 +73,69 @@
 <script type="text/javascript">
 $(function () {
     jQuery(document).ready(function() {
+    	$('.link_update_product a').on('click', function(){
+    		$('.data-modal').val($(this).data('id'));
+    	});
 
-	$('.link_update_product a').on('click', function(){
-		$('.data-modal').val($(this).data('id'));
-	});
+    	$('.modal-delete-button').on('click', function(){
+    		var id = $('.data-modal').val();
+            console.log(id);
+    		deleteProductStock(id);
+    	});
 
-	$('.modal-delete-button').on('click', function(){
-		var id = $('.data-modal').val();
-        console.log(id);
-		deleteProductStock(id);
-	});
+        function addStock(product_id) {
+            $.ajax({
+                url: '{{ path('oui_eat_french_farmer_stock_delete_ajax') }}',
+                type: 'POST',
+                data:
+                {
+                    'id' : product_id
+                },
+                dataType: 'json',
+                success: function(response)
+                {
+                    // add 1 to number
+                }
+            });
+
+            return false;
+        };
+
+        function removeStock(product_id) {
+            $.ajax({
+                url: '{{ path('oui_eat_french_farmer_stock_delete_ajax') }}',
+                type: 'POST',
+                data:
+                {
+                    'id' : product_id
+                },
+                dataType: 'json',
+                success: function(response)
+                {
+                    // remove 1 to number
+                }
+            });
+
+            return false;
+        };
+        
         function deleteProductStock(product_id){
-                $.ajax({
-                    url: '{{ path('oui_eat_french_farmer_stock_delete_ajax') }}',
-                    type: 'POST',
-                    data:
-                    {
-                        'id' : product_id
-                    },
-                    dataType: 'json',
-                    success: function(response)
-                    {
-                        $(".product-"+response).fadeOut(300, function() { 
-                        	$(this).remove(); 
-                        });
-                    }
-                });
+            $.ajax({
+                url: '{{ path('oui_eat_french_farmer_stock_delete_ajax') }}',
+                type: 'POST',
+                data:
+                {
+                    'id' : product_id
+                },
+                dataType: 'json',
+                success: function(response)
+                {
+                    $(".product-"+response).fadeOut(300, function() { 
+                    	$(this).remove(); 
+                    });
+                }
+            });
+
             return false;
         };
     });
