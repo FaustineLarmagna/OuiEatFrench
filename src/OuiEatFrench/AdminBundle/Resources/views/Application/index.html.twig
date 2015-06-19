@@ -22,20 +22,18 @@
     {% for farmer in farmers %}
         <tr>
             <td><a href=""><img width="100px" src="{{ asset("OEF/user_farmer/avatar/" ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar"></a></td>
-            <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};"{% endif %}>{{farmer.firstname}}</td>
-            <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};"{% endif %}>{{farmer.lastname}}</td>
+            <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};{% if farmer.status.name == "banned" %}color:#FFFFFF;{% endif %}"{% endif %}>{{farmer.firstname}}</td>
+            <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};{% if farmer.status.name == "banned" %}color:#FFFFFF;{% endif %}"{% endif %}>{{farmer.lastname}}</td>
             <td>{{farmer.email}}</td>
             <td>{{farmer.phone}}</td>
             <td>{{farmer.street}} {{farmer.postcode}} {{farmer.city | title}}</td>
             <td>{{farmer.companyName}}</td>
             <td>{{farmer.companyStreet}} {{farmer.companyPostcode}} {{farmer.companyCity | title}}</td>
             <td>
-                <ul>
-                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 1}) }}>Candidature à revoir</a></li>
-                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 2}) }}>Manque un document</a></li>
-                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 3}) }}>Valider la candidature</a></li>
-                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 4}) }}>Bannir le producteur</a></li>
-                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : 5}) }}>En cours</a></li>
+                <ul style="list-style-type:none;">
+                    {% for status in statusButton %}
+                    <li><a href={{ path('oui_eat_french_admin_application_status', {'id' : farmer.id, 'status_id' : status.id}) }} class="btn" style="color:{{status.color}};font-weight:bold;">{{status.translation}}</a></li>
+                    {% endfor %}
                 </ul>
             </td>
         </tr>

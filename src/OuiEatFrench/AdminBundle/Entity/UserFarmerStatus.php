@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * UserFarmerStatus
  *
  * @ORM\Table(name="user_farmer_status")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="OuiEatFrench\AdminBundle\Repository\UserFarmerStatusRepository")
  */
 class UserFarmerStatus
 {
@@ -34,6 +34,13 @@ class UserFarmerStatus
      * @ORM\Column(name="color", type="string", length=255)
      */
     private $color;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="translation", type="string", length=255)
+     */
+    private $translation;
 
     public function __toString()
     {
@@ -87,5 +94,21 @@ class UserFarmerStatus
     public function getColor()
     {
         return $this->color;
+    }
+
+    /**
+     * @param string $translation
+     */
+    public function setTranslation($translation)
+    {
+        $this->translation = $translation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTranslation()
+    {
+        return $this->translation;
     }
 }

@@ -14,10 +14,12 @@ class LoadUserFarmerStatusData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         
-        foreach($this->feedUserFarmerStatus() as $userFarmerStatusName)
+        foreach($this->feedUserFarmerStatus() as $userFarmerStatus)
         {
         	$userFarmerStatusAdmin = new UserFarmerStatus();
-	        $userFarmerStatusAdmin->setName($userFarmerStatusName);
+	        $userFarmerStatusAdmin->setName($userFarmerStatus['name']);
+            $userFarmerStatusAdmin->setColor($userFarmerStatus['color']);
+            $userFarmerStatusAdmin->setTranslation($userFarmerStatus['translation']);
 
 	        $manager->persist($userFarmerStatusAdmin);
         
@@ -28,11 +30,11 @@ class LoadUserFarmerStatusData implements FixtureInterface
     public function feedUserFarmerStatus()
     {
     	return array(
-            "to_review",
-            "missing_information",
-            "validate",
-            "banned",
-            "in_progress"
-    		);
+            array('name' => 'to_review', 'color' => '#C6C6C6', 'translation' => 'Candidature à traiter'),
+            array('name' => 'missing_information', 'color' => '#E65353', 'translation' => 'Manque un document'),
+            array('name' => 'validate', 'color' => '#C2E36F', 'translation' => 'Valider la candidature'),
+            array('name' => 'banned', 'color' => '#5C5C5C', 'translation' => 'Bannir le producteur'),
+            array('name' => 'in_progress', 'color' => '#9AD0E6', 'translation' => 'En cours')
+    	);
     }
 }
