@@ -29,6 +29,13 @@ class AvailabilitySlot
      */
     private $name;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="machine_name", type="string", length=255, nullable=false)
+     */
+    private $machineName;
+
     public function __construct()
     {
     }
@@ -69,5 +76,28 @@ class AvailabilitySlot
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set machineName
+     *
+     * @param string $machineName
+     * @return AvailabilitySlot
+     */
+    public function setMachineName($machineName)
+    {
+        $this->machineName = $machineName;
+
+        return $this;
+    }
+
+    /**
+     * Get machineName
+     *
+     * @return string
+     */
+    public function getMachineName()
+    {
+        return $this->machineName;
     }
 }

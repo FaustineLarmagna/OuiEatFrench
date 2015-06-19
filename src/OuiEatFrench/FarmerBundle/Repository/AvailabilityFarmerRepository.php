@@ -3,6 +3,7 @@
 namespace OuiEatFrench\FarmerBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use OuiEatFrench\FarmerBundle\Entity\AvailabilityFarmer;
 
 /**
 * RegisterRepository
@@ -11,5 +12,18 @@ use Doctrine\ORM\EntityRepository;
 */
 class AvailabilityFarmerRepository extends EntityRepository
 {
+	public function findOneByFarmerAndSlot($farmer, $slot)
+	{
+	    $em = $this->getEntityManager();
 
+	    $queryText  = "SELECT a FROM OuiEatFrenchFarmerBundle:AvailabilityFarmer a ";
+	    $queryText .= "WHERE :slot MEMBER OF a.availabilitySlots";
+	    $queryText .= " AND a.farmer = :farmer";
+
+	    $query = $em->createQuery($queryText);
+	    $query->setParameter('slot', $slot);
+	    $query->setParameter('farmer', $farmer);
+
+	    return $query->getSingleResult();
+	}
 }
