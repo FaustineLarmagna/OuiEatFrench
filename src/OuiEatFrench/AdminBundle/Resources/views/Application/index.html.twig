@@ -21,7 +21,7 @@
     <tbody>
     {% for farmer in farmers %}
         <tr>
-            <td><a href=""><img width="100px" src="{{ asset("OEF/user_farmer/avatar/" ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar"></a></td>
+            <td><a href="{{ path('oui_eat_french_admin_application_show', {'id' : farmer.id}) }}"><img width="100px" src="{{ asset("OEF/user_farmer/avatar/" ~ farmer.avatar) }}" alt="{{farmer.firstname}} {{farmer.lastname}} avatar"></a></td>
             <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};{% if farmer.status.name == "banned" %}color:#FFFFFF;{% endif %}"{% endif %}>{{farmer.firstname}}</td>
             <td {% if farmer.status is defined and farmer.status is not null %}style="background-color:{{ farmer.status.color }};{% if farmer.status.name == "banned" %}color:#FFFFFF;{% endif %}"{% endif %}>{{farmer.lastname}}</td>
             <td>{{farmer.email}}</td>

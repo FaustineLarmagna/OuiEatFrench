@@ -83,7 +83,7 @@ class UserFarmerController extends Controller
                 $encoder = $this->get('security.encoder_factory')->getEncoder($entity);
                 $encodedPass = $encoder->encodePassword($password, $entity->getSalt());
                 $entity->setPassword($encodedPass);
-                $status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->findOneByName('to_review');
+                $status = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->find(1);
                 $entity->setStatus($status);
 
                 $em->persist($entity);
