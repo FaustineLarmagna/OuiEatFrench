@@ -29,7 +29,7 @@
             {% endif %}
         </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_account' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_public_account', {id : app.user.id}) }}">MON COMPTE</a>
+            <a href="{{ path('oui_eat_french_public_account') }}">MON COMPTE</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_public_account' %}
                 <div class="arrow-up-client"  style="left: 30px;"></div>
             {% endif %}
