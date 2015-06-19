@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'OuiEatFrenchAdminBundle::layout.html.twig' %}
 {% block title %}admin OEF{% endblock %}
-{% block body %}
+{% block content %}
     <h3>Connexion Administrateur</h3>
     <form action="{{ path('oui_eat_french_admin_user_login_check') }}" method="post" novalidate="novalidate">
         <input type="text" placeholder="Nom d'utilisateur" id="username" name="_username" value="{% if last_username is defined %}{{ last_username }}{% endif %}" />

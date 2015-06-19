@@ -10,6 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="nav-collapse collapse">
+                {% if is_granted('ROLE_ADMIN') %}
                 <ul class="nav">
                     <li>
                         <a href="{{ path('oui_eat_french_admin_product_index') }}">Produits</a>
@@ -58,6 +59,7 @@
                         <a href="{{ path('oui_eat_french_admin_user_logout') }}">Déconnexion</a>
                     </li>
                 </ul>
+                {% endif %}
             </div>
         </div>
     </div>
