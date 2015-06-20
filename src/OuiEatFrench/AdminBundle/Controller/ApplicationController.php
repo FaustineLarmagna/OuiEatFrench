@@ -8,8 +8,12 @@ class ApplicationController extends Controller
 {
     public function indexAction()
     {
-        $farmers = $this->getDoctrine()->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $farmers = $em->getRepository('OuiEatFrenchFarmerBundle:UserFarmer')->findAll();
+        $statusButton = $em->getRepository('OuiEatFrenchAdminBundle:UserFarmerStatus')->findButtonStatus();
         $data["farmers"] = $farmers;
+        $data["statusButton"] = $statusButton;
+        
         return $this->render('OuiEatFrenchAdminBundle:Application:index.html.twig', $data);
     }
 

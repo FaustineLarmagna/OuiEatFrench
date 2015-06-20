@@ -34,7 +34,7 @@
         <div style="color: #99cc33; font-weight: 700;margin-bottom: 20px;margin-top: 20px;">Adresse professionnelle</div>
         <div>{{farmer.companyName}}</div>
         <div>{{farmer.companyStreet}}</div>
-        <div style="margin-bottom: 20px;">{{farmer.companyPostcode}} {{farmer.companyCity}}</div>
+        <div style="margin-bottom: 20px;">{% if farmer.companyPostcode == 11111 and farmer.companyName is null %}{% else %}{{farmer.companyPostcode}}{% endif %} {{farmer.companyCity}}</div>
     </div>
 </div>
 

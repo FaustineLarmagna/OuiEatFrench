@@ -48,8 +48,8 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
         </td>
         <td>
             <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
-                <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
-                <input type="text" name="price" id="price_{{farmerProduct.id}}">€
+                <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}" data-id="{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
+                <input type="text" name="price" id="price_{{farmerProduct.id}}" data-id="{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}">€
                 <input type="submit" name="addProduct" value="Ajouter à mon panier">
             </form><br>
         </td>
@@ -62,6 +62,22 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
 <script type="text/javascript">
     $(function () {
         jQuery(document).ready(function() {
+            $('input[name="quantity"]').on('change', function() {
+                var id = $(this).data('id');
+                console.log(id);
+                var content = $(this).val();
+                var price_id = id.replace('quantity', 'price');
+                var price = $(this).data('price');
+                
+                $('#'+price_id).val(content*price);
+                var newPrice = $('#'+price_id).val();
+                console.log(newPrice);
+            });
+
+            $('input[name="price"]').on('change', function() {
+
+            });
+
             $("#product").change(function(){
                 refresh();
             });

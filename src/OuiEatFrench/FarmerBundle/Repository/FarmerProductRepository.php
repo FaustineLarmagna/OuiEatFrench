@@ -22,6 +22,7 @@ class FarmerProductRepository extends EntityRepository
             ->andWhere('p.id = :productBaseId OR p.parentProduct = :productBaseId')
             ->andWhere('f.companyPostcode LIKE :companyPostCode')
             ->andWhere('f.holidaysCheckbox NOT LIKE :true')
+            ->andWhere('fp.unitQuantity >= fp.unitMinimum')
             ->setParameters(array(
                 'productBaseId'     => $productBaseId,
                 'productId'         => $productId,
@@ -45,6 +46,7 @@ class FarmerProductRepository extends EntityRepository
             ->andWhere('p.id = :productBaseId OR p.parentProduct = :productBaseId')
             ->andWhere('f.companyPostcode LIKE :companyPostCode')
             ->andWhere('f.holidaysCheckbox NOT LIKE :true')
+            ->andWhere('fp.unitQuantity >= fp.unitMinimum')
             ->setParameters(array(
                 'productBaseId'     => $productBaseId,
                 'productId'         => $productId,

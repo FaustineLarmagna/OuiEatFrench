@@ -498,6 +498,22 @@ hr
 	opacity: 0.4;
 }
 
+.lightgrey {
+	color:#8c9087;
+  	opacity: 0.5;
+}
+
+.grey {
+	color:#8c9087;
+	opacity:1;
+}
+
+.green {
+	color : #a3d634;
+	font-weight:bold;
+	opacity:1;
+}
+
 .bold
 {
 	font-weight: bold;
@@ -635,6 +651,18 @@ body
 }
 
 #button-change-disponibilites a:hover
+{
+	text-decoration: none;
+}
+
+#button-change-disponibilites
+{
+	color: #a3d634;
+	font-weight: 500;
+	font-size: 17px;
+}
+
+#button-change-disponibilites:hover
 {
 	text-decoration: none;
 }
