@@ -7,8 +7,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="img-profil span2 offset6" style="margin-left: 590px; background-image: url({{ asset(farmer.getUploadDir() ~ '/' ~ farmer.avatar) }})">
-        </div>
+        {% if farmer.avatar|length > 0 %}
+            <div class="img-profil span2 offset6" style="margin-left: 590px; background-image: url({{ asset(farmer.getUploadDir() ~ '/' ~ farmer.avatar) }})">
+            </div>  
+        {% else %}
+            <div class="img-profil span2 offset6" style="margin-left: 590px; background-image: url({{ asset(farmer.getUploadDir() ~ '/profil.png') }})">
+            </div>  
+        {% endif %}
     </div>
     <div class="row">
         <div class="span5 offset4 div-description-profil" style="font-size: 15px;">
