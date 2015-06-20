@@ -1,63 +1,65 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
-<div class="row">
-    <div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;">
-        <p class="titre-index">Bienvenue {{farmer.firstname}}.{{farmer.lastname|first|capitalize}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="span9 offset5 chiffres" style="text-align: center; margin-bottom: 20px;">
-        <div class="row commerce-chiffres">
-            Juin 2015
-        </div>
-        <div class="row chiffres-commandes">
-            <div class="span2 chiffres-data">
-                Total de commande <br>
-                <span class="bold">{{commands_inprogress|length + commands_closed|length}}</span>
-            </div>
-            <div class="span2 chiffres-data">
-                Commandes en cours <br>
-                <span class="bold">{{commands_inprogress|length}}</span>
-            </div>
-            <div class="span2 chiffres-data">
-                Commandes clôturées <br>
-                <span class="bold">{{commands_closed|length}}</span>
-            </div>
-            <div class="span2 chiffres-data" style="border-right: 0px;">
-                Total de gain <br>
-               <span class="bold">{{total_benefice|number_format(2, '.', ',')}}&euro;</span>
-            </div>
+<div id="wrapper">
+    <div class="row">
+        <div class="span6 offset5" style="margin-top: 50px;margin-bottom: 50px;margin-left: 475px;">
+            <p class="titre-index">Bienvenue {{farmer.firstname}}.{{farmer.lastname|first|capitalize}}</p>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="span9 offset5 best-selling" style="margin-bottom: 20px;">
-        <div class="row title-best-selling">
-            Vos meilleures ventes
-        </div>
-        <div class="row product-best-selling">
-            {% for sell in my_best_sells %}
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
-                 <span class="name-product-best">{{sell.product.name|capitalize}}</span>
+    <div class="row">
+        <div class="span9 chiffres offset2" style="text-align: center; margin-bottom: 20px;;margin-left: 200px;">
+            <div class="row commerce-chiffres">
+                Juin 2015
             </div>
-            {% endfor %}
+            <div class="row chiffres-commandes">
+                <div class="span2 chiffres-data">
+                    Total de commande <br>
+                    <span class="bold">{{commands_inprogress|length + commands_closed|length}}</span>
+                </div>
+                <div class="span2 chiffres-data">
+                    Commandes en cours <br>
+                    <span class="bold">{{commands_inprogress|length}}</span>
+                </div>
+                <div class="span2 chiffres-data">
+                    Commandes clôturées <br>
+                    <span class="bold">{{commands_closed|length}}</span>
+                </div>
+                <div class="span2 chiffres-data" style="border-right: 0px;">
+                    Total de gain <br>
+                   <span class="bold">{{total_benefice|number_format(2, '.', ',')}}&euro;</span>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="span9 best-selling offset2" style="margin-bottom: 20px;;margin-left: 200px;">
+            <div class="row title-best-selling">
+                Vos meilleures ventes
+            </div>
+            <div class="row product-best-selling">
+                {% for sell in my_best_sells %}
+                <div class="span2">
+                     <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
+                     <span class="name-product-best">{{sell.product.name|capitalize}}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="span9 offset5 best-selling" style="margin-bottom: 20px;">
-        <div class="row title-best-selling">
-            Les produits les plus demandés de la région
-        </div>
-        <div class="row product-best-selling">
-            {% for sell in all_best_sells %}
-            <div class="span2">
-                 <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
-                 <span class="name-product-best">{{sell.product.name|capitalize}}</span>
+    <div class="row">
+        <div class="span9 offset2 best-selling" style="margin-bottom: 20px;margin-left: 200px;">
+            <div class="row title-best-selling">
+                Les produits les plus demandés de la région
             </div>
-            {% endfor %}
+            <div class="row product-best-selling">
+                {% for sell in all_best_sells %}
+                <div class="span2">
+                     <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
+                     <span class="name-product-best">{{sell.product.name|capitalize}}</span>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>

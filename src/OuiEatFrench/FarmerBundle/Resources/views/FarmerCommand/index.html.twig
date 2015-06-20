@@ -9,114 +9,116 @@
 			Mes commandes clôturées ({{commands_closed|length}})
 		</div>
 	</div>
-	<div class="row all-commandes" id="commands_inprogress">
-		<div class="text-vos-commandes">
-			{% if commands_inprogress|length == 0 %} Aucune commande en cours
-			{% elseif commands_inprogress|length == 1 %} Vos commandes en cours
-			{% else %}Vos {{commands_inprogress|length}}commandes en cours
-			{% endif %}
-		</div>
-
-		<div class="row">
-			<div class="span9 offset6" style="margin-bottom:20px;">
-				<p class="description-disponibilites">
-					Pour chaque commande, cliquez sur "Prise en compte" pour annoncer au client que celle ci a été acceptée. <br>
-					<span class="offset1">Puis cliquez sur "Valider" pour lui annoncer que sa commande est prête</span>
-				</p>
+	<div id="wrapper">
+		<div class="row all-commandes" id="commands_inprogress">
+			<div class="text-vos-commandes">
+				{% if commands_inprogress|length == 0 %} Aucune commande en cours
+				{% elseif commands_inprogress|length == 1 %} Vos commandes en cours
+				{% else %}Vos {{commands_inprogress|length}}commandes en cours
+				{% endif %}
 			</div>
-		</div>
 
-		{% for flashMessage in app.session.flashbag.get('error') %}
-		    <div class="alert alert-error">{{ flashMessage }}</div>
-		{% endfor %}
-		{% for flashMessage in app.session.flashbag.get('info') %}
-			    <div class="alert alert-info">{{ flashMessage }}</div>
-			{% endfor %}
-
-		{% for command in commands_inprogress %}
 			<div class="row">
-				<div class="span10 offset5 commande-producteur">
-					<div class="row details-commande">
-						<div class="span2 date-livraison">
-							Pour le {{command.date|date_modify("+5 day")|date("d/m")}}
-						</div>
-						<div class="span1 numero-commande">
-							# {{command.id}}
-						</div>
-						<div class="span3 nom-client">
-							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produit(s))
-						</div>
-						<div class="offset2 span2 valider-commande {% if command.status.name == 'ready' %}green{% elseif command.status.name == 'closed' %}lightgrey{% else %}grey{% endif %}" id="link_ok_{{command.id}}" data-id="{{command.id}}">
-							<i class="icon-ok"></i> Prise en compte
-						</div>
-						<div class="span1 cloturer-commande {% if command.status.name == 'ready' %}grey{% elseif command.status.name == 'closed' %}green{% else %}lightgrey{% endif %}" id="link_close_{{command.id}}" data-id="{{command.id}}">
-							<i class="icon-remove"></i> Valider
-						</div>
-					</div>
-					<div class="row produits-commande">
-						{% set total = 0 %}
-						{% for farmerProductClone in command.farmerProductClones %}
-							{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
-							<div class="span2 name-product">
-									{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}} {{farmerProductClone.product.unitType.name}}</span>
+				<div class="span9 offset2" style="margin-bottom:20px;">
+					<p class="description-disponibilites">
+						Pour chaque commande, cliquez sur "Prise en compte" pour annoncer au client que celle ci a été acceptée. <br>
+						<span class="offset1">Puis cliquez sur "Valider" pour lui annoncer que sa commande est prête</span>
+					</p>
+				</div>
+			</div>
+
+			{% for flashMessage in app.session.flashbag.get('error') %}
+			    <div class="alert alert-error">{{ flashMessage }}</div>
+			{% endfor %}
+			{% for flashMessage in app.session.flashbag.get('info') %}
+				    <div class="alert alert-info">{{ flashMessage }}</div>
+				{% endfor %}
+
+			{% for command in commands_inprogress %}
+				<div class="row">
+					<div class="span10 offset1 commande-producteur">
+						<div class="row details-commande">
+							<div class="span2 date-livraison">
+								Pour le {{command.date|date_modify("+5 day")|date("d/m")}}
 							</div>
-						{% endfor %}
-					</div>
-					<div class="row prix-commande">
-						<div class="span1 offset8 prix-total">
-							Total : <span class="bold">{{total|number_format(2, '.', ',')}}&euro;</span>
+							<div class="span1 numero-commande">
+								# {{command.id}}
+							</div>
+							<div class="span3 nom-client">
+								{{command.cart.user.username}} ({{command.farmerProductClones|length}} produit(s))
+							</div>
+							<div class="offset2 span2 valider-commande {% if command.status.name == 'ready' %}green{% elseif command.status.name == 'closed' %}lightgrey{% else %}grey{% endif %}" id="link_ok_{{command.id}}" data-id="{{command.id}}">
+								<i class="icon-ok"></i> Prise en compte
+							</div>
+							<div class="span1 cloturer-commande {% if command.status.name == 'ready' %}grey{% elseif command.status.name == 'closed' %}green{% else %}lightgrey{% endif %}" id="link_close_{{command.id}}" data-id="{{command.id}}">
+								<i class="icon-remove"></i> Valider
+							</div>
+						</div>
+						<div class="row produits-commande">
+							{% set total = 0 %}
+							{% for farmerProductClone in command.farmerProductClones %}
+								{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
+								<div class="span2 name-product">
+										{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}} {{farmerProductClone.product.unitType.name}}</span>
+								</div>
+							{% endfor %}
+						</div>
+						<div class="row prix-commande">
+							<div class="span1 offset8 prix-total">
+								Total : <span class="bold">{{total|number_format(2, '.', ',')}}&euro;</span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		{% endfor %}
-	</div>
-	<div class="row all-commandes" id="commands_closed">
-		<div class="text-vos-commandes">
-			{% if commands_closed|length == 0 %} Aucune commande clôturée
-			{% elseif commands_closed|length == 1 %} Vos commandes clôturées
-			{% else %}Vos {{commands_closed|length}} commandes clôturées
-			{% endif %}
-		</div>
-
-		{% for flashMessage in app.session.flashbag.get('error') %}
-		    <div class="alert alert-error">{{ flashMessage }}</div>
-		{% endfor %}
-		{% for flashMessage in app.session.flashbag.get('info') %}
-			    <div class="alert alert-info">{{ flashMessage }}</div>
 			{% endfor %}
+		</div>
+		<div class="row all-commandes" id="commands_closed">
+			<div class="text-vos-commandes">
+				{% if commands_closed|length == 0 %} Aucune commande clôturée
+				{% elseif commands_closed|length == 1 %} Vos commandes clôturées
+				{% else %}Vos {{commands_closed|length}} commandes clôturées
+				{% endif %}
+			</div>
 
-		{% for command in commands_closed %}
-			<div class="row">
-				<div class="span10 offset5 commande-producteur">
-					<div class="row details-commande">
-						<div class="span2 date-livraison">
-							Pour le {{command.date|date_modify("+5 day")|date("d/m")}}
-						</div>
-						<div class="span1 numero-commande">
-							# {{command.id}}
-						</div>
-						<div class="span3 nom-client">
-							{{command.cart.user.username}} ({{command.farmerProductClones|length}} produit(s))
-						</div>
-					</div>
-					<div class="row produits-commande">
-						{% set total = 0 %}
-						{% for farmerProductClone in command.farmerProductClones %}
-							{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
-							<div class="span2 name-product">
-									{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}} {{farmerProductClone.product.unitType.name}}</span>
+			{% for flashMessage in app.session.flashbag.get('error') %}
+			    <div class="alert alert-error">{{ flashMessage }}</div>
+			{% endfor %}
+			{% for flashMessage in app.session.flashbag.get('info') %}
+				    <div class="alert alert-info">{{ flashMessage }}</div>
+				{% endfor %}
+
+			{% for command in commands_closed %}
+				<div class="row">
+					<div class="span10 offset1 commande-producteur">
+						<div class="row details-commande">
+							<div class="span2 date-livraison">
+								Pour le {{command.date|date_modify("+5 day")|date("d/m")}}
 							</div>
-						{% endfor %}
-					</div>
-					<div class="row prix-commande">
-						<div class="span1 offset8 prix-total">
-							Total : <span class="bold">{{total|number_format(2, '.', ',')}}&euro;</span>
+							<div class="span1 numero-commande">
+								# {{command.id}}
+							</div>
+							<div class="span3 nom-client">
+								{{command.cart.user.username}} ({{command.farmerProductClones|length}} produit(s))
+							</div>
+						</div>
+						<div class="row produits-commande">
+							{% set total = 0 %}
+							{% for farmerProductClone in command.farmerProductClones %}
+								{% set total = total + (farmerProductClone.quantity*farmerProductClone.unitPrice) %}
+								<div class="span2 name-product">
+										{{farmerProductClone.product.name|capitalize}}<br><span class="bold">{{farmerProductClone.quantity}} {{farmerProductClone.product.unitType.name}}</span>
+								</div>
+							{% endfor %}
+						</div>
+						<div class="row prix-commande">
+							<div class="span1 offset8 prix-total">
+								Total : <span class="bold">{{total|number_format(2, '.', ',')}}&euro;</span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		{% endfor %}
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}
 {% block javascripts %}

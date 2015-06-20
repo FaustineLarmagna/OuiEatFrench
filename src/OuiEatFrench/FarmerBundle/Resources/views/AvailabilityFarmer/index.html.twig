@@ -1,308 +1,310 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
-<div class="row">
-	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 850px;">
-		<p class="titre-disponibilites">Mes disponibilités</p>
+<div id="wrapper">
+	<div class="row">
+		<div class="span6 offset5" style="margin-top: 50px;margin-bottom: 50px;margin-left: 510px;">
+			<p class="titre-disponibilites">Mes disponibilités</p>
+		</div>
 	</div>
-</div>
-<div class="row">
-	<div class="span8 offset6" style="margin-bottom:20px;">
-		<p class="description-disponibilites">
-			Vos disponibilités représentent les moments où vous acceptez des visites dans votre exploitation. <br>
-			<span class="offset1">Ces informations se retrouveront sur votre boutique.</span>
-		</p>
+	<div class="row">
+		<div class="span8  offset3" style="margin-bottom:20px; margin-left: 277px;">
+			<p class="description-disponibilites">
+				Vos disponibilités représentent les moments où vous acceptez des visites dans votre exploitation. <br>
+				<span class="offset1">Ces informations se retrouveront sur votre boutique.</span>
+			</p>
+		</div>
 	</div>
-</div>
-<div class="row">
-	<div class="span9 offset5" style="margin-left: 500px;">
-		<table class="table table-striped" id="table-disponibilites">
-			<thead>
-				<th style="width:100px;"></th>
-				<th style="width:300px;text-align: center;	font-weight: 500;">Matin (9h00 - 12h00)</th>
-				<th style="width:300px;text-align: center;	font-weight: 500;">Après-midi (14h00 - 17h00)</th>
-			</thead>
-			<tbody>
-				<tr class="td-white">
-					<td>Lundi</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "lundi matin" %}
-								{% set no_available = 1 %}
+	<div class="row">
+		<div class="span9" style="margin-left: 200px;">
+			<table class="table table-striped" id="table-disponibilites">
+				<thead>
+					<th style="width:100px;"></th>
+					<th style="width:300px;text-align: center;	font-weight: 500;">Matin (9h00 - 12h00)</th>
+					<th style="width:300px;text-align: center;	font-weight: 500;">Après-midi (14h00 - 17h00)</th>
+				</thead>
+				<tbody>
+					<tr class="td-white">
+						<td>Lundi</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "lundi matin" %}
+									{% set no_available = 1 %}
 
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1 %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "lundi après-midi" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-				</tr>
-				<tr>
-					<td>Mardi</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "mardi matin" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1 %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "mardi après-midi" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-				</tr>
-				<tr class="td-white">
-					<td>Mercredi</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "mercredi matin" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "mercredi après-midi" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1 %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-				</tr>
-				<tr>
-					<td>Jeudi</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "jeudi matin" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "jeudi après-midi" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-				</tr>
-				<tr class="td-white">
-					<td>Vendredi</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "vendredi matin" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1 %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "vendredi après-midi" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 2  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-				</tr>
-				<tr>
-					<td>Samedi</td>
-					<td>{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "samedi matin" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1 %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "samedi après-midi" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1 %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}</td>
-				</tr>
-				<tr class="td-white">
-					<td>Dimanche</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "dimanche matin" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-					<td>
-						{% set no_available = 0 %}
-						{% for availabilitySlots in entity.availabilitySlots %}
-							{% if availabilitySlots.name == "dimanche après-midi" %}
-								{% set no_available = 1 %}
-							{% endif %}
-						{% endfor %}
-							{% if no_available == 1  %}
-								<span class="disponible">
-									<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
-									Disponible
-								</span>
-							{% else %}
-								-
-							{% endif %}
-					</td>
-				</tr>
-			</tbody>
-		</table>
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1 %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "lundi après-midi" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>Mardi</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "mardi matin" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1 %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "mardi après-midi" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+					</tr>
+					<tr class="td-white">
+						<td>Mercredi</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "mercredi matin" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "mercredi après-midi" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1 %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>Jeudi</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "jeudi matin" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "jeudi après-midi" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+					</tr>
+					<tr class="td-white">
+						<td>Vendredi</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "vendredi matin" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1 %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "vendredi après-midi" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 2  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>Samedi</td>
+						<td>{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "samedi matin" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1 %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "samedi après-midi" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1 %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}</td>
+					</tr>
+					<tr class="td-white">
+						<td>Dimanche</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "dimanche matin" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+						<td>
+							{% set no_available = 0 %}
+							{% for availabilitySlots in entity.availabilitySlots %}
+								{% if availabilitySlots.name == "dimanche après-midi" %}
+									{% set no_available = 1 %}
+								{% endif %}
+							{% endfor %}
+								{% if no_available == 1  %}
+									<span class="disponible">
+										<img src="{{ asset('ouieatfrench/farmer/img/check.png')}}"> 
+										Disponible
+									</span>
+								{% else %}
+									-
+								{% endif %}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
-<div class="row" style="margin-top: 20px;">
-	<div class="span5 offset8" style="margin-left:820px;">
-		<a href="{{ path('oui_eat_french_farmer_availability_edit') }}">
-			<button id="button-change-disponibilites">
-				Modifier mes disponibilités
-			</button>
-		</a>
+	<div class="row" style="margin-top: 20px;">
+		<div class="span5 offset5" style="margin-left: 505px;">
+			<a href="{{ path('oui_eat_french_farmer_availability_edit') }}">
+				<button id="button-change-disponibilites">
+					Modifier mes disponibilités
+				</button>
+			</a>
+		</div>
 	</div>
-</div>
 
-<div class="row">
-	<div class="span9 offset5" id="separateur-dispo" style="margin-left: 500px;">
+	<div class="row">
+		<div class="span9" id="separateur-dispo" style="margin-left: 200px;">
+		</div>
 	</div>
-</div>
 
-<div class="row">
-	<div class="span6 offset8" style="margin-top: 50px;margin-bottom: 50px;margin-left: 850px;">
-		<p class="titre-disponibilites">Mes vacances</p>
+	<div class="row">
+		<div class="span6 offset5" style="margin-top: 50px;margin-bottom: 50px;">
+			<p class="titre-disponibilites">Mes vacances</p>
+		</div>
 	</div>
-</div>
 
-<div class="row">
-	<div class="span8 offset7" style="margin-bottom:20px;margin-left: 775px;">
-		<p class="description-disponibilites">
-			Programmez vos vacances, ou improvisez les ! <br>
-			<span class="offset1" style="margin-left: 90px;">Définissez ici la durée.</span>
-		</p>
+	<div class="row">
+		<div class="span8 offset4" style="margin-bottom:20px;margin-left: 455px;">
+			<p class="description-disponibilites">
+				Programmez vos vacances, ou improvisez les ! <br>
+				<span class="offset1" style="margin-left: 90px;">Définissez ici la durée.</span>
+			</p>
+		</div>
 	</div>
-</div>
 
-<div class="row">
-	<div class="span9 offset5" id="checkbox-vacances">
-		<span style="margin-left: 20px;margin-right: 20px;"><input id="vacancesCheckbox" type="checkbox" name="vacances"></span>
-		<span style="font-size: 15px;color:#999999;"><label for="vacancesCheckbox" style="display: inline-block;">Je suis en vacances (mes produits disparaîtront du store tant que cette case sera cochée), sans durée précise.</label></span>
+	<div class="row">
+		<div class="span9" id="checkbox-vacances" style="margin-left: 200px;">
+			<span style="margin-left: 20px;margin-right: 20px;"><input id="vacancesCheckbox" type="checkbox" name="vacances"></span>
+			<span style="font-size: 15px;color:#999999;"><label for="vacancesCheckbox" style="display: inline-block;">Je suis en vacances (mes produits disparaîtront du store tant que cette case sera cochée), sans durée précise.</label></span>
+		</div>
 	</div>
 </div>
 <!--

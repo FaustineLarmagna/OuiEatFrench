@@ -1,98 +1,100 @@
 {% extends 'OuiEatFrenchFarmerBundle::layout.html.twig' %}
 {% block content %}
-<div class="row">
-    <div class="span6 offset7" style="margin-top: 50px;margin-bottom: 20px;margin-left: 735px;">
-        <p class="titre-profil">Fiche récapitulative de votre profil</p>
-    </div>
-</div>
-<div class="row">
-    <div class="img-profil span2 offset8" style="margin-left: 890px; background-image: url({{ asset(farmer.getUploadDir() ~ '/' ~ farmer.avatar) }})">
-    </div>
-</div>
-<div class="row">
-    <div class="span5 offset7 div-description-profil" style="font-size: 15px;">
-        <div class="description-profil span3" style="margin-left: 0px;">
-            <div style="margin-top: 20px;font-weight: 700;">{{farmer.firstname}}  {{farmer.lastname}}</div>
-            <div style="margin-bottom: 20px;">
-                {% if farmer.birthday is not null %}{{farmer.birthday | date("d/m/Y")}}{% else %}{% endif %}
-            </div>
-            <div>{{farmer.email}}</div>
-            <div style="margin-bottom: 20px;">0{{farmer.phone}}</div>
+<div id="wrapper">
+    <div class="row">
+        <div class="span6 offset4" style="margin-top: 50px;margin-bottom: 20px;margin-left: 435px;">
+            <p class="titre-profil">Fiche récapitulative de votre profil</p>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="span5 offset7 contacts-personnels" style="font-size: 15px;">
-        <div style="color: #99cc33; font-weight: 700;margin-bottom: 20px;margin-top: 20px;">Adresse personnelle</div>
-        <div>{{farmer.street}}</div>
-        <div style="margin-bottom: 20px;">{{farmer.postcode}} {{farmer.city}}</div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5 offset7 contacts-professionnels" style="font-size: 15px;">
-        <div style="color: #99cc33; font-weight: 700;margin-bottom: 20px;margin-top: 20px;">Adresse professionnelle</div>
-        <div>{{farmer.companyName}}</div>
-        <div>{{farmer.companyStreet}}</div>
-        <div style="margin-bottom: 20px;">{% if farmer.companyPostcode == 11111 and farmer.companyName is null %}{% else %}{{farmer.companyPostcode}}{% endif %} {{farmer.companyCity}}</div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5 offset7 biographie" style="font-size: 15px;">
-        <div style="color: #99cc33; font-weight: 700;margin-top: 20px;">Description</div>
-        <div style="color: #99cc33; font-style: italic;margin-bottom: 20px;margin-top: 5px;">
-            Faites ici la promotion de votre profil d’agriculteur.
-            Cette description permettra aux acheteurs de mieux vous
-            connaître et d’engager la confiance entre vous.
+    <div class="row">
+        <div class="img-profil span2 offset6" style="margin-left: 590px; background-image: url({{ asset(farmer.getUploadDir() ~ '/' ~ farmer.avatar) }})">
         </div>
-        <div style="width:410px;margin-bottom: 20px;line-height: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dui at nisi fringilla auctor ut vel risus. Cras interdum, lorem tempus aliquam imperdiet, dolor erat pretium metus, quis venenatis libero nulla nec urna. Suspendisse ultricies risus maximus, maximus velit eget, auctor nibh. Maecenas enim lorem, volutpat quis molestie sed, rutrum ac felis. Phasellus ac tincidunt justo. </div>
     </div>
-</div>
-<div class="row">
-    <div class="span5 offset7 bouton-rendu">
-        <a href="#">Voir le rendu de mon profil</a>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5 offset7 link-profil">
-        <span class="link-modifier-profil">
-            <a href="{{ path('oui_eat_french_farmer_user_edit') }}">Modifier mon profil</a>
-        </span>
-        <span class="link-deconnexion-profil">
-            <a href="{{ path('oui_eat_french_farmer_user_logout') }}">Se déconnecter</a>
-        </span>
-    </div>
-</div>
-{# <div class="row">
-    <div class="span5 offset7 absence-profil">
-        <div class="span4 description-absence">
-            <div>Je suis absent</div>
-            <div>Les produits disparaitront de votre store le temps que cette case sera cochée.</div>
-        </div>
-        <div class="span1 checkbox-absence">
-            <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                </label>
+    <div class="row">
+        <div class="span5 offset4 div-description-profil" style="font-size: 15px;">
+            <div class="description-profil span3" style="margin-left: 0px;">
+                <div style="margin-top: 20px;font-weight: 700;">{{farmer.firstname}}  {{farmer.lastname}}</div>
+                <div style="margin-bottom: 20px;">
+                    {% if farmer.birthday is not null %}{{farmer.birthday | date("d/m/Y")}}{% else %}{% endif %}
+                </div>
+                <div>{{farmer.email}}</div>
+                <div style="margin-bottom: 20px;">0{{farmer.phone}}</div>
             </div>
         </div>
     </div>
-</div> #}
-<p>
-    {% if farmer.status is defined and farmer.status is not null %}
-        {% if farmer.status.name == "to_review" %}
-            Votre candidature est en court d'évaluation
-        {% elseif farmer.status.name == "missing_doc" %}
-            Il manque un document pour que votre candidature soit étudiée
-        {% elseif farmer.status.name == "validate" %}
-            Vous pouvez accéder à la composition de votre stand
-        {% elseif farmer.status.name == "banned" %}
-            Vous ne pouvez plus agir sur ouieatfrench jusqu'à nouvel ordre. Contacter l'équipe Ouieatfrench pour toute réclamation
-        {% endif %}
-	{% endif %}
-</p>
+    <div class="row">
+        <div class="span5 offset4 contacts-personnels" style="font-size: 15px;">
+            <div style="color: #99cc33; font-weight: 700;margin-bottom: 20px;margin-top: 20px;">Adresse personnelle</div>
+            <div>{{farmer.street}}</div>
+            <div style="margin-bottom: 20px;">{{farmer.postcode}} {{farmer.city}}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span5 offset4 contacts-professionnels" style="font-size: 15px;">
+            <div style="color: #99cc33; font-weight: 700;margin-bottom: 20px;margin-top: 20px;">Adresse professionnelle</div>
+            <div>{{farmer.companyName}}</div>
+            <div>{{farmer.companyStreet}}</div>
+            <div style="margin-bottom: 20px;">{% if farmer.companyPostcode == 11111 and farmer.companyName is null %}{% else %}{{farmer.companyPostcode}}{% endif %} {{farmer.companyCity}}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span5 offset4 biographie" style="font-size: 15px;">
+            <div style="color: #99cc33; font-weight: 700;margin-top: 20px;">Description</div>
+            <div style="color: #99cc33; font-style: italic;margin-bottom: 20px;margin-top: 5px;">
+                Faites ici la promotion de votre profil d’agriculteur.
+                Cette description permettra aux acheteurs de mieux vous
+                connaître et d’engager la confiance entre vous.
+            </div>
+            <div style="width:410px;margin-bottom: 20px;line-height: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dui at nisi fringilla auctor ut vel risus. Cras interdum, lorem tempus aliquam imperdiet, dolor erat pretium metus, quis venenatis libero nulla nec urna. Suspendisse ultricies risus maximus, maximus velit eget, auctor nibh. Maecenas enim lorem, volutpat quis molestie sed, rutrum ac felis. Phasellus ac tincidunt justo. </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span5 offset4 bouton-rendu">
+            <a href="#">Voir le rendu de mon profil</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span5 offset4 link-profil">
+            <span class="link-modifier-profil">
+                <a href="{{ path('oui_eat_french_farmer_user_edit') }}">Modifier mon profil</a>
+            </span>
+            <span class="link-deconnexion-profil">
+                <a href="{{ path('oui_eat_french_farmer_user_logout') }}">Se déconnecter</a>
+            </span>
+        </div>
+    </div>
+    {# <div class="row">
+        <div class="span5 offset7 absence-profil">
+            <div class="span4 description-absence">
+                <div>Je suis absent</div>
+                <div>Les produits disparaitront de votre store le temps que cette case sera cochée.</div>
+            </div>
+            <div class="span1 checkbox-absence">
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div> #}
+    <p>
+        {% if farmer.status is defined and farmer.status is not null %}
+            {% if farmer.status.name == "to_review" %}
+                Votre candidature est en court d'évaluation
+            {% elseif farmer.status.name == "missing_doc" %}
+                Il manque un document pour que votre candidature soit étudiée
+            {% elseif farmer.status.name == "validate" %}
+                Vous pouvez accéder à la composition de votre stand
+            {% elseif farmer.status.name == "banned" %}
+                Vous ne pouvez plus agir sur ouieatfrench jusqu'à nouvel ordre. Contacter l'équipe Ouieatfrench pour toute réclamation
+            {% endif %}
+    	{% endif %}
+    </p>
+</div>
 {% endblock %}
