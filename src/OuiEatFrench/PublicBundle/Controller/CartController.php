@@ -43,7 +43,7 @@ class CartController extends Controller
         $farmerProductUnitType = $farmerProduct->getProduct()->getUnitType();
 
         // checking $_POST['quantity'] format
-        if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity']) || (is_numeric($_POST['quantity']) && floor(floatval($_POST['quantity'])) != floatval($_POST['quantity']) && $farmerProductUnitType->getId() !== 1)) {
+        if (empty($_POST['quantity']) || $_POST['quantity'] == 0 || !is_numeric($_POST['quantity']) || (is_numeric($_POST['quantity']) && floor(floatval($_POST['quantity'])) != floatval($_POST['quantity']) && $farmerProductUnitType->getName() !== 'kg')) {
             $this->get('session')->getFlashBag()->add('error', "Quantité de produit invalide. Le produit n'a pas été ajouté à votre panier.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
@@ -52,6 +52,11 @@ class CartController extends Controller
             //out of stock
             $this->get('session')->getFlashBag()->add('error', "Quantité de produit supérieure au stock de l'agriculteur. Le produit n'a pas été ajouté à votre panier.");
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
+        }
+
+        if ($_POST['quantity'] * $_POST['price'] != $_POST['quantity'] * $farmerProduct->getUnitPrice()) {
+            //wrong price given
+            $this->get('session')->getFlashBag()->add('error', "Le prix indiqué ne correspondait pas à la quantité demandée et a donc été ajusté.");
         }
 
         // finding the user's current cart. If he has no in_progress cart, creating one
