@@ -806,7 +806,7 @@ body
 
 .product-best-selling .yes-image img
 {
-	height: 165px;
+	height: 180px;
 }
 
 .product-best-selling
@@ -1524,6 +1524,17 @@ body
 	font-weight: 600;
 }
 
+.bottom-name-product-cart
+{
+	background-color: rgba(255,255,255, 0.7);
+	height: 40px;
+	line-height: 40px;
+	margin-top: 135px;
+	color: #333333;
+	font-size: 15px;
+	font-weight: 600;
+}
+
 #pagination-product
 {
 	font-size: 17px;
@@ -1581,6 +1592,7 @@ body
 {
 	border: 2px solid #f9ac48;
 	background-color: #fff;
+	width: 815px;
 }
 
 #title-product-cart
@@ -1663,13 +1675,18 @@ body
 	border-right: 2px solid #f9ac48;
 	height: 200px;
 	margin-left: 0px;
-	width: 168px;
+	width: 113px;
 	position: relative;
 	left: 4px;
 	text-align: center;
 	line-height: 30px;
 	font-weight: 600;
 	background-color: #f5f7f0;
+}
+
+#value-total-price .span2
+{
+	width: 113px;
 }
 
 #title-category-total-price
@@ -1685,7 +1702,7 @@ body
 .last-column
 {
 	border-left: 2px solid #f9ac48;
-	width:168px;
+	width:113px;
 	font-weight: 600;
 	background-color: #f9f8f7;
 }
@@ -1704,7 +1721,7 @@ body
 	font-weight: 600;
 	height: 30px;
 	line-height: 20px;
-	width: 172px;
+	width: 117px;
 }
 
 #modifier-cart-client:hover
@@ -1722,7 +1739,7 @@ body
 	font-weight: 600;
 	height: 30px;
 	line-height: 20px;
-	width: 172px;
+	width: 117px;
 }
 
 #valider-cart-client:hover
@@ -1732,6 +1749,18 @@ body
 
 #ne-pas-rater
 {
-	background-color:#f9ac48;
 	height: 50px; 
+	margin-left: 150px;
+}
+
+#title-ne-pas-rater
+{
+	margin-left: 0px;
+	font-size: 17px;
+}
+
+#logo-oef-pro
+{
+	color:#fff;
+	margin-left: 500px;
 }

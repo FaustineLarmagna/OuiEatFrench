@@ -1,0 +1,95 @@
+@media (max-width: 1700px) {
+
+    .navbar-commerce ul 
+    {
+        margin-left: 700px;
+    }
+
+    #commands_inprogress_button
+    {
+    	margin-left: 400px;
+    }
+}
+
+@media (max-width: 1600px) {
+
+    #logo-oef-pro
+    {
+    	margin-left: 490px;
+    }
+
+    #commands_inprogress_button
+    {
+    	margin-left: 335px;
+    }
+}
+
+@media (max-width: 1500px) {
+
+    .navbar-commerce ul 
+    {
+        margin-left: 545px;
+    }
+
+    #logo-oef-pro
+    {
+    	margin-left: 400px;
+    }
+
+    #commands_inprogress_button
+    {
+    	margin-left: 250px;
+    }
+}
+
+
+@media (max-width: 1400px) {
+
+    .navbar-commerce ul 
+    {
+        margin-left: 400px;
+    }
+
+    #logo-oef
+    {
+    	margin-left: 150px;
+    }
+
+    #logo-oef-pro
+    {
+    	margin-left: 360px;
+    }
+
+    #commands_inprogress_button
+    {
+    	margin-left: 210px;
+    }
+}
+
+@media (max-width: 1300px) {
+
+    #logo-oef-pro
+    {
+    	margin-left: 330px;
+    }
+
+    #commands_inprogress_button
+    {
+    	margin-left: 160px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    #logo-oef-pro
+    {
+    	margin-left: 210px;
+    }
+
+    #commands_inprogress_button
+    {
+    	margin-left: 130px;
+    }
+}
+
+
