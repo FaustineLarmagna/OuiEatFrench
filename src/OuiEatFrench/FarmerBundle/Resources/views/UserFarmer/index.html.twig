@@ -3,7 +3,7 @@
 <div id="wrapper">
     <div class="row">
         <div class="span6 offset5" style="margin-top: 50px;margin-bottom: 50px;margin-left: 475px;">
-            <p class="titre-index">Bienvenue {{farmer.firstname}}.{{farmer.lastname|first|capitalize}}</p>
+            <p class="titre-index">Bienvenue {{farmer.firstname}} {{farmer.lastname|first|capitalize}}.</p>
         </div>
     </div>
     <div class="row">
@@ -38,11 +38,32 @@
             </div>
             <div class="row product-best-selling">
                 {% for sell in my_best_sells %}
-                <div class="span2">
-                     <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
-                     <span class="name-product-best">{{sell.product.name|capitalize}}</span>
-                </div>
+                    <div class="span2 yes-image">
+                         <img src="{{ asset('OEF/img_admin_product/'~sell.product.imageName)}}" height="185" width="250" alt="image de {{sell.product.name}}" class="product_img"> <br>
+                         <span class="name-product-best">{{sell.product.name|capitalize}}</span>
+                    </div>
                 {% endfor %}
+
+                {% if my_best_sells|length < 4 %}
+                    <div class="span2 no-image-best-selling">
+                         <img src="{{ asset('OEF/img_admin_product/fond-olive.png')}}" alt="Pas de produit" class="product_img">
+                    </div>
+                    {% if my_best_sells|length < 3 %}
+                        <div class="span2 no-image-best-selling">
+                             <img src="{{ asset('OEF/img_admin_product/fond-olive.png')}}"  alt="Pas de produit" class="product_img">
+                        </div>
+                        {% if my_best_sells|length < 2 %}
+                            <div class="span2 no-image-best-selling">
+                                 <img src="{{ asset('OEF/img_admin_product/fond-olive.png')}}" alt="Pas de produit" class="product_img">
+                            </div>
+                            {% if my_best_sells|length < 1 %}
+                                <div class="span2 no-image-best-selling">
+                                     <img src="{{ asset('OEF/img_admin_product/fond-olive.png')}}" alt="Pas de produit" class="product_img">
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>

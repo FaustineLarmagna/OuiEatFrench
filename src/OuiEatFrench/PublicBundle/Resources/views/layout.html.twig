@@ -25,13 +25,13 @@
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer' %}active{% endif %}">
             <a href="{{ path('oui_eat_french_public_farmer') }}">LES PRODUCTEURS</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer' %}
-                <div class="arrow-up-client"  style="left: 40px;"></div>
+                <div class="arrow-up-client"  style="left: 70px;"></div>
             {% endif %}
         </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_account' %}active{% endif %}">
             <a href="{{ path('oui_eat_french_public_account') }}">MON COMPTE</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_public_account' %}
-                <div class="arrow-up-client"  style="left: 30px;"></div>
+                <div class="arrow-up-client"  style="left: 50px;"></div>
             {% endif %}
         </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_cart_show' %}active{% endif %}">
@@ -40,7 +40,7 @@
             	MON PANIER
             </a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_public_cart_show' %}
-                <div class="arrow-up-client"  style="left: 15px;"></div>
+                <div class="arrow-up-client"  style="left: 70px;"></div>
             {% endif %}
         </li>
     </ul>

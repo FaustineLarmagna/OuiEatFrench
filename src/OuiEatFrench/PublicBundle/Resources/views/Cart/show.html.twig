@@ -12,9 +12,9 @@
 	</div>
 
 	<div class="row">
-		<div class="span10" id="content-cart-client">
+		<div class="span9" id="content-cart-client">
 			<div class="row" id="title-category-cart">
-				<div class="span3" style="text-align: left">
+				<div class="span2" style="text-align: left">
 					<span style="margin-left: 30px;">PRODUIT(S)</span>
 				</div>
 				<div class="span2">
@@ -26,7 +26,7 @@
 				<div class="span1">
 					PRIX UNI.
 				</div>
-				<div class="span2" style="border-left: 2px solid #f9ac48;width:168px;">
+				<div class="span2 last-column" style="font-weight: normal">
 					PRIX HT
 				</div>
 			</div>
@@ -34,13 +34,13 @@
 	    	{% for farmerProductCart in cart.farmerProductCarts %}
 	    		{% set price = farmerProductCart.farmerProduct.unitPrice * farmerProductCart.unitQuantity %}
 				<div class="row">
-					<div class="span3 value-category-cart" style="text-align: left">
+					<div class="span2 value-category-cart" style="text-align: left">
 						{# <a href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}" style="position: relative;bottom:15px;"><img src="{{ asset('ouieatfrench/theme/assets2/img/croix.png')}}"></a> #}
 						 <div class="product-image-cart-client" style="background:url({{ asset("OEF/img_admin_product/" ~farmerProductCart.farmerProduct.product.imageName) }});background-size: cover;"></div> 
 						<span class="underline" style="position: relative;bottom:25px;left:20px;">{{ farmerProductCart.farmerProduct.product.name|capitalize }}</span>
 					</div>
 					<div class="span2 value-category-cart" style="text-decoration: underline">
-						Bastien H.
+						{{farmerProductCart.farmerProduct.farmer.firstname}}.{{farmerProductCart.farmerProduct.farmer.lastname|first|capitalize}}.
 					</div>
 					<div class="span2 value-category-cart ">
 						{# <form action="{{ path('oui_eat_french_public_cart_modify', {'farmerProductCartId' : farmerProductCart.id}) }}" method="post" style="display:inline-block">
@@ -51,9 +51,9 @@
 		        		{{ farmerProductCart.farmerProduct.product.unitType.name }}
 					</div>
 					<div class="span1 value-category-cart">
-						PRIX UNI.
+						{{ farmerProductCart.farmerProduct.unitPrice|number_format(2, '.', ',') }}&euro;
 					</div>
-					<div class="span2 value-category-cart" style="border-left: 2px solid #f9ac48; width:168px;font-weight: 600">
+					<div class="span2 value-category-cart last-column">
 						{{ price|number_format(2, '.', ',') }}&euro;
 					</div>
 				</div>
@@ -62,8 +62,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span10" id="total-price-cart-client">
-			<div class="span6">
+		<div class="span9" id="total-price-cart-client">
+			<div class="span6" style="margin-left: 0px;width:500px;">
 				<div class="span3" id="bon-reduction-cart">
 					Bon de réduction, offre promo <br>
 					& code cadeaux
@@ -71,11 +71,47 @@
 				</div>
 			</div>
 			<div class="span2" id="title-category-total-price">
-				
+				<div class="row" style="margin-top: 40px;">
+					<div class="span2">TOTAL HT</div>
+				</div>
+				<div class="row">
+					<div class="span2">TVA (20%)</div>
+				</div>
+				<div class="row">
+					<div class="span2">R&Eacute;DUCTION</div>
+				</div>
+				<div class="row">
+					<div class="span2">
+						TOTAL TTC <br>
+						<span class="little-text">(HORS FRAIS DE LIVRAISON)</span>
+					</div>
+				</div>
 			</div>
 			<div class="span2" id="value-total-price">
-				
+				<div class="row" style="margin-top: 40px;">
+					<div class="span2">TOTAL HT</div>
+				</div>
+				<div class="row">
+					<div class="span2">TVA (20%)</div>
+				</div>
+				<div class="row">
+					<div class="span2">0,00€</div>
+				</div>
+				<div class="row">
+					<div class="span2">
+						<span style="color:#f9ac48;">{{ total|number_format(2, ',', ',') }}€</span>
+					</div>
+				</div>
 			</div>
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 50px;">
+		<div class="span2 offset5">
+			<button id="modifier-cart-client">MODIFIER</button>
+		</div>
+		<div class="span1">
+			<button id="valider-cart-client">VALIDER</button>
 		</div>
 	</div>
 	{# <div class="row">

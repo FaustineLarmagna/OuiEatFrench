@@ -16,12 +16,6 @@
                 <div class="arrow-up"></div>
             {% endif %}
         </li>
-        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_availability_index' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_farmer_availability_index') }}">DISPONIBILITÉS</a>
-            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_availability_index' %}
-                <div class="arrow-up" style="left: 40px;"></div>
-            {% endif %}
-        </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_command_index' %}active{% endif %}">
             <a href="{{ path('oui_eat_french_farmer_command_index') }}">COMMANDES</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_command_index' %}
@@ -38,6 +32,12 @@
             <a href="{{ path('oui_eat_french_farmer_stock_index') }}">STOCK</a>
             {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_stock_index' %}
                 <div class="arrow-up"  style="left: 15px;"></div>
+            {% endif %}
+        </li>
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_availability_index' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_farmer_availability_index') }}">DISPONIBILITÉS</a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_availability_index' %}
+                <div class="arrow-up" style="left: 40px;"></div>
             {% endif %}
         </li>
         <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_user_show' %}active{% endif %}">

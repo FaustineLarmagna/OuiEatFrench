@@ -18,14 +18,16 @@
 				{% endif %}
 			</div>
 
-			<div class="row">
-				<div class="span9 offset2" style="margin-bottom:20px;">
-					<p class="description-disponibilites">
-						Pour chaque commande, cliquez sur "Prise en compte" pour annoncer au client que celle ci a été acceptée. <br>
-						<span class="offset1">Puis cliquez sur "Valider" pour lui annoncer que sa commande est prête</span>
-					</p>
+			{% if commands_inprogress|length > 0 %}
+				<div class="row">
+					<div class="span9 offset2" style="margin-bottom:20px;">
+						<p class="description-disponibilites">
+							Pour chaque commande, cliquez sur "Prise en compte" pour annoncer au client que celle ci a été acceptée. <br>
+							<span class="offset1">Puis cliquez sur "Valider" pour lui annoncer que sa commande est prête</span>
+						</p>
+					</div>
 				</div>
-			</div>
+			{% endif %}
 
 			{% for flashMessage in app.session.flashbag.get('error') %}
 			    <div class="alert alert-error">{{ flashMessage }}</div>
