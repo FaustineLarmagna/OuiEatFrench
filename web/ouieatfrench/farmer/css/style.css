@@ -1540,3 +1540,99 @@ body
 	bottom: 5px;
 	left: 2px;
 }
+
+#content-cart-client
+{
+	border: 2px solid #f9ac48;
+	background-color: #fff;
+}
+
+#title-product-cart
+{
+	font-size: 40px;
+	text-align: center;
+	color: #333333;
+	margin-top: 100px;
+	margin-bottom: 60px;
+}
+
+#title-category-cart
+{
+	text-align: center;
+	color: #f9ac48;
+	height: 50px;
+	line-height: 50px;
+}
+
+.input-quantity-cart
+{
+	width: 50px;
+	height: 10px !important;
+	text-align: right;
+	border-radius: 0px !important;
+	box-shadow: none !important;
+	border:1px solid #ff3366 !important;
+}
+
+.value-category-cart
+{
+	text-align: center;
+	height: 100px;
+	line-height: 60px;
+	font-family: "Open Sans";
+
+}
+
+.underline
+{
+	text-decoration: underline;
+}
+
+.product-image-cart-client
+{
+	display:inline-block;
+	width:60px;
+	height:60px !important;
+	height:200px;
+	margin-left: 30px;
+}
+
+#total-price-cart-client
+{
+	height: 200px;
+	border-top: 0px;
+}
+
+#bon-reduction-cart
+{
+	background-color: grey;
+	padding: 10px;
+	margin-top: 42px;
+}
+
+#bon-reduction-cart input
+{
+	border-radius: 0px;
+	box-shadow: none;
+	border:2px solid #f9ac48;
+	width: 200px;
+	margin-top: 10px;
+}
+
+#value-total-price
+{
+	border-left: 2px solid #f9ac48;
+	border-bottom: 2px solid #f9ac48;
+	border-right: 2px solid #f9ac48;
+	height: 200px;
+	margin-left: 0px;
+	width: 168px;
+	position: relative;
+	left: 4px;
+}
+
+#title-category-total-price
+{
+	height: 200px;
+	margin-left: 28px;
+}

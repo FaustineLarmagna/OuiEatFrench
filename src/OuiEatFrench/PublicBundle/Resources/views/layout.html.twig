@@ -34,8 +34,8 @@
                 <div class="arrow-up-client"  style="left: 30px;"></div>
             {% endif %}
         </li>
-        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_farmer_stock_index' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_farmer_stock_index') }}" style="color:#333333">
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_cart_show' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_public_cart_show') }}" style="color:#333333">
             	<img src="{{ asset('ouieatfrench/theme/assets2/img/picto_panier.png')}}">
             	MON PANIER
             </a>

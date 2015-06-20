@@ -1,18 +1,84 @@
-{% extends "base.html.twig" %}
+{% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
 {% block title %}OuiEatFrench | Panier{% endblock %}
-{% block body %}
-<div style="width:1500px;margin:auto;">
+{% block content %}
+{% for flashMessage in app.session.flashbag.get('error') %}
+	    <div class="alert alert-error">{{ flashMessage }}</div>
+{% endfor %}
+<div id="wrapper">
 	<div class="row">
-		<div class="col-md-10">
-			<h3>{{app.user | title}}, voici votre panier :</h3>
-		</div>
+		<div class="span10" id="title-product-cart">
+            JE PASSE &Agrave; LA CAISSE
+        </div>
 	</div>
 
-	{% for flashMessage in app.session.flashbag.get('error') %}
-	    <div class="alert alert-error">{{ flashMessage }}</div>
-	{% endfor %}
-
 	<div class="row">
+		<div class="span10" id="content-cart-client">
+			<div class="row" id="title-category-cart">
+				<div class="span3" style="text-align: left">
+					<span style="margin-left: 30px;">PRODUIT(S)</span>
+				</div>
+				<div class="span2">
+					PRODUCTEUR(S)
+				</div>
+				<div class="span2">
+					QUANTIT&Eacute;
+				</div>
+				<div class="span1">
+					PRIX UNI.
+				</div>
+				<div class="span2" style="border-left: 2px solid #f9ac48;width:168px;">
+					PRIX HT
+				</div>
+			</div>
+	    	{% set total = 0 %}
+	    	{% for farmerProductCart in cart.farmerProductCarts %}
+	    		{% set price = farmerProductCart.farmerProduct.unitPrice * farmerProductCart.unitQuantity %}
+				<div class="row">
+					<div class="span3 value-category-cart" style="text-align: left">
+						{# <a href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}" style="position: relative;bottom:15px;"><img src="{{ asset('ouieatfrench/theme/assets2/img/croix.png')}}"></a> #}
+						 <div class="product-image-cart-client" style="background:url({{ asset("OEF/img_admin_product/" ~farmerProductCart.farmerProduct.product.imageName) }});background-size: cover;"></div> 
+						<span class="underline" style="position: relative;bottom:25px;left:20px;">{{ farmerProductCart.farmerProduct.product.name|capitalize }}</span>
+					</div>
+					<div class="span2 value-category-cart" style="text-decoration: underline">
+						Bastien H.
+					</div>
+					<div class="span2 value-category-cart ">
+						{# <form action="{{ path('oui_eat_french_public_cart_modify', {'farmerProductCartId' : farmerProductCart.id}) }}" method="post" style="display:inline-block">
+		            		<input class="input-quantity-cart" type="text" value="{{ farmerProductCart.unitQuantity }}" name="quantity">
+		            		{# <input type="submit" value="modifier" name="submit">
+		        		</form> #}
+		        		{{ farmerProductCart.unitQuantity }}
+		        		{{ farmerProductCart.farmerProduct.product.unitType.name }}
+					</div>
+					<div class="span1 value-category-cart">
+						PRIX UNI.
+					</div>
+					<div class="span2 value-category-cart" style="border-left: 2px solid #f9ac48; width:168px;font-weight: 600">
+						{{ price|number_format(2, '.', ',') }}&euro;
+					</div>
+				</div>
+			    {% set total = total+price %}
+			{% endfor %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="span10" id="total-price-cart-client">
+			<div class="span6">
+				<div class="span3" id="bon-reduction-cart">
+					Bon de réduction, offre promo <br>
+					& code cadeaux
+					<input type="text" name="reduction">
+				</div>
+			</div>
+			<div class="span2" id="title-category-total-price">
+				
+			</div>
+			<div class="span2" id="value-total-price">
+				
+			</div>
+		</div>
+	</div>
+	{# <div class="row">
 		<div class="col-md-10">
 			<table class="table">
 				<thead>
@@ -54,7 +120,7 @@
 		    	</tr>
 		    </table>
 		</div>
-	</div>
+	</div> #}
 </div>
 
 <script type="text/javascript">
