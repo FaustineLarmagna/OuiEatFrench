@@ -783,7 +783,7 @@ body
 .product-best-selling
 {
 	background-color: #fff;
-	height: 220px;
+	height: 185px;
 }
 
 .product-best-selling .span2
@@ -805,8 +805,8 @@ body
 .no-image-best-selling
 {
 	background-color: #f8faf2;
-	height: 180px;
-	line-height: 180px;
+	height: 146px;
+	line-height: 146px;
 }
 
 .name-product-best
@@ -817,7 +817,7 @@ body
 
 .product-best-selling .yes-image img
 {
-	height: 180px;
+	height: 146px;
 }
 
 .product-best-selling
