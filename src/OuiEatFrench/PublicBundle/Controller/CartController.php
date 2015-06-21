@@ -54,7 +54,8 @@ class CartController extends Controller
             return $this->redirect($this->generateUrl('oui_eat_french_public_product_index'));
         }
 
-        if ($_POST['quantity'] * $_POST['price'] != $_POST['quantity'] * $farmerProduct->getUnitPrice()) {
+        $number = $_POST['quantity'] * $farmerProduct->getUnitPrice();
+        if ($_POST['price'] != number_format((float)$number, 2, '.', '')) {
             //wrong price given
             $this->get('session')->getFlashBag()->add('error', "Le prix indiqué ne correspondait pas à la quantité demandée et a donc été ajusté.");
         }
