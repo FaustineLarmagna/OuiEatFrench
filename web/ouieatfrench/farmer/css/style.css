@@ -1764,3 +1764,10 @@ body
 	color:#fff;
 	margin-left: 500px;
 }
+
+#title-cart-empty
+{
+	text-align: center;
+	font-size: 40px;
+	margin-top: 300px;
+}
