@@ -141,17 +141,18 @@
 				</div>
 				<div class="span2" id="value-total-price">
 					<div class="row" style="margin-top: 40px;">
-						<div class="span2">{{ total|number_format(2, ',', ',') }}€</div>
+						<div class="span2">{{ total|number_format(2, ',', ',') }}&euro;</div>
 					</div>
 					<div class="row">
-						<div class="span2">TVA (20%)</div>
+						{% set tva = total * 0.2 %}
+						<div class="span2">{{ tva|number_format(2, ',', ',') }}&euro;</div>
 					</div>
 					<div class="row">
 						<div class="span2">0,00€</div>
 					</div>
 					<div class="row">
 						<div class="span2">
-							<span style="color:#f9ac48;">TOTAL TTC</span>
+							<span style="color:#f9ac48;">{{ (total + tva)|number_format(2, ',', ',') }}&euro;</span>
 						</div>
 					</div>
 				</div>

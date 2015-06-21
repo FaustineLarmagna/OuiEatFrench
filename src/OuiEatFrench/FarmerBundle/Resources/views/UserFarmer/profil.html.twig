@@ -13,6 +13,19 @@
         {% else %}
             <div class="img-profil span2 offset6" style="margin-left: 590px; background-image: url({{ asset('ouieatfrench/farmer/img/profil.png') }})">
             </div>  
+            {% endif %}
+    </div>
+    <div style="text-align:center;">
+        {% if farmer.status is defined and farmer.status is not null %}
+            {% if farmer.status.name == "to_review" %}
+                Votre candidature est en court d'évaluation
+            {% elseif farmer.status.name == "missing_doc" %}
+                Il manque un document pour que votre candidature soit étudiée
+            {% elseif farmer.status.name == "validate" %}
+                Vous pouvez accéder à la composition de votre stand
+            {% elseif farmer.status.name == "banned" %}
+                Vous ne pouvez plus agir sur ouieatfrench jusqu'à nouvel ordre. Contacter l'équipe Ouieatfrench pour toute réclamation
+            {% endif %}
         {% endif %}
     </div>
     <div class="row">
@@ -119,18 +132,5 @@
             </div>
         </div>
     </div> #}
-    <p>
-        {% if farmer.status is defined and farmer.status is not null %}
-            {% if farmer.status.name == "to_review" %}
-                Votre candidature est en court d'évaluation
-            {% elseif farmer.status.name == "missing_doc" %}
-                Il manque un document pour que votre candidature soit étudiée
-            {% elseif farmer.status.name == "validate" %}
-                Vous pouvez accéder à la composition de votre stand
-            {% elseif farmer.status.name == "banned" %}
-                Vous ne pouvez plus agir sur ouieatfrench jusqu'à nouvel ordre. Contacter l'équipe Ouieatfrench pour toute réclamation
-            {% endif %}
-    	{% endif %}
-    </p>
 </div>
 {% endblock %}
