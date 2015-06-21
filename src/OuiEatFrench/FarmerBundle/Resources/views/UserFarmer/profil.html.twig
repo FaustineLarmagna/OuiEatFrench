@@ -27,6 +27,33 @@
             </div>
         </div>
     </div>
+
+    <!-- Non adhérant -->
+    {# <div class="row" id="non-adherant">
+        <div class="span5 offset4 div-description-contrat" style="font-size: 15px;">
+            <div class="row" style="margin-left: 0px;">
+                <div class="span12" id="title-contrat">
+                    Mon contrat avec Ouieatfrench
+                </div>
+            </div>
+            <div class="row" style="margin-left: 0px;">
+                <div class="span4" id="description-contrat">
+                    Merci d'avoir choisi Ouieatfrench ! <br>
+                    <span style="margin-top: 10px;display: inline-block">
+                    Pour pouvoir créer votre propre stand et commencer à proposer
+                    vos produits, vous devez d'abord lire attentivement et signer notre contrat d'adhésion.<br></span>
+                    <span style="margin-top: 10px;display: inline-block;margin-bottom: 10px;">Une signature numérique vous sera alors demandée et vous pourrez ensuite prendre part à notre aventure !</span>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 0px;">
+                <div class="span4" id="bouton-contrat" style="margin-left: 0px;">
+                    <button id="bouton-signer-contrat">Signer mon contrat</button>
+                </div>
+            </div>
+        </div>
+    </div> #}
+
+    <!-- Adhérant -->
     <div class="row">
         <div class="span5 offset4 contacts-personnels" style="font-size: 15px;">
             <div style="color: #99cc33; font-weight: 700;margin-bottom: 20px;margin-top: 20px;">Adresse personnelle</div>
@@ -58,9 +85,18 @@
 
     <div class="row">
         <div class="span5 offset4 link-profil">
+
+            <!-- Non adhérant -->
+            {# <span class="link-modifier-profil">
+                <a href="{{ path('oui_eat_french_farmer_user_edit') }}">Compléter mon profil</a>
+            </span> #}
+
+            <!--  Adhérant -->
             <span class="link-modifier-profil">
                 <a href="{{ path('oui_eat_french_farmer_user_edit') }}">Modifier mon profil</a>
             </span>
+
+            <!-- Les deux -->
             <span class="link-deconnexion-profil">
                 <a href="{{ path('oui_eat_french_farmer_user_logout') }}">Se déconnecter</a>
             </span>

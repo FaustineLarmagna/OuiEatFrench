@@ -6,7 +6,7 @@
 			Mes commandes en cours ({{commands_inprogress|length}})
 		</div>
 		<div class="commandes-finies span5" id="commands_closed_button">
-			Mes commandes clôturées ({{commands_closed|length}})
+			Mes commandes remises/livrées ({{commands_closed|length}})
 		</div>
 	</div>
 	<div id="wrapper">
@@ -76,9 +76,9 @@
 		</div>
 		<div class="row all-commandes" id="commands_closed">
 			<div class="text-vos-commandes">
-				{% if commands_closed|length == 0 %} Aucune commande clôturée
-				{% elseif commands_closed|length == 1 %} Vos commandes clôturées
-				{% else %}Vos {{commands_closed|length}} commandes clôturées
+				{% if commands_closed|length == 0 %} Aucune commande remises/livrées
+				{% elseif commands_closed|length == 1 %} Vos commandes remises/livrées
+				{% else %}Vos {{commands_closed|length}} commandes remises/livrées
 				{% endif %}
 			</div>
 
