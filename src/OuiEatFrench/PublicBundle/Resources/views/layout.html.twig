@@ -51,16 +51,31 @@
         {% block content %}
         {% endblock %}
     </div>
-<div class="row" style="background-color: #fff; text-align:center">
-    <div class="bottom-link">
-      <a href="">CGV</a> |
-      <a href="">Foire aux questions</a> |
-      <a href="">La politique de confidentialité</a> |
-      <a href="">Qui sommes-nous ?</a> |
-      <a href="">Comment ça marche ?</a>
-    </div>
-    <div class="bottom-img">
-        <img src="{{ asset('ouieatfrench/farmer/img/login-logo-footer.png')}}">
+<div class="row" id="footer-client">
+    <div class="wrapper-footer">
+        <div class="row" style="margin-left: 0px;">
+            <div class="span4" id="logo-footer">
+                <img src="{{ asset('ouieatfrench/farmer/img/login-logo-footer.png')}}">
+                <br>
+                <span style="color:#bdbdbd;">&copy; ouieatfrench 2015</span>
+            </div>
+            <div class="span2 offset1 link-footer-client">
+                <a href="#">QUI SOMMES NOUS ?</a><br>
+                <a href="#">COMMENT &Ccedil;A MARCHE ?</a><br>
+                <a href="#">LE CONCEPT</a>
+            </div>
+            <div class="span2 link-footer-client" style="margin-left: 0px">
+                <a href="{{ path('oui_eat_french_public_product_index') }}">LES ALIMENTS</a><br>
+                <a href="{{ path('oui_eat_french_public_farmer') }}">LES PRODUCTEURS</a><br>
+                <a href="{{ path('oui_eat_french_public_account') }}">MON COMPTE</a> <br>
+                <a href="{{ path('oui_eat_french_public_cart_show') }}">MON PANIER</a>
+            </div>
+            <div class="span3 link-footer-client" style="margin-left: 0px">
+                <a href="#">CONDITIONS G&Eacute;N&Eacute;RALES DE VENTE</a><br>
+                <a href="#">FOIRE AUX QUESTIONS</a><br>
+                <a href="#">LA POLITIQUE DE CONFIDENTIALIT&Eacute;</a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
