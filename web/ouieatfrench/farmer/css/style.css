@@ -217,7 +217,7 @@ hr
 	font-size: 17px;
 }
 
-.name_product, .price_product
+.name_product
 {
 	font-weight: bold;
 }
@@ -234,6 +234,15 @@ hr
 	opacity: 0.6;
 	margin-left: 0px;
 	margin-bottom: 10px;
+}
+
+.hr-produits-stock
+{
+	width: 220px;
+	opacity: 0.6;
+	margin-left: 0px;
+	margin-bottom: 10px;
+	margin-top: 110px;
 }
 
 .price_products
@@ -333,6 +342,7 @@ hr
 	line-height: 45px;
 	margin-right: 20px;
 	margin-bottom: 10px;
+	margin-top: 10px;
 	cursor: pointer;
 	opacity: 0.5;
 }
@@ -1829,4 +1839,41 @@ button:focus
 	height: 50px;
 	line-height: 50px;
 	font-weight: 600;
+}
+
+.type_agriculture
+{
+	color: #d7ddd1;
+}
+
+.quantity_product
+{
+	font-weight: 600;
+}
+
+.quantity_product_stock input
+{
+	width: 50px;
+	text-align: center;
+	box-shadow: none;
+	border-radius: 0px;
+	height: 30px;
+	margin-top: 10px;
+}
+
+
+.valider-value-stock
+{
+	border-radius: 0px;
+	border:2px solid #a3d634;
+	background-color: #fff;
+	color: #a3d634;
+	width: 64px;
+}
+
+.valider-value-stock:hover
+{
+	border-radius: 0px;
+	background-color: #a3d634;
+	color: #fff;
 }

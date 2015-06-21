@@ -8,7 +8,7 @@
     {% endfor %}
     <div class="row" style="margin-bottom: 50px;margin-top: 75px;margin-left: 0px;">
         <div class="text-catalogue offset1">
-            L'ensemble de vos produits actuellement disponible dans votre boutique
+            L'ensemble de vos produits actuellement disponible dans votre stand
         </div>
     </div>
     {% if farmerproducts|length == 0 %}
@@ -25,13 +25,10 @@
                 <div class="product_description_left">
                     <div class="name_product">{% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</div>
                     <div class="type_agriculture">Agriculture {{ farmerproduct.agricultureType|truncate(12, false, '...')}}</div>
-                    <div class="periode-recolte italic">
-                        Janvier - Septembre
-                    </div>
                     <div class="price_products">
                         <span class="quantity_product">{{ farmerproduct.unitQuantity }} {{ farmerproduct.product.unitType }}</span>
-                         à 
-                         <span class="price_product">{{ farmerproduct.unitPrice }}&euro;</span>
+                         <br>
+                         <span class="price_product">{{ farmerproduct.unitPrice }}&euro;/{{ farmerproduct.product.unitType }}</span>
                     </div>
                     <hr class="hr-produits"></hr>
                     <div class="link_update_product">

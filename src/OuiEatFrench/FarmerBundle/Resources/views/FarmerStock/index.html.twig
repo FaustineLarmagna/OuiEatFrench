@@ -23,25 +23,25 @@
             {% endif %}
             <div class="product_description_left" id="{{farmerproduct.id}}">
                 <div class="name_product">{% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</div>
-                <div class="type_agriculture">Agriculture {{ farmerproduct.agricultureType }}</div>
+                <div>-</div>
+                <div class="type_agriculture">Stock({{ farmerproduct.product.unitType }}) : <span class="green">{{ farmerproduct.unitQuantity }}</span></div>
                 <hr class="hr-produits"></hr>
                 <div class="stocks_product">
+                    <div style="text-align: center; margin-left: -15px">Modifier le stock</div>
                 	<div class="button_stock">
             			<div class="moins_stock" id="product_moins_{{farmerproduct.id}}" data-id="{{farmerproduct.id }}">
             				<i class="icon-minus" id="icon_minus_{{farmerproduct.id}}"></i>
             			</div>
             			<div class="quantity_product_stock" id="product_quantity_{{farmerproduct.id}}">
-            				{{ farmerproduct.unitQuantity }}
+                            <input type="text" value="{{ farmerproduct.unitQuantity }}" ><br>
+                            <button class="valider-value-stock">Valider</button>
             			</div>
             			<div class="plus_stock" id="product_plus_{{farmerproduct.product.id}}" data-id="{{farmerproduct.id }}">
             				<i class="icon-plus" id="icon_plus_{{farmerproduct.id}}"></i>
             			</div>
                 	</div>
-                	<div class="unit_type">
-                		{{ farmerproduct.product.unitType }} en stock
-                	</div>
                 </div>
-                <hr class="hr-produits"></hr>
+                <hr class="hr-produits-stock"></hr>
                 <div class="link_update_product">
                     <a href="#modal-delete"  role="button" data-id="{{farmerproduct.id }}" data-toggle="modal"><i class="icon-trash"></i>Supprimer ce produit</a>
                 </div>
@@ -85,7 +85,7 @@ $(function () {
         $('.plus_stock').on('click', function(){
             var id = $(this).data('id');
             addStock(id);
-            var stock = $('#product_quantity_'+id).text();
+            var stock = $('#product_quantity_'+id+ ' input').text();
             if (parseInt(stock) > 0 && $('#icon_minus_'+id).is(':hidden')) {
                 $('#icon_minus_'+id).show();
             }
@@ -93,7 +93,7 @@ $(function () {
 
         $('.moins_stock').on('click', function(){
             var id = $(this).data('id');
-            var stock = $('#product_quantity_'+id).text();
+            var stock = $('#product_quantity_'+id+ ' input').val();
             if (parseInt(stock) > 0) {
                 removeStock(id);
             } else {
@@ -113,7 +113,7 @@ $(function () {
                 success: function(response)
                 {
                     if (response !== 'null') {
-                        $('#product_quantity_'+product_id).text(response);
+                        $('#product_quantity_'+product_id+ ' input').val(response);
                         if (parseInt(response) > 0 && $('#icon_minus_'+product_id).is(':hidden')) {
                             $('#icon_minus_'+product_id).show();
                         }
@@ -136,7 +136,7 @@ $(function () {
                 success: function(response)
                 {
                     if (response !== 'null') {
-                        $('#product_quantity_'+product_id).text(response);
+                        $('#product_quantity_'+product_id+ ' input').val(response);
                         if (parseInt(response) === 0) {
                             $('#icon_minus_'+product_id).hide();
                         }
