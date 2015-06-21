@@ -39,7 +39,7 @@
 		    		{% set price = farmerProductCart.farmerProduct.unitPrice * farmerProductCart.unitQuantity %}
 					<div class="row">
 						<div class="span2 value-category-cart" style="text-align: left">
-							{# <a href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}" style="position: relative;bottom:15px;"><img src="{{ asset('ouieatfrench/theme/assets2/img/croix.png')}}"></a> #}
+							<a class="link-remove-cart" href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}" style="position: relative;bottom:27px;left:20px;display:none"><img src="{{ asset('ouieatfrench/theme/assets2/img/croix.png')}}"></a>
 							 <div class="product-image-cart-client" style="background:url({{ asset("OEF/img_admin_product/" ~farmerProductCart.farmerProduct.product.imageName) }});background-size: cover;"></div> 
 							<span class="underline" style="position: relative;bottom:25px;left:20px;">{{ farmerProductCart.farmerProduct.product.name|capitalize }}</span>
 						</div>
@@ -47,11 +47,13 @@
 							{{farmerProductCart.farmerProduct.farmer.firstname}}.{{farmerProductCart.farmerProduct.farmer.lastname|first|capitalize}}.
 						</div>
 						<div class="span2 value-category-cart ">
-							{# <form action="{{ path('oui_eat_french_public_cart_modify', {'farmerProductCartId' : farmerProductCart.id}) }}" method="post" style="display:inline-block">
-			            		<input class="input-quantity-cart" type="text" value="{{ farmerProductCart.unitQuantity }}" name="quantity">
-			            		{# <input type="submit" value="modifier" name="submit">
-			        		</form> #}
-			        		{{ farmerProductCart.unitQuantity }}
+							<form action="{{ path('oui_eat_french_public_cart_modify', {'farmerProductCartId' : farmerProductCart.id}) }}" method="post" style="display:inline-block">
+			            		<input class="input-quantity-cart modif-cart" type="text" style="display:none;" value="{{ farmerProductCart.unitQuantity }}" name="quantity">
+			            		 {# <input type="submit" class="modif-cart" value="modifier" name="submit"> #}
+			        		</form>
+			        		<span class="actual-cart">
+			        			{{ farmerProductCart.unitQuantity }}
+			        		</span>
 			        		{{ farmerProductCart.farmerProduct.product.unitType.name }}
 						</div>
 						<div class="span1 value-category-cart">
@@ -158,11 +160,14 @@
 
 		<!-- Boutons Panier -->
 		<div class="row" style="margin-top: 50px;">
-			<div class="span2" style="width:117px;margin-left: 584px;">
+			<div class="span2 actual-cart" style="width:117px;margin-left: 584px;">
 				<button id="modifier-cart-client">MODIFIER</button>
 			</div>
-			<div class="span1">
+			<div class="span1 actual-cart">
 				<button id="valider-cart-client">VALIDER</button>
+			</div>
+			<div class="span2 modif-cart" style="margin-left: 608px;display:none;">
+				<button id="valider-modif-cart-client">VALIDER LES MODIFICATIONS</button>
 			</div>
 		</div>
 	{% else %}
@@ -229,6 +234,18 @@
 		}
 
 		$(this).attr('href', newurl);
+	});
+
+	$('#modifier-cart-client').click(function(){
+		$('.link-remove-cart').show();
+		$('.actual-cart').hide();
+		$('.modif-cart').show();
+	});
+
+	$('#valider-modif-cart-client').click(function(){
+		$('.link-remove-cart').hide();
+		$('.actual-cart').show();
+		$('.modif-cart').hide();
 	});
 </script>
 {% endblock %}

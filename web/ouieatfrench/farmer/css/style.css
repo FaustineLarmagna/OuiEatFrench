@@ -1771,3 +1771,14 @@ body
 	font-size: 40px;
 	margin-top: 300px;
 }
+
+#valider-modif-cart-client
+{
+	background-color: #fff;
+	color: #ff3366;
+	border:2px solid #ff3366;
+	font-weight: 600;
+	height: 30px;
+	line-height: 20px;
+	width: 240px;
+}
