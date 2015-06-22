@@ -60,7 +60,7 @@ class Cart
     protected $commands;
 
     /**
-     * @ORM\OneToOne(targetEntity="OuiEatFrench\PaymentBundle\Entity\Order", inversedBy="cart")
+     * @ORM\OneToOne(targetEntity="OuiEatFrench\PaymentBundle\Entity\Order", mappedBy="cart")
      * @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      */
     protected $order;
