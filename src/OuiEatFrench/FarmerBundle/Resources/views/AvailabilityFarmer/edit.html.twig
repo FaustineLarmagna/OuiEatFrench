@@ -443,7 +443,7 @@
 {{ parent() }}
 <script type="text/javascript">
 jQuery(document).ready(function() {
-	$('.no-disponible').on('click', function(){
+	$(this).on('click','.no-disponible', function(){
         var id = $(this).attr('id');
         if (id.indexOf("_no") >= 0) {
         	var machine_name = id.replace('_no_dispo', '');

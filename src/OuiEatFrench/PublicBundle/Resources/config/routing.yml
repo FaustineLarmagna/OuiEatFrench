@@ -15,8 +15,8 @@ oui_eat_french_public_cart:
     prefix: /panier
 
 oui_eat_french_public_farmer:
-    pattern:  /producteur
-    defaults: { _controller: OuiEatFrenchPublicBundle:Farmer:index }
+    resource: "@OuiEatFrenchPublicBundle/Resources/config/routing/farmer.yml"
+    prefix: /producteur
 
 oui_eat_french_public_account:
     pattern:  /mon-compte

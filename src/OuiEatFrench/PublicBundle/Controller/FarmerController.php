@@ -10,4 +10,9 @@ class FarmerController extends Controller
     {
         return $this->render('OuiEatFrenchPublicBundle:Farmer:index.html.twig');
     }
+
+    public function profilAction()
+    {
+        return $this->render('OuiEatFrenchPublicBundle:Farmer:profil.html.twig');
+    }
 }

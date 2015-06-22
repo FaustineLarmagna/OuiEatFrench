@@ -1,0 +1,7 @@
+oui_eat_french_public_farmer_all:
+    pattern:  /
+    defaults: { _controller: OuiEatFrenchPublicBundle:Farmer:index }
+
+oui_eat_french_public_farmer_show:
+    pattern:  /profil
+    defaults: { _controller: OuiEatFrenchPublicBundle:Farmer:profil }

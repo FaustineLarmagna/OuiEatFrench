@@ -22,9 +22,9 @@
                 <div class="arrow-up-client" style="left: 40px;"></div>
             {% endif %}
         </li>
-        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer' %}active{% endif %}">
-            <a href="{{ path('oui_eat_french_public_farmer') }}">LES PRODUCTEURS</a>
-            {% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer' %}
+        <li class="{% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer_all' %}active{% endif %}">
+            <a href="{{ path('oui_eat_french_public_farmer_all') }}">LES PRODUCTEURS</a>
+            {% if app.request.attributes.get('_route') == 'oui_eat_french_public_farmer_all' %}
                 <div class="arrow-up-client"  style="left: 50px;"></div>
             {% endif %}
         </li>
