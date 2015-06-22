@@ -23,7 +23,7 @@ class AvailabilityFarmer
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AvailabilitySlot")
+     * @ORM\ManyToMany(targetEntity="OuiEatFrench\FarmerBundle\Entity\AvailabilitySlot")
      */
     private $availabilitySlots;
 
@@ -35,7 +35,7 @@ class AvailabilityFarmer
 
     public function __construct()
     {
-        $availabilitySlots = new ArrayCollection();
+        $this->availabilitySlots = new ArrayCollection();
     }
 
     public function __toString()
@@ -57,7 +57,7 @@ class AvailabilityFarmer
      * Add availabilitySlots
      *
      * @param \OuiEatFrench\FarmerBundle\Entity\AvailabilitySlot $availabilitySlots
-     * @return UserFarmer
+     * @return AvailabilityFarmer
      */
     public function addAvailabilitySlot($availabilitySlots)
     {

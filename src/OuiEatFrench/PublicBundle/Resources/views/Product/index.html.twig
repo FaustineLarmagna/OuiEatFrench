@@ -1,5 +1,5 @@
 {% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
-{% block title %}OuiEatFrench{% endblock %}
+{% block title %}OuiEatFrench | Produits{% endblock %}
 {% block content %}
 {% for flashMessage in app.session.flashbag.get('error') %}
     <div class="alert alert-error">{{ flashMessage }}</div>
@@ -133,33 +133,6 @@
             {% endif %}
         </div>
     </div>
-{#     Pages :
-        {% if pagesNumber != 0 %}
-            {% if page > 1 %}
-                <a href="{{ path('oui_eat_french_public_product_index', {'page' : page-1}) }}" ><</a>&nbsp;
-            {% endif %}
-            {% for i in 1..pagesNumber %}<a href="{{ path('oui_eat_french_public_product_index', {'page' : i}) }}" {% if i == page %}style='color:red'{% endif %}>{{ i }}</a>&nbsp;{% endfor %}
-            {% if page != pagesNumber %}
-                &nbsp;<a href="{{ path('oui_eat_french_public_product_index', {'page' : page+1}) }}" >></a>
-            {% endif %}
-        {% else %}
-            Aucuns produit ne correspond aux demandes
-        {% endif %}
- #}    {# <div id="result"></div> #}
-{#     <table id="table">
-        {% for product in products %}
-            <tr style="border-style: solid;" id="{{ product.id }}">
-                <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.calories }}</td>
-                <td>
-                    <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product.id }) }}">
-                        <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ product.imageName) }}" alt="{{ product.imageName }}">
-                    </a>
-                </td>
-            </tr>
-        {% endfor %}
-    </table> #}
 </div>
 {% endblock %}
 {% block javascripts %}
@@ -169,12 +142,13 @@ $(function () {
     jQuery(document).ready(function() {
 
         var valueCalories = $("#val-calories").val();
+        console.log(valueCalories);
         $("#slider-range-min").slider({
           range: "min",
           min: 0,
           max: 200,
           step: 10,
-          value: valueCalories,
+          value: parseInt(valueCalories),
           slide: function( event, ui ) 
           {
             $("#amount").text(ui.value);

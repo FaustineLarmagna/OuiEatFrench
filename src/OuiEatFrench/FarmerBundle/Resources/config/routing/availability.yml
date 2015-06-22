@@ -3,9 +3,17 @@ oui_eat_french_farmer_availability_index:
     defaults: { _controller: OuiEatFrenchFarmerBundle:AvailabilityFarmer:index }
 
 oui_eat_french_farmer_availability_edit:
-    pattern:  /{id}/editer
+    pattern:  /editer
     defaults: { _controller: OuiEatFrenchFarmerBundle:AvailabilityFarmer:edit }
 
 oui_eat_french_farmer_availability_set_holidays_checkBox:
     pattern:  /ajax/vacances/checkbox
     defaults: { _controller: OuiEatFrenchFarmerBundle:AvailabilityFarmer:ajaxHolidaysCheckBox }
+
+oui_eat_french_farmer_slot_add_ajax:
+    pattern:  /ajax/add
+    defaults: { _controller: OuiEatFrenchFarmerBundle:AvailabilityFarmer:ajaxSlotAdd }
+
+oui_eat_french_farmer_slot_remove_ajax:
+    pattern:  /ajax/remove
+    defaults: { _controller: OuiEatFrenchFarmerBundle:AvailabilityFarmer:ajaxSlotRemove }

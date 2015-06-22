@@ -19,27 +19,20 @@ class FarmerProductType extends AbstractType
                 'label' => 'Produit',
                 'required' => true
                 ))
-            ->add('plantation', 'date', array(
-                'required'  => true,
-                'label' => 'Plantation (JJ/MM/AA)',
-                'format'    => 'ddMMyyyy',
-                'years'     => range(date('Y') -5, date('Y'))
-                ))
-            ->add('harvest', 'date', array(
-                'label' => 'Récolte (JJ/MM/AA)',
-                'required' => true,
-                'format' => 'ddMMyyyy',
-                'years'     => range(date('Y') -5, date('Y'))
-                ))
             ->add('unitMinimum', null, array(
                 'label' => "Minimum d'unité pour la vente",
                 'required' => true
                 ))
-            ->add('agricultureType', null, array(
-                'label' => "Type d'agriculture",
+            ->add('plantation', null, array(
+                'label' => "Plantation (JJ/MM/AAAA)",
                 'required' => true
                 ))
-            ->add('conservation', null, array(
+            ->add('harvest', null, array(
+                'label' => "Récolte (JJ/MM/AAAA)",
+                'required' => true
+                ))
+            ->add('agricultureType', null, array(
+                'label' => "Type d'agriculture",
                 'required' => true
                 ))
             ->add('unitPrice', null, array(
@@ -48,6 +41,10 @@ class FarmerProductType extends AbstractType
                 ))
             ->add('unitQuantity', null, array(
                 'label' => "Quantité d'unité",
+                'required' => true
+                ))
+            ->add('conservation', null, array(
+                'label' => "Conservation",
                 'required' => true
                 ))
         ;

@@ -48,8 +48,8 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
         </td>
         <td>
             <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
-                <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
-                <input type="text" name="price" id="price_{{farmerProduct.id}}">€
+                <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
+                <input type="text" name="price" id="price_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}">€
                 <input type="submit" name="addProduct" value="Ajouter à mon panier">
             </form><br>
         </td>
@@ -62,7 +62,66 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
 <script type="text/javascript">
     $(function () {
         jQuery(document).ready(function() {
+            $('input[name="quantity"]').on('change', function() {
+                var content = $(this).val();
+                var quantity_id = $(this).attr('id');
+                var price_id = quantity_id.replace('quantity', 'price');
 
+                if (content == '') {
+                    $('#'+quantity_id).val('');
+                    return;
+                }
+
+                var price = $(this).data('price');
+                var newPrice = parseFloat(content*price).toFixed(2);
+                $('#'+price_id).val(newPrice);
+            });
+
+            $('input[name="price"]').on('change', function() {
+                var content = $(this).val();
+                var price_id = $(this).attr('id');
+                var quantity_id = price_id.replace('price', 'quantity');
+
+                if (content == '') {
+                    $('#'+quantity_id).val('');
+                    return;
+                }
+
+                var price = $(this).data('price');
+                var newQuantity = parseFloat(content/price).toFixed(2);
+                $('#'+quantity_id).val(newQuantity);
+            });
+
+            $("#product").change(function(){
+                refresh();
+            });
+            $("#companyPostCode").change(function(){
+                refresh();
+            });
+            function refresh(){
+                $.ajax({
+                    url: '{{ path('oui_eat_french_public_product_ajax_farmer') }}',
+                    type: 'POST',
+                    data:
+                    {
+                        product : $('#product').val(),
+                        companyPostCode : $('#companyPostCode').val()
+                    },
+                    dataType: 'json',
+                    success: function(response)
+                    {
+                        $('#farmerTable tr').each(function()
+                        {
+                            var id = $(this).attr('class');
+                            if(response.indexOf(parseInt(id)) > -1)
+                            {$(this).show();}
+                            else
+                            {$(this).hide();}
+                        });
+                    }
+                });
+                return false;
+            };
         });
     });
 </script>

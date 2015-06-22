@@ -13,3 +13,15 @@ oui_eat_french_farmer_stock_show:
 oui_eat_french_farmer_stock_delete_ajax:
     pattern:  /ajax_delete
     defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:delete }
+
+oui_eat_french_farmer_stock_add_ajax:
+    pattern:  /ajax_add
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:add }
+
+oui_eat_french_farmer_stock_remove_ajax:
+    pattern:  /ajax_remove
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:remove }
+
+oui_eat_french_farmer_stock_adjust_ajax:
+    pattern:  /ajax_adjust
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:adjust }

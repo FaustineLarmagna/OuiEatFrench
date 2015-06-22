@@ -1,0 +1,16 @@
+{% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
+{% block title %}OuiEatFrench{% endblock %}
+{% block content %}
+<div id="wrapper">
+    <div class="row">
+        <div class="title-product-client">
+            MAQUETTE PAGE PRODUCTEURS
+        </div>
+    </div>
+	<div>
+		<a href="{{ path('oui_eat_french_public_farmer_profil') }}">
+			<img src="{{ asset('ouieatfrench/maquettes/img/maquette_producteurs.png')}}" alt="maquette page producteurs">
+		</a>
+	</div>
+</div>
+{% endblock %}

@@ -41,4 +41,73 @@ class FarmerStockController extends Controller
         }
        
     }
+
+    public function addAction()
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+            $id = $request->request->get('id');
+            $em = $this->getDoctrine()->getManager();
+
+            $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
+            if ($query)
+            {
+                $newQuantity = $query->getUnitQuantity() + 1;
+                $query->setUnitQuantity($newQuantity);
+                $em->flush();
+
+                return new JsonResponse($newQuantity);
+            }
+            return new JsonResponse('null');
+        }
+    }
+
+    public function removeAction()
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+            $id = $request->request->get('id');
+            $em = $this->getDoctrine()->getManager();
+
+            $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
+            if ($query)
+            {
+                $newQuantity = $query->getUnitQuantity() - 1;
+                if ($newQuantity < 0) {
+                    return new JsonResponse(0);
+                }
+                $query->setUnitQuantity($newQuantity);
+                $em->flush();
+
+                return new JsonResponse($newQuantity);
+            }
+            return new JsonResponse('null');
+        }
+    }
+
+    public function adjustAction()
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+            $id = $request->request->get('id');
+            $stock = $request->request->get('stock');
+            $em = $this->getDoctrine()->getManager();
+
+            $query = $em->getRepository('OuiEatFrenchFarmerBundle:FarmerProduct')->find($id);
+            if ($query)
+            {
+                $query->setUnitQuantity($stock);
+                $em->flush();
+
+                return new JsonResponse($stock);
+            }
+            return new JsonResponse('null');
+        }
+    }
 }
