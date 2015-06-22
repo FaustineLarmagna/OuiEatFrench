@@ -63,6 +63,6 @@ security:
                 key:        %secret%
 
     access_control:
-        # - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
         - { path: ^/panier/, roles: ROLE_USER }
         - { path: ^/mon-stand/, roles: ROLE_USER_FARMER }
