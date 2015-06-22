@@ -67,10 +67,12 @@ class PaymentController extends Controller
             }
 
             $shippingAmount = ($_GET['shipping'] == 0) ? count($farmers) * self::SHIPPING_AMOUNT : 0;
+            $taxAmount = $totalAmount * self::TAX;
+
             $paymentDetails['LOCALECODE'] = 'FR';
             $paymentDetails['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
             $paymentDetails['PAYMENTREQUEST_0_ITEMAMT'] = $totalAmount;
-            $paymentDetails['PAYMENTREQUEST_0_TAXAMT'] = floor($totalAmount * self::TAX);
+            $paymentDetails['PAYMENTREQUEST_0_TAXAMT'] = number_format((float)$taxAmount, 2, '.', '');
             $paymentDetails['PAYMENTREQUEST_0_SHIPPINGAMT'] = $shippingAmount;
             $paymentDetails['PAYMENTREQUEST_0_HANDLINGAMT'] = 0.00;
             $paymentDetails['PAYMENTREQUEST_0_QTY'] = $totalQuantity;

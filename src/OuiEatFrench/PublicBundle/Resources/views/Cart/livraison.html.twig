@@ -1,0 +1,16 @@
+{% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
+{% block title %}OuiEatFrench{% endblock %}
+{% block content %}
+<div id="wrapper">
+    <div class="row">
+        <div class="title-product-client">
+            MAQUETTE PAGE LIVRAISON
+        </div>
+    </div>
+	<div>
+		<a href="{{ path('oui_eat_french_public_cart_recapitulatif', {'shipping' : shipping}) }}">
+			<img src="{{ asset('ouieatfrench/maquettes/img/maquette_livraison.png')}}" alt="maquette page livraison">
+		</a>
+	</div>
+</div>
+{% endblock %}

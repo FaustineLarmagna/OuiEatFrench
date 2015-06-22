@@ -118,7 +118,7 @@
 				<div class="span6" style="margin-left: 0px;width:500px;">
 					<div class="span3" id="bon-reduction-cart">
 						Bon de réduction, offre promo <br>
-						& code cadeaux
+						&amp; code cadeaux
 						<input type="text" name="reduction">
 					</div>
 				</div>
@@ -148,7 +148,7 @@
 						<div class="span2">{{ tva|number_format(2, ',', ',') }}&euro;</div>
 					</div>
 					<div class="row">
-						<div class="span2">0,00€</div>
+						<div class="span2">0,00&euro;</div>
 					</div>
 					<div class="row">
 						<div class="span2">
@@ -165,7 +165,7 @@
 				<button id="modifier-cart-client">MODIFIER</button>
 			</div>
 			<div class="span1 actual-cart">
-				<button id="valider-cart-client">VALIDER</button>
+				<a href="" id="link-valider-cart-client"><button id="valider-cart-client">VALIDER</button></a>
 			</div>
 			<div class="span2 modif-cart" style="margin-left: 608px;display:none;">
 				<button id="valider-modif-cart-client">VALIDER LES MODIFICATIONS</button>
@@ -226,14 +226,13 @@
 </div>
 
 <script type="text/javascript">
-	$('#valider-cart-client').click(function() {
-		var url = "{{ path('oui_eat_french_payment_prepare_paypal', {shipping : 'change_shipping'}) }}";
+	$('#link-valider-cart-client').on('click', function() {
+		var url = "{{ path('oui_eat_french_public_cart_identification', {shipping : 'change_shipping'}) }}";
 		if ($("input[name='shipping']").is(':checked')) {
 			var newurl = url.replace('change_shipping', '1');
 		} else {
 			var newurl = url.replace('change_shipping', '0');
 		}
-
 		$(this).attr('href', newurl);
 	});
 

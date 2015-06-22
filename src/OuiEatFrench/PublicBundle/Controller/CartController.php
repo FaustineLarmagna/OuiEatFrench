@@ -263,4 +263,19 @@ class CartController extends Controller
 
         return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
     }
+
+    public function identificationAction($shipping)
+    {
+        return $this->render('OuiEatFrenchPublicBundle:Cart:identification.html.twig', array('shipping' => $shipping));
+    }
+
+    public function livraisonAction($shipping)
+    {
+        return $this->render('OuiEatFrenchPublicBundle:Cart:livraison.html.twig', array('shipping' => $shipping));
+    }
+
+    public function recapitulatifAction($shipping)
+    {
+        return $this->render('OuiEatFrenchPublicBundle:Cart:recapitulatif.html.twig', array('shipping' => $shipping));
+    }
 }

@@ -21,3 +21,15 @@ oui_eat_french_public_cart_valid:
 oui_eat_french_public_cart_modify:
     pattern:  /modifier/{farmerProductCartId}
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:modifyProductInCart }
+
+oui_eat_french_public_cart_identification:
+    pattern: /identification/{shipping}
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:identification }
+
+oui_eat_french_public_cart_livraison:
+    pattern: /livraison/{shipping}
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:livraison }
+
+oui_eat_french_public_cart_recapitulatif:
+    pattern: /recapitulatif/{shipping}
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:recapitulatif }
