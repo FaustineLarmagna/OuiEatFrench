@@ -1,6 +1,7 @@
 /.idea/
 /web/bundles/
-/web/OEF/
+/web/OEF/img_admin_edito/
+/web/OEF/user_farmer/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
