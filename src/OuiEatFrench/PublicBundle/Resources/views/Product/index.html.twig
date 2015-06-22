@@ -121,7 +121,9 @@
                     {% if i == page %}style='color:#f9ac48;'{% endif %}>
                         {{ i }}
                     </a>
-                    &nbsp;.  
+                    {% if i < pagesNumber %}
+                        &nbsp;.
+                    {% endif %}
                 {% endfor %}
                 {% if page != pagesNumber %}
                     &nbsp;<a href="{{ path('oui_eat_french_public_product_index', {'page' : page+1}) }}" ><div class="arrow-right-pagination"></div></a>
