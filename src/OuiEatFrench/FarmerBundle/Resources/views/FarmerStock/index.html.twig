@@ -23,8 +23,8 @@
             {% endif %}
             <div class="product_description_left" id="{{farmerproduct.id}}">
                 <div class="name_product">{% if farmerproduct.product is not null %}{{ farmerproduct.product.name|capitalize }}{% endif %}</div>
-                <div>-</div>
-                <div class="type_agriculture">Stock({{ farmerproduct.product.unitType }}) : <span class="green">{{ farmerproduct.unitQuantity }}</span></div>
+                <!-- <div>-</div> -->
+                <div class="type_agriculture">Stock({{ farmerproduct.product.unitType }}) : <span class="green" id="stock_{{farmerproduct.id}}">{{ farmerproduct.unitQuantity }}</span></div>
                 <hr class="hr-produits"></hr>
                 <div class="stocks_product">
                     <div style="text-align: center; margin-left: -15px">Modifier le stock</div>
@@ -34,7 +34,8 @@
             			</div>
             			<div class="quantity_product_stock" id="product_quantity_{{farmerproduct.id}}">
                             <input type="text" value="{{ farmerproduct.unitQuantity }}" ><br>
-                            <button class="valider-value-stock">Valider</button>
+                            <span style="color:red;" id="message_{{farmerproduct.id}}"></span>
+                            <button class="valider-value-stock" id="stock_valid_{{farmerproduct.id}}" data-id="{{farmerproduct.id }}">Valider</button>
             			</div>
             			<div class="plus_stock" id="product_plus_{{farmerproduct.product.id}}" data-id="{{farmerproduct.id }}">
             				<i class="icon-plus" id="icon_plus_{{farmerproduct.id}}"></i>
@@ -101,6 +102,16 @@ $(function () {
             }
         });
 
+        $('.valider-value-stock').on('click', function(){
+            var id = $(this).data('id');
+            var stock = $('#product_quantity_'+id+ ' input').val();
+            if (parseInt(stock) >= 0) {
+                adjustStock(id, stock);
+            } else {
+                $('#message_'+id).text('Quantité invalide.');
+            }
+        });
+
         function addStock(product_id) {
             $.ajax({
                 url: '{{ path('oui_eat_french_farmer_stock_add_ajax') }}',
@@ -113,6 +124,7 @@ $(function () {
                 success: function(response)
                 {
                     if (response !== 'null') {
+                        $('#stock_'+product_id).text(response);
                         $('#product_quantity_'+product_id+ ' input').val(response);
                         if (parseInt(response) > 0 && $('#icon_minus_'+product_id).is(':hidden')) {
                             $('#icon_minus_'+product_id).show();
@@ -136,8 +148,36 @@ $(function () {
                 success: function(response)
                 {
                     if (response !== 'null') {
+                        $('#stock_'+product_id).text(response);
                         $('#product_quantity_'+product_id+ ' input').val(response);
                         if (parseInt(response) === 0) {
+                            $('#icon_minus_'+product_id).hide();
+                        }
+                    }
+                }
+            });
+
+            return false;
+        };
+
+        function adjustStock(product_id, stock) {
+            $.ajax({
+                url: '{{ path('oui_eat_french_farmer_stock_adjust_ajax') }}',
+                type: 'POST',
+                data:
+                {
+                    'id' : product_id,
+                    'stock' : stock
+                },
+                dataType: 'json',
+                success: function(response)
+                {
+                    if (response !== 'null') {
+                        $('#stock_'+product_id).text(response);
+                        $('#product_quantity_'+product_id+ ' input').val(response);
+                        if (parseInt(response) > 0 && $('#icon_minus_'+product_id).is(':hidden')) {
+                            $('#icon_minus_'+product_id).show();
+                        } else if (parseInt(response) == 0) {
                             $('#icon_minus_'+product_id).hide();
                         }
                     }

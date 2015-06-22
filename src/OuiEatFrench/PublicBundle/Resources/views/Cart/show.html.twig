@@ -158,7 +158,7 @@
 				</div>
 			</div>
 		</div>
-
+		<input type="checkbox" name="shipping" value="imgoing" id="shippingCheckbox"><label for="shippingCheckbox" style="display:inline-block">&nbsp;Je vais chercher moi-même ma commande</label><br><br>
 		<!-- Boutons Panier -->
 		<div class="row" style="margin-top: 50px;">
 			<div class="span2 actual-cart" style="width:117px;margin-left: 584px;">
@@ -226,7 +226,7 @@
 </div>
 
 <script type="text/javascript">
-	$('#validate').click(function() {
+	$('#valider-cart-client').click(function() {
 		var url = "{{ path('oui_eat_french_payment_prepare_paypal', {shipping : 'change_shipping'}) }}";
 		if ($("input[name='shipping']").is(':checked')) {
 			var newurl = url.replace('change_shipping', '1');

@@ -21,3 +21,7 @@ oui_eat_french_farmer_stock_add_ajax:
 oui_eat_french_farmer_stock_remove_ajax:
     pattern:  /ajax_remove
     defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:remove }
+
+oui_eat_french_farmer_stock_adjust_ajax:
+    pattern:  /ajax_adjust
+    defaults: { _controller: OuiEatFrenchFarmerBundle:FarmerStock:adjust }
