@@ -21,11 +21,30 @@
                         <span class="label-fiche-produit">{{ form_label(form.product) }}</span>
                         <span>{{ form_widget(form.product) }}</span>
                     </div>
-
+                    <div class="champ-fiche-produit">
+                        <span>{{ form_errors(form.plantation) }}</span>
+                        <span class="label-fiche-produit-plantation">{{ form_label(form.plantation) }}</span>
+                        <span class="plantation-form">{{ form_widget(form.plantation) }}</span>
+                    </div>
+                    <div class="champ-fiche-produit">
+                        <span>{{ form_errors(form.harvest) }}</span>
+                        <span class="label-fiche-produit-recolte">{{ form_label(form.harvest) }}</span>
+                        <span class="recolte-form">{{ form_widget(form.harvest) }}</span>
+                    </div>
+                    <div class="champ-fiche-produit">
+                        <span>{{ form_errors(form.unitMinimum) }}</span>
+                        <span class="label-fiche-produit-minimum-unite">{{ form_label(form.unitMinimum) }}</span>
+                        <span class="minimum-unite-form">{{ form_widget(form.unitMinimum) }}</span>
+                    </div>
                     <div class="champ-fiche-produit">
                         <span>{{ form_errors(form.agricultureType) }}</span>
                         <span class="label-fiche-produit-agriculture">{{ form_label(form.agricultureType) }}</span>
                         <span class="minimum-unite-form">{{ form_widget(form.agricultureType) }}</span>
+                    </div>
+                    <div class="champ-fiche-produit" style="height:110px;">
+                        <span>{{ form_errors(form.conservation) }}</span>
+                        <span class="label-fiche-produit-conservation">{{ form_label(form.conservation) }}</span>
+                        <span class="conservation-form">{{ form_widget(form.conservation) }}</span>
                     </div>
                 </div>
             </div>
@@ -47,11 +66,6 @@
                         <span>{{ form_errors(form.unitQuantity) }}</span>
                         <span class="label-fiche-produit-unitQuantity">{{ form_label(form.unitQuantity) }}</span>
                         <span class="unitQuantity-form">{{ form_widget(form.unitQuantity) }}</span>
-                    </div>
-                    <div class="champ-fiche-produit">
-                        <span>{{ form_errors(form.unitMinimum) }}</span>
-                        <span class="label-fiche-produit-minimum-unite">{{ form_label(form.unitMinimum) }}</span>
-                        <span class="minimum-unite-form">{{ form_widget(form.unitMinimum) }}</span>
                     </div>
                 </div>
             </div>

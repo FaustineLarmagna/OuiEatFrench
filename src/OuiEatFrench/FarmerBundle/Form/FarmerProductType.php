@@ -23,6 +23,14 @@ class FarmerProductType extends AbstractType
                 'label' => "Minimum d'unité pour la vente",
                 'required' => true
                 ))
+            ->add('plantation', null, array(
+                'label' => "Plantation (JJ/MM/AAAA)",
+                'required' => true
+                ))
+            ->add('harvest', null, array(
+                'label' => "Récolte (JJ/MM/AAAA)",
+                'required' => true
+                ))
             ->add('agricultureType', null, array(
                 'label' => "Type d'agriculture",
                 'required' => true
@@ -33,6 +41,10 @@ class FarmerProductType extends AbstractType
                 ))
             ->add('unitQuantity', null, array(
                 'label' => "Quantité d'unité",
+                'required' => true
+                ))
+            ->add('conservation', null, array(
+                'label' => "Conservation",
                 'required' => true
                 ))
         ;
