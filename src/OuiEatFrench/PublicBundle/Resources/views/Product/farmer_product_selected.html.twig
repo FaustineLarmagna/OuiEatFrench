@@ -5,7 +5,7 @@
     {% set filter = app.session.get('filtersFarmerProduct') %}
     <div class="row">
         <div class="title-product-client">
-            NAME_FRUIT
+            {{product.name|upper}}
         </div>
     </div>
     <div class="row">
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="row" style="font-size: 17px;">
                                         <span style="color:#f9ac48;">Saison</span>
-                                        <span style="float:right">{{ farmerProduct.product.season }}</span>
+                                        <span style="float:right">{% for season in farmerProduct.product.season %}{% if loop.first %}{{ season.name }}{% else %}, {{ season.name }}{% endif %}{% endfor %}</span>
                                     </div>
                                     <div class="row" style="font-size: 17px;">
                                         <span style="color:#f9ac48;">Calories</span>
