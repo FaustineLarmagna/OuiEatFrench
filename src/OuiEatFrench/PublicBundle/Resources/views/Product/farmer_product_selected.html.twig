@@ -1,61 +1,176 @@
 {% extends 'OuiEatFrenchPublicBundle::layout.html.twig' %}
 {% block title %}OuiEatFrench{% endblock %}
 {% block content %}
-Filtres pour les agriculteurs: <br><br>
+<div id="wrapper">
+    {% set filter = app.session.get('filtersFarmerProduct') %}
+    <div class="row">
+        <div class="title-product-client">
+            NAME_FRUIT
+        </div>
+    </div>
+    <div class="row">
+        {% if farmersProducts %}
+            <div class="span2 filter-product-selected">
+                <form method="POST" id="form-product-selected-filter">
+                    <div class="row" id="title-filter-product">
+                        VITE, JE FILTRE
+                    </div>
+                    <div class="row" id="filter-code-postal" style="margin-left: 0px;">
+                        <div>
+                            <div id="title-code-postal">Code postal de la compagnie</div>
+                            <input type="text" id="companyPostCode" name="companyPostCode" value="{{ filter['companyPostCode'] }}"><br>
+                            
+                        </div>
+                    </div>
+                    <div class="row" id="filter-sous-categorie" style="margin-left: 0px;">
+                        <div>
+                            <div id="title-sous-categorie">Sous catégorie</div>
+                            <select id="product" name="product">
+                                <option value="%">Tous</option>
+                                {% for product in productAndParentProduct %}
+                                    <option value="{{ product.id }}" {% if filter is not null and filter['product'] == product.id %}selected{% endif %}>{{ product.name|capitalize }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    {% if product.unitType is not null %}
+                        <div class="row" id="filter-unit-type" style="margin-left: 0px;">
+                            <div>
+                                <div id="title-unit-type"> Par {{ product.unitType.name }}</div>
+                                <input type="text" id="maxPrice" name="maxPrice" value="{{ filter['maxPrice'] }}">
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row" style="margin-left: 0px;text-align: center">
+                        <button type="submit" id="submit-filter-selected" form="form-product-selected-filter" value="Submit">Valider</button>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
 
-{% set filter = app.session.get('filtersFarmerProduct') %}
-<form method="POST">
-    Code postal de la compagnie<br>
-    <input type="text" id="companyPostCode" name="companyPostCode" value="{{ filter['companyPostCode'] }}"><br>
-    Sous catégorie !<br>
-    <select id="product" name="product">
-        <option value="%">Tous</option>
-        {% for product in productAndParentProduct %}
-            <option value="{{ product.id }}" {% if filter is not null and filter['product'] == product.id %}selected{% endif %}>{{ product.name|capitalize }}</option>
+        {% if farmersProducts %}
+            <div class="span8" id="farmer-found-selected-product">
+                {% for farmerProduct in farmersProducts %}
+                    <div class="row {{ farmerProduct.id }}" style="margin-left: 0px;margin-bottom: 30px;background-color: #fff;">
+                        <div class="span9">
+                            <div class="row farmer-selected-product">
+                                <div class="span1" style="margin-left: 0px;width:100px;margin-right: 20px;">
+                                    <img style="width: 100px; height: 125px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
+                                </div>
+                                <div class="span3" style="border-right:2px solid #efefef; padding-right: 50px;">
+                                    <div class="row" style="margin-bottom: 10px;">
+                                        <span style="font-size: 20px;font-weight: 700">{{ farmerProduct.product.name }}</span>
+                                    </div>
+                                    <div class="row" style="font-size: 17px;">
+                                        <span style="color:#f9ac48;">En stock</span>
+                                        <span style="float:right" >{{ farmerProduct.unitQuantity }} {{ farmerProduct.product.unitType }}</span>
+                                    </div>
+                                    <div class="row" style="font-size: 17px;">
+                                        <span style="color:#f9ac48;">Prix</span>
+                                        <span style="float:right">{{ farmerProduct.unitPrice }} € ({{ farmerProduct.product.unitType }})</span>
+                                    </div>
+                                    <div class="row" style="font-size: 17px;">
+                                        <span style="color:#f9ac48;">Saison</span>
+                                        <span style="float:right">{{ farmerProduct.product.season }}</span>
+                                    </div>
+                                    <div class="row" style="font-size: 17px;">
+                                        <span style="color:#f9ac48;">Calories</span>
+                                        <span style="float:right">{{ farmerProduct.product.calories }}kcal/100g</span>
+                                    </div>
+                                </div>
+                                <div class="span3" style="margin-left: 80px;">
+                                    <div class="row" style="font-size: 17px;">
+                                        <span style="color:#f9ac48;">Exploitation</span>
+                                        <span style="float:right;text-decoration: underline;margin-bottom: 20px;" >{{ farmerProduct.farmer.firstname }} {{farmerProduct.farmer.lastname|first|capitalize}}.</span>
+                                        <br/>
+                                        <span style="float:right;">ADRESSE</span> <br/>
+                                        <span style="float:right;">CODE POSTAL, VILLE</span>
+                                    </div>
+                                    <div class="row form-selected-product">
+                                        <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post" id="form-product-selected-filter-{{farmerProduct.id}}">
+                                            <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit 
+                                            <input type="text" name="price" id="price_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}">€
+                                            {# <input type="submit" name="addProduct" value="Ajouter à mon panier"> #}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row commandez-selected-product">
+                                <button type="submit" class="submit-cart-selected" form="form-product-selected-filter-{{farmerProduct.id}}" value="Submit">COMMANDER</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="offset9" id="pagination-product">
+                    {% if pagesNumber != 0 %}
+                        {% if page > 1 %}
+                            <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page-1 }) }}" ><div class="arrow-left-pagination"></div></a>&nbsp;
+                        {% endif %}
+                        {% for i in 1..pagesNumber %}
+                            <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : i }) }}" {% if i == page %}style='color:#f9ac48'{% endif %}>
+                                {{ i }}
+                            </a>
+                            &nbsp;
+                        {% endfor %}
+                        {% if page != pagesNumber %}
+                            &nbsp;<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page+1 }) }}" ><div class="arrow-right-pagination"></div></a>
+                        {% endif %}
+                    {% else %}
+                        Aucuns produit ne correspond aux demandes
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="span12" style="text-align: center;font-size: 30px;height:400px;line-height: 400px;">
+                Aucuns produit ne correspond aux demandes
+            </div>
+        {% endif %}
+    </div>
+        
+           
+    {# Pages :
+    {% if pagesNumber != 0 %}
+        {% if page > 1 %}
+            <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page-1 }) }}" ><</a>&nbsp;
+        {% endif %}
+        {% for i in 1..pagesNumber %}<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : i }) }}" {% if i == page %}style='color:red'{% endif %}>{{ i }}</a>&nbsp;{% endfor %}
+        {% if page != pagesNumber %}
+            &nbsp;<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page+1 }) }}" >></a>
+        {% endif %}
+    {% else %}
+        Aucuns produit ne correspond aux demandes
+    {% endif %}
+    Liste des agriculteurs correspondant a votre produit : <br><br>
+    <table id="farmerTable">
+        {% for farmerProduct in farmersProducts %}
+            <tr class="{{ farmerProduct.id }}">
+                <td>
+                    Agriculteur : {{ farmerProduct.farmer.firstname }}
+                </td>
+                <td>
+                    <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
+                </td>
+                <td>
+                    Produit : {{ farmerProduct.product.name }}<br>
+                    Type : {{ farmerProduct.product.unitType }}<br>
+                    Prix : {{ farmerProduct.unitPrice }}<br>
+                    Quantity : {{ farmerProduct.unitQuantity }}<br>
+                    Minimum pour vente : {{ farmerProduct.unitMinimum }}
+                </td>
+                <td>
+                    <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
+                        <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
+                        <input type="text" name="price" id="price_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}">€
+                        <input type="submit" name="addProduct" value="Ajouter à mon panier">
+                    </form><br>
+                </td>
+            </tr>
         {% endfor %}
-    </select><br>
-    <input type="text" id="maxPrice" name="maxPrice" value="{{ filter['maxPrice'] }}"> Par {% if product.unitType is not null %}{{ product.unitType.name }}{% endif %}<br>
-    <input type="submit" value="valider">
-</form>
-Pages :
-{% if pagesNumber != 0 %}
-    {% if page > 1 %}
-        <a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page-1 }) }}" ><</a>&nbsp;
-    {% endif %}
-    {% for i in 1..pagesNumber %}<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : i }) }}" {% if i == page %}style='color:red'{% endif %}>{{ i }}</a>&nbsp;{% endfor %}
-    {% if page != pagesNumber %}
-        &nbsp;<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : product_id, 'page' : page+1 }) }}" >></a>
-    {% endif %}
-{% else %}
-    Aucuns produit ne correspond aux demandes
-{% endif %}
-Liste des agriculteurs correspondant a votre produit : <br><br>
-<table id="farmerTable">
-{% for farmerProduct in farmersProducts %}
-    <tr class="{{ farmerProduct.id }}">
-        <td>
-            Agriculteur : {{ farmerProduct.farmer.firstname }}
-        </td>
-        <td>
-            <img style="width: 150px; height: 150px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
-        </td>
-        <td>
-            Produit : {{ farmerProduct.product.name }}<br>
-            Type : {{ farmerProduct.product.unitType }}<br>
-            Prix : {{ farmerProduct.unitPrice }}<br>
-            Quantity : {{ farmerProduct.unitQuantity }}<br>
-            Minimum pour vente : {{ farmerProduct.unitMinimum }}
-        </td>
-        <td>
-            <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post">
-                <input type="text" name="quantity" id="quantity_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}"> {% if farmerProduct.product.unitType is not null %}{{ farmerProduct.product.unitType.name }}{% endif %} soit
-                <input type="text" name="price" id="price_{{farmerProduct.id}}" data-price="{{farmerProduct.unitPrice}}">€
-                <input type="submit" name="addProduct" value="Ajouter à mon panier">
-            </form><br>
-        </td>
-    </tr>
-{% endfor %}
-</table>
+    </table> #}
+</div>
+
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
@@ -98,6 +213,7 @@ Liste des agriculteurs correspondant a votre produit : <br><br>
             $("#companyPostCode").change(function(){
                 refresh();
             });
+
             function refresh(){
                 $.ajax({
                     url: '{{ path('oui_eat_french_public_product_ajax_farmer') }}',

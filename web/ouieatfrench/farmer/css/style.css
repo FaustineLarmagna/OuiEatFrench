@@ -1935,3 +1935,84 @@ button:focus
 	color: #000;
 	text-decoration: none;
 }
+
+#filter-code-postal input, #filter-unit-type input
+{
+	width: 125px;
+	border-radius: 0px;
+	box-shadow: none;
+	margin-bottom:20px;
+	text-align: right;
+}
+
+#filter-code-postal, #filter-sous-categorie, #filter-unit-type
+{
+	text-align: center;
+}
+
+#filter-sous-categorie select
+{
+	width: 139px;
+	border-radius: 0px;
+	box-shadow: none;
+	margin-bottom:20px;
+}
+
+#title-sous-categorie, #title-code-postal, #title-unit-type
+{
+	margin-left: 0px;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #a3d634;
+	font-weight: 600;
+}
+
+
+#submit-filter-selected
+{
+	background-color: #a3d634;
+	color: #fff;
+	border:0px;
+	border-radius: 0px;
+	box-shadow: none;
+	width: 139px;
+	margin-bottom: 20px;
+}
+
+.filter-product-selected
+{
+	border:2px solid #a3d634;
+	background-color: #fff;
+	margin-bottom: 100px;
+}
+
+.farmer-selected-product
+{
+	border:2px solid #efefef;
+	padding: 20px;
+}
+
+.form-selected-product input
+{
+	width: 150px;
+	border-radius: 0px;
+	box-shadow: none;
+}
+
+.form-selected-product
+{
+	margin-top: 30px;
+	float: right
+}
+
+.submit-cart-selected
+{
+	width: 100%;
+	box-shadow: none;
+	border-radius: 0px;
+	border:0px;
+	background-color: #f9ac48;
+	color: #fff;
+	font-weight: 600;
+	height: 30px;
+}
