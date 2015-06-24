@@ -5,7 +5,7 @@
     {% set filter = app.session.get('filtersFarmerProduct') %}
     <div class="row">
         <div class="title-product-client">
-            NAME_FRUIT
+            {{product.name|upper}}
         </div>
     </div>
     <div class="row">
@@ -54,8 +54,10 @@
                     <div class="row {{ farmerProduct.id }}" style="margin-left: 0px;margin-bottom: 30px;background-color: #fff;">
                         <div class="span9">
                             <div class="row farmer-selected-product">
-                                <div class="span1" style="margin-left: 0px;width:100px;margin-right: 20px;">
-                                    <img style="width: 100px; height: 125px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}">
+                                <div class="span1" style="margin-left: 0px;width:100px;margin-right: 30px;">
+                                    <div style="width:125px; background:url('{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}');height:125px;background-size:cover;"></div>
+
+                                    <!-- <img style="width: 125px; height: 125px;" src="{{ asset("OEF/img_admin_product/" ~ farmerProduct.product.imageName) }}" alt="{{ farmerProduct.product.imageName }}"> -->
                                 </div>
                                 <div class="span3" style="border-right:2px solid #efefef; padding-right: 50px;">
                                     <div class="row" style="margin-bottom: 10px;">
@@ -71,7 +73,7 @@
                                     </div>
                                     <div class="row" style="font-size: 17px;">
                                         <span style="color:#f9ac48;">Saison</span>
-                                        <span style="float:right">{{ farmerProduct.product.season }}</span>
+                                        <span style="float:right">{% for season in farmerProduct.product.season %}{% if loop.first %}{{ season.name }}{% else %}, {{ season.name }}{% endif %}{% endfor %}</span>
                                     </div>
                                     <div class="row" style="font-size: 17px;">
                                         <span style="color:#f9ac48;">Calories</span>
@@ -83,8 +85,8 @@
                                         <span style="color:#f9ac48;">Exploitation</span>
                                         <span style="float:right;text-decoration: underline;margin-bottom: 20px;" >{{ farmerProduct.farmer.firstname }} {{farmerProduct.farmer.lastname|first|capitalize}}.</span>
                                         <br/>
-                                        <span style="float:right;">ADRESSE</span> <br/>
-                                        <span style="float:right;">CODE POSTAL, VILLE</span>
+                                        <span style="float:left;">ADRESSE</span> <br/>
+                                        <span style="float:left;">CODE POSTAL, VILLE</span>
                                     </div>
                                     <div class="row form-selected-product">
                                         <form action="{{ path('oui_eat_french_public_cart_add', {'farmerProductId' : farmerProduct.id}) }}" method="post" id="form-product-selected-filter-{{farmerProduct.id}}">
@@ -102,7 +104,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="row">
+            <div class="row" style="clear:both;">
                 <div class="offset9" id="pagination-product">
                     {% if pagesNumber != 0 %}
                         {% if page > 1 %}
