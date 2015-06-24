@@ -24,12 +24,12 @@
                     <div class="champ-fiche-produit">
                         <span>{{ form_errors(form.plantation) }}</span>
                         <span class="label-fiche-produit-plantation">{{ form_label(form.plantation) }}</span>
-                        <span class="plantation-form">{{ form_widget(form.plantation.day) }}{{ form_widget(form.plantation.month) }}{{ form_widget(form.plantation.year) }}</span>
+                        <span class="plantation-form">{{ form_widget(form.plantation) }}</span>
                     </div>
                     <div class="champ-fiche-produit">
                         <span>{{ form_errors(form.harvest) }}</span>
                         <span class="label-fiche-produit-recolte">{{ form_label(form.harvest) }}</span>
-                        <span class="recolte-form">{{ form_widget(form.harvest.day) }}{{ form_widget(form.harvest.month) }}{{ form_widget(form.harvest.year) }}</span>
+                        <span class="recolte-form">{{ form_widget(form.harvest) }}</span>
                     </div>
                     <div class="champ-fiche-produit">
                         <span>{{ form_errors(form.unitMinimum) }}</span>
