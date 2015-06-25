@@ -2322,9 +2322,7 @@ div.pinterest{
   font-family: 'robotothin';
   color: #ffffff;
 }
-.social{
-  margin-top: 30px;
-}
+
 div.pins{
   margin: 20px auto !important;
   float: none !important;
@@ -2340,10 +2338,12 @@ div.pins{
   font-family: 'open_sanslight';
   font-size: 20px;
   margin: 30px auto 50px;
+  height: 150px;
+   line-height: 150px;
 }
 .link-to-follow, .link-to-follow:active{
   color: #ffffff;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .link-to-follow:hover{
   text-decoration: underline;
@@ -2439,4 +2439,44 @@ footer{
 .navbar-home li a:hover
 {
 	color: #333333;
+}
+
+.product-container
+{
+	position:relative;
+}
+
+.product-container:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.5);
+    opacity:0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.product-container:hover:after {
+    opacity:1;
+}
+
+.pins-div
+{
+	position:relative;
+}
+
+.pins-div:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(255,255,255,0.3);
+    opacity:0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.pins-div:hover:after {
+    opacity:1;
 }
