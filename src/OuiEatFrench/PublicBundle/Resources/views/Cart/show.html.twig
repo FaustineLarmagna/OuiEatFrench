@@ -4,6 +4,9 @@
 {% for flashMessage in app.session.flashbag.get('error') %}
 	    <div class="alert alert-error">{{ flashMessage }}</div>
 {% endfor %}
+{% for flashMessage in app.session.flashbag.get('success') %}
+	    <div class="alert alert-success">{{ flashMessage }}</div>
+{% endfor %}
 <div id="wrapper" style="min-height: 900px;">
 
 	{% if cart.farmerProductCarts|length > 0 %}
@@ -71,8 +74,8 @@
 					A NE PAS RATER
 				</div>
 				<div class="row" style="margin-top: 30px;">
-					<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : '899' }) }}">
-					    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/courgette.jpg") }});height:175px;background-size: cover;margin-left:0px;" id="899">
+					<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : courgette.id }) }}">
+					    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/courgette.jpg") }});height:175px;background-size: cover;margin-left:0px;" id="{{courgette.id}}">
 					        <div class="bottom-name-product-cart">
 					            <span style="margin-left: 10px;display:inline-block;width:135px">Courgette</span>
 					            <span>
@@ -84,8 +87,8 @@
 					</a>
 				</div>
 				<div class="row" style="margin-top: 30px;">
-					<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : '905' }) }}">
-					    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/chou_fleur.jpg") }});height:175px;background-size: cover;margin-left:0px;" id="905">
+					<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : chou_fleur.id }) }}">
+					    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/chou_fleur.jpg") }});height:175px;background-size: cover;margin-left:0px;" id="{{chou_fleur.id}}">
 					        <div class="bottom-name-product-cart">
 					            <span style="margin-left: 10px;display:inline-block;width:135px">Chou fleur</span>
 					            <span>
@@ -97,8 +100,8 @@
 					</a>
 				</div>
 				<div class="row" style="margin-top: 30px;">
-					<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : '902' }) }}">
-					    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/framboise.jpg") }});height:175px;background-size: cover;margin-left:0px;" id="902">
+					<a href="{{ path('oui_eat_french_public_product_farmer_index', { 'productId' : framboise.id }) }}">
+					    <div class="product-client span2" style="width:200px; background:url({{ asset("OEF/img_admin_product/framboise.jpg") }});height:175px;background-size: cover;margin-left:0px;" id="{{framboise.id}}">
 					        <div class="bottom-name-product-cart">
 					            <span style="margin-left: 10px;display:inline-block;width:135px">Framboise</span>
 					            <span>

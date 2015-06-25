@@ -15,9 +15,12 @@ class CartController extends Controller
     	$em = $this->getDoctrine()->getManager();
     	$user = $this->get('security.context')->getToken()->getUser();
     	$status = $em->getRepository('OuiEatFrenchAdminBundle:CartStatus')->findOneByName("in_progress");	// id of status "in_progress"
-    	$cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
+    	$courgette = $em->getRepository('OuiEatFrenchAdminBundle:Product')->findOneByName('Courgette');
+        $chouFleur = $em->getRepository('OuiEatFrenchAdminBundle:Product')->findOneByName('Chou-fleur');
+        $framboise = $em->getRepository('OuiEatFrenchAdminBundle:Product')->findOneByName('Framboise');
+        $cart = $em->getRepository('OuiEatFrenchPublicBundle:Cart')->findOneBy(array(
     			'user' => $user,
-    			'status' => $status,
+    			'status' => $status
     		));
 
         if (!$cart) {
@@ -32,7 +35,13 @@ class CartController extends Controller
             $em->flush();
         }
 
-        return $this->render('OuiEatFrenchPublicBundle:Cart:show.html.twig', array('user' => $user, 'cart' => $cart));
+        return $this->render('OuiEatFrenchPublicBundle:Cart:show.html.twig', array(
+            'user' => $user,
+            'cart' => $cart,
+            'courgette' => $courgette,
+            'chou_fleur' => $chouFleur,
+            'framboise' => $framboise
+        ));
     }
 
     public function addToCartAction($farmerProductId)
@@ -260,6 +269,7 @@ class CartController extends Controller
         }
 
         $em->flush();
+        $this->get('session')->getFlashBag()->add('success', "Commande validée avec succès, vous recevrez bientôt un email de confirmation.");
 
         return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
     }
