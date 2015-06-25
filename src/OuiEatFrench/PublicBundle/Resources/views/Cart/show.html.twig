@@ -10,6 +10,7 @@
 <div id="wrapper" style="min-height: 900px;">
 
 	{% if cart.farmerProductCarts|length > 0 %}
+	<div id="full_cart"> 
 		<!-- Titre Panier -->
 		<div class="row">
 			<div class="span10" id="title-product-cart">
@@ -40,9 +41,9 @@
 		    	{% set total = 0 %}
 		    	{% for farmerProductCart in cart.farmerProductCarts %}
 		    		{% set price = farmerProductCart.farmerProduct.unitPrice * farmerProductCart.unitQuantity %}
-					<div class="row">
+					<div class="row farmer_product_cart_class" id="element_{{farmerProductCart.id}}">
 						<div class="span2 value-category-cart" style="text-align: left">
-							<a class="link-remove-cart" href="{{ path('oui_eat_french_public_cart_remove', {'farmerProductCartId' : farmerProductCart.id}) }}" style="position: relative;bottom:27px;left:20px;display:none"><img src="{{ asset('ouieatfrench/theme/assets2/img/croix.png')}}"></a>
+							<img src="{{ asset('ouieatfrench/theme/assets2/img/croix.png')}}" alt="croix" data-id="{{farmerProductCart.id}}" class="croix link-remove-cart" style="position: relative;bottom:27px;left:20px;display:none">
 							 <div class="product-image-cart-client" style="background:url({{ asset("OEF/img_admin_product/" ~farmerProductCart.farmerProduct.product.imageName) }});background-size: cover;"></div> 
 							<span class="underline" style="position: relative;bottom:25px;left:20px;">{{ farmerProductCart.farmerProduct.product.name|capitalize }}</span>
 						</div>
@@ -51,10 +52,10 @@
 						</div>
 						<div class="span2 value-category-cart ">
 							<form action="{{ path('oui_eat_french_public_cart_modify', {'farmerProductCartId' : farmerProductCart.id}) }}" method="post" style="display:inline-block">
-			            		<input class="input-quantity-cart modif-cart" type="text" style="display:none;" value="{{ farmerProductCart.unitQuantity }}" name="quantity">
+			            		<input class="input-quantity-cart modif-cart" type="text" style="display:none;" value="{{ farmerProductCart.unitQuantity }}" name="quantity" data-id="{{farmerProductCart.id}}">
 			            		 {# <input type="submit" class="modif-cart" value="modifier" name="submit"> #}
 			        		</form>
-			        		<span class="actual-cart">
+			        		<span class="actual-cart" id="quantity_{{farmerProductCart.id}}">
 			        			{{ farmerProductCart.unitQuantity }}
 			        		</span>
 			        		{{ farmerProductCart.farmerProduct.product.unitType.name }}
@@ -171,17 +172,25 @@
 				<a href="" id="link-valider-cart-client"><button id="valider-cart-client">VALIDER</button></a>
 			</div>
 			<div class="span2 modif-cart" style="margin-left: 608px;display:none;">
-				<button id="valider-modif-cart-client">VALIDER LES MODIFICATIONS</button>
+				<button id="valider-modif-cart-client">J'AI TERMIN&Eacute;</button>
 			</div>
 		</div>
-	{% else %}
-
+	</div>
+	<div id="no_cart" style="display:none;">
 		<div class="row">
 			<div class="span12" id="title-cart-empty">
 	            Votre panier est vide !
 	        </div>
 		</div>
-
+	</div>
+	{% else %}
+	<div id="no_cart">
+		<div class="row">
+			<div class="span12" id="title-cart-empty">
+	            Votre panier est vide !
+	        </div>
+		</div>
+	</div>
 	{% endif %}
 	{# <div class="row">
 		<div class="col-md-10">
@@ -229,26 +238,89 @@
 </div>
 
 <script type="text/javascript">
-	$('#link-valider-cart-client').on('click', function() {
-		var url = "{{ path('oui_eat_french_public_cart_identification', {shipping : 'change_shipping'}) }}";
-		if ($("input[name='shipping']").is(':checked')) {
-			var newurl = url.replace('change_shipping', '1');
-		} else {
-			var newurl = url.replace('change_shipping', '0');
-		}
-		$(this).attr('href', newurl);
-	});
+$(function () {
+    jQuery(document).ready(function() {
+		$('#link-valider-cart-client').on('click', function() {
+			var url = "{{ path('oui_eat_french_public_cart_identification', {shipping : 'change_shipping'}) }}";
+			if ($("input[name='shipping']").is(':checked')) {
+				var newurl = url.replace('change_shipping', '1');
+			} else {
+				var newurl = url.replace('change_shipping', '0');
+			}
+			$(this).attr('href', newurl);
+		});
 
-	$('#modifier-cart-client').click(function(){
-		$('.link-remove-cart').show();
-		$('.actual-cart').hide();
-		$('.modif-cart').show();
-	});
+		$('#modifier-cart-client').click(function(){
+			$('.link-remove-cart').show();
+			$('.actual-cart').hide();
+			$('.modif-cart').show();
+		});
 
-	$('#valider-modif-cart-client').click(function(){
-		$('.link-remove-cart').hide();
-		$('.actual-cart').show();
-		$('.modif-cart').hide();
+		$('input[name="quantity"]').on('change', function(){
+			var quantity = $(this).val();
+			var id = $(this).data('id');
+			changeQuantity(id, quantity);
+		});
+
+		$('.croix').on('click', function() {
+			var id = $(this).data('id');
+			deleteFarmerProductCart(id);
+		});
+
+		$('#valider-modif-cart-client').on('click', function() {
+			$('.link-remove-cart').hide();
+			$('.actual-cart').show();
+			$('.modif-cart').hide();
+            if (!$(".farmer_product_cart_class")[0]) {
+            	$('#full_cart').hide();
+            	$('#no_cart').show();
+            }
+		});
+
+	    function changeQuantity(farmer_product_cart_id, quantity) {
+	        $.ajax({
+	            url: '{{ path('oui_eat_french_public_cart_change_quantity_ajax') }}',
+	            type: 'POST',
+	            data:
+	            {
+	                'id' : farmer_product_cart_id,
+	                'quantity' : quantity
+	            },
+	            dataType: 'json',
+	            success: function(response)
+	            {
+	                if (response !== 'null') {
+	                	var id = $('input[name="quantity"]').data('id');
+	                	$('#quantity_'+id).text(response);
+	                }
+	            }
+	        });
+
+	        return false;
+	    };
+
+	    function deleteFarmerProductCart(farmer_product_cart_id) {
+	        $.ajax({
+	            url: '{{ path('oui_eat_french_public_cart_delete_ajax') }}',
+	            type: 'POST',
+	            data:
+	            {
+	                'id' : farmer_product_cart_id
+	            },
+	            dataType: 'json',
+	            success: function(response)
+	            {
+	                if (response !== 'null') {
+	                    $('#element_'+response).fadeOut(300, function() { 
+	                    	$(this).remove(); 
+	                    });
+	                }
+	            }
+	        });
+
+	        return false;
+	    };
 	});
+});
 </script>
 {% endblock %}

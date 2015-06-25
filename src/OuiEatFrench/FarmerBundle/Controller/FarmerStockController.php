@@ -39,7 +39,6 @@ class FarmerStockController extends Controller
             }
             return new JsonResponse($id);
         }
-       
     }
 
     public function addAction()

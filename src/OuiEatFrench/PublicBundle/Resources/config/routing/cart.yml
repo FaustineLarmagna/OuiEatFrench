@@ -6,10 +6,6 @@ oui_eat_french_public_cart_add:
     pattern:  /ajouter/{farmerProductId}
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:addToCart }
 
-oui_eat_french_public_cart_remove:
-    pattern:  /supprimer/{farmerProductCartId}
-    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:removeFromCart }
-
 oui_eat_french_public_cart_reset:
     pattern:  /vider
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:resetCart }
@@ -33,3 +29,11 @@ oui_eat_french_public_cart_livraison:
 oui_eat_french_public_cart_recapitulatif:
     pattern: /recapitulatif/{shipping}
     defaults: { _controller: OuiEatFrenchPublicBundle:Cart:recapitulatif }
+
+oui_eat_french_public_cart_change_quantity_ajax:
+    pattern: /ajax_quantity
+    defaults: {_controller: OuiEatFrenchPublicBundle:Cart:changeQuantity}
+
+oui_eat_french_public_cart_delete_ajax:
+    pattern:  /ajax_remove
+    defaults: { _controller: OuiEatFrenchPublicBundle:Cart:removeFromCart }

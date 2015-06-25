@@ -3,6 +3,7 @@
 namespace OuiEatFrench\PublicBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use OuiEatFrench\PublicBundle\Entity\FarmerProductCart;
 use OuiEatFrench\PublicBundle\Entity\Cart;
 use OuiEatFrench\FarmerBundle\Entity\FarmerProductClone;
@@ -101,26 +102,6 @@ class CartController extends Controller
         }
 
         $em->persist($entity);
-        $em->flush();
-
-        return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
-    }
-
-    public function removeFromCartAction($farmerProductCartId)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $farmerProductCart = $em->getRepository('OuiEatFrenchPublicBundle:FarmerProductCart')->find($farmerProductCartId);
-        $farmerProduct = $farmerProductCart->getFarmerProduct();
-        
-        $farmerProductNewQuantity = $farmerProduct->getUnitQuantity() + $farmerProductCart->getUnitQuantity();
-        $farmerProduct->setUnitQuantity($farmerProductNewQuantity);
-
-        // removing entity and changing updatedAt attribute in the cart
-        $em->remove($farmerProductCart);
-        $cart = $farmerProductCart->getCart();
-        $date = new \DateTime();
-        $cart->setUpdatedAt($date);
-
         $em->flush();
 
         return $this->redirect($this->generateUrl('oui_eat_french_public_cart_show'));
@@ -287,5 +268,66 @@ class CartController extends Controller
     public function recapitulatifAction($shipping)
     {
         return $this->render('OuiEatFrenchPublicBundle:Cart:recapitulatif.html.twig', array('shipping' => $shipping));
+    }
+
+    public function changeQuantityAction() 
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+            $id = $request->request->get('id');
+            $quantity = $request->request->get('quantity');
+            $em = $this->getDoctrine()->getManager();
+
+            $query = $em->getRepository('OuiEatFrenchPublicBundle:FarmerProductCart')->find($id);
+            if ($query)
+            {
+                $query->setUnitQuantity($quantity);
+                $cart = $query->getCart();
+                $date = new \DateTime();
+                $cart->setUpdatedAt($date);
+
+                $em->flush();
+
+                return new JsonResponse($quantity);
+            }
+
+            return new JsonResponse('null');
+        }
+
+        return new JsonResponse('null');
+    }
+
+    public function removeFromCartAction()
+    {
+        $request = $this->getRequest();
+
+        if($request->isXmlHttpRequest())
+        {
+            $id = $request->request->get('id');
+            $em = $this->getDoctrine()->getManager();
+            $farmerProductCart = $em->getRepository('OuiEatFrenchPublicBundle:FarmerProductCart')->find($id);
+            if (!$farmerProductCart) {
+                return new JsonResponse('null');
+            }
+            
+            $farmerProduct = $farmerProductCart->getFarmerProduct();
+            
+            $farmerProductNewQuantity = $farmerProduct->getUnitQuantity() + $farmerProductCart->getUnitQuantity();
+            $farmerProduct->setUnitQuantity($farmerProductNewQuantity);
+
+            // removing entity and changing updatedAt attribute in the cart
+            $em->remove($farmerProductCart);
+            $cart = $farmerProductCart->getCart();
+            $date = new \DateTime();
+            $cart->setUpdatedAt($date);
+
+            $em->flush();
+
+            return new JsonResponse($id);
+        }
+
+        return new JsonResponse('null');
     }
 }
